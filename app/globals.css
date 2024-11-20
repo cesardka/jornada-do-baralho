@@ -5,6 +5,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --cardHeight: 6rem;
+  --cardBorder: 1rem;
+  --bg-width: 20px;
+  --bg-height: 20px;
+  --flip-card-animation-time: 0.4s;
+  --background-animation-time: 30s;
+
+  --s: 35px; /* control the size*/
+  --c1: #740012;
+  --c2: #c02942;
+
+  --_g: #0000 calc(-650% / 13) calc(50% / 13), var(--c1) 0 calc(100% / 13),
+    #0000 0 calc(150% / 13), var(--c1) 0 calc(200% / 13),
+    #0000 0 calc(250% / 13), var(--c1) 0 calc(300% / 13);
+  --_g0: repeating-linear-gradient(45deg, var(--_g));
+  --_g1: repeating-linear-gradient(-45deg, var(--_g));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +35,204 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes background-scroll {
+  0% {
+    top: -50%;
+    left: -50%;
+  }
+  100% {
+    top: 0%;
+    left: 0%;
+  }
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+#background-pattern {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  animation: background-scroll var(--background-animation-time) linear infinite;
+
+  background: var(--_g0), var(--_g0) var(--s) var(--s), var(--_g1),
+    var(--_g1) var(--s) var(--s) var(--c2);
+  background-size: calc(2 * var(--s)) calc(2 * var(--s));
+}
+
+/*** Directions ***/
+/** Horizontal -> left **/
+.flip-horizontal-left:hover .flip-card-inner {
+  transform: rotateY(-360deg) scale(1.1);
+}
+
+.flip-horizontal-left .flip-card-back {
+  transform: rotateY(-180deg);
+}
+
+#cards-list {
+  margin: 0 auto;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: var(--cardHeight);
+  height: calc(var(--cardHeight) * 1.56);
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  box-shadow: 2.5px 5px 5px hsl(0deg 0% 0% / 0.42);
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --cardHeight: 12rem;
+  }
+
+  #cards-list {
+    margin-top: -75px;
+    scale: 0.75;
+  }
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--flip-card-animation-time);
+  transform-style: preserve-3d;
+}
+
+.flipped-card {
+  transition: unset;
+  transform-style: preserve-3d;
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* It fits the image in the container */
+.flip-card-front img,
+.flip-card-back img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--cardBorder);
+  object-fit: cover;
+}
+
+@keyframes flip-horizontal-left {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    scale: 0;
+    transform: translate(100vh, 100vw); /* Start from the bottom-right corner */
+    opacity: 0;
+  }
+  100% {
+    scale: 1;
+    transform: translate(0, 0); /* End at the card's natural position */
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  opacity: 0; /* Start hidden */
+  animation: fade-in 0.5s ease forwards; /* Fade in over 0.5 seconds */
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped-card .flip-card-inner {
+  transform: rotateY(360deg);
+}
+
+.slide-in {
+  opacity: 0;
+  animation: slide-up 0.5s ease forwards;
+  animation-delay: calc(25 * 100ms);
+}
+
+.scroll-up-class {
+  animation: slide-down 0.5s ease forwards;
+  animation-delay: calc(1 * 100ms);
+}
+
+.scroll-down-class {
+  animation: slide-up 0.5s ease forwards;
+  animation-delay: calc(25 * 100ms);
+}
+
+.fade-up-class {
+  animation: fade-down 0.5s ease forwards;
+  animation-delay: calc(1 * 100ms);
+}
+
+.fade-down-class {
+  animation: fade-up 0.5s ease forwards;
+  animation-delay: calc(25 * 100ms);
 }
