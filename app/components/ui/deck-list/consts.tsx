@@ -1,10 +1,15 @@
-type NerdcastCard = {
+export type NerdcastCard = {
   id: string;
   name: string;
   originalSrc: string;
   signedOn: Date | null;
   signedLocation: string | null;
   signedSrc: string | null;
+  socialMedia?: {
+    instagram: string | null;
+    twitter: string | null;
+    website: string | null;
+  };
 };
 
 export const DECK_LIST: NerdcastCard[] = [

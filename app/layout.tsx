@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import NavMenu from "./components/nav-menu";
-import ProgressBar from "./components/progress-bar";
+import NavMenu from "./components/ui/nav-menu";
+import ProgressBar from "./components/ui/progress-bar";
+import React from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

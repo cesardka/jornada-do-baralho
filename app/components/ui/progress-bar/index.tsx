@@ -13,7 +13,20 @@ export default function ProgressBar() {
         className="flex items-center justify-between h-full w-4/6 px-5 text-3xl font-bold container md"
         style={{ margin: "0 auto" }}
       >
-        <div id="deckbox-container" className="h-20 w-20 bg-orange-400"></div>
+        <div
+          id="deckbox-container"
+          className="h-20 w-20 flex items-center justify-center bg-orange-400"
+        >
+          <Image
+            id="deckbox"
+            src="/images/deckbox-placeholder.png"
+            alt="Deckbox placeholder, card container"
+            className="w-auto"
+            priority
+            width={80}
+            height={80}
+          />
+        </div>
         <div
           id="deck-progress"
           className="h-20 w-full flex-1 bg-green-400 pt-1 pb-1"
@@ -21,9 +34,9 @@ export default function ProgressBar() {
           <Image
             src="/images/ipad-1.png"
             alt="Uno card Front"
-            className="justify-self-end h-full"
-            width={50}
-            height={67}
+            className="justify-self-end h-full w-auto"
+            width={80}
+            height={80}
           />
         </div>
       </div>
