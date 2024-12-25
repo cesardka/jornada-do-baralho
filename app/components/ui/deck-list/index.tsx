@@ -18,7 +18,6 @@ const CARD_HEIGHT = CARD_WIDTH * 1.52; // Will possibly go for hard-coded values
 export default function DeckList() {
   // 1. To be used to highlight card next to menu sliding in
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
-  const [isClicked, setIsClicked] = useState(false);
 
   const container = useRef<HTMLElement | null>();
   const tl = useRef<Timeline>();
@@ -76,9 +75,8 @@ export default function DeckList() {
     card: NerdcastCard,
     event: React.MouseEvent<HTMLDivElement>
   ) => {
-    console.log({ card: card, event: event });
-
-    event.stopPropagation();
+    // console.log({ card: card, event: event });
+    // event.stopPropagation();
 
     const cardElement = event.currentTarget;
     const overlayElement = document.getElementById("card-overlay");
@@ -88,10 +86,8 @@ export default function DeckList() {
     const overlayRect = overlayElement.getBoundingClientRect();
     const cardRect = cardElement.getBoundingClientRect();
 
-    if (!isClicked) {
-      setIsClicked(true);
+    if (!selectedCard) {
       setSelectedCard(card);
-
       // Calculate the position offset to center the card in the overlay
       const translateX =
         overlayRect.left +
@@ -124,13 +120,12 @@ export default function DeckList() {
         ease: "elastic.out(1, 0.5)",
       });
 
-      setIsClicked(false);
       setSelectedCard(null);
     }
   };
 
   const handleCardMouseEnter = (card: NerdcastCard) => {
-    if (!isClicked) {
+    if (!selectedCard) {
       gsap.to(`#${card.id}`, {
         scale: 1.1,
         duration: 0.3,
@@ -140,7 +135,7 @@ export default function DeckList() {
   };
 
   const handleCardMouseLeave = (card: NerdcastCard) => {
-    if (!isClicked) {
+    if (!selectedCard) {
       gsap.to(`#${card.id}`, {
         scale: 1,
         duration: 0.3,
