@@ -151,15 +151,12 @@ export default function DeckList() {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 w-full h-full overflow-y-hidden ${
+        className={`fixed top-0 left-0 w-full h-full overflow-y-hidden  transition-all duration-500 ${
           selectedCard ? "bg-black top-0 z-20 opacity-50" : "bg-transparent"
         }`}
         onClick={resetCardPosition} // Reset position on clicking outside
       >
-        <div
-          id="card-overlay"
-          className={`sticky top-0 w-full h-screen transition-all duration-300`}
-        ></div>
+        <div id="card-overlay" className="sticky top-0 w-full h-screen"></div>
       </div>
 
       <div
