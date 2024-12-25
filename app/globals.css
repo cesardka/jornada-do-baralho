@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --cardHeight: 150px;
   --cardBorder: 7px;
   --bg-width: 20px;
   --bg-height: 20px;
@@ -47,6 +46,7 @@ html {
   flex-wrap: wrap;
 }
 
+/* ---- BACKGROUND ---- */
 #background-pattern {
   position: fixed;
   width: 200%;
@@ -58,31 +58,60 @@ html {
   background-size: calc(2 * var(--s)) calc(2 * var(--s));
 }
 
-#cards-list {
-  margin: 0 auto;
-}
-
-.flip-card {
-  background-color: transparent;
-  width: var(--cardHeight);
-  height: calc(var(--cardHeight) * 1.56);
-  transform: rotateY(180deg) translate(5000px, 1000px);
-  transform-style: preserve-3d;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  box-shadow: 2.5px 5px 5px hsl(0deg 0% 0% / 0.42);
-}
-
+/* ---- CARDS ---- */
+/* BEEG screens */
 @media screen and (min-width: 1024px) {
   :root {
     --cardHeight: 200px;
   }
 
   #cards-list {
-    margin-top: 10px;
+    margin: 35px auto;
+  }
+
+  #cards-list > .flip-card {
+    margin: -35px -10px;
   }
 }
 
-/* This container is needed to position the front and back side */
+/* SMOL screens */
+@media screen and (max-width: 1023px) {
+  :root {
+    --cardHeight: 8rem;
+  }
+
+  #cards-list {
+    margin: 0 auto;
+    height: 80vh;
+    row-gap: 0;
+    column-gap: 5px;
+  }
+
+  #cards-list > .flip-card {
+    margin-bottom: -10px;
+  }
+}
+
+.flip-card {
+  width: var(--cardHeight);
+  height: calc(var(--cardHeight) * 1.56);
+  background-color: transparent;
+  transform: rotateY(180deg) translate(5000px, 1000px);
+  transform-style: preserve-3d;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  box-shadow: 2.5px 5px 5px hsl(0deg 0% 0% / 0.42);
+  border-radius: 10px;
+}
+
+.flip-card:hover {
+  cursor: pointer;
+}
+
+.flip-card.active:hover {
+  cursor: unset;
+}
+
+/* This container is needed to position the front and back side of the card */
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -94,14 +123,6 @@ html {
 .flipped-card {
   transition: unset;
   transform-style: preserve-3d;
-}
-
-.flip-card:hover {
-  transform: scale(1.1);
-}
-
-.flip-card.active {
-  transform: scale(3);
 }
 
 /* Position the front and back side */
@@ -120,11 +141,16 @@ html {
   height: 100%;
   border-radius: var(--cardBorder);
   object-fit: cover;
+  overflow: hidden;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+/* ------------------------------------ */
+/* ---- ----   TailwindCSS    ---- ---- */
+/* ------------------------------------ */
 
 @layer base {
   :root {
