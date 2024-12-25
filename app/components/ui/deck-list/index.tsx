@@ -36,26 +36,29 @@ export default function DeckList() {
 
       tl.current = gsap
         .timeline()
+        // 1. Bring cards to board
         .to(cards, {
           opacity: 1,
           x: 0,
           y: 0,
           rotateY: 180,
-          stagger: 0.1,
+          stagger: 0.06,
         })
+        // 2. Flip cards face up
         .to(cards, {
           rotationY: 0,
-          stagger: 0.1,
-          duration: 1,
-          ease: "elastic.out(1, 0.5)",
+          force3D: true,
+          stagger: 0.04,
+          duration: 2,
+          ease: "elastic.out(1, 0.6)",
         })
+        // 3. Randomize and loop card rotation
         .to(cards, {
-          rotationX: "random(-3, 3)",
-          rotationY: "random(-3, 3)",
-          rotationZ: "random(-3, 3)",
-          delay: "random(0, 2)",
-          duration: "random(0.5, 2)",
-          ease: "in-out",
+          rotationX: "random(-10, 10)",
+          rotationY: "random(-10, 10)",
+          rotationZ: "random(-2, 2)",
+          duration: "random(1, 4)",
+          ease: "bezier",
           repeatRefresh: true,
           repeat: -1,
           yoyo: true,
@@ -102,7 +105,7 @@ export default function DeckList() {
       gsap.to(cardElement, {
         x: translateX,
         y: translateY,
-        scale: 2.5,
+        scale: 2.8,
         duration: 0.5,
         ease: "elastic.out(1, 0.5)",
       });
@@ -116,8 +119,9 @@ export default function DeckList() {
         x: 0,
         y: 0,
         scale: 1,
-        duration: 0.5,
-        ease: "elastic.out(1, 0.5)",
+        duration: 0.3,
+        ease: "bounce",
+        onComplete: () => {},
       });
 
       setSelectedCard(null);
