@@ -1,15 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { use, useRef, useState } from "react";
 
 import gsap from "gsap";
-import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
 
 import { DECK_LIST, NerdcastCard } from "./consts";
+import ProgressBar from "../progress-bar";
+import { useScreenWidth } from "../../useScreenWidth";
 
-gsap.registerPlugin(useGSAP, Flip);
+gsap.registerPlugin(useGSAP);
 
 const nerdcastCards = DECK_LIST;
 const CARD_WIDTH = 200; // Will possibly go for hard-coded values based on screen size
@@ -18,14 +19,10 @@ const CARD_HEIGHT = CARD_WIDTH * 1.52; // Will possibly go for hard-coded values
 export default function DeckList() {
   // 1. To be used to highlight card next to menu sliding in
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
+  const isMobile = useScreenWidth();
 
   const container = useRef<HTMLElement | null>();
   const tl = useRef<Timeline>();
-
-  // TBD: to put cards back on #deckbox
-  const toggleTimeline = () => {
-    tl.current.reversed(!tl.current.reversed());
-  };
 
   useGSAP(
     () => {
@@ -48,7 +45,7 @@ export default function DeckList() {
         .to(cards, {
           rotationY: 0,
           force3D: true,
-          stagger: 0.04,
+          stagger: 0.02,
           duration: 2,
           ease: "elastic.out(1, 0.6)",
         })
@@ -105,7 +102,7 @@ export default function DeckList() {
       gsap.to(cardElement, {
         x: translateX,
         y: translateY,
-        scale: 2.8,
+        scale: isMobile ? 2 : 2.5,
         duration: 0.5,
         ease: "elastic.out(1, 0.5)",
       });
@@ -150,15 +147,19 @@ export default function DeckList() {
 
   return (
     <>
+      {/* Card overlay */}
       <div
-        className={`fixed top-0 left-0 w-full h-full overflow-y-hidden  transition-all duration-500 ${
-          selectedCard ? "bg-black top-0 z-20 opacity-50" : "bg-transparent"
-        }`}
-        onClick={resetCardPosition} // Reset position on clicking outside
+        className={`
+          fixed top-0 left-0 w-full h-full overflow-y-hidden transition-all duration-500
+          flex ${isMobile ? "flex-col" : "flex-row"} 
+          ${selectedCard ? "bg-black top-0 z-20 opacity-80" : ""}`}
+        onClick={resetCardPosition}
       >
-        <div id="card-overlay" className="sticky top-0 w-full h-screen"></div>
+        <div id="card-overlay" className="sticky top-0 w-full h-full"></div>
+        <div id="card-details" className="sticky top-0 w-full h-full"></div>
       </div>
 
+      {/* Card list */}
       <div
         id="cards-list"
         className="flex flex-wrap items-center justify-center gap-5 container lg min-w-min"
@@ -198,6 +199,9 @@ export default function DeckList() {
           );
         })}
       </div>
+
+      {/* Progress Bar */}
+      <ProgressBar />
     </>
   );
 }

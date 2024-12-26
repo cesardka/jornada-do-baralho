@@ -82,7 +82,6 @@ html {
 
   #cards-list {
     margin: 0 auto;
-    height: 80vh;
     row-gap: 0;
     column-gap: 5px;
   }
