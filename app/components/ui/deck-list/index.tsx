@@ -1,16 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { use, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Flip, ScrollToPlugin } from "gsap/all";
 
 import { DECK_LIST, NerdcastCard } from "./consts";
 import ProgressBar from "../progress-bar";
 import { useScreenWidth } from "../../useScreenWidth";
+import CardDetails from "../card-details";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollToPlugin, Flip);
 
 const nerdcastCards = DECK_LIST;
 const CARD_WIDTH = 200; // Will possibly go for hard-coded values based on screen size
@@ -19,7 +21,7 @@ const CARD_HEIGHT = CARD_WIDTH * 1.52; // Will possibly go for hard-coded values
 export default function DeckList() {
   // 1. To be used to highlight card next to menu sliding in
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
-  const isMobile = useScreenWidth();
+  const isMobile = useScreenWidth(); // will probably need to move up to the layout, so we can use it in other components
 
   const container = useRef<HTMLElement | null>();
   const tl = useRef<Timeline>();
@@ -27,12 +29,57 @@ export default function DeckList() {
   useGSAP(
     () => {
       const cards = gsap.utils.toArray(".flip-card") as HTMLElement[];
+      if (!cards) return;
+
+      // Scroll to top of the page
+      gsap.to(window, {
+        scrollTo: 0,
+      });
+
+      document.body.style.overflow = "hidden";
 
       const deckbox = document.getElementById("deckbox");
-      if (!deckbox || !cards) return;
+      const overlayContainer = document.getElementById("overlay-container");
 
-      tl.current = gsap
+      if (!deckbox || !overlayContainer) return;
+
+      const deckboxRect = deckbox?.getBoundingClientRect();
+      const overlayContainerRect = overlayContainer?.getBoundingClientRect();
+
+      const translateX =
+        overlayContainerRect.left +
+        overlayContainerRect.width / 2 -
+        (deckboxRect.left + deckboxRect.width / 2);
+      const translateY =
+        overlayContainerRect.top +
+        overlayContainerRect.height / 2 -
+        (deckboxRect.top + deckboxRect.height / 2);
+
+      gsap
         .timeline()
+        // DECKBOX
+        // 1. Position deckbox to center of page
+        .to(deckbox, {
+          x: translateX,
+          y: translateY,
+          scale: 2,
+        })
+        // 2. Reveal deckbox
+        .to(deckbox, {
+          opacity: 1,
+          duration: 2,
+        })
+        // 3. Animate deckbox to its final position
+        .to(deckbox, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          delay: 1,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.5)",
+          onComplete: () => {},
+        })
+        // CARDS
         // 1. Bring cards to board
         .to(cards, {
           opacity: 1,
@@ -48,6 +95,9 @@ export default function DeckList() {
           stagger: 0.02,
           duration: 2,
           ease: "elastic.out(1, 0.6)",
+          onStart: () => {
+            document.body.style.overflow = "";
+          },
         })
         // 3. Randomize and loop card rotation
         .to(cards, {
@@ -75,9 +125,6 @@ export default function DeckList() {
     card: NerdcastCard,
     event: React.MouseEvent<HTMLDivElement>
   ) => {
-    // console.log({ card: card, event: event });
-    // event.stopPropagation();
-
     const cardElement = event.currentTarget;
     const overlayElement = document.getElementById("card-overlay");
 
@@ -102,26 +149,52 @@ export default function DeckList() {
       gsap.to(cardElement, {
         x: translateX,
         y: translateY,
-        scale: isMobile ? 2 : 2.5,
+        scale: isMobile ? 2 : 2.5, // TODO: use screen size to determine scale
         duration: 0.5,
-        ease: "elastic.out(1, 0.5)",
+        // ease: "elastic.out(1, 0.5)",
+        ease: "expo.inOut",
       });
+
+      const direction = isMobile ? { y: 0 } : { x: 0 };
+
+      gsap.to("#card-details", {
+        ...direction,
+        duration: 0.5,
+        ease: "expo.inOut",
+      });
+
+      document.body.style.overflow = "hidden";
     }
   };
 
   const resetCardPosition = () => {
     if (selectedCard) {
       const cardElement = document.getElementById(selectedCard.id);
+
       gsap.to(cardElement, {
         x: 0,
         y: 0,
         scale: 1,
         duration: 0.3,
         ease: "bounce",
-        onComplete: () => {},
       });
 
-      setSelectedCard(null);
+      const direction = isMobile
+        ? {
+            y: "100%",
+          }
+        : { x: "100%" };
+
+      gsap.to("#card-details", {
+        ...direction,
+        duration: 0.3,
+        ease: "elastic.out(1, 0.8)",
+        onComplete: () => {
+          setSelectedCard(null);
+        },
+      });
+
+      document.body.style.overflow = "";
     }
   };
 
@@ -149,29 +222,45 @@ export default function DeckList() {
     <>
       {/* Card overlay */}
       <div
+        id="overlay-container"
         className={`
-          fixed top-0 left-0 w-full h-full overflow-y-hidden transition-all duration-500
-          flex ${isMobile ? "flex-col" : "flex-row"} 
-          ${selectedCard ? "bg-black top-0 z-20 opacity-80" : ""}`}
-        onClick={resetCardPosition}
+          fixed top-0 left-0 w-full h-full transition-all duration-500 
+          flex ${isMobile ? "flex-col" : "flex-row"}
+          ${selectedCard ? "z-30 bg-black bg-opacity-80" : ""}
+        `}
       >
-        <div id="card-overlay" className="sticky top-0 w-full h-full"></div>
-        <div id="card-details" className="sticky top-0 w-full h-full"></div>
+        <div
+          id="card-overlay"
+          className={`w-full h-full flex-grow basis-3/5 pb-20`}
+          onClick={resetCardPosition}
+        />
+        <div
+          id="card-details"
+          className={`w-full h-full flex-grow basis-2/5 ${
+            isMobile ? "translate-y-full" : "translate-x-full"
+          }`}
+        >
+          <CardDetails
+            card={selectedCard}
+            isMobile={isMobile}
+            closeModal={resetCardPosition}
+          />
+        </div>
       </div>
 
       {/* Card list */}
       <div
         id="cards-list"
-        className="flex flex-wrap items-center justify-center gap-5 container lg min-w-min"
+        className={`flex flex-wrap items-center justify-center gap-5 container lg min-w-min`}
         ref={container}
       >
-        {nerdcastCards.map((card, index) => {
+        {nerdcastCards.map((card) => {
           return (
             <div
               id={card.id}
               key={card.id}
               className={`flip-card ${
-                selectedCard && selectedCard.id === card.id ? "active z-50" : ""
+                selectedCard && selectedCard.id === card.id ? "active z-30" : ""
               }`}
               onClick={(e) => handleCardClick(card, e)}
               onMouseEnter={() => handleCardMouseEnter(card)}
