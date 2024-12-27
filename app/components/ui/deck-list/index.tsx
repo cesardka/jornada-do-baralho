@@ -67,7 +67,7 @@ export default function DeckList() {
         // 2. Reveal deckbox
         .to(deckbox, {
           opacity: 1,
-          duration: 2,
+          duration: 1,
         })
         // 3. Animate deckbox to its final position
         .to(deckbox, {
