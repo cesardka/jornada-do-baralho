@@ -6,9 +6,9 @@
   - [🔥 Challenge Rules:](#-challenge-rules)
   - [🏆 The Prize:](#-the-prize)
 - [Development](#development)
-  - [🚀 Getting Started](#-getting-started)
-  - [Learn More](#learn-more)
-  - [Deploy on Vercel](#deploy-on-vercel)
+  - [🏃‍➡️ Getting Started](#️-getting-started)
+  - [👩‍🏫 Learn More](#-learn-more)
+  - [🚀 Deploy on Vercel](#-deploy-on-vercel)
 
 "Jornada do Baralho" (or "Deck's Journey") is a playful nod to the [Hero's Journey](https://en.wikipedia.org/wiki/Hero%27s_journey), mentioned by [Eduardo Spohr](https://www.instagram.com/duduspohr/)'s multiple times over the years during his storytelling lessons.
 
@@ -50,7 +50,7 @@ I will update the website as the cards get signed. 🖖😉
 
 # Development
 
-## 🚀 Getting Started
+## 🏃‍➡️ Getting Started
 
 Start the development server using your preferred package manager:
 
@@ -66,7 +66,7 @@ bun dev
 
 Once the server is running, open http://localhost:3042 🖖 in your browser to view the project.
 
-## Learn More
+## 👩‍🏫 Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -75,7 +75,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 🚀 Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
