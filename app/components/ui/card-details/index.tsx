@@ -1,6 +1,10 @@
 "use client";
 
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
+
 import { NerdcastCard } from "../deck-list/consts";
+import CardSuit from "./cardSuit";
 import CloseButton from "./closeButton";
 
 const CardDetails = ({
@@ -14,6 +18,15 @@ const CardDetails = ({
 }) => {
   // If no card, nothing should be rendered
   if (card === null) return;
+
+  const SignedLocationMap = useMemo(
+    () =>
+      dynamic(() => import("@/app/components/ui/card-details/signedLocation"), {
+        ssr: false,
+      }),
+    []
+  );
+
   //  If card exists,
   //    If isMobile is true, render the card details popping from the bottom
   //    If isMobile is false, render the card details popping from the right
@@ -24,12 +37,12 @@ const CardDetails = ({
   //    Brief famous quote, and episode number (link?)
   //    Social media (Instagram, Twitter, Facebook, TikTok...)
   //    Date of card signed (dd/mm/yyyy)
-  //    Location of card signed (on a map)
   //    Image of card signed
+  //    Location of card signed (on a map)
   return (
     <div
       className={`bg-white ${
-        isMobile ? "w-full" : ""
+        isMobile ? "w-full fixed bottom overflow-scroll" : ""
       } h-full z-50 p-6 md:p-16 shadow-lg overflow-auto`}
     >
       {/* Close button */}
@@ -38,18 +51,14 @@ const CardDetails = ({
       {/* Person name / alias */}
       <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-4">
         {card.name}
-        <span className="text-2xl font-semibold text-gray-600">
-          {card.suit} {card.value}
-        </span>
+        <CardSuit suit={card.suit} value={card.value} />
       </h2>
 
-      <h4 className="text-xl text-gray-600 font-medium mt-2">
-        {card.nickname}
-      </h4>
+      <h4 className="text-lg text-gray-700 font-medium">{card.nickname}</h4>
 
       {/* Brief famous quote, and episode number */}
       <p className="mt-4 text-gray-600 italic">
-        <q className="text-gray-500">{card.quote.message}</q>
+        <q className="text-4xl text-gray-500">{card.quote.message}</q>
         <a
           href={card.quote.link}
           className="text-blue-500 underline ml-2 hover:text-blue-700"
@@ -59,7 +68,7 @@ const CardDetails = ({
       </p>
 
       {/* Social media */}
-      <h3 className="mt-6 text-lg font-semibold text-gray-800">
+      <h3 className="mt-6 text-2xl font-semibold text-gray-800">
         Redes Sociais
       </h3>
       {card.socialMedia && card.socialMedia.length > 0 ? (
@@ -87,14 +96,18 @@ const CardDetails = ({
       )}
 
       {/* Card signed details */}
-      <h3 className="mt-6 text-lg font-semibold text-gray-800">Assinado em</h3>
+      <h3 className="mt-6 text-2xl font-semibold text-gray-800">Assinado em</h3>
       <p className="mt-2 text-gray-600">
         {card.signedOn !== null
           ? card.signedOn.toLocaleDateString()
-          : "XX/XX/XXXX"}
+          : "?? / ?? / ????"}
       </p>
+
+      {/* Photo of card being signed */}
+
+      {/* Location of card signed */}
       <p className="text-gray-600">
-        {card.signedLocation !== null ? card.signedLocation : "TBA"}
+        <SignedLocationMap signedLocation={card.signedLocation} />
       </p>
 
       {/* Image of card signed */}
