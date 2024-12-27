@@ -1,5 +1,15 @@
 # Jornada do Baralho ♠️ ♥️ ♣️ ♦️
 
+- [Jornada do Baralho ♠️ ♥️ ♣️ ♦️](#jornada-do-baralho-️-️-️-️)
+  - [🎯 Project Purpose](#-project-purpose)
+  - [🃏 The Deck Challenge](#-the-deck-challenge)
+  - [🔥 Challenge Rules:](#-challenge-rules)
+  - [🏆 The Prize:](#-the-prize)
+- [Development](#development)
+  - [🚀 Getting Started](#-getting-started)
+  - [Learn More](#learn-more)
+  - [Deploy on Vercel](#deploy-on-vercel)
+
 "Jornada do Baralho" (or "Deck's Journey") is a playful nod to the [Hero's Journey](https://en.wikipedia.org/wiki/Hero%27s_journey), mentioned by [Eduardo Spohr](https://www.instagram.com/duduspohr/)'s multiple times over the years during his storytelling lessons.
 
 This project is my personal quest to complete the legendary Deck Challenge, a challenge born in 2012 that remains unconquered.
