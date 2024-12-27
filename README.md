@@ -10,9 +10,9 @@ This is a personal initiative by [César Hoffmann](https://www.linkedin.com/in/c
 
 With the possibility of the [Nerdcast](https://jovemnerd.com.br/podcasts/) podcast ending at episode 1000, I saw the perfect opportunity to pursue this ambitious goal: securing signatures on all the face cards before the iconic podcast hosts move on to new ventures for good.
 
-I never bought the deck before thinking of doing this challenge, and on my first attempt (on [Enjoei](https://www.enjoei.com.br/p/baralho-nerdcast-rpg-algumas-cartas-autografadas-93103206?vid=332492ff-e6b9-4f26-8667-90f70376512d), by October 11th, 2024), the shipment got stolen and I was desperate thinking I lost my only chance. Especially since this listing had multiple cards signed already!
+I hadn’t purchased the deck until I decided to take on this challenge. My first attempt, on [Enjoei](https://www.enjoei.com.br/p/baralho-nerdcast-rpg-algumas-cartas-autografadas-93103206?vid=332492ff-e6b9-4f26-8667-90f70376512d) (October 11th, 2024), ended in disappointment when the shipment was stolen. It was devastating to think I might have lost my only chance—especially since that deck already included several signed cards!
 
-On November 13th, I found another listing in [Mercado Livre](https://produto.mercadolivre.com.br/MLB-4649269134-baralho-nerdcast-jovem-nerd-_JM?quantity=1&variation_id=182642369255), this one not having any signed cards and I promptly bought it in order to scan the cards, start coding the website and then plan how I will manage and what possible opportunities I might have before Nerdcast #1000 to all cards signed.
+Thankfully, on November 13th, I discovered another listing on [Mercado Livre](https://produto.mercadolivre.com.br/MLB-4649269134-baralho-nerdcast-jovem-nerd-_JM?quantity=1&variation_id=182642369255). Since this deck didn’t have any signed cards, I purchased it immediately. This allowed me to scan the cards in a mint state, start coding the website, and begin planning how to get all the signatures before Nerdcast #1000. Now, the real journey begins!
 
 ## 🃏 The Deck Challenge
 
