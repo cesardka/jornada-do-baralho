@@ -10,13 +10,10 @@ export const useScreenWidth = () => {
   };
 
   useEffect(() => {
-    // Check on initial render
     handleResize();
 
-    // Add event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
