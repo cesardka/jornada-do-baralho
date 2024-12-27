@@ -1,0 +1,7 @@
+/* styles/fonts.css */
+@font-face {
+  font-family: "NewstonInline";
+  src: url("/fonts/NewstonInline.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
