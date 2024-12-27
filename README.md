@@ -14,19 +14,19 @@ I never bought the deck before thinking of doing this challenge, and on my first
 
 On November 13th, I found another listing in [Mercado Livre](https://produto.mercadolivre.com.br/MLB-4649269134-baralho-nerdcast-jovem-nerd-_JM?quantity=1&variation_id=182642369255), this one not having any signed cards and I promptly bought it in order to scan the cards, start coding the website and then plan how I will manage and what possible opportunities I might have before Nerdcast #1000 to all cards signed.
 
-### 🃏 The Deck Challenge
+## 🃏 The Deck Challenge
 
 A new Deck Card, in partnership with Copag, including multiple members of the Nerdcast family, was released by episode [Nerdcast 312 - Nerdcast do Baralho!](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho) to the [Nerdstore](https://web.archive.org/web/20120614130518/http://www.nerdstore.com.br/produto/baralho-jn.html)
 
 Following up that, the Deck Challenge was announced on the next episode [Nerdcast 313 - HQ: Os Novos 52](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52) by [Azaghal](https://www.instagram.com/azaghal) and [Jovem Nerd](https://www.instagram.com/jovemnerd/)
 
-### 🔥 Challenge Rules:
+## 🔥 Challenge Rules:
 
 1. Collect signatures on all 16 face cards, 2 jokers, and 1 bonus card.
 2. Each signature must be accompanied by a photo of the card being signed.
 3. Once all cards are signed, they must be shipped to Azaghal and Jovem Nerd.
 
-### 🏆 The Prize:
+## 🏆 The Prize:
 
 The reward for completing the challenge is an iPad of the latest generation at the time of completion. (Fun fact: when this challenge was announced, the "current generation" was the 3rd-gen iPad!)
 
