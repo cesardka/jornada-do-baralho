@@ -30,10 +30,6 @@ export default function NavMenu() {
       className={`w-full h-20 top-0 z-10 text-white sticky transform transition-all duration-500 ${
         visible ? "opacity-100" : "opacity-10"
       } `}
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(85, 0, 0,1) 0%, rgba(192,41,66,0) 100%)",
-      }}
     >
       <div
         style={{ margin: "0 auto" }}
