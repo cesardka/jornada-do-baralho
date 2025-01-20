@@ -67,7 +67,7 @@ export const DECK_LIST: NerdcastCard[] = [
     name: "Sr. K",
     nickname: "Fred, Carstens, Frederico",
     quote: {
-      message: "",
+      message: "Milhões!!!!",
     },
     suit: "♦",
     value: "K",
