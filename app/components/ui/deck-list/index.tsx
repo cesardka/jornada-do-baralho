@@ -18,23 +18,33 @@ const nerdcastCards = DECK_LIST;
 const CARD_WIDTH = 200; // Will possibly go for hard-coded values based on screen size
 const CARD_HEIGHT = CARD_WIDTH * 1.52; // Will possibly go for hard-coded values based on screen size
 
+const getScaleBasedOnScreenSize = () => {
+  const screenSize = window.innerWidth;
+
+  if (screenSize > 1440) return 2.5;
+  if (screenSize > 1024) return 1.8;
+  if (screenSize > 768) return 1.5;
+  return 1.3;
+};
+
 export default function DeckList() {
   // 1. To be used to highlight card next to menu sliding in
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
   const isMobile = useScreenWidth(); // will probably need to move up to the layout, so we can use it in other components
 
   const container = useRef<HTMLElement | null>();
-  const tl = useRef<Timeline>();
+
+  window.addEventListener("load", function (event) {
+    // Scroll to top of the page
+    gsap.to(window, {
+      scrollTo: 0,
+    });
+  });
 
   useGSAP(
     () => {
       const cards = gsap.utils.toArray(".flip-card") as HTMLElement[];
       if (!cards) return;
-
-      // Scroll to top of the page
-      gsap.to(window, {
-        scrollTo: 0,
-      });
 
       document.body.style.overflow = "hidden";
 
@@ -149,7 +159,7 @@ export default function DeckList() {
       gsap.to(cardElement, {
         x: translateX,
         y: translateY,
-        scale: isMobile ? 2 : 2.5, // TODO: use screen size to determine scale
+        scale: getScaleBasedOnScreenSize(), // TODO: use screen size to determine scale
         duration: 0.5,
         // ease: "elastic.out(1, 0.5)",
         ease: "expo.inOut",
@@ -277,7 +287,7 @@ export default function DeckList() {
                 </div>
                 <div className="flip-card-back">
                   <Image
-                    src="/images/card/card-back-red.webp"
+                    src="/images/card/card-back-blue.webp"
                     alt="Card Nerdcast Deck Back Red"
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
