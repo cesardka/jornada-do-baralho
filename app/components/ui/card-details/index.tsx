@@ -49,19 +49,19 @@ const CardDetails = ({
       <CloseButton onClick={closeModal} size={10} />
 
       {/* Person name / alias */}
-      <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-4">
+      <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-4">
         {card.name}
         <CardSuit suit={card.suit} value={card.value} />
       </h2>
 
-      <h4 className="text-lg text-gray-700 font-medium">{card.nickname}</h4>
+      <h4 className="text-sm mt-1 text-gray-700">{card.nickname}</h4>
 
       {/* Brief famous quote, and episode number */}
       <p className="mt-4 text-gray-600 italic">
-        <q className="text-4xl text-gray-500">{card.quote.message}</q>
+        <q className="text-xl text-gray-500">{card.quote.message}</q>
         <a
           href={card.quote.link}
-          className="text-blue-500 underline ml-2 hover:text-blue-700"
+          className="text-blue-500 text-sm underline ml-2 hover:text-blue-700"
         >
           {card.quote.episode}
         </a>
@@ -97,19 +97,15 @@ const CardDetails = ({
 
       {/* Card signed details */}
       <h3 className="mt-6 text-2xl font-semibold text-gray-800">Assinado em</h3>
-      <p className="mt-2 text-gray-600">
-        {card.signedOn !== null
-          ? card.signedOn.toLocaleDateString()
-          : "?? / ?? / ????"}
-      </p>
+      {card.signedOn !== null ? (
+        <div className="mt-2 text-gray-600">
+          card.signedOn.toLocaleDateString()
+        </div>
+      ) : (
+        "?? / ?? / ????"
+      )}
 
       {/* Photo of card being signed */}
-
-      {/* Location of card signed */}
-      <p className="text-gray-600">
-        <SignedLocationMap signedLocation={card.signedLocation} />
-      </p>
-
       {/* Image of card signed */}
       {card.signedSrc && (
         <div className="mt-4">
@@ -120,6 +116,11 @@ const CardDetails = ({
           />
         </div>
       )}
+
+      {/* Location of card signed */}
+      <div className="text-gray-600">
+        <SignedLocationMap signedLocation={card.signedLocation} />
+      </div>
     </div>
   );
 };
