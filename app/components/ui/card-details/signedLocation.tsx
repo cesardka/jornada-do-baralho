@@ -29,21 +29,18 @@ const SignedLocation = ({
     <MapContainer
       zoom={mockupLocation.zoom}
       center={mockupLocation.posix}
-      dragging={false} // Disables dragging
-      touchZoom={false} // Disables zooming with touch gestures
-      scrollWheelZoom={false}
-      closePopupOnClick={false}
+      closePopupOnClick={true}
       zoomControl={false}
-      style={{ height: "250px", width: "100%" }}
+      style={{ height: "200px", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={mockupLocation.posix} draggable={false}>
-        <Popup className="p-4 text-center">
-          <h2 className="text-2xl font-semibold">Bar Lagoa</h2>
-          <p className="text-lg text-gray-600">
+        <Popup className="p-2 text-center">
+          <h2 className="text-lg font-semibold">Bar Lagoa</h2>
+          <p className="text-md text-gray-600 w-[150px]">
             Esse é apenas um exemplo, mas espero um dia ir lá!
           </p>
         </Popup>
