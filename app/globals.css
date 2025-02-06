@@ -65,9 +65,23 @@ html {
 
 /* ---- CARDS ---- */
 /* BEEG screens */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   :root {
-    --cardHeight: 200px;
+    --cardHeight: 14rem;
+  }
+
+  #cards-list {
+    margin: 50px auto;
+  }
+
+  #cards-list > .flip-card {
+    margin: -50px -15px;
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  :root {
+    --cardHeight: 10rem;
   }
 
   #cards-list {
