@@ -34,12 +34,14 @@ export default function DeckList() {
 
   const container = useRef<HTMLElement | null>();
 
-  window.addEventListener("load", function (event) {
+  if (!!window) {
     // Scroll to top of the page
-    gsap.to(window, {
-      scrollTo: 0,
+    window.addEventListener("load", function (event) {
+      gsap.to(window, {
+        scrollTo: 0,
+      });
     });
-  });
+  }
 
   useGSAP(
     () => {
