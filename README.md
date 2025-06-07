@@ -6,6 +6,7 @@
   - [🔥 Challenge Rules:](#-challenge-rules)
   - [🏆 The Prize:](#-the-prize)
 - [Development](#development)
+  - [Credits](#credits)
   - [🏃‍➡️ Getting Started](#️-getting-started)
   - [👩‍🏫 Learn More](#-learn-more)
   - [🚀 Deploy on Vercel](#-deploy-on-vercel)
@@ -50,18 +51,18 @@ I will update the website as the cards get signed. 🖖😉
 
 # Development
 
+## Credits
+
+- César Hoffmann (developer) | [![Linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/c%C3%A9sar-hoffmann/)
+- Lena Franzz (animator) | [![Linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/lenafranzz/) [![Instagram](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/franzz_art) [![Website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://www.studiochifrezz.com/)
+- Leo Brasil (sound designer, musician) |
+
 ## 🏃‍➡️ Getting Started
 
 Start the development server using your preferred package manager:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Once the server is running, open http://localhost:3042 🖖 in your browser to view the project.
