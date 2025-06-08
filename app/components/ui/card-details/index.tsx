@@ -3,9 +3,11 @@
 import { useMemo } from "react";
 import dynamic from "next/dynamic";
 
-import { NerdcastCard } from "../deck-list/consts";
+import { NerdcastCard } from "../deck-list/card-data";
 import CardSuit from "./cardSuit";
 import CloseButton from "./closeButton";
+import Link from "next/link";
+import { SocialMediaIcon } from "./socialMediaIcon";
 
 const CardDetails = ({
   card,
@@ -59,12 +61,15 @@ const CardDetails = ({
       {/* Brief famous quote, and episode number */}
       <p className="mt-4 text-gray-600 italic">
         <q className="text-xl text-gray-500">{card.quote.message}</q>
-        <a
-          href={card.quote.link}
-          className="text-blue-500 text-sm underline ml-2 hover:text-blue-700"
-        >
-          {card.quote.episode}
-        </a>
+        {card.quote.link && (
+          <Link
+            href={card.quote.link}
+            target="_blank"
+            className="text-blue-500 text-sm underline ml-2 hover:text-blue-700"
+          >
+            {card.quote.episode}
+          </Link>
+        )}
       </p>
 
       {/* Social media */}
@@ -75,16 +80,18 @@ const CardDetails = ({
         <ul className="mt-2 space-y-2">
           {card.socialMedia.map((social, index) => (
             <li key={index}>
-              <a
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700 flex items-center gap-2"
-              >
-                {/* Placeholder for icon */}
-                <span className="inline-block w-5 h-5 bg-gray-200 rounded-full"></span>
-                {social.name}
-              </a>
+              {social.link && (
+                <Link
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700 flex items-center gap-2"
+                >
+                  {/* Placeholder for icon */}
+                  <SocialMediaIcon type={social.type} />
+                  {social.name}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
