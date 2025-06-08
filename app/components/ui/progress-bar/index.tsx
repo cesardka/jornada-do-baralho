@@ -4,7 +4,7 @@ export default function ProgressBar() {
   return (
     <div
       id="progress-bar"
-      className={`sticky bottom-5 h-20 min-w-full z-10 slide-in container lg shadow`}
+      className={`sticky bottom-5 h-20 min-w-full z-10 slide-in container lg`}
       style={{
         margin: "0 auto",
       }}
