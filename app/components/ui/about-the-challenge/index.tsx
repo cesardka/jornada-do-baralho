@@ -53,7 +53,7 @@ export default function AboutTheChallenge() {
       });
 
       gsap.to(sectionRef.current, {
-        backgroundSize: "130%",
+        backgroundSize: "145%",
         ease: "expo.inOut",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -71,7 +71,7 @@ export default function AboutTheChallenge() {
     <section
       id="aboutTheChallenge"
       ref={sectionRef}
-      className={`segment flex flex-row gap-10 pl-10 pt-20 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-[length:100%_auto] bg-no-repeat bg-center ${
+      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-[length:100%_auto] bg-no-repeat bg-center ${
         animationEnded ? "h-screen w-screen z-10 mt-5" : "hidden"
       }`}
     >
@@ -79,73 +79,77 @@ export default function AboutTheChallenge() {
       <div className="flex flex-col justify-center h-full w-1/2 text-white pl-20 z-20">
         {/* Massive, bold title */}
         <h2
-          className={`${bebasNeue.className} text-[72px] lg:text-[90px] font-extrabold leading-tight mb-12 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000]`}
+          className={`${bebasNeue.className} text-[64px] md:text-[48px] lg:text-[72px] xl:text-[120px] font-extrabold leading-tight mb-12 md:mb-6 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000]`}
         >
           REGRAS <br /> DO DESAFIO
         </h2>
 
         {/* Enlarged and stylized rules list */}
         <ol
-          className={`${bebasNeue.className} list-decimal list-inside space-y-10 text-[28px] lg:text-[36px] font-bold leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
+          className={`${bebasNeue.className} list-decimal list-inside space-y-10 md:space-y-5 md:pb-20 leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
         >
-          <li>
+          <li className="text-[24px] lg:text-[36px] xl:text-[56px] font-bold">
             Consiga o autógrafo em todas cartas de{" "}
-            <span className="relative group inline-block text-green-400">
+            <span className="relative group inline-block  cursor-pointer text-green-400">
               figuras{" "}
-              <div className="absolute top-0 -left-10 -translate-x-1/2 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
+              <div className="absolute top-0 -left-10 -translate-x-1/2 xl:-translate-x-0 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
                 <img
                   src="/images/card/nerdcast-k-srk.webp"
                   alt="Carta Sr. K"
-                  className="w-20 h-auto origin-bottom-right rotate-[-10deg]"
+                  className="w-20 h-auto origin-bottom-right rotate-[-10deg] z-10"
                 />
                 <img
                   src="/images/card/nerdcast-q-francine.webp"
                   alt="Carta Francine"
-                  className="w-20 h-auto origin-bottom-right rotate-[-5deg] -ml-4"
+                  className="w-20 h-auto origin-bottom-right rotate-[-5deg] z-10 -ml-4"
                 />
                 <img
                   src="/images/card/nerdcast-j-gugaferrari.webp"
                   alt="Carta Guga Ferrari"
-                  className="w-20 h-auto origin-bottom-left rotate-[5deg] -ml-4"
+                  className="w-20 h-auto origin-bottom-left rotate-[5deg] z-10 -ml-4"
                 />
                 <img
                   src="/images/card/nerdcast-a-nickellis.webp"
                   alt="Carta Nick Ellis"
-                  className="w-20 h-auto origin-bottom-left rotate-[10deg] -ml-4"
+                  className="w-20 h-auto origin-bottom-left rotate-[10deg] z-10 -ml-4"
                 />
               </div>
             </span>
             ,{" "}
-            <span className="relative group inline-block text-red-400">
+            <span className="relative group inline-block  cursor-pointer text-red-400">
               coringas{" "}
               <div className="absolute top-0 left-0 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
                 <img
                   src="/images/card/nerdcast-joker-fabioyabu.webp"
                   alt="Carta Fabio Yabu"
-                  className="w-20 h-auto rotate-[-5deg]"
+                  className="w-20 h-auto rotate-[-5deg] z-10"
                 />
                 <img
                   src="/images/card/nerdcast-joker-tresde.webp"
                   alt="Carta Tresdê"
-                  className="w-20 h-auto rotate-[5deg] -ml-4"
+                  className="w-20 h-auto rotate-[5deg] z-10 -ml-4"
                 />
               </div>
             </span>{" "}
             e{" "}
-            <span className="relative group inline-block text-blue-400">
+            <span className="relative group inline-block  cursor-pointer text-blue-400">
               bônus
               <div className="absolute top-0 left-0 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
                 <img
                   src="/images/card/nerdcast-amigoimaginario.webp"
                   alt="Carta Amigo Imaginário"
-                  className="w-20 h-auto"
+                  className="w-20 h-auto z-10"
                 />
               </div>
             </span>
             .
           </li>
-          <li>Registre o momento de cada carta sendo autografada.</li>
-          <li>Envie o baralho assinado para o Jovem Nerd.</li>
+          <li className="text-[24px] lg:text-[36px] xl:text-[56px] font-bold">
+            Registre o momento de cada carta sendo autografada.
+          </li>
+          <li className="text-[24px] lg:text-[36px] xl:text-[56px] font-bold">
+            Envie o baralho assinado para o Jovem Nerd.
+          </li>
         </ol>
       </div>
 
