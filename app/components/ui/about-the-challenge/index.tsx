@@ -1,8 +1,9 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
 import { useAnimation } from "../../AnimationContext";
+import { FaMusic, FaPause } from "react-icons/fa";
 
 gsap.registerPlugin(useGSAP);
 
@@ -11,6 +12,22 @@ export default function AboutTheChallenge() {
   const sectionRef = useRef(null);
   const azaghalRef = useRef(null);
   const alottoniRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleAudio = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+  };
+
+  const handlePlay = () => setIsPlaying(true);
+  const handlePause = () => setIsPlaying(false);
 
   // TODO:
   // - Add a description of the challenge
@@ -86,7 +103,7 @@ export default function AboutTheChallenge() {
 
         {/* Enlarged and stylized rules list */}
         <ol
-          className={`${bebasNeue.className} list-decimal list-inside space-y-10 md:space-y-5 md:pb-20 leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
+          className={`${bebasNeue.className} list-decimal list-inside space-y-10 md:space-y-5 md:pb-10 leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
         >
           <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
             Consiga o autógrafo em todas cartas de{" "}
@@ -154,6 +171,48 @@ export default function AboutTheChallenge() {
             Ganhe o iPad lançado mais recentemente!
           </li>
         </ol>
+
+        <div className="-mt-4 mb-16 flex flex-col w-full">
+          <button
+            onClick={toggleAudio}
+            className={`${
+              bebasNeue.className
+            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-1 border-2 rounded-full transition-all duration-5000 ${
+              isPlaying
+                ? "bg-white text-black border-white shadow-lg shadow-yellow-400 animate-pulse"
+                : "text-white border-white hover:bg-white hover:text-black"
+            }`}
+          >
+            {isPlaying ? (
+              <FaPause className="text-xl" />
+            ) : (
+              <FaMusic className="text-xl" />
+            )}
+            <span className="text-xl leading-none">
+              {isPlaying ? "Pausar áudio" : "Ouça o desafio"}
+            </span>
+          </button>
+
+          <p className="mt-2 text-xs text-white/80 italic">
+            Trecho do{" "}
+            <a
+              href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              Nerdcast 313 – HQ: Os Velhos Novos 52
+            </a>
+          </p>
+
+          <audio
+            ref={audioRef}
+            src="/sounds/nc313_desafio_do_baralho.mp3"
+            preload="auto"
+            onPlay={handlePlay}
+            onPause={handlePause}
+          />
+        </div>
       </div>
 
       {/* RIGHT IMAGES */}
