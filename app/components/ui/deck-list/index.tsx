@@ -1,47 +1,79 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Flip, ScrollToPlugin } from "gsap/all";
 
-import { DECK_LIST, NerdcastCard } from "./consts";
+import { DECK_LIST, NerdcastCard } from "./card-data";
 import ProgressBar from "../progress-bar";
 import { useScreenWidth } from "../../useScreenWidth";
 import CardDetails from "../card-details";
+import { useAnimation } from "../../AnimationContext";
 
 gsap.registerPlugin(useGSAP, ScrollToPlugin, Flip);
 
 const nerdcastCards = DECK_LIST;
-const CARD_WIDTH = 200; // Will possibly go for hard-coded values based on screen size
+const CARD_WIDTH = 100; // Will possibly go for hard-coded values based on screen size
 const CARD_HEIGHT = CARD_WIDTH * 1.52; // Will possibly go for hard-coded values based on screen size
+const FRONT_FACING_CARD_DEG = 0;
+const BACK_FACING_CARD_DEG = 180;
+const DEFAULT_ANIMATION_DURATION = 0.5;
 
-const getScaleBasedOnScreenSize = () => {
-  const screenSize = window.innerWidth;
+const getScaleBasedOnScreenWidth = () => {
+  const screenWidth = window.innerWidth;
 
-  if (screenSize > 1440) return 2.5;
-  if (screenSize > 1024) return 1.8;
-  if (screenSize > 768) return 1.5;
-  return 1.3;
+  console.log({ screenWidth });
+
+  if (screenWidth > 1440) return 2.5;
+  if (screenWidth > 1024) return 2.3;
+  if (screenWidth > 768) return 2;
+  return 2;
+};
+
+const applyIdleAnimation = (element: HTMLElement) => {
+  gsap.to(element, {
+    rotationX: "random(-10, 10)",
+    rotationY: "random(-10, 10)",
+    rotationZ: "random(-2, 2)",
+    duration: "random(1, 4)",
+    ease: "bezier",
+    repeatRefresh: true,
+    repeat: -1,
+    yoyo: true,
+  });
 };
 
 export default function DeckList() {
   // 1. To be used to highlight card next to menu sliding in
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
-  const isMobile = useScreenWidth(); // will probably need to move up to the layout, so we can use it in other components
+  const [isFlipped, setIsFlipped] = useState(false);
+  const isMobile = useScreenWidth(); // TODO: will probably need to move up to the layout, so we can use it in other components
 
-  const container = useRef<HTMLElement | null>();
+  const container = useRef<HTMLDivElement | null>(null);
 
-  if (!!window) {
-    // Scroll to top of the page
-    window.addEventListener("load", function (event) {
-      gsap.to(window, {
-        scrollTo: 0,
-      });
-    });
-  }
+  const { setAnimationEnded } = useAnimation();
+
+  // Scroll to top of the page
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollToPlugin);
+
+      const handleLoad = () => {
+        gsap.to(window, {
+          scrollTo: 0,
+        });
+      };
+
+      window.addEventListener("load", handleLoad);
+
+      return () => {
+        window.removeEventListener("load", handleLoad);
+      };
+    }
+  }, []);
 
   useGSAP(
     () => {
@@ -87,7 +119,7 @@ export default function DeckList() {
           y: 0,
           scale: 1,
           delay: 1,
-          duration: 0.5,
+          duration: DEFAULT_ANIMATION_DURATION,
           ease: "elastic.out(1, 0.5)",
           onComplete: () => {},
         })
@@ -109,6 +141,9 @@ export default function DeckList() {
           ease: "elastic.out(1, 0.6)",
           onStart: () => {
             document.body.style.overflow = "";
+          },
+          onComplete: () => {
+            setAnimationEnded(true);
           },
         })
         // 3. Randomize and loop card rotation
@@ -147,7 +182,7 @@ export default function DeckList() {
 
     if (!selectedCard) {
       setSelectedCard(card);
-      // Calculate the position offset to center the card in the overlay
+
       const translateX =
         overlayRect.left +
         overlayRect.width / 2 -
@@ -157,13 +192,11 @@ export default function DeckList() {
         overlayRect.height / 2 -
         (cardRect.top + cardRect.height / 2);
 
-      // Animate the card to the center of the overlay
       gsap.to(cardElement, {
         x: translateX,
         y: translateY,
-        scale: getScaleBasedOnScreenSize(), // TODO: use screen size to determine scale
-        duration: 0.5,
-        // ease: "elastic.out(1, 0.5)",
+        scale: getScaleBasedOnScreenWidth(),
+        duration: DEFAULT_ANIMATION_DURATION,
         ease: "expo.inOut",
       });
 
@@ -171,11 +204,25 @@ export default function DeckList() {
 
       gsap.to("#card-details", {
         ...direction,
-        duration: 0.5,
+        duration: DEFAULT_ANIMATION_DURATION,
         ease: "expo.inOut",
       });
 
       document.body.style.overflow = "hidden";
+      return;
+    }
+
+    if (selectedCard?.id === card.id) {
+      gsap.killTweensOf(cardElement);
+      gsap.to(cardElement, {
+        rotationY: isFlipped ? FRONT_FACING_CARD_DEG : BACK_FACING_CARD_DEG,
+        duration: DEFAULT_ANIMATION_DURATION,
+        ease: "expo.inOut",
+        transformOrigin: "center",
+        onComplete: () => {
+          setIsFlipped(!isFlipped);
+        },
+      });
     }
   };
 
@@ -187,8 +234,12 @@ export default function DeckList() {
         x: 0,
         y: 0,
         scale: 1,
-        duration: 0.3,
-        ease: "bounce",
+        rotationY: 0,
+        duration: DEFAULT_ANIMATION_DURATION,
+        ease: "expo.inOut",
+        onComplete: () => {
+          if (cardElement) applyIdleAnimation(cardElement);
+        },
       });
 
       const direction = isMobile
@@ -199,8 +250,8 @@ export default function DeckList() {
 
       gsap.to("#card-details", {
         ...direction,
-        duration: 0.3,
-        ease: "elastic.out(1, 0.8)",
+        duration: DEFAULT_ANIMATION_DURATION,
+        ease: "eexpo.inOut",
         onComplete: () => {
           setSelectedCard(null);
         },
@@ -231,7 +282,7 @@ export default function DeckList() {
   };
 
   return (
-    <>
+    <section className="segment w-full h-screen flex flex-col items-center justify-center">
       {/* Card overlay */}
       <div
         id="overlay-container"
@@ -259,6 +310,7 @@ export default function DeckList() {
           />
         </div>
       </div>
+      <div className=""></div>
 
       {/* Card list */}
       <div
@@ -303,6 +355,6 @@ export default function DeckList() {
 
       {/* Progress Bar */}
       <ProgressBar />
-    </>
+    </section>
   );
 }
