@@ -57,6 +57,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
+        display: ['"Bebas Neue"', "sans-serif"],
+        headline: ['"Anton"', "sans-serif"],
         newston: ["NewstonInline", "sans-serif"],
       },
     },

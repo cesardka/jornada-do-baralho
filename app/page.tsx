@@ -8,6 +8,7 @@ import AboutTheAuthor from "./components/ui/about-the-author";
 import AboutTheChallenge from "./components/ui/about-the-challenge";
 import BackgroundPattern from "./components/ui/background-pattern";
 import DeckList from "./components/ui/deck-list";
+import Footer from "./components/ui/footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,6 +39,7 @@ export default function Card() {
         <DeckList />
         <AboutTheChallenge />
         <AboutTheAuthor />
+        <Footer />
       </div>
     </AnimationProvider>
   );
