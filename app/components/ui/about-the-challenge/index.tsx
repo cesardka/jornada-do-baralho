@@ -1,11 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
 import { useAnimation } from "../../AnimationContext";
 import { FaMusic, FaPause } from "react-icons/fa";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function AboutTheChallenge() {
   const { animationEnded } = useAnimation();
