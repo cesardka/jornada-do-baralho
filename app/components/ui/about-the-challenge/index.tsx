@@ -33,7 +33,7 @@ export default function AboutTheChallenge() {
   // TODO:
   // -[x] Add a description of the challenge
   // -[x] Add a link to the challenge's website
-  // -[ ] Add a description of what is Jovem Nerd and Azaghal, and their history
+  // -[ ] Add a description of what and who is Jovem Nerd and Azaghal, and their history
 
   useEffect(() => {
     if (!animationEnded) return;

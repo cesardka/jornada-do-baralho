@@ -1,5 +1,6 @@
 export interface CreditPerson {
   name: string;
+  title: string;
   description: string;
   imageSrc: string;
   socialMedia: {

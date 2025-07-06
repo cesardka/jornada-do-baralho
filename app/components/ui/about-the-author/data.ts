@@ -3,7 +3,9 @@ import { CreditPerson } from "./types";
 export const PROJECT_AUTHORS: CreditPerson[] = [
   {
     name: "Lena Franzz",
-    description: "This is the description for person 2.",
+    title: "Animadora, ilustradora, diretora de animação, atriz e dubladora",
+    description:
+      "Gaúcha naturalizada carioca desde 2013, acompanha o Nerdcast de muitos anos, já enviou artes dos fãs, fez tour gastronômico do Eskimó ao Majórica para deixar o Senhor K. com orgulho. Atualmente é sócia-fundadora do Studio Chifrezz, onde já animou projetos premiados internacionalmente e está trabalhando em mais obras para serem lançadas futuramente!",
     imageSrc: "/images/NERDINHO_LENA.webp",
     socialMedia: [
       {
@@ -22,7 +24,10 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
   },
   {
     name: "César Hoffmann",
-    description: "This is the description for person 1.",
+    title:
+      "Desenvolvedor, falso designer e pessoa que está trilhando a Jornada do Baralho",
+    description:
+      'Morador de Porto Alegre - RS, é ouvinte do Nerdcast desde 2007, quando conheceu na casa de um amigo o episódio 70 - "Harry Potter: 70 mas não agüenta!" e desde então não viveu mais sem o programa no ouvido. Tomou como objetivo de vida não deixar o Nerdcast acabar sem alguém concluir esse desafio que perdura há mais de década.',
     imageSrc: "/images/NERDINHO_CESAR.webp",
     socialMedia: [
       {
@@ -37,7 +42,9 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
   },
   {
     name: "Leo Brasil",
-    description: "This is the description for person 3.",
+    title: "Musicista, diretor de som e animação, ex-Copa Studio",
+    description:
+      "É o nosso mineirin musicista favorito que deu sonoridade à Jornada do Baralho, da música aos pequenos efeitos sonoros escondidos pelo site. Não tem nada contra o Nerdcast, mas acho que nunca foi ouvinte também hahaha",
     imageSrc: "/images/NERDINHO_LEO.webp",
     socialMedia: [
       {

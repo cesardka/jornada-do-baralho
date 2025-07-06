@@ -1,17 +1,15 @@
+import { useRef } from "react";
 import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
-import Image from "next/image";
 import { PROJECT_AUTHORS } from "./data";
-import { useRef } from "react";
 import { SocialMediaIcon } from "../card-details/socialMediaIcon";
-import Link from "next/link";
-import { useAnimation } from "../../AnimationContext";
 
 gsap.registerPlugin(useGSAP);
 
 export default function Credits() {
-  const { animationEnded } = useAnimation();
   const creditsContainer = useRef<HTMLDivElement | null>(null);
   useGSAP(
     () => {
@@ -34,7 +32,7 @@ export default function Credits() {
   return (
     <div
       ref={creditsContainer}
-      className={`py-28 px-28 flex flex-row w-full h-full items-center justify-around`}
+      className={`py-28 px-28 flex flex-row w-full h-full items-start justify-around`}
     >
       {PROJECT_AUTHORS.map((person) => (
         <div
@@ -49,32 +47,37 @@ export default function Credits() {
             className={`project-author rounded-xl object-cover max-w-xs h-auto drop-shadow-md`}
           />
           <div
-            className={`${bebasNeue.className} flex flex-col w-fit flex-grow gap-2 mt-6 px-0 text-center md:text-left drop-shadow-md text-white`}
+            className={`flex flex-col w-fit flex-grow gap-2 mt-6 px-0 text-center md:text-left drop-shadow-md text-white`}
           >
-            <div className="font-extrabold text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] border-t-2 border-b-white w-[400px]">
+            <div
+              className={`${bebasNeue.className} font-extrabold text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] pt-2 border-t-2 border-b-white w-[400px]`}
+            >
               {person.name}
+              <ul className="inline-flex items-center space-x-2 ml-4 -mb-1">
+                {person.socialMedia.map((social, index) => (
+                  <li key={index}>
+                    {social.link && (
+                      <Link
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-white hover:text-blue-800 transition-all duration-300 ease-out"
+                      >
+                        <SocialMediaIcon type={social.type} size={30} />
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <ul className="flex flex-row space-x-2 -mt-4">
-              {person.socialMedia.map((social, index) => (
-                <li key={index}>
-                  {social.link && (
-                    <Link
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-white hover:text-blue-800 transition-all duration-300 ease-out"
-                    >
-                      {/* Placeholder for icon */}
-                      <SocialMediaIcon type={social.type} size={30} />
-                      {/* {social.name} */}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <div className="italic font-semibold text-[0.85rem] md:text-[0.8rem] lg:text-[0.9rem] xl:text-[1rem] text-white w-[400px] -mt-5 mb-3">
+              {person.title}
+            </div>
 
-            <div className="text-lg text-white">{person.description}</div>
+            <div className="text-justify text-[1.25rem] md:text-[1rem] lg:text-[1.3rem] xl:text-[1.35rem] text-white w-[400px]">
+              {person.description}
+            </div>
           </div>
         </div>
       ))}

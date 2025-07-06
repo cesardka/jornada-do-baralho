@@ -7,12 +7,12 @@ export default function AboutTheAuthor() {
   const aboutTheAuthorRef = useRef(null);
 
   // TODO:
-  // - Add the author's name
-  // - Add a short bio
-  // - Add a photo of the author
-  // - Add a link to the author's website
-  // - Add a link to the author's social media
-  // - Add a link to the author's email
+  // -[x] Add the author's name
+  // -[x] Add a short bio
+  // -[x] Add a photo of the author
+  // -[x] Add a link to the author's website
+  // -[x] Add a link to the author's social media
+  // -[ ] Add a link to the author's email (not sure if will add this one)
 
   if (!animationEnded) {
     return null;
