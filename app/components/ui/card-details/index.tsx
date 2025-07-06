@@ -7,6 +7,7 @@ import { NerdcastCard } from "../deck-list/card-data";
 import CardSuit from "./cardSuit";
 import CloseButton from "./closeButton";
 import Link from "next/link";
+import Image from "next/image";
 import { SocialMediaIcon } from "./socialMediaIcon";
 
 const CardDetails = ({
@@ -97,37 +98,49 @@ const CardDetails = ({
         </ul>
       ) : (
         <div className="mt-2">
-          <p className="text-center text-gray-400">... 🛸 ...</p>
-          <p className="text-center text-gray-400">... 🐄 ...</p>
+          <Image
+            width={300}
+            height={180}
+            src="/images/ilustra-sem-redes.png"
+            alt="Não encontramos as redes"
+            className="w-full h-auto"
+          />
         </div>
       )}
 
       {/* Card signed details */}
       <h3 className="mt-6 text-2xl font-semibold text-gray-800">Assinado em</h3>
-      {card.signedOn !== null ? (
+      {card.signedOn !== null && (
         <div className="mt-2 text-gray-600">
           card.signedOn.toLocaleDateString()
         </div>
-      ) : (
-        "?? / ?? / ????"
       )}
 
       {/* Photo of card being signed */}
       {/* Image of card signed */}
-      {card.signedSrc && (
-        <div className="mt-4">
-          <img
-            src={card.signedSrc}
-            alt={`Card signed by ${card.name}`}
-            className="w-full rounded-md shadow-md"
-          />
-        </div>
+      {card.signedSrc ? (
+        <>
+          <div className="mt-4">
+            <img
+              src={card.signedSrc}
+              alt={`Carta assinada por ${card.name}`}
+              className="w-full rounded-md shadow-md"
+            />
+          </div>
+          {/* Location of card signed */}
+          <div className="text-gray-600">
+            <SignedLocationMap signedLocation={card.signedLocation} />
+          </div>
+        </>
+      ) : (
+        <Image
+          width={320}
+          height={160}
+          src="/images/ilustra-sem-assinatura.png"
+          alt="Carta pendente assinatura"
+          className="w-full h-auto"
+        />
       )}
-
-      {/* Location of card signed */}
-      <div className="text-gray-600">
-        <SignedLocationMap signedLocation={card.signedLocation} />
-      </div>
     </div>
   );
 };

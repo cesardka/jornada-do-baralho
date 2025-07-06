@@ -31,9 +31,9 @@ export default function AboutTheChallenge() {
   const handlePause = () => setIsPlaying(false);
 
   // TODO:
-  // - Add a description of the challenge
-  // - Add a link to the challenge's website
-  // - Add a description of what is Jovem Nerd and Azaghal, and their history
+  // -[x] Add a description of the challenge
+  // -[x] Add a link to the challenge's website
+  // -[ ] Add a description of what is Jovem Nerd and Azaghal, and their history
 
   useEffect(() => {
     if (!animationEnded) return;
@@ -71,7 +71,7 @@ export default function AboutTheChallenge() {
       });
 
       gsap.to(sectionRef.current, {
-        backgroundSize: "145%",
+        backgroundSize: "150%",
         ease: "expo.inOut",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -89,8 +89,8 @@ export default function AboutTheChallenge() {
     <section
       id="aboutTheChallenge"
       ref={sectionRef}
-      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-[length:100%_auto] bg-no-repeat bg-center ${
-        animationEnded ? "h-screen w-screen z-10 mt-5" : "hidden"
+      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-cover bg-no-repeat bg-center ${
+        animationEnded ? "h-full w-full z-10" : "hidden"
       }`}
     >
       {/* LEFT COLUMN: Challenge Rules */}
@@ -107,7 +107,7 @@ export default function AboutTheChallenge() {
           className={`${bebasNeue.className} list-decimal list-inside space-y-10 md:space-y-5 md:pb-10 leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
         >
           <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            Consiga o autógrafo em todas cartas de{" "}
+            Conseguir o autógrafo em todas cartas de{" "}
             <span className="relative group inline-block cursor-pointer text-green-400">
               figuras{" "}
               <div className="absolute top-0 -left-10 -translate-x-1/2 xl:-translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
@@ -151,22 +151,22 @@ export default function AboutTheChallenge() {
             </span>{" "}
             e{" "}
             <span className="relative group inline-block  cursor-pointer text-blue-400">
-              bônus
-              <div className="absolute top-0 left-0 xl:translate-x-5  -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
+              reserva
+              <div className="absolute top-0 left-0 xl:translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex z-10">
                 <img
                   src="/images/card/nerdcast-amigoimaginario.webp"
                   alt="Carta Amigo Imaginário"
-                  className="w-20 h-auto z-10"
+                  className="w-20 h-auto z-10 ml-4"
                 />
               </div>
             </span>
             .
           </li>
           <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            Registre o momento de cada carta sendo autografada.
+            Registrar o momento de cada carta sendo autografada.
           </li>
           <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            Envie o baralho assinado para o Jovem Nerd.
+            Enviar o baralho assinado para o Jovem Nerd.
           </li>
           <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
             Ganhe o iPad lançado mais recentemente!
@@ -178,7 +178,7 @@ export default function AboutTheChallenge() {
             onClick={toggleAudio}
             className={`${
               bebasNeue.className
-            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-1 border-2 rounded-full transition-all duration-5000 ${
+            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all duration-[10000ms] ${
               isPlaying
                 ? "bg-white text-black border-white shadow-lg shadow-yellow-400 animate-pulse"
                 : "text-white border-white hover:bg-white hover:text-black"
@@ -217,13 +217,13 @@ export default function AboutTheChallenge() {
       </div>
 
       {/* RIGHT IMAGES */}
-      <div className="flex-grow relative flex items-center justify-end pr-10 h-full">
+      <div className="flex-grow relative flex items-end justify-end h-full mt-16">
         {/* Image 1 — Azaghal (slightly above center) */}
         <img
           ref={azaghalRef}
           src="/images/azaghal-esquerdo.webp"
           alt="Azaghal"
-          className="absolute right-40 xl:right-40 bottom-0 h-full max-h-[90vh] w-auto object-contain"
+          className="absolute right-40 xl:right-52 -bottom-0 h-full max-h-[90vh] w-auto object-contain"
         />
 
         {/* Image 2 — Jovem Nerd (slightly below center) */}
@@ -231,7 +231,7 @@ export default function AboutTheChallenge() {
           ref={alottoniRef}
           src="/images/jovem-nerd-esquerdo.webp"
           alt="Jovem Nerd"
-          className="absolute -right-20 -bottom-10 h-full max-h-[90vh] w-auto object-contain z-10"
+          className="relative -right-10 h-auto max-h-[90vh] w-auto z-10"
         />
       </div>
     </section>

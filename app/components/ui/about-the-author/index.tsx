@@ -1,4 +1,5 @@
 import { useAnimation } from "../../AnimationContext";
+import Credits from "./credits";
 
 export default function AboutTheAuthor() {
   const { animationEnded } = useAnimation();
@@ -15,8 +16,10 @@ export default function AboutTheAuthor() {
       id="aboutTheAuthor"
       className={
         "segment flex" +
-        (animationEnded && " h-screen w-screen z-10 bg-green-500")
+        (animationEnded && " h-full w-screen z-10 bg-green-500")
       }
-    ></section>
+    >
+      <Credits />
+    </section>
   );
 }

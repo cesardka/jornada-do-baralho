@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function NavMenu() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -8,8 +9,9 @@ export default function NavMenu() {
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
+    const setInvisible = currentScrollPos > 80;
 
-    if (currentScrollPos > prevScrollPos) {
+    if (setInvisible && currentScrollPos > prevScrollPos) {
       setVisible(false);
     } else {
       setVisible(true);
@@ -27,8 +29,8 @@ export default function NavMenu() {
   return (
     <header
       id="nav-menu"
-      className={`w-full h-20 top-0 z-10 text-white sticky transform transition-all duration-500 ${
-        visible ? "opacity-100" : "opacity-10"
+      className={`w-full h-20 top-0 z-10 text-white transform transition-all sticky bg-[#016745] duration-500 ${
+        visible ? "opacity-100" : "opacity-0"
       } `}
     >
       <div
@@ -37,7 +39,13 @@ export default function NavMenu() {
           visible ? "text-md" : "invisible"
         }`}
       >
-        Jornada do Baralho
+        <Image
+          width={100}
+          height={50}
+          src="/images/jornada-do-baralho.png"
+          alt="Jornada do Baralho logo"
+          className="w-auto h-16"
+        />
       </div>
     </header>
   );
