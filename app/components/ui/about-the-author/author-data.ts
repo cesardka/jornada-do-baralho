@@ -42,7 +42,7 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
   },
   {
     name: "Leo Brasil",
-    title: "Musicista, diretor de som e animação, ex-Copa Studio",
+    title: "Compositor de trilhas, Sound Designer e Roteirista",
     description:
       "É o nosso mineirin musicista favorito que deu sonoridade à Jornada do Baralho, da música aos pequenos efeitos sonoros escondidos pelo site. Não tem nada contra o Nerdcast, mas acho que nunca foi ouvinte também hahaha",
     imageSrc: "/images/NERDINHO_LEO.webp",

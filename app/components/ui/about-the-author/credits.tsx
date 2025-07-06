@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
-import { PROJECT_AUTHORS } from "./data";
+import { PROJECT_AUTHORS } from "./author-data";
 import { SocialMediaIcon } from "../card-details/socialMediaIcon";
 
 gsap.registerPlugin(useGSAP);
