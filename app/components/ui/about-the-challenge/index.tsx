@@ -97,7 +97,7 @@ export default function AboutTheChallenge() {
     <section
       id="aboutTheChallenge"
       ref={sectionRef}
-      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/rainbow-vortex2.svg')] bg-contain bg-no-repeat bg-top-right h-full w-full z-10`}
+      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/rainbow-vortex2.svg')] bg-cover bg-no-repeat bg-top-right h-auto w-full z-10`}
     >
       {/* LEFT COLUMN: Challenge Rules */}
       <div className="flex flex-col justify-center h-full w-1/2 text-white pl-20 z-20">
