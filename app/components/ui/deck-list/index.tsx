@@ -334,7 +334,7 @@ export default function DeckList() {
                 <div className="flip-card-front">
                   <Image
                     src={card.originalSrc}
-                    alt={`Nerdcast card "${card.name}"`}
+                    alt={`Carta do Nerdcaster "${card.name}"`}
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
                   />

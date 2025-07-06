@@ -1,8 +1,10 @@
+import { useRef } from "react";
 import { useAnimation } from "../../AnimationContext";
 import Credits from "./credits";
 
 export default function AboutTheAuthor() {
   const { animationEnded } = useAnimation();
+  const aboutTheAuthorRef = useRef(null);
 
   // TODO:
   // - Add the author's name
@@ -14,9 +16,10 @@ export default function AboutTheAuthor() {
   return (
     <section
       id="aboutTheAuthor"
+      ref={aboutTheAuthorRef}
       className={
         "segment flex" +
-        (animationEnded && " h-full w-screen z-10 bg-green-500")
+        (animationEnded ? " h-full w-screen z-10 bg-blue-500" : "hidden")
       }
     >
       <Credits />

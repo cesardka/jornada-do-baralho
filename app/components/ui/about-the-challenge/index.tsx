@@ -182,7 +182,7 @@ export default function AboutTheChallenge() {
             onClick={toggleAudio}
             className={`${
               bebasNeue.className
-            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all duration-[10000ms] ${
+            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all duration-[3000ms] ${
               isPlaying
                 ? "bg-white text-black border-white shadow-lg shadow-yellow-400 animate-pulse"
                 : "text-white border-white hover:bg-white hover:text-black"
@@ -199,7 +199,7 @@ export default function AboutTheChallenge() {
           </button>
 
           <p className="mt-2 text-xs text-white/80 italic">
-            Trecho do{" "}
+            Trecho da leitura de e-mail do{" "}
             <a
               href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
               target="_blank"
@@ -208,6 +208,7 @@ export default function AboutTheChallenge() {
             >
               Nerdcast 313 – HQ: Os Velhos Novos 52
             </a>
+            , publicado em 1º de junho de 2012
           </p>
 
           <audio
