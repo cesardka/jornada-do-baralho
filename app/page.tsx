@@ -14,7 +14,7 @@ export default function Card() {
   return (
     <AnimationProvider>
       <div id="container" ref={containerRef}>
-        <BackgroundPattern isBalatro={false} />
+        {/* <BackgroundPattern isBalatro={false} /> */}
         <DeckList />
         <AboutTheChallenge />
         <AboutTheAuthor />

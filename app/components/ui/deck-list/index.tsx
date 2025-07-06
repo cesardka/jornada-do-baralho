@@ -282,7 +282,7 @@ export default function DeckList() {
   };
 
   return (
-    <section className="segment w-full h-screen flex flex-col items-center justify-center">
+    <section className="segment w-full h-auto flex flex-col items-center justify-center bg-[url('/images/bg/8764038.jpg')] bg-cover bg-no-repeat bg-center pb-8">
       {/* Card overlay */}
       <div
         id="overlay-container"
@@ -315,7 +315,7 @@ export default function DeckList() {
       {/* Card list */}
       <div
         id="cards-list"
-        className={`flex flex-wrap items-center justify-center gap-5 container lg min-w-min`}
+        className={`flex flex-wrap items-center justify-center gap-5 container mx-8 lg min-w-min`}
         ref={container}
       >
         {nerdcastCards.map((card) => {
@@ -323,7 +323,7 @@ export default function DeckList() {
             <div
               id={card.id}
               key={card.id}
-              className={`flip-card ${
+              className={`flip-card -mx-8 ${
                 selectedCard && selectedCard.id === card.id ? "active z-30" : ""
               }`}
               onClick={(e) => handleCardClick(card, e)}
