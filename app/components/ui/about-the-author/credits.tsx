@@ -34,9 +34,7 @@ export default function Credits() {
   return (
     <div
       ref={creditsContainer}
-      className={`py-28 px-28 flex flex-row w-full h-full items-center justify-around ${
-        !animationEnded && "hidden"
-      }`}
+      className={`py-28 px-28 flex flex-row w-full h-full items-center justify-around`}
     >
       {PROJECT_AUTHORS.map((person) => (
         <div

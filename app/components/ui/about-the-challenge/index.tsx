@@ -89,13 +89,15 @@ export default function AboutTheChallenge() {
     return () => ctx.revert();
   }, [animationEnded]);
 
+  if (!animationEnded) {
+    return null;
+  }
+
   return (
     <section
       id="aboutTheChallenge"
       ref={sectionRef}
-      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-contain bg-no-repeat bg-center ${
-        animationEnded ? "h-full w-full z-10" : "hidden"
-      }`}
+      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-contain bg-no-repeat bg-center h-full w-full z-10`}
     >
       {/* LEFT COLUMN: Challenge Rules */}
       <div className="flex flex-col justify-center h-full w-1/2 text-white pl-20 z-20">
@@ -182,7 +184,7 @@ export default function AboutTheChallenge() {
             onClick={toggleAudio}
             className={`${
               bebasNeue.className
-            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all duration-[3000ms] ${
+            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all animation-duration-[3000ms] ${
               isPlaying
                 ? "bg-white text-black border-white shadow-lg shadow-yellow-400 animate-pulse"
                 : "text-white border-white hover:bg-white hover:text-black"

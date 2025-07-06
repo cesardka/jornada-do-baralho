@@ -13,14 +13,16 @@ export default function AboutTheAuthor() {
   // - Add a link to the author's website
   // - Add a link to the author's social media
   // - Add a link to the author's email
+
+  if (!animationEnded) {
+    return null;
+  }
+
   return (
     <section
       id="aboutTheAuthor"
       ref={aboutTheAuthorRef}
-      className={
-        "segment flex" +
-        (animationEnded ? " h-full w-screen z-10 bg-blue-500" : "hidden")
-      }
+      className={"segment flex h-full w-screen z-10 bg-blue-500"}
     >
       <Credits />
     </section>
