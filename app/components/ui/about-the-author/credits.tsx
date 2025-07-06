@@ -39,13 +39,31 @@ export default function Credits() {
           key={person.name}
           className={`flex md:flex-col flex-row justify-center items-center w-full`}
         >
-          <Image
-            src={person.imageSrc}
-            alt={person.name}
-            width={300}
-            height={300}
-            className={`project-author rounded-xl object-cover max-w-xs h-auto drop-shadow-md`}
-          />
+          <span className="relative group inline-block text-green-400">
+            <Image
+              src={person.imageSrc}
+              alt={person.name}
+              width={300}
+              height={300}
+              className={`project-author rounded-xl object-cover max-w-xs h-auto drop-shadow-md`}
+            />
+            <div className={`${person.name !== "Lena Franzz" ? "hidden" : ""}`}>
+              <div className="absolute bottom-10 left-0 translate-x-0 opacity-0 group-hover:opacity-100 group-hover:-translate-x-14 transition-all duration-300 ease-out flex">
+                <img
+                  src="/images/kiza.png"
+                  alt="Kiza"
+                  className="w-20 h-auto origin-center rotate-[-30deg]"
+                />
+              </div>
+              <div className="absolute bottom-10 right-0 -translate-x-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-5 transition-all duration-300 ease-out flex">
+                <img
+                  src="/images/kale.png"
+                  alt="Kale"
+                  className="w-20 h-auto origin-center rotate-[5deg]"
+                />
+              </div>
+            </div>
+          </span>
           <div
             className={`flex flex-col w-fit flex-grow gap-2 mt-6 px-0 text-center md:text-left drop-shadow-md text-white`}
           >
