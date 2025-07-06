@@ -22,7 +22,9 @@ export default function AboutTheAuthor() {
     <section
       id="aboutTheAuthor"
       ref={aboutTheAuthorRef}
-      className={"segment flex h-full w-screen z-10 bg-blue-500"}
+      className={
+        "segment flex h-full w-screen z-10 bg-blue-500 bg-[url('/images/bg/pattern-randomized2.svg')] bg-cover bg-no-repeat bg-top"
+      }
     >
       <Credits />
     </section>
