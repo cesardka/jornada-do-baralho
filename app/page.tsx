@@ -8,6 +8,7 @@ import DeckList from "./components/ui/deck-list";
 import Footer from "./components/ui/footer";
 import NavMenu from "./components/ui/nav-menu";
 import SplashScreen from "./components/ui/splash-screen";
+import BouncingText from "./components/ui/bouncing-text";
 
 export default function Card() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,6 +16,7 @@ export default function Card() {
     "loading" | "splash" | "content"
   >("loading");
   const [isFadingIn, setIsFadingIn] = useState(false);
+  const [isLoadingFadingOut, setIsLoadingFadingOut] = useState(false);
 
   useEffect(() => {
     const splashSeen = localStorage.getItem("splashSeen");
@@ -22,7 +24,15 @@ export default function Card() {
     if (splashSeen === "true") {
       setSplashState("content");
     } else {
-      setTimeout(() => setSplashState("splash"), 500);
+      // Start fade-out after 500ms
+      const startFade = setTimeout(() => setIsLoadingFadingOut(true), 500);
+      // Wait for fade to complete before transitioning
+      const showSplash = setTimeout(() => setSplashState("splash"), 1500); // 1s fade duration
+
+      return () => {
+        clearTimeout(startFade);
+        clearTimeout(showSplash);
+      };
     }
   }, []);
 
@@ -43,7 +53,14 @@ export default function Card() {
   if (splashState === "loading") {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" />
+        <div
+          className={`flex flex-col items-center space-y-4 transition-opacity duration-1000 ${
+            isLoadingFadingOut ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" />
+          <BouncingText text="Carregando..." />
+        </div>
       </div>
     );
   }
