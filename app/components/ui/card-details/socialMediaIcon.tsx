@@ -17,6 +17,7 @@ import {
 } from "react-icons/fa";
 import { PiButterflyFill } from "react-icons/pi";
 import StudioChifrezz from "./studio_chifrezz.svg";
+import { FaFootball } from "react-icons/fa6";
 
 export const SocialMediaIcon = ({
   type,
@@ -39,8 +40,9 @@ export const SocialMediaIcon = ({
     | "princess"
     | "linkedin"
     | "chifrezz"
-    | "spotify";
-  size: number;
+    | "spotify"
+    | "football";
+  size?: number;
 }) => {
   switch (type) {
     case "site":
@@ -77,11 +79,13 @@ export const SocialMediaIcon = ({
       return <StudioChifrezz className="w-8 h-8" />;
     case "spotify":
       return <FaSpotify size={size} />;
+    case "football":
+      return <FaFootball size={size} />;
     default:
       return (
         <span
           className={`inline-block w-${size} h-${size} bg-gray-200 rounded-full`}
-        ></span>
+        />
       );
   }
 };

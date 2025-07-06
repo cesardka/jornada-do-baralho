@@ -32,7 +32,7 @@ export default function Credits() {
   return (
     <div
       ref={creditsContainer}
-      className={`py-28 px-28 flex flex-row w-full h-full items-start justify-around`}
+      className={`py-28 px-28 flex xl:flex-row flex-col w-full h-full items-start justify-around`}
     >
       {PROJECT_AUTHORS.map((person) => (
         <div
@@ -69,7 +69,7 @@ export default function Credits() {
             className={`flex flex-col w-fit flex-grow gap-2 mt-6 px-0 text-center md:text-left drop-shadow-md text-white`}
           >
             <div
-              className={`${bebasNeue.className} font-extrabold text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] pt-2 border-t-2 border-b-white w-[400px]`}
+              className={`${bebasNeue.className} font-extrabold text-[3rem] pt-2 border-t-2 border-b-white w-[400px]`}
             >
               {person.name}
               <ul className="inline-flex items-center space-x-2 ml-4 -mb-1">

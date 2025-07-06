@@ -1,19 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Flip, ScrollToPlugin } from "gsap/all";
 
 import { DECK_LIST, NerdcastCard } from "./card-data";
-import ProgressBar from "../progress-bar";
-import { useScreenWidth } from "../../useScreenWidth";
 import CardDetails from "../card-details";
+import { useScreenWidth } from "../../useScreenWidth";
 import { useAnimation } from "../../AnimationContext";
 
-gsap.registerPlugin(useGSAP, ScrollToPlugin, Flip);
+gsap.registerPlugin(useGSAP);
 
 const nerdcastCards = DECK_LIST;
 const CARD_WIDTH = 100; // Will possibly go for hard-coded values based on screen size
@@ -54,26 +52,26 @@ export default function DeckList() {
 
   const container = useRef<HTMLDivElement | null>(null);
 
-  const { setAnimationEnded } = useAnimation();
+  const { animationEnded, setAnimationEnded } = useAnimation();
 
-  // Scroll to top of the page
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollToPlugin);
+  // // Scroll to top of the page
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     gsap.registerPlugin(ScrollToPlugin);
 
-      const handleLoad = () => {
-        gsap.to(window, {
-          scrollTo: 0,
-        });
-      };
+  //     const handleLoad = () => {
+  //       gsap.to(window, {
+  //         scrollTo: 0,
+  //       });
+  //     };
 
-      window.addEventListener("load", handleLoad);
+  //     window.addEventListener("load", handleLoad);
 
-      return () => {
-        window.removeEventListener("load", handleLoad);
-      };
-    }
-  }, []);
+  //     return () => {
+  //       window.removeEventListener("load", handleLoad);
+  //     };
+  //   }
+  // }, []);
 
   useGSAP(
     () => {
@@ -82,47 +80,47 @@ export default function DeckList() {
 
       document.body.style.overflow = "hidden";
 
-      const deckbox = document.getElementById("deckbox");
-      const overlayContainer = document.getElementById("overlay-container");
+      // const deckbox = document.getElementById("deckbox");
+      // const overlayContainer = document.getElementById("overlay-container");
 
-      if (!deckbox || !overlayContainer) return;
+      // if (!deckbox || !overlayContainer) return;
 
-      const deckboxRect = deckbox?.getBoundingClientRect();
-      const overlayContainerRect = overlayContainer?.getBoundingClientRect();
+      // const deckboxRect = deckbox?.getBoundingClientRect();
+      // const overlayContainerRect = overlayContainer?.getBoundingClientRect();
 
-      const translateX =
-        overlayContainerRect.left +
-        overlayContainerRect.width / 2 -
-        (deckboxRect.left + deckboxRect.width / 2);
-      const translateY =
-        overlayContainerRect.top +
-        overlayContainerRect.height / 2 -
-        (deckboxRect.top + deckboxRect.height / 2);
+      // const translateX =
+      //   overlayContainerRect.left +
+      //   overlayContainerRect.width / 2 -
+      //   (deckboxRect.left + deckboxRect.width / 2);
+      // const translateY =
+      //   overlayContainerRect.top +
+      //   overlayContainerRect.height / 2 -
+      //   (deckboxRect.top + deckboxRect.height / 2);
 
       gsap
         .timeline()
         // DECKBOX
         // 1. Position deckbox to center of page
-        .to(deckbox, {
-          x: translateX,
-          y: translateY,
-          scale: 2,
-        })
+        // .to(deckbox, {
+        //   x: translateX,
+        //   y: translateY,
+        //   scale: 2,
+        // })
         // 2. Reveal deckbox
-        .to(deckbox, {
-          opacity: 1,
-          duration: 1,
-        })
+        // .to(deckbox, {
+        //   opacity: 1,
+        //   duration: 1,
+        // })
         // 3. Animate deckbox to its final position
-        .to(deckbox, {
-          x: 0,
-          y: 0,
-          scale: 1,
-          delay: 1,
-          duration: DEFAULT_ANIMATION_DURATION,
-          ease: "elastic.out(1, 0.5)",
-          onComplete: () => {},
-        })
+        // .to(deckbox, {
+        //   x: 0,
+        //   y: 0,
+        //   scale: 1,
+        //   delay: 1,
+        //   duration: DEFAULT_ANIMATION_DURATION,
+        //   ease: "elastic.out(1, 0.5)",
+        //   onComplete: () => {},
+        // })
         // CARDS
         // 1. Bring cards to board
         .to(cards, {
@@ -282,35 +280,36 @@ export default function DeckList() {
   };
 
   return (
-    <section className="segment w-full h-auto flex flex-col items-center justify-center bg-[url('/images/bg/8764038.jpg')] bg-cover bg-no-repeat bg-center pb-8">
+    <section className="segment w-full min-h-screen h-full flex flex-col items-center justify-center bg-[url('/images/bg/8764038.jpg')] bg-cover bg-no-repeat bg-center pb-8">
       {/* Card overlay */}
-      <div
-        id="overlay-container"
-        className={`
+      {animationEnded && (
+        <div
+          id="overlay-container"
+          className={`
           fixed top-0 left-0 w-full h-full transition-all duration-500 
           flex ${isMobile ? "flex-col" : "flex-row"}
           ${selectedCard ? "z-30 bg-black bg-opacity-80" : ""}
         `}
-      >
-        <div
-          id="card-overlay"
-          className={`w-full h-full flex-grow basis-3/5 pb-20`}
-          onClick={resetCardPosition}
-        />
-        <div
-          id="card-details"
-          className={`w-full h-full flex-grow basis-2/5 ${
-            isMobile ? "translate-y-full" : "translate-x-full"
-          }`}
         >
-          <CardDetails
-            card={selectedCard}
-            isMobile={isMobile}
-            closeModal={resetCardPosition}
+          <div
+            id="card-overlay"
+            className={`w-full h-full flex-grow basis-3/5 pb-20`}
+            onClick={resetCardPosition}
           />
+          <div
+            id="card-details"
+            className={`w-full h-full flex-grow basis-2/5 ${
+              isMobile ? "translate-y-full" : "translate-x-full"
+            }`}
+          >
+            <CardDetails
+              card={selectedCard}
+              isMobile={isMobile}
+              closeModal={resetCardPosition}
+            />
+          </div>
         </div>
-      </div>
-      <div className=""></div>
+      )}
 
       {/* Card list */}
       <div
@@ -354,7 +353,7 @@ export default function DeckList() {
       </div>
 
       {/* Progress Bar */}
-      <ProgressBar />
+      {/* <ProgressBar /> */}
     </section>
   );
 }

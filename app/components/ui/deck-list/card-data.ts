@@ -122,8 +122,13 @@ export const DECK_LIST: NerdcastCard[] = [
     signedSrc: null,
     socialMedia: [
       {
+        name: "Agência de Viagem 'Glad Vip Travel'",
+        type: "insta",
+        link: "https://www.instagram.com/gladviptravel/",
+      },
+      {
         name: 'Site "10 Jardas"',
-        type: "site",
+        type: "football",
         link: "https://10jardas.com/",
       },
       {
@@ -246,7 +251,7 @@ export const DECK_LIST: NerdcastCard[] = [
     signedSrc: null,
     socialMedia: [
       {
-        name: "Instagram 'Glad Vip Travel'",
+        name: "Agência de Viagem 'Glad Vip Travel'",
         type: "insta",
         link: "https://www.instagram.com/gladviptravel/",
       },

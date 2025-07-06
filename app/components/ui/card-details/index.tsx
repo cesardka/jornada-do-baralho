@@ -19,9 +19,6 @@ const CardDetails = ({
   isMobile: boolean;
   closeModal: () => void;
 }) => {
-  // If no card, nothing should be rendered
-  if (card === null) return;
-
   const SignedLocationMap = useMemo(
     () =>
       dynamic(() => import("@/app/components/ui/card-details/signedLocation"), {
@@ -29,6 +26,9 @@ const CardDetails = ({
       }),
     []
   );
+
+  // If no card, nothing should be rendered
+  if (card === null) return;
 
   //  If card exists,
   //    If isMobile is true, render the card details popping from the bottom
@@ -99,8 +99,8 @@ const CardDetails = ({
       ) : (
         <div className="mt-2">
           <Image
-            width={300}
-            height={180}
+            width={960}
+            height={540}
             src="/images/ilustra-sem-redes.png"
             alt="Não encontramos as redes"
             className="w-full h-auto"
@@ -134,8 +134,8 @@ const CardDetails = ({
         </>
       ) : (
         <Image
-          width={320}
-          height={160}
+          width={960}
+          height={540}
           src="/images/ilustra-sem-assinatura.png"
           alt="Carta pendente assinatura"
           className="w-full h-auto"
