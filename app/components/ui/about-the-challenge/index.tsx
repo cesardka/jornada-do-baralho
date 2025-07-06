@@ -44,6 +44,10 @@ export default function AboutTheChallenge() {
         opacity: 0,
       });
 
+      gsap.set([sectionRef.current], {
+        backgroundSize: "100%",
+      });
+
       gsap.to(azaghalRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -75,8 +79,8 @@ export default function AboutTheChallenge() {
         ease: "expo.inOut",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top bottom", // starts when section enters
-          end: "bottom center", // ends when section leaves
+          start: "top center",
+          end: "center center",
           scrub: true, // smooth sync with scroll
         },
       });
@@ -89,7 +93,7 @@ export default function AboutTheChallenge() {
     <section
       id="aboutTheChallenge"
       ref={sectionRef}
-      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-cover bg-no-repeat bg-center ${
+      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/ed876c85-bd92-4bb9-beee-89eca7253e81.jpg')] bg-contain bg-no-repeat bg-center ${
         animationEnded ? "h-full w-full z-10" : "hidden"
       }`}
     >
