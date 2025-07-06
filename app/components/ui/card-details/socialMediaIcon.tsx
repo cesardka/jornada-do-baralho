@@ -11,6 +11,7 @@ import {
   FaPager,
   FaPodcast,
   FaSkull,
+  FaSpotify,
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
@@ -37,7 +38,8 @@ export const SocialMediaIcon = ({
     | "bluesky"
     | "princess"
     | "linkedin"
-    | "chifrezz";
+    | "chifrezz"
+    | "spotify";
   size: number;
 }) => {
   switch (type) {
@@ -73,6 +75,8 @@ export const SocialMediaIcon = ({
       return <FaLinkedin size={size} />;
     case "chifrezz":
       return <StudioChifrezz className="w-8 h-8" />;
+    case "spotify":
+      return <FaSpotify size={size} />;
     default:
       return (
         <span

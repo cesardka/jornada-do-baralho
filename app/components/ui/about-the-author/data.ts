@@ -3,7 +3,7 @@ import { CreditPerson } from "./types";
 export const PROJECT_AUTHORS: CreditPerson[] = [
   {
     name: "Lena Franzz",
-    title: "Animadora, ilustradora, diretora de animação, atriz e atriz de voz",
+    title: "Animadora, ilustradora, diretora de animação e atriz de voz",
     description:
       "Gaúcha naturalizada carioca desde 2013, acompanha o Nerdcast de muitos anos, já enviou artes dos fãs, fez tour gastronômico do Eskimó ao Majórica para deixar o Senhor K. com orgulho. Atualmente é sócia-fundadora do Studio Chifrezz, onde já animou projetos premiados internacionalmente e está trabalhando em mais obras para serem lançadas futuramente!",
     imageSrc: "/images/NERDINHO_LENA.webp",
@@ -50,6 +50,10 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
       {
         link: "https://www.instagram.com/leo.brasil/",
         type: "insta",
+      },
+      {
+        link: "https://open.spotify.com/artist/3H3zNDzX52sPpG6fxisgf1?si=9_rjqp7nTv67SFcGREK-Gw&nd=1&dlsi=87726bb642b34ca6",
+        type: "spotify",
       },
     ],
   },
