@@ -5,6 +5,7 @@ import {
   FaHamburger,
   FaHandSpock,
   FaInstagram,
+  FaLinkedin,
   FaMugHot,
   FaOctopusDeploy,
   FaPager,
@@ -14,9 +15,11 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { PiButterflyFill } from "react-icons/pi";
+import StudioChifrezz from "./studio_chifrezz.svg";
 
 export const SocialMediaIcon = ({
   type,
+  size = 20,
 }: {
   type:
     | "site"
@@ -32,40 +35,49 @@ export const SocialMediaIcon = ({
     | "book"
     | "burger"
     | "bluesky"
-    | "princess";
+    | "princess"
+    | "linkedin"
+    | "chifrezz";
+  size: number;
 }) => {
   switch (type) {
     case "site":
-      return <FaPager />;
+      return <FaPager size={size} />;
     case "insta":
-      return <FaInstagram />;
+      return <FaInstagram size={size} />;
     case "twitter":
-      return <FaTwitter />;
+      return <FaTwitter size={size} />;
     case "facebook":
-      return <FaFacebook />;
+      return <FaFacebook size={size} />;
     case "podcast":
-      return <FaPodcast />;
+      return <FaPodcast size={size} />;
     case "youtube":
-      return <FaYoutube />;
+      return <FaYoutube size={size} />;
     case "jovemnerd":
-      return <FaHandSpock />;
+      return <FaHandSpock size={size} />;
     case "football":
-      return <FaFootballBall />;
+      return <FaFootballBall size={size} />;
     case "skull":
-      return <FaSkull />;
+      return <FaSkull size={size} />;
     case "mug":
-      return <FaMugHot />;
+      return <FaMugHot size={size} />;
     case "book":
-      return <FaBook />;
+      return <FaBook size={size} />;
     case "burger":
-      return <FaHamburger />;
+      return <FaHamburger size={size} />;
     case "bluesky":
-      return <PiButterflyFill />;
+      return <PiButterflyFill size={size} />;
     case "princess":
-      return <FaOctopusDeploy />;
+      return <FaOctopusDeploy size={size} />;
+    case "linkedin":
+      return <FaLinkedin size={size} />;
+    case "chifrezz":
+      return <StudioChifrezz className="w-8 h-8" />;
     default:
       return (
-        <span className="inline-block w-5 h-5 bg-gray-200 rounded-full"></span>
+        <span
+          className={`inline-block w-${size} h-${size} bg-gray-200 rounded-full`}
+        ></span>
       );
   }
 };
