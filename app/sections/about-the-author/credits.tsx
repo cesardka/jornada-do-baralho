@@ -32,26 +32,30 @@ export default function Credits() {
   return (
     <div
       ref={creditsContainer}
-      className={`py-28 px-28 flex xl:flex-row flex-col w-full h-full items-start justify-around`}
+      className={`py-12 px-6 md:px-16 flex flex-col md:flex-row flex-wrap gap-y-12 md:gap-x-8 items-center md:items-start justify-center w-full h-full`}
     >
       {PROJECT_AUTHORS.map((person) => (
         <div
           key={person.name}
-          className={`flex md:flex-col flex-row justify-center items-center w-full`}
+          className="w-full md:w-1/3 flex flex-col items-center md:items-start"
         >
           <span className="relative group inline-block text-green-400">
             <div className={`${person.name !== "Lena Franzz" ? "hidden" : ""}`}>
-              <div className="absolute bottom-28 left-10 translate-x-0 group-hover:-translate-x-24 transition-all duration-300 ease-out flex">
-                <img
+              <div className="absolute bottom-28 left-40 translate-x-0 group-hover:-translate-x-48 transition-all duration-300 ease-out flex">
+                <Image
                   src="/images/kale2.png"
-                  alt="Kale"
+                  width={250}
+                  height={400}
+                  alt="Kale, protagonista da animação Kale do Museu Assustador"
                   className="w-20 h-auto origin-center rotate-[-55deg]"
                 />
               </div>
-              <div className="absolute bottom-5 left-10 translate-x-0 group-hover:-translate-x-20 transition-all duration-300 ease-out flex">
-                <img
+              <div className="absolute bottom-5 left-28 translate-x-0 group-hover:-translate-x-32 transition-all duration-300 ease-out flex">
+                <Image
                   src="/images/kiza.png"
-                  alt="Kiza"
+                  width={250}
+                  height={400}
+                  alt="Kiza, protagonista da animação Kale do Museu Assustador"
                   className="w-20 h-auto origin-center rotate-[-55deg]"
                 />
               </div>
@@ -62,14 +66,13 @@ export default function Credits() {
               alt={person.name}
               width={300}
               height={300}
-              className={`project-author rounded-xl object-cover max-w-xs h-auto drop-shadow-md`}
+              className={`project-author rounded-xl object-cover w-4/5 max-w-xs h-auto drop-shadow-md justify-self-center`}
             />
           </span>
-          <div
-            className={`flex flex-col w-fit flex-grow gap-2 mt-6 px-0 text-center md:text-left drop-shadow-md text-white`}
-          >
+
+          <div className="flex flex-col gap-2 mt-6 px-0 text-center md:text-left text-white drop-shadow-md">
             <div
-              className={`${bebasNeue.className} font-extrabold text-[3rem] pt-2 border-t-2 border-b-white`}
+              className={`${bebasNeue.className} font-extrabold text-4xl pt-2 border-t-2 border-b-white`}
             >
               {person.name}
               <ul className="inline-flex items-center space-x-2 ml-4 -mb-1">
@@ -90,11 +93,11 @@ export default function Credits() {
               </ul>
             </div>
 
-            <div className="italic font-semibold text-[0.85rem] md:text-[0.8rem] lg:text-[0.9rem] xl:text-[1rem] text-white -mt-5 mb-3">
+            <div className="italic font-semibold text-sm md:text-xs lg:text-sm xl:text-base -mt-1 mb-3">
               {person.title}
             </div>
 
-            <div className="text-justify text-[1.25rem] md:text-[1rem] lg:text-[1.3rem] xl:text-[1.35rem] text-white">
+            <div className="text-justify text-base md:text-sm lg:text-base xl:text-lg">
               {person.description}
             </div>
           </div>
