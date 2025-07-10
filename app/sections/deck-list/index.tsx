@@ -8,8 +8,8 @@ import { useGSAP } from "@gsap/react";
 
 import { DECK_LIST, NerdcastCard } from "./card-data";
 import CardDetails from "../card-details";
-import { useScreenWidth } from "../../useScreenWidth";
-import { useAnimation } from "../../AnimationContext";
+import { useScreenWidth } from "../../hooks/useScreenWidth";
+import { useAnimation } from "../../contexts/AnimationContext";
 
 gsap.registerPlugin(useGSAP);
 
@@ -26,9 +26,9 @@ const getScaleBasedOnScreenWidth = () => {
   console.log({ screenWidth });
 
   if (screenWidth > 1440) return 2.5;
-  if (screenWidth > 1024) return 2.3;
-  if (screenWidth > 768) return 2;
-  return 2;
+  if (screenWidth > 1024) return 1.8;
+  if (screenWidth > 768) return 1.5;
+  return 1.3;
 };
 
 const applyIdleAnimation = (element: HTMLElement) => {

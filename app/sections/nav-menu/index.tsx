@@ -3,6 +3,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaRepeat } from "react-icons/fa6";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import BouncingText from "../../../components/ui/bouncing-text";
 
 export default function NavMenu() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -45,14 +51,21 @@ export default function NavMenu() {
         }`}
       >
         {/* Debug-only reset button (you can remove condition if needed) */}
-        {process.env.NODE_ENV === "development" && (
-          <button
-            onClick={handleResetSplash}
-            className="absolute left-0 text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all justify-start"
-          >
-            <FaRepeat size={30} className="" />
-          </button>
-        )}
+        {/* {process.env.NODE_ENV === "development" && ( */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={handleResetSplash}
+              className="absolute left-0 text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all justify-start"
+            >
+              <FaRepeat size={30} className="" />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <BouncingText text="Assistir a abertura de novo" />
+          </TooltipContent>
+        </Tooltip>
+        {/* )} */}
 
         <Image
           width={100}

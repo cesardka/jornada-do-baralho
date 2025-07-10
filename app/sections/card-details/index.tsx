@@ -9,6 +9,7 @@ import CloseButton from "./closeButton";
 import Link from "next/link";
 import Image from "next/image";
 import { SocialMediaIcon } from "./socialMediaIcon";
+import { bebasNeue } from "@/app/fonts";
 
 const CardDetails = ({
   card,
@@ -21,7 +22,7 @@ const CardDetails = ({
 }) => {
   const SignedLocationMap = useMemo(
     () =>
-      dynamic(() => import("@/app/components/ui/card-details/signedLocation"), {
+      dynamic(() => import("@/app/sections/card-details/signedLocation"), {
         ssr: false,
       }),
     []
@@ -97,14 +98,22 @@ const CardDetails = ({
           ))}
         </ul>
       ) : (
-        <div className="mt-2">
+        <div className="mt-3 relative group w-full max-w-xl mx-auto">
           <Image
             width={960}
             height={540}
             src="/images/ilustra-sem-redes.png"
             alt="Não encontramos as redes"
-            className="w-full h-auto"
+            className="w-full h-auto transition duration-300 ease-in-out group-hover:blur-md"
           />
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+            <div
+              className={`${bebasNeue.className} text-white text-2xl font-semibold uppercase px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
+            >
+              <p className="text-2xl">Sem redes disponíveis</p>
+              <p className="text-lg">I want to believe</p>
+            </div>
+          </div>
         </div>
       )}
 
@@ -133,13 +142,23 @@ const CardDetails = ({
           </div>
         </>
       ) : (
-        <Image
-          width={960}
-          height={540}
-          src="/images/ilustra-sem-assinatura.png"
-          alt="Carta pendente assinatura"
-          className="w-full h-auto"
-        />
+        <div className="mt-4 relative group w-full max-w-xl mx-auto">
+          <Image
+            width={960}
+            height={540}
+            src="/images/ilustra-sem-assinatura.png"
+            alt="Carta pendente assinatura"
+            className="w-full h-auto transition duration-300 ease-in-out group-hover:blur-md"
+          />
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+            <div
+              className={`${bebasNeue.className} text-white font-semibold uppercase px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
+            >
+              <p className="text-2xl">Assinatura pendente</p>
+              <p className="text-lg">Que fim levou...?</p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

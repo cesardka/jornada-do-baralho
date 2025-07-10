@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimationProvider } from "./components/AnimationContext";
-import AboutTheAuthor from "./components/ui/about-the-author";
-import AboutTheChallenge from "./components/ui/about-the-challenge";
-import DeckList from "./components/ui/deck-list";
-import Footer from "./components/ui/footer";
-import NavMenu from "./components/ui/nav-menu";
-import SplashScreen from "./components/ui/splash-screen";
-import BouncingText from "./components/ui/bouncing-text";
+import { AnimationProvider } from "./contexts/AnimationContext";
+import AboutTheAuthor from "./sections/about-the-author";
+import AboutTheChallenge from "./sections/about-the-challenge";
+import DeckList from "./sections/deck-list";
+import Footer from "./sections/footer";
+import NavMenu from "./sections/nav-menu";
+import SplashScreen from "./sections/splash-screen";
+import BouncingText from "../components/ui/bouncing-text";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 export default function Card() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -71,19 +72,21 @@ export default function Card() {
 
   return (
     <AnimationProvider>
-      <div
-        className={`transition-opacity duration-1000 ${
-          isFadingIn ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <NavMenu />
-        <div id="container" ref={containerRef}>
-          <DeckList />
-          <AboutTheChallenge />
-          <AboutTheAuthor />
-          <Footer />
+      <TooltipProvider>
+        <div
+          className={`transition-opacity duration-1000 ${
+            isFadingIn ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <NavMenu />
+          <div id="container" ref={containerRef}>
+            <DeckList />
+            <AboutTheChallenge />
+            <AboutTheAuthor />
+            <Footer />
+          </div>
         </div>
-      </div>
+      </TooltipProvider>
     </AnimationProvider>
   );
 }

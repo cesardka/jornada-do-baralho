@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useAnimation } from "../../AnimationContext";
+import { useAnimation } from "../../contexts/AnimationContext";
 import Credits from "./credits";
 
 export default function AboutTheAuthor() {

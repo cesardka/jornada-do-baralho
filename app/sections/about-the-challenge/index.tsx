@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
-import { useAnimation } from "../../AnimationContext";
+import { useAnimation } from "../../contexts/AnimationContext";
 import { FaMusic, FaPause } from "react-icons/fa";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -97,7 +97,7 @@ export default function AboutTheChallenge() {
     <section
       id="aboutTheChallenge"
       ref={sectionRef}
-      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/rainbow-vortex2.svg')] bg-cover bg-no-repeat bg-top-right h-auto w-full z-10`}
+      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/rainbow-vortex2.svg')] bg-contain bg-no-repeat w-full z-10`}
     >
       {/* LEFT COLUMN: Challenge Rules */}
       <div className="flex flex-col justify-center h-full w-1/2 text-white pl-20 z-20">
@@ -179,7 +179,7 @@ export default function AboutTheChallenge() {
           </li>
         </ol>
 
-        <div className="-mt-4 mb-16 flex flex-col w-full">
+        <div className="-mt-4 flex flex-col w-full">
           <button
             onClick={toggleAudio}
             className={`${

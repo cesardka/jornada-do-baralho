@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useAnimation } from "../../AnimationContext";
+import { useAnimation } from "../../contexts/AnimationContext";
 
 export default function Footer() {
   const { animationEnded } = useAnimation();

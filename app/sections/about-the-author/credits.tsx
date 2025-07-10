@@ -69,7 +69,7 @@ export default function Credits() {
             className={`flex flex-col w-fit flex-grow gap-2 mt-6 px-0 text-center md:text-left drop-shadow-md text-white`}
           >
             <div
-              className={`${bebasNeue.className} font-extrabold text-[3rem] pt-2 border-t-2 border-b-white w-[400px]`}
+              className={`${bebasNeue.className} font-extrabold text-[3rem] pt-2 border-t-2 border-b-white`}
             >
               {person.name}
               <ul className="inline-flex items-center space-x-2 ml-4 -mb-1">
@@ -90,11 +90,11 @@ export default function Credits() {
               </ul>
             </div>
 
-            <div className="italic font-semibold text-[0.85rem] md:text-[0.8rem] lg:text-[0.9rem] xl:text-[1rem] text-white w-[400px] -mt-5 mb-3">
+            <div className="italic font-semibold text-[0.85rem] md:text-[0.8rem] lg:text-[0.9rem] xl:text-[1rem] text-white -mt-5 mb-3">
               {person.title}
             </div>
 
-            <div className="text-justify text-[1.25rem] md:text-[1rem] lg:text-[1.3rem] xl:text-[1.35rem] text-white w-[400px]">
+            <div className="text-justify text-[1.25rem] md:text-[1rem] lg:text-[1.3rem] xl:text-[1.35rem] text-white">
               {person.description}
             </div>
           </div>
