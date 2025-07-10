@@ -31,6 +31,10 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     imageSrc: "/images/NERDINHO_CESAR.webp",
     socialMedia: [
       {
+        link: "https://github.com/cesardka",
+        type: "github",
+      },
+      {
         link: "https://www.instagram.com/cesardka/",
         type: "insta",
       },
@@ -48,12 +52,12 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     imageSrc: "/images/NERDINHO_LEO.webp",
     socialMedia: [
       {
-        link: "https://www.instagram.com/leo.brasil/",
-        type: "insta",
-      },
-      {
         link: "https://open.spotify.com/artist/3H3zNDzX52sPpG6fxisgf1?si=9_rjqp7nTv67SFcGREK-Gw&nd=1&dlsi=87726bb642b34ca6",
         type: "spotify",
+      },
+      {
+        link: "https://www.instagram.com/leo.brasil/",
+        type: "insta",
       },
     ],
   },

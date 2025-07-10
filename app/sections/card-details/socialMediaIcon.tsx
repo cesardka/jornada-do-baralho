@@ -2,6 +2,7 @@ import {
   FaBook,
   FaFacebook,
   FaFootballBall,
+  FaGithub,
   FaHamburger,
   FaHandSpock,
   FaInstagram,
@@ -41,7 +42,8 @@ export const SocialMediaIcon = ({
     | "linkedin"
     | "chifrezz"
     | "spotify"
-    | "football";
+    | "football"
+    | "github";
   size?: number;
 }) => {
   switch (type) {
@@ -81,6 +83,8 @@ export const SocialMediaIcon = ({
       return <FaSpotify size={size} />;
     case "football":
       return <FaFootball size={size} />;
+    case "github":
+      return <FaGithub size={size} />;
     default:
       return (
         <span

@@ -22,7 +22,8 @@ export interface CreditPerson {
       | "princess"
       | "linkedin"
       | "chifrezz"
-      | "spotify";
+      | "spotify"
+      | "github";
   }[];
   customSize?: number;
 }
