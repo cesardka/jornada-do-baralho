@@ -31,21 +31,23 @@ export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-1000 ${
+      className={`w-full h-full flex items-center justify-center bg-black transition-opacity duration-1000 ${
         isFadingOut ? "opacity-0" : "opacity-100"
       }`}
     >
-      <video
-        ref={videoRef}
-        className="w-full h-full object-cover"
-        muted
-        playsInline
-        onEnded={handleVideoEnd}
-        preload="auto"
-      >
-        <source src="/videos/JNB_V008.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div className="w-full h-auto aspect-video">
+        <video
+          ref={videoRef}
+          className={`w-full h-full object-cover landscape:object-contain max-w-none`}
+          muted
+          playsInline
+          onEnded={handleVideoEnd}
+          preload="auto"
+        >
+          <source src="/videos/JNB_V008.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   );
 }
