@@ -1,12 +1,14 @@
 # Jornada do Baralho ♠️ ♥️ ♣️ ♦️
 
 - [Jornada do Baralho ♠️ ♥️ ♣️ ♦️](#jornada-do-baralho-️-️-️-️)
+  - [💻 URLs](#-urls)
   - [🎯 Project Purpose](#-project-purpose)
   - [🃏 The Deck Challenge](#-the-deck-challenge)
   - [🔥 Challenge Rules:](#-challenge-rules)
   - [🏆 The Prize:](#-the-prize)
 - [Development](#development)
   - [Credits](#credits)
+  - [Credits](#credits-1)
   - [🏃‍➡️ Getting Started](#️-getting-started)
   - [👩‍🏫 Learn More](#-learn-more)
   - [🚀 Deploy on Vercel](#-deploy-on-vercel)
@@ -14,6 +16,11 @@
 "Jornada do Baralho" (or "Deck's Journey") is a playful nod to the [Hero's Journey](https://en.wikipedia.org/wiki/Hero%27s_journey), mentioned by [Eduardo Spohr](https://www.instagram.com/duduspohr/)'s multiple times over the years during his storytelling lessons.
 
 This project is my personal quest to complete the legendary Deck Challenge, a challenge born in 2012 that remains unconquered.
+
+## 💻 URLs
+
+- (prd) https://www.jornadadobaralho.com.br
+- (dev) https://jornada-do-baralho-git-master-cesar-hs-projects.vercel.app/
 
 ## 🎯 Project Purpose
 
@@ -53,9 +60,34 @@ I will update the website as the cards get signed. 🖖😉
 
 ## Credits
 
-- César Hoffmann (developer) | [![Linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/c%C3%A9sar-hoffmann/)
-- Lena Franzz (animator) | [![Linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/lenafranzz/) [![Instagram](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/franzz_art) [![Website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://www.studiochifrezz.com/)
+## Credits
+
+- César Hoffmann (developer) |
+  <a href="https://www.linkedin.com/in/c%C3%A9sar-hoffmann/" target="_blank">
+  <img src="https://skillicons.dev/icons?i=linkedin" width="20" height="20" />
+  </a>
+  <a href="https://www.instagram.com/cesardka/" target="_blank">
+  <img src="https://skillicons.dev/icons?i=instagram" width="20" height="20" />
+  </a>
+
+- Lena Franzz (animator) |
+  <a href="https://www.linkedin.com/in/lenafranzz/" target="_blank">
+  <img src="https://skillicons.dev/icons?i=linkedin" width="20" height="20" />
+  </a>
+  <a href="https://www.instagram.com/franzz_art" target="_blank">
+  <img src="https://skillicons.dev/icons?i=instagram" width="20" height="20" />
+  </a>
+  <a href="https://www.studiochifrezz.com/" target="_blank">
+  <img src="https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white" height="20" />
+  </a>
+
 - Leo Brasil (sound designer, musician) |
+  <a href="https://open.spotify.com/artist/3H3zNDzX52sPpG6fxisgf1?si=9_rjqp7nTv67SFcGREK-Gw&nd=1&dlsi=87726bb642b34ca6" target="_blank">
+  <img src="https://skillicons.dev/icons?i=spotify" width="20" height="20" />
+  </a>
+  <a href="https://www.instagram.com/leo.brasil/" target="_blank">
+  <img src="https://skillicons.dev/icons?i=instagram" width="20" height="20" />
+  </a>
 
 ## 🏃‍➡️ Getting Started
 
