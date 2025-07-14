@@ -9,24 +9,31 @@ interface SplashScreenProps {
 export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
-  // Start video playback after a small delay
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      const timeout = setTimeout(() => {
-        video.play().catch((err) => console.error("Autoplay failed:", err));
-      }, 500);
-      return () => clearTimeout(timeout);
+      video.muted = isMuted;
+      video.play().catch((err) => {
+        console.error("Autoplay failed:", err);
+      });
     }
-  }, []);
+  }, [isMuted]);
 
-  // Handle video end by fading out
   const handleVideoEnd = () => {
     setIsFadingOut(true);
     setTimeout(() => {
-      onVideoEnd(); // Switch to app content after fade out
-    }, 1000); // Match this duration with Tailwind transition
+      onVideoEnd();
+    }, 1000);
+  };
+
+  const handleUnmute = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = false;
+      setIsMuted(false);
+    }
   };
 
   return (
@@ -35,18 +42,28 @@ export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
         isFadingOut ? "opacity-0" : "opacity-100"
       }`}
     >
-      <div className="w-full h-auto aspect-video">
+      <div className="w-full h-auto aspect-video relative">
         <video
           ref={videoRef}
-          className={`w-full h-full object-cover landscape:object-contain max-w-none`}
-          muted
+          className="w-full h-full object-cover landscape:object-contain max-w-none"
+          autoPlay
           playsInline
+          muted={isMuted}
           onEnded={handleVideoEnd}
           preload="auto"
         >
           <source src="/videos/JNB_V008.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        {isMuted && (
+          <button
+            onClick={handleUnmute}
+            className="absolute bottom-4 right-4 px-4 py-2 text-sm bg-white/80 hover:bg-white text-black rounded transition"
+          >
+            🔊 Unmute
+          </button>
+        )}
       </div>
     </div>
   );
