@@ -32,12 +32,12 @@ export default function Credits() {
   return (
     <div
       ref={creditsContainer}
-      className={`py-12 px-6 md:px-16 flex flex-col md:flex-row flex-wrap gap-y-12 md:gap-x-8 items-center md:items-start justify-center w-full h-full`}
+      className={`py-12 px-6 md:px-16 flex flex-col md:flex-row flex-wrap gap-y-12 md:gap-x-16 items-center md:items-start justify-around w-full h-full`}
     >
       {PROJECT_AUTHORS.map((person) => (
         <div
           key={person.name}
-          className="w-full md:w-1/3 max-w-full md:max-w-[25vw] flex flex-col items-center md:items-start"
+          className="w-full md:w-1/3 max-w-full md:max-w-[20vw] flex flex-col items-center md:items-start"
         >
           <span className="relative w-full group inline-block">
             {/* Lena's exclusive hover effect */}
@@ -75,7 +75,7 @@ export default function Credits() {
 
           <div className="flex flex-col gap-2 mt-2 pt-2 px-0 text-center md:text-left text-white drop-shadow-md">
             <div
-              className={`${bebasNeue.className} flex flex-row items-center justify-center md:justify-start font-extrabold text-4xl pt-4 border-t-2 border-b-white`}
+              className={`${bebasNeue.className} flex flex-row items-center justify-center md:justify-start font-extrabold text-2xl xl:text-5xl pt-4 border-t-2 border-b-white`}
             >
               {person.name}
               <ul className="inline-flex items-center space-x-2 ml-4">
