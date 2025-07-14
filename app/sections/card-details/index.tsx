@@ -108,10 +108,10 @@ const CardDetails = ({
           />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
             <div
-              className={`${bebasNeue.className} text-white text-2xl font-semibold uppercase px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
+              className={`${bebasNeue.className} text-white text-2xl font-semibold px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
             >
-              <p className="text-2xl">Sem redes disponíveis</p>
-              <p className="text-lg">I want to believe</p>
+              <p className="text-4xl">Sem redes disponíveis</p>
+              <p className="text-xl">I want to believe</p>
             </div>
           </div>
         </div>
@@ -152,10 +152,10 @@ const CardDetails = ({
           />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
             <div
-              className={`${bebasNeue.className} text-white font-semibold uppercase px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
+              className={`${bebasNeue.className} text-white font-semibold px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
             >
-              <p className="text-2xl">Assinatura pendente</p>
-              <p className="text-lg">Que fim levou...?</p>
+              <p className="text-4xl">Assinatura pendente</p>
+              <p className="text-xl">Que fim levou...?</p>
             </div>
           </div>
         </div>
