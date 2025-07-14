@@ -39,7 +39,6 @@ export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
         <video
           ref={videoRef}
           className={`w-full h-full object-cover landscape:object-contain max-w-none`}
-          muted
           playsInline
           onEnded={handleVideoEnd}
           preload="auto"
