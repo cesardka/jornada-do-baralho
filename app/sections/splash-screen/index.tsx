@@ -31,7 +31,7 @@ export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
 
   return (
     <div
-      className={`w-full h-full flex items-center justify-center bg-black transition-opacity duration-1000 ${
+      className={`w-full h-screen flex items-center justify-center bg-black transition-opacity duration-1000 ${
         isFadingOut ? "opacity-0" : "opacity-100"
       }`}
     >
