@@ -254,7 +254,7 @@ export default function Gallery() {
               </button>
 
               {/* Image info overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl">
+              {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl">
                 <div className="text-white text-center">
                   <p className="text-sm text-gray-300 mb-1">Ilustração por</p>
                   <p className="text-xl font-bold text-yellow-400">
@@ -262,7 +262,7 @@ export default function Gallery() {
                   </p>
                   <p className="text-sm text-gray-400 mt-1">Studio Chifrezz</p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Backdrop hint */}
               <div className="absolute top-4 left-4 text-white/70 text-sm bg-black/30 px-3 py-1 rounded-full">
