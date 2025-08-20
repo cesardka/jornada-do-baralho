@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaRepeat } from "react-icons/fa6";
+import { ImageIcon } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -50,23 +52,6 @@ export default function NavMenu() {
           visible ? "text-md" : "invisible"
         }`}
       >
-        {/* Debug-only reset button (you can remove condition if needed) */}
-        {/* {process.env.NODE_ENV === "development" && ( */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              onClick={handleResetSplash}
-              className="absolute left-0 text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all justify-start"
-            >
-              <FaRepeat size={30} className="" />
-            </button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <BouncingText text="Assistir a abertura de novo" />
-          </TooltipContent>
-        </Tooltip>
-        {/* )} */}
-
         <Image
           width={100}
           height={50}
@@ -74,6 +59,40 @@ export default function NavMenu() {
           alt="Jornada do Baralho logo"
           className="w-auto h-16"
         />
+
+        {/* Both buttons on the right side */}
+        <div className="absolute right-0 flex items-center gap-1 md:gap-2">
+          {/* Reset Animation Button */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                onClick={handleResetSplash}
+                className="text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all"
+              >
+                <FaRepeat size={20} className="" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <BouncingText text="Assistir a abertura de novo" />
+            </TooltipContent>
+          </Tooltip>
+
+          {/* Gallery link */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href="/gallery"
+                className="text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all flex items-center gap-2"
+              >
+                <ImageIcon size={20} />
+                <span className="hidden md:inline">Galeria</span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <BouncingText text="Ver galeria de ilustrações da Lena Franzz" />
+            </TooltipContent>
+          </Tooltip>
+        </div>
       </div>
     </header>
   );
