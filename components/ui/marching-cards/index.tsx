@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { DECK_LIST } from "../../../app/sections/deck-list/card-data";
 
 interface MarchingCardsProps {
@@ -34,16 +35,18 @@ export default function MarchingCards({
         }}
       >
         {cardSets.map((card, index) => (
-          <img
+          <Image
             key={`${card.id}-${index}`}
             src={card.originalSrc}
             alt={`Carta do ${card.name}`}
+            width={80}
+            height={122}
             className="flex-shrink-0 mx-4 opacity-60 animate-sway"
             style={{
-              width: "80px",
-              height: "121.6px",
               animationDelay: `${index * 0.1}s`,
             }}
+            priority={index < 10}
+            unoptimized
           />
         ))}
       </div>

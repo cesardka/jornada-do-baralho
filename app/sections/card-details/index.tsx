@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { NerdcastCard } from "../deck-list/card-data";
 import CardSuit from "./cardSuit";
 import CloseButton from "./closeButton";
 import Link from "next/link";
-import Image from "next/image";
 import { SocialMediaIcon } from "./socialMediaIcon";
 import { bebasNeue } from "@/app/fonts";
 
@@ -171,9 +171,11 @@ const CardDetails = ({
           {card.signedSrc ? (
             <>
               <div className="mt-4">
-                <img
+                <Image
                   src={card.signedSrc}
                   alt={`Carta assinada por ${card.name}`}
+                  width={400}
+                  height={600}
                   className="w-full rounded-md shadow-md"
                 />
               </div>

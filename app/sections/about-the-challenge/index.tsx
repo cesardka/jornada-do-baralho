@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -140,24 +141,32 @@ export default function AboutTheChallenge() {
             <span className="relative group inline-block cursor-pointer text-green-400">
               figuras{" "}
               <div className="absolute top-0 -left-10 -translate-x-1/2 xl:-translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
-                <img
+                <Image
                   src="/images/card/nerdcast-k-srk.webp"
                   alt="Carta Sr. K"
+                  width={80}
+                  height={122}
                   className="w-20 h-auto origin-bottom-right rotate-[-10deg] z-10"
                 />
-                <img
+                <Image
                   src="/images/card/nerdcast-q-francine.webp"
                   alt="Carta Francine"
+                  width={80}
+                  height={122}
                   className="w-20 h-auto origin-bottom-right rotate-[-5deg] z-10 -ml-4"
                 />
-                <img
+                <Image
                   src="/images/card/nerdcast-j-gugaferrari.webp"
                   alt="Carta Guga Ferrari"
+                  width={80}
+                  height={122}
                   className="w-20 h-auto origin-bottom-left rotate-[5deg] z-10 -ml-4"
                 />
-                <img
+                <Image
                   src="/images/card/nerdcast-a-nickellis.webp"
                   alt="Carta Nick Ellis"
+                  width={80}
+                  height={122}
                   className="w-20 h-auto origin-bottom-left rotate-[10deg] z-10 -ml-4"
                 />
               </div>
@@ -166,14 +175,18 @@ export default function AboutTheChallenge() {
             <span className="relative group inline-block cursor-pointer text-red-400">
               coringas{" "}
               <div className="absolute top-0 left-0 xl:translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
-                <img
+                <Image
                   src="/images/card/nerdcast-joker-fabioyabu.webp"
                   alt="Carta Fabio Yabu"
+                  width={80}
+                  height={122}
                   className="w-20 h-auto rotate-[-5deg] z-10"
                 />
-                <img
+                <Image
                   src="/images/card/nerdcast-joker-tresde.webp"
                   alt="Carta Tresdê"
+                  width={80}
+                  height={122}
                   className="w-20 h-auto rotate-[5deg] z-10 -ml-4"
                 />
               </div>
@@ -182,9 +195,11 @@ export default function AboutTheChallenge() {
             <span className="relative group inline-block  cursor-pointer text-blue-400">
               reserva
               <div className="absolute top-0 left-0 xl:translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex z-10">
-                <img
+                <Image
                   src="/images/card/nerdcast-amigoimaginario.webp"
                   alt="Carta Amigo Imaginário"
+                  width={80}
+                  height={122}
                   className="w-20 h-auto z-10 ml-4"
                 />
               </div>
@@ -252,19 +267,25 @@ export default function AboutTheChallenge() {
       {/* RIGHT IMAGES */}
       <div className="absolute bottom-0 right-0 flex items-end justify-center md:justify-end h-auto w-full md:w-1/2">
         {/* Image 1 — Azaghal (slightly above center) */}
-        <img
+        <Image
           ref={azaghalRef}
           src="/images/azaghal-esquerdo.webp"
           alt="Azaghal"
+          width={400}
+          height={600}
           className="absolute right-20 md:right-40 xl:right-52 bottom-0 h-auto h-[50vh] md:h-[90vh] w-auto object-contain"
+          priority
         />
 
         {/* Image 2 — Jovem Nerd (slightly below center) */}
-        <img
+        <Image
           ref={alottoniRef}
           src="/images/jovem-nerd-esquerdo.webp"
           alt="Jovem Nerd"
+          width={400}
+          height={600}
           className="relative -right-5 md:-right-10 bottom-0 h-auto h-[50vh] md:h-[90vh] w-auto z-10"
+          priority
         />
       </div>
     </section>

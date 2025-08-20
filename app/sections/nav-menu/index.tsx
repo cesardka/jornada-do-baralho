@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRepeat } from "react-icons/fa6";
@@ -16,7 +16,7 @@ export default function NavMenu() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const currentScrollPos = window.scrollY;
     const setInvisible = currentScrollPos > 80;
 
@@ -27,12 +27,12 @@ export default function NavMenu() {
     }
 
     setPrevScrollPos(currentScrollPos);
-  };
+  }, [prevScrollPos]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const handleResetSplash = () => {
     localStorage.removeItem("splashSeen");
@@ -81,7 +81,7 @@ export default function NavMenu() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="/gallery"
+                href="/galeria"
                 className="text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all flex items-center gap-2"
               >
                 <ImageIcon size={20} />

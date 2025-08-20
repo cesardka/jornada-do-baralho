@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function FallingCards() {
   const cardImages = [
     "nerdcast-k-srk.webp",
@@ -125,15 +127,10 @@ export default function FallingCards() {
           height: 100%;
           backface-visibility: hidden;
           border-radius: 6px;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
           border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .card-back {
           transform: rotateY(180deg);
-          background-image: url("/images/card/card-back-red.webp");
-          background-size: cover;
         }
         ${cards
           .map((card, index) => {
@@ -246,11 +243,26 @@ export default function FallingCards() {
       {cards.map((card) => (
         <div key={card.id} className="falling-card">
           <div className="card-inner">
-            <div
-              className="card-front"
-              style={{ backgroundImage: `url(/images/card/${card.image})` }}
-            ></div>
-            <div className="card-back"></div>
+            <div className="card-front">
+              <Image
+                src={`/images/card/${card.image}`}
+                alt={`Falling card ${card.id}`}
+                width={50}
+                height={70}
+                className="w-full h-full object-cover rounded-md"
+                unoptimized
+              />
+            </div>
+            <div className="card-back">
+              <Image
+                src="/images/card/card-back-red.webp"
+                alt="Card back"
+                width={50}
+                height={70}
+                className="w-full h-full object-cover rounded-md"
+                unoptimized
+              />
+            </div>
           </div>
         </div>
       ))}

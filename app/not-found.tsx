@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Home } from "lucide-react";
 import MarchingCards from "../components/ui/marching-cards";
 import { SocialMediaIcon } from "./sections/card-details/socialMediaIcon";
@@ -61,19 +62,23 @@ export default function NotFound() {
             >
               {/* Front - Illustration */}
               <div className="absolute inset-0 w-full h-full backface-hidden">
-                <img
+                <Image
                   src="/images/illustrations/ilustra-nao_pensa_no_404.jpeg"
                   alt="Não pensa no 404..."
-                  className="w-full h-full rounded-lg shadow-xl object-cover"
+                  fill
+                  className="rounded-lg shadow-xl object-cover"
+                  priority
                 />
               </div>
 
               {/* Back - Lena Franzz Card */}
               <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-xl p-2 md:p-6 flex flex-col justify-center items-center text-white overflow-hidden">
                 <div className="text-center max-w-full px-1">
-                  <img
+                  <Image
                     src="/images/NERDINHO_LENA.webp"
                     alt="Lena Franzz"
+                    width={96}
+                    height={96}
                     className="w-12 h-12 md:w-24 md:h-24 rounded-full mx-auto mb-2 md:mb-4 object-cover"
                   />
                   <h3 className="text-base md:text-2xl font-bold text-white mb-1 md:mb-2">
@@ -84,8 +89,9 @@ export default function NotFound() {
                   </p>
                   <p className="hidden md:block text-xs md:text-sm text-gray-400 leading-tight md:leading-relaxed mb-2 md:mb-3 px-1">
                     Gaúcha naturalizada carioca, sócia-fundadora do Studio
-                    Chifrezz. Responsável pela ilustração "Não pensa no 404..."
-                    desta página e de todas as outras na Jornada do Baralho.
+                    Chifrezz. Responsável pela ilustração &quotNão pensa no
+                    404...&quot desta página e de todas as outras na Jornada do
+                    Baralho.
                   </p>
                   <div className="flex justify-center gap-2 md:gap-4 mt-1 md:mt-4">
                     <a

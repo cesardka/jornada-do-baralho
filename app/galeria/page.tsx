@@ -174,10 +174,11 @@ export default function Gallery() {
                 >
                   {illustration.type === "video" ? (
                     <div className="w-full h-full relative overflow-hidden">
-                      <img
+                      <Image
                         src="/images/jovem-nerd-azaghal.webp"
                         alt="Video thumbnail"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                         <Play size={48} className="text-white drop-shadow-lg" />
@@ -192,10 +193,11 @@ export default function Gallery() {
                       </div>
                     </div>
                   ) : (
-                    <img
+                    <Image
                       src={illustration.src}
                       alt={illustration.alt}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   )}
                 </div>
@@ -213,11 +215,12 @@ export default function Gallery() {
         </div>
 
         {/* Footer */}
-        <div className="max-w-7xl mx-auto mt-16 text-center">
+        <div className="max-w-7xl mx-auto mt-12 text-center">
           <div className="text-gray-400 text-sm">
             <p>
-              🎨 Todas as ilustrações são propriedade intelectual de Lena Franzz
-              e Studio Chifrezz
+              🎨 Todas as ilustrações são fruto do esforço humano da Lena Franzz
+              e Studio Chifrezz, <br /> como homenagem a esse universo de
+              conteúdo feito por pessoas incríveis ao longo dos últimos 20 anos.
             </p>
           </div>
         </div>
@@ -234,9 +237,11 @@ export default function Gallery() {
               className="relative max-w-5xl animate-in zoom-in-95 duration-300"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <Image
                 src={selectedImage}
                 alt="Ilustração ampliada"
+                width={1200}
+                height={800}
                 className="w-full h-auto object-contain rounded-xl shadow-2xl"
               />
 
