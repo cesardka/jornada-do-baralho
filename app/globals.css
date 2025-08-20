@@ -5,7 +5,7 @@
 @import "leaflet/dist/leaflet.css";
 
 :root {
-  --cardBorder: 20px;
+  --cardBorder: 7px;
   --bg-width: 20px;
   --bg-height: 20px;
   --flip-card-animation-time: 0.4s;
@@ -437,7 +437,7 @@ html {
     rgba(255, 215, 0, 0.4) 50%, 
     rgba(255, 255, 255, 0.1) 75%, 
     rgba(255, 215, 0, 0.3) 100%);
-  border-radius: calc(var(--cardBorder));
+  border-radius: calc(var(--cardBorder) + 20px);
   z-index: -1;
   filter: blur(1px);
   opacity: 0;

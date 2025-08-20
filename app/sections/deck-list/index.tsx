@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -28,7 +28,7 @@ const getScaleBasedOnScreenWidth = () => {
   if (screenWidth > 1440) return 2.5;
   if (screenWidth > 1024) return 1.8;
   if (screenWidth > 768) return 1.5;
-  return 1.3;
+  return 2.0; // Increased from 1.3 to 2.0 for mobile devices
 };
 
 const applyIdleAnimation = (element: HTMLElement) => {
@@ -49,6 +49,29 @@ export default function DeckList() {
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
   const [isFlipped, setIsFlipped] = useState(false);
   const isMobile = useScreenWidth(); // TODO: will probably need to move up to the layout, so we can use it in other components
+
+  // Reset card details position when screen size changes
+  useEffect(() => {
+    if (selectedCard) {
+      const cardDetailsElement = document.getElementById("card-details");
+      if (cardDetailsElement) {
+        // Clear any existing GSAP transforms
+        gsap.set(cardDetailsElement, { clearProps: "all" });
+
+        // Apply the correct initial position based on current screen size
+        const initialPosition = isMobile ? { y: "100%" } : { x: "100%" };
+        gsap.set(cardDetailsElement, initialPosition);
+
+        // Animate to visible position
+        const visiblePosition = isMobile ? { y: 0 } : { x: 0 };
+        gsap.to(cardDetailsElement, {
+          ...visiblePosition,
+          duration: DEFAULT_ANIMATION_DURATION,
+          ease: "expo.inOut",
+        });
+      }
+    }
+  }, [isMobile, selectedCard]);
 
   const container = useRef<HTMLDivElement | null>(null);
 
