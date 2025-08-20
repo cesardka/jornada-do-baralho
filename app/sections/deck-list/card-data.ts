@@ -401,6 +401,133 @@ export const DECK_LIST: NerdcastCard[] = [
     signedOn: null,
     signedLocation: null,
     signedSrc: null,
+    socialMedia: [
+      {
+        name: "Nerdcast 594 - Blade Runner 2049: menos noir e mais futurista",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/blade-runner-2049-menos-noir-e-mais-futurista",
+      },
+      {
+        name: "Nerdcast 590 - Rick and Morty: Não pense nisso!",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/rick-and-morty-nao-pense-nisso",
+      },
+      {
+        name: "NerdCast 505 - Doctor… Who?",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-505-doctor-who",
+      },
+      {
+        name: "NerdCast 498 - RPG Cyberpunk 3: Estrada para o inferno",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-498-rpg-cyberpunk-3-estrada-para-o-inferno",
+      },
+      {
+        name: "NerdCast 482 - As dimensões de Interestelar",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-482-as-dimensoes-de-interestelar",
+      },
+      {
+        name: "NerdCast 463 - Vingadores: A carência de Ultron",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-463-vingadores-a-carencia-de-ultron",
+      },
+      {
+        name: "NerdCast 446 - RPG Cyberpunk 2: O Passageiro do Futuro",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-446-rpg-cyberpunk-2-o-passageiro-do-futuro",
+      },
+      {
+        name: "NerdCast 439 - Marvel & DC 2020",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-439-marvel-dc-2020",
+      },
+      {
+        name: "NerdCast 423 - Os sonhos perpétuos de Sandman",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-423-os-sonhos-perpetuos-de-sandman",
+      },
+      {
+        name: "NerdCast 395 - RPG Cyberpunk 1: O grande assalto",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-395-rpg-cyberpunk-1-o-grande-assalto",
+      },
+      {
+        name: "NerdCast 386 - A ciência e as metáforas de Gravidade",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-386-a-ciencia-e-as-metaforas-de-gravidade",
+      },
+      {
+        name: "NerdCast 360 - A utopia dos futuros distópicos",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-360-a-utopia-dos-futuros-distopicos",
+      },
+      {
+        name: "NerdCast 327 - Making of Independência ou Mortos",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-327-making-of-independencia-ou-mortos",
+      },
+      {
+        name: "NerdCast 311 - Decifrando Donnie Darko (ou não)",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-311-decifrando-donnie-darko-ou-nao",
+      },
+      {
+        name: "NerdCast 298 - A gênese e os gênios da ficção científica",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-298-a-genese-e-os-genios-da-ficcao-cientifica",
+      },
+      {
+        name: "NerdCast 294 - Mas que final horrível!",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-294-mas-que-final-horrivel",
+      },
+      {
+        name: "NerdCast 287 - Grandes inventores: Santos Dumont vs Irmãos Wright",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-287-grandes-inventores-santos-dumont-vs-irmaos-wright",
+      },
+      {
+        name: "NerdCast 269 - Star Trek: A velha nova geração",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-269-star-trek-a-velha-nova-geracao",
+      },
+      {
+        name: "NerdCast 261 - RPG: Uma arte de interpretação (ou não)",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-261-rpg-uma-arte-de-interpretacao-ou-nao",
+      },
+      {
+        name: "NerdCast 239 - Tron: A realidade virtual e tudo mais",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-239-tron-a-realidade-virtual-e-tudo-mais",
+      },
+      {
+        name: "NerdCast 235B - Battlestar Galactica: Deus ex machina",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-235b-battlestar-galactica-deus-ex-machina",
+      },
+      {
+        name: "NerdCast 235A - Battlestar Galactica: Inteligência artificial emocional",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-235a-battlestar-galactica-inteligencia-artificial-emocional",
+      },
+      {
+        name: "NerdCast 224 - A Origem: Me belisca que eu tô acordado",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-224-a-origem-me-belisca-que-eu-to-acordado",
+      },
+      {
+        name: "NerdCast 219 - Lost: Desabafo",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-219-lost-desabafo",
+      },
+      {
+        name: "NerdCast 186 - Isaac Asimov e seus escravos tchecos",
+        type: "jovemnerd",
+        link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-186-isaac-asimov-e-seus-escravos-tchecos",
+      },
+    ],
   },
   {
     id: "card-14",
