@@ -225,7 +225,7 @@ export default function AboutTheChallenge() {
             onClick={toggleAudio}
             className={`${
               bebasNeue.className
-            } w-full inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all animation-duration-[3000ms] ${
+            } w-full inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-4 border-2 rounded-full transition-all animation-duration-[3000ms] ${
               isPlaying
                 ? "bg-white text-black border-white shadow-lg shadow-yellow-400 animate-pulse"
                 : "text-white border-white hover:bg-white hover:text-black"
@@ -249,7 +249,7 @@ export default function AboutTheChallenge() {
               rel="noopener noreferrer"
               className="underline hover:text-white"
             >
-              Nerdcast 313 – HQ: Os Velhos Novos 52
+              Nerdcast 313 &ndash; HQ: Os Velhos Novos 52
             </a>
             , publicado em 1º de junho de 2012
           </p>
@@ -273,7 +273,7 @@ export default function AboutTheChallenge() {
           alt="Azaghal"
           width={400}
           height={600}
-          className="absolute right-20 md:right-40 xl:right-52 bottom-0 h-auto h-[50vh] md:h-[90vh] w-auto object-contain"
+          className="absolute right-24 md:right-40 xl:right-52 bottom-0 h-auto md:h-[90vh] w-auto object-contain"
           priority
         />
 
@@ -284,7 +284,7 @@ export default function AboutTheChallenge() {
           alt="Jovem Nerd"
           width={400}
           height={600}
-          className="relative -right-5 md:-right-10 bottom-0 h-auto h-[50vh] md:h-[90vh] w-auto z-10"
+          className="relative -right-5 md:-right-10 bottom-0 h-auto md:h-[90vh] w-auto z-10"
           priority
         />
       </div>

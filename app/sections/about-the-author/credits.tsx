@@ -32,7 +32,7 @@ export default function Credits() {
   return (
     <div
       ref={creditsContainer}
-      className={`py-12 px-6 md:px-16 flex flex-col gap-y-12 items-center w-full h-full`}
+      className={`py-16 px-6 md:px-16 flex flex-col gap-y-12 items-center w-full h-full`}
     >
       <h2
         className={`${bebasNeue.className} text-[64px] md:text-[28px] lg:text-[64px] xl:text-[128px] leading-none font-extrabold mb-8 md:mb-6 lg:mb-8 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000] text-white text-center`}
