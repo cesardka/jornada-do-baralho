@@ -138,7 +138,7 @@ const CardDetails = ({
               <Image
                 width={960}
                 height={540}
-                src="/images/ilustra-sem-redes.png"
+                src="/images/illustrations/ilustra-sem-redes.png"
                 alt="Não encontramos as redes"
                 className="w-full h-auto transition duration-300 ease-in-out group-hover:blur-md"
               />
@@ -189,7 +189,7 @@ const CardDetails = ({
               <Image
                 width={960}
                 height={540}
-                src="/images/ilustra-sem-assinatura.png"
+                src="/images/illustrations/ilustra-sem-assinatura.png"
                 alt="Carta pendente assinatura"
                 className="w-full h-auto transition duration-300 ease-in-out group-hover:blur-md"
               />
