@@ -59,7 +59,7 @@ export default function NotFound() {
               {/* Front - Illustration */}
               <div className="absolute inset-0 w-full h-full backface-hidden">
                 <img
-                  src="/images/nao_pensa_no_404.jpeg"
+                  src="/images/illustrations/ilustra-nao_pensa_no_404.jpeg"
                   alt="Não pensa no 404..."
                   className="w-full h-full rounded-lg shadow-xl object-cover"
                 />
