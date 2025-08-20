@@ -32,80 +32,91 @@ export default function Credits() {
   return (
     <div
       ref={creditsContainer}
-      className={`py-12 px-6 md:px-16 flex flex-col md:flex-row flex-wrap gap-y-12 md:gap-x-16 items-center md:items-start justify-around w-full h-full`}
+      className={`py-12 px-6 md:px-16 flex flex-col gap-y-12 items-center w-full h-full`}
     >
-      {PROJECT_AUTHORS.map((person) => (
-        <div
-          key={person.name}
-          className="w-full md:w-1/3 max-w-full md:max-w-[20vw] flex flex-col items-center md:items-start"
-        >
-          <span className="relative w-full group inline-block">
-            {/* Lena's exclusive hover effect */}
-            <div className={`${person.name !== "Lena Franzz" ? "hidden" : ""}`}>
-              <div className="absolute bottom-28 left-40 translate-x-0 group-hover:-translate-x-44 transition-all duration-300 ease-out flex">
+      <h2
+        className={`${bebasNeue.className} text-[64px] md:text-[28px] lg:text-[64px] xl:text-[128px] leading-none font-extrabold mb-8 md:mb-6 lg:mb-8 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000] text-white text-center`}
+      >
+        Quem Trilha a Jornada
+      </h2>
+
+      {/* Authors Grid */}
+      <div className="flex flex-col md:flex-row flex-wrap gap-y-12 md:gap-x-16 items-center md:items-start justify-around w-full">
+        {PROJECT_AUTHORS.map((person) => (
+          <div
+            key={person.name}
+            className="w-full md:w-1/3 max-w-full md:max-w-[20vw] flex flex-col items-center md:items-start"
+          >
+            <span className="relative w-full group inline-block">
+              {/* Lena's exclusive hover effect */}
+              <div
+                className={`${person.name !== "Lena Franzz" ? "hidden" : ""}`}
+              >
+                <div className="absolute bottom-28 left-40 translate-x-0 group-hover:-translate-x-44 transition-all duration-300 ease-out flex">
+                  <Image
+                    src="/images/kale2.png"
+                    width={250}
+                    height={400}
+                    alt="Kale, protagonista da animação Kale do Museu Assustador"
+                    className="w-20 h-auto origin-center rotate-[-55deg]"
+                  />
+                </div>
+                <div className="absolute bottom-5 left-28 translate-x-0 group-hover:-translate-x-28 transition-all duration-300 ease-out flex">
+                  <Image
+                    src="/images/kiza.png"
+                    width={250}
+                    height={400}
+                    alt="Kiza, protagonista da animação Kale do Museu Assustador"
+                    className="w-20 h-auto origin-center rotate-[-55deg]"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-center w-full">
                 <Image
-                  src="/images/kale2.png"
-                  width={250}
-                  height={400}
-                  alt="Kale, protagonista da animação Kale do Museu Assustador"
-                  className="w-20 h-auto origin-center rotate-[-55deg]"
+                  src={person.imageSrc}
+                  alt={person.name}
+                  width={300}
+                  height={300}
+                  className={`project-author rounded-xl object-cover w-4/5 max-w-xs h-auto drop-shadow-md justify-self-center`}
                 />
               </div>
-              <div className="absolute bottom-5 left-28 translate-x-0 group-hover:-translate-x-28 transition-all duration-300 ease-out flex">
-                <Image
-                  src="/images/kiza.png"
-                  width={250}
-                  height={400}
-                  alt="Kiza, protagonista da animação Kale do Museu Assustador"
-                  className="w-20 h-auto origin-center rotate-[-55deg]"
-                />
+            </span>
+
+            <div className="flex flex-col gap-2 mt-2 pt-2 px-0 text-center md:text-left text-white drop-shadow-md">
+              <div
+                className={`${bebasNeue.className} flex flex-row items-center justify-center md:justify-start font-extrabold text-2xl xl:text-5xl pt-4 border-t-2 border-b-white`}
+              >
+                {person.name}
+                <ul className="inline-flex items-center space-x-2 ml-4">
+                  {person.socialMedia.map((social, index) => (
+                    <li key={index}>
+                      {social.link && (
+                        <Link
+                          href={social.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-white hover:text-blue-800 transition-all duration-300 ease-out"
+                        >
+                          <SocialMediaIcon type={social.type} size={30} />
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
 
-            <div className="flex justify-center w-full">
-              <Image
-                src={person.imageSrc}
-                alt={person.name}
-                width={300}
-                height={300}
-                className={`project-author rounded-xl object-cover w-4/5 max-w-xs h-auto drop-shadow-md justify-self-center`}
-              />
-            </div>
-          </span>
+              <div className="italic font-semibold text-sm md:text-xs lg:text-sm xl:text-base -mt-1 mb-3">
+                {person.title}
+              </div>
 
-          <div className="flex flex-col gap-2 mt-2 pt-2 px-0 text-center md:text-left text-white drop-shadow-md">
-            <div
-              className={`${bebasNeue.className} flex flex-row items-center justify-center md:justify-start font-extrabold text-2xl xl:text-5xl pt-4 border-t-2 border-b-white`}
-            >
-              {person.name}
-              <ul className="inline-flex items-center space-x-2 ml-4">
-                {person.socialMedia.map((social, index) => (
-                  <li key={index}>
-                    {social.link && (
-                      <Link
-                        href={social.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-white hover:text-blue-800 transition-all duration-300 ease-out"
-                      >
-                        <SocialMediaIcon type={social.type} size={30} />
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="italic font-semibold text-sm md:text-xs lg:text-sm xl:text-base -mt-1 mb-3">
-              {person.title}
-            </div>
-
-            <div className="text-justify text-base md:text-sm lg:text-base xl:text-lg">
-              {person.description}
+              <div className="text-justify text-base md:text-sm lg:text-base xl:text-lg">
+                {person.description}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
