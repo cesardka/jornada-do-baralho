@@ -73,7 +73,6 @@ export default function AboutTheChallenge() {
         opacity: 1,
         ease: "power2.out",
       });
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -89,21 +88,35 @@ export default function AboutTheChallenge() {
       ref={sectionRef}
       className={`segment flex flex-col md:flex-row gap-10 md:gap-5 px-4 md:pl-10 md:pr-0 pt-10 md:pt-20 pb-0 relative overflow-hidden w-full min-h-screen z-10`}
       style={{
-        background: 'linear-gradient(135deg, #f97316, #fb923c, #fbbf24, #fde047)',
-        backgroundSize: '400% 400%',
-        animation: 'gradientMove 8s ease infinite'
+        background:
+          "linear-gradient(135deg, #f97316, #fb923c, #fbbf24, #fde047)",
+        backgroundSize: "400% 400%",
+        animation: "gradientMove 8s ease infinite",
       }}
     >
       <style jsx>{`
         @keyframes gradientMove {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
         }
         @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          33% { transform: translateY(-20px) rotate(120deg); }
-          66% { transform: translateY(10px) rotate(240deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          33% {
+            transform: translateY(-20px) rotate(120deg);
+          }
+          66% {
+            transform: translateY(10px) rotate(240deg);
+          }
         }
       `}</style>
 
@@ -189,7 +202,10 @@ export default function AboutTheChallenge() {
           </li>
         </ol>
 
-        <div id="audio-controls" className="-mt-4 pt-16 pb-[30rem] md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full">
+        <div
+          id="audio-controls"
+          className="-mt-4 pt-16 pb-[30rem] md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full"
+        >
           <button
             onClick={toggleAudio}
             className={`${
