@@ -20,6 +20,19 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Jornada do Baralho",
   description: "Desbravando as cartas rumo ao iPad",
+  openGraph: {
+    title: "Jornada do Baralho",
+    description: "Desbravando as cartas rumo ao iPad",
+    images: ["/images/jornada-do-baralho.png"],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jornada do Baralho",
+    description: "Desbravando as cartas rumo ao iPad",
+    images: ["/images/jornada-do-baralho.png"],
+  },
 };
 
 export default function RootLayout({
