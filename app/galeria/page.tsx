@@ -10,37 +10,39 @@ import { SocialMediaIcon } from "../sections/card-details/socialMediaIcon";
 const illustrations = [
   {
     src: "/videos/JNB_V008.mp4",
-    alt: "Vídeo de Abertura - Jornada do Baralho",
+    alt: "Vídeo de Abertura - A Jornada do Baralho",
     title: "Vídeo de Abertura",
-    description: "Assista ao vídeo de introdução da Jornada do Baralho",
+    description: "Assista ao vídeo de introdução da Jornada do Baralho!",
     type: "video",
   },
   {
     src: "/images/illustrations/ilustra-sem_assinatura.png",
     alt: "Sem Assinatura - Ilustração",
     title: "Sem Assinatura",
-    description: "Ilustração sem assinatura",
+    description: "Ilustração para quando uma carta ainda não foi assinada",
     type: "image",
   },
   {
     src: "/images/illustrations/ilustra-sem_redes.png",
     alt: "Sem Redes - Ilustração",
     title: "Sem Redes",
-    description: "Ilustração sem redes sociais",
+    description: "Ilustração para os Nerdcasters que não possuem redes sociais",
     type: "image",
   },
   {
     src: "/images/illustrations/ilustra-nao_pensa_no_404.jpeg",
     alt: "Não pensa no 404 - Ilustração",
-    title: "Não pensa no 404",
-    description: "Ilustração temática para página de erro 404",
+    title: "Não pensa no 404...",
+    description:
+      "Ilustração temática para página de erro 404 lembrando da Portuguesa e Sra. Jovem Nerd dormindo na casa da vó",
     type: "image",
   },
   {
     src: "/images/illustrations/ilustra-harald_stricker.jpeg",
-    alt: "Harald Stricker - Ilustração",
+    alt: "Homenagem a Harald Stricker - Ilustração",
     title: "Harald Stricker",
-    description: "Ilustração do personagem Harald Stricker",
+    description:
+      "Ilustração em homenagem ao Harald Stricker, o Android, nosso saudoso nerdcaster e todo um elenco de personagens que marcaram a passagem dele pelo universo Jovem Nerd",
     type: "image",
   },
 ];
