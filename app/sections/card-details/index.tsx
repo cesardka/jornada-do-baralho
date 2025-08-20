@@ -169,21 +169,15 @@ const CardDetails = ({
           {/* Photo of card being signed */}
           {/* Image of card signed */}
           {card.signedSrc ? (
-            <>
-              <div className="mt-4">
-                <Image
-                  src={card.signedSrc}
-                  alt={`Carta assinada por ${card.name}`}
-                  width={400}
-                  height={600}
-                  className="w-full rounded-md shadow-md"
-                />
-              </div>
-              {/* Location of card signed */}
-              {/* <div className="text-gray-600">
-              <SignedLocationMap signedLocation={card.signedLocation} />
-            </div> */}
-            </>
+            <div className="mt-4">
+              <Image
+                src={card.signedSrc}
+                alt={`Carta assinada por ${card.name}`}
+                width={400}
+                height={600}
+                className="w-full rounded-md shadow-md"
+              />
+            </div>
           ) : (
             <div className="mt-4 relative group w-full max-w-xl mx-auto">
               <Image
