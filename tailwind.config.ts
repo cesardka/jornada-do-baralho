@@ -61,6 +61,13 @@ const config: Config = {
         headline: ['Anton"', "sans-serif"],
         newston: ["NewstonInline", "sans-serif"],
       },
+      animation: {
+        march: "march 20s linear infinite",
+        "march-right": "march-right 20s linear infinite",
+        "march-sway": "march-sway 20s linear infinite",
+        "march-right-sway": "march-right-sway 20s linear infinite",
+        sway: "sway 3s ease-in-out infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
