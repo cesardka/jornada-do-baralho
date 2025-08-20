@@ -1,19 +1,20 @@
-# Jornada do Baralho ♠️ ♥️ ♣️ ♦️
+# Jornada do Baralho 🃏
 
-- [Jornada do Baralho ♠️ ♥️ ♣️ ♦️](#jornada-do-baralho-️-️-️-️)
+> **🌐 Language / Idioma:** [🇧🇷 Português](README.pt-BR.md) | 🇺🇸 English
+
+- [Jornada do Baralho 🃏](#jornada-do-baralho-)
   - [💻 URLs](#-urls)
   - [🎯 Project Purpose](#-project-purpose)
   - [🃏 The Deck Challenge](#-the-deck-challenge)
   - [🔥 Challenge Rules:](#-challenge-rules)
   - [🏆 The Prize:](#-the-prize)
-- [Development](#development)
   - [Credits](#credits)
-  - [Credits](#credits-1)
+- [Development](#development)
   - [🏃‍➡️ Getting Started](#️-getting-started)
   - [👩‍🏫 Learn More](#-learn-more)
   - [🚀 Deploy on Vercel](#-deploy-on-vercel)
 
-"Jornada do Baralho" (or "Deck's Journey") is a playful nod to the [Hero's Journey](https://en.wikipedia.org/wiki/Hero%27s_journey), mentioned by [Eduardo Spohr](https://www.instagram.com/duduspohr/)'s multiple times over the years during his storytelling lessons.
+"Jornada do Baralho" (or "Deck's Journey") is a playful nod to the [Hero's Journey](https://en.wikipedia.org/wiki/Hero%27s_journey), mentioned by [Eduardo Spohr](https://www.instagram.com/duduspohr/)'s multiple times over the years during his storytelling lessons and over multiple Nerdcasts.
 
 This project is my personal quest to complete the legendary Deck Challenge, a challenge born in 2012 that remains unconquered.
 
@@ -24,9 +25,9 @@ This project is my personal quest to complete the legendary Deck Challenge, a ch
 
 ## 🎯 Project Purpose
 
-This is a personal initiative by [César Hoffmann](https://www.linkedin.com/in/c%C3%A9sar-hoffmann/) to build a virtual board chronicling my journey to complete the Deck Challenge. For over a decade, no one has claimed the prize.
+This is a personal initiative by [César Hoffmann](https://www.linkedin.com/in/c%C3%A9sar-hoffmann/) to build a virtual board chronicling my journey to complete the Deck Challenge. For over a decade, no one has claimed the prize. (so far!)
 
-With the possibility of the [Nerdcast](https://jovemnerd.com.br/podcasts/) podcast ending at episode 1000, I saw the perfect opportunity to pursue this ambitious goal: securing signatures on all the face cards before the iconic podcast hosts move on to new ventures for good.
+With the possibility of the [Nerdcast](https://jovemnerd.com.br/podcasts/) podcast ending at episode 1000 in October 3rd, I saw the perfect opportunity to pursue this ambitious goal: securing signatures on all the face cards before the iconic podcast hosts move on to new ventures for good.
 
 I hadn’t purchased the deck until I decided to take on this challenge. My first attempt, on [Enjoei](https://www.enjoei.com.br/p/baralho-nerdcast-rpg-algumas-cartas-autografadas-93103206?vid=332492ff-e6b9-4f26-8667-90f70376512d) (October 11th, 2024), ended in disappointment when the shipment was stolen. It was devastating to think I might have lost my only chance—especially since that deck already included several signed cards!
 
@@ -50,15 +51,9 @@ The reward for completing the challenge is an iPad of the latest generation at t
 
 This project is not just about completing a challenge -- it's about storytelling, community, and paying homage to the creators who inspired me since 2007, when I started listening to them as a 14yo.
 
-Thank you for stopping by, reading this README in English despite (possibly) both me and you being Brazilian, and feel free to join me on this epic journey! ✨
+Thank you for stopping by, reading this README in English despite (possibly) both me and you being Brazilian (mas você pode ler a versão em português [aqui](README.pt-BR.md)), and feel free to join me on this epic journey! ✨
 
 I will update the website as the cards get signed. 🖖😉
-
----
-
-# Development
-
-## Credits
 
 ## Credits
 
@@ -88,6 +83,10 @@ I will update the website as the cards get signed. 🖖😉
   <a href="https://www.instagram.com/leo.brasil/" target="_blank">
   <img src="https://skillicons.dev/icons?i=instagram" width="20" height="20" />
   </a>
+
+---
+
+# Development
 
 ## 🏃‍➡️ Getting Started
 
