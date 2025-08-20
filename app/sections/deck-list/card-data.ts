@@ -55,17 +55,22 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://jovemnerd.com.br/",
       },
       {
-        name: "Instagram",
+        name: 'Jovem Nerd',
+        type: "youtube",
+        link: "https://www.youtube.com/@JovemNerd",
+      },
+      {
+        name: "@jovemnerd",
         type: "insta",
         link: "https://www.instagram.com/jovemnerd/",
       },
       {
-        name: "Twitter",
+        name: "@jovemnerd",
         type: "twitter",
         link: "https://twitter.com/jovemnerd",
       },
       {
-        name: "Facebook",
+        name: "@jovemnerd",
         type: "facebook",
         link: "https://www.facebook.com/jovemnerd",
       },
@@ -93,12 +98,17 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://jovemnerd.com.br/",
       },
       {
-        name: "Instagram",
+        name: 'Jovem Nerd',
+        type: "youtube",
+        link: "https://www.youtube.com/@JovemNerd",
+      },
+      {
+        name: "@azaghal",
         type: "insta",
         link: "https://www.instagram.com/azaghal/",
       },
       {
-        name: "Twitter",
+        name: "@azaghal",
         type: "twitter",
         link: "https://twitter.com/azaghal",
       },
@@ -137,7 +147,7 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://www.instagram.com/podnext/",
       },
       {
-        name: "Twitter",
+        name: "@JP_miguel",
         type: "twitter",
         link: "https://twitter.com/JP_miguel",
       },
@@ -163,12 +173,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://www.fcarstens.com.br/",
       },
       {
-        name: "Instagram",
+        name: "@carstens",
         type: "insta",
         link: "https://www.instagram.com/carstens/",
       },
       {
-        name: "Twitter",
+        name: "@sr_k_",
         type: "twitter",
         link: "https://twitter.com/sr_k_",
       },
@@ -194,12 +204,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://jovemnerd.com.br/podcasts/caneca-de-mamicas",
       },
       {
-        name: "Instagram",
+        name: "@agathaottoni",
         type: "insta",
         link: "https://www.instagram.com/agathaottoni/",
       },
       {
-        name: "Twitter",
+        name: "@SraJovemNerd_NC",
         type: "twitter",
         link: "https://twitter.com/SraJovemNerd_NC",
       },
@@ -225,12 +235,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://jovemnerd.com.br/podcasts/caneca-de-mamicas",
       },
       {
-        name: "Instagram",
+        name: "@deiaduboc",
         type: "insta",
         link: "https://www.instagram.com/deiaduboc/",
       },
       {
-        name: "Twitter",
+        name: "@Portuguesa_NC",
         type: "twitter",
         link: "https://twitter.com/Portuguesa_NC",
       },
@@ -305,12 +315,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://www.eduardospohr.com.br/",
       },
       {
-        name: "Twitter",
+        name: "@eduardospohr",
         type: "twitter",
         link: "https://twitter.com/eduardospohr",
       },
       {
-        name: "Instagram",
+        name: "@duduspohr",
         type: "insta",
         link: "https://www.instagram.com/duduspohr/",
       },
@@ -336,12 +346,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://papofuradopodcast.wordpress.com/",
       },
       {
-        name: "Instagram",
+        name: "@gugassaur",
         type: "insta",
         link: "https://www.instagram.com/gugassaur/",
       },
       {
-        name: "Youtube",
+        name: "Força Psi",
         type: "youtube",
         link: "https://www.youtube.com/@forcapsi",
       },
@@ -367,12 +377,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://www.instagram.com/sevenkingsburger/",
       },
       {
-        name: "Instagram",
+        name: "@cancerjack",
         type: "insta",
         link: "https://www.instagram.com/cancerjack/",
       },
       {
-        name: "Twitter",
+        name: "@cancerjack",
         type: "twitter",
         link: "https://twitter.com/cancerjack",
       },
@@ -413,12 +423,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://dublagem.fandom.com/wiki/Guilherme_Briggs/",
       },
       {
-        name: "Youtube",
+        name: "@GuilhermeBriggs",
         type: "youtube",
         link: "https://www.youtube.com/@GuilhermeBriggs/",
       },
       {
-        name: "Instagram",
+        name: "@guilhermebriggs",
         type: "insta",
         link: "https://www.instagram.com/guilhermebriggs/",
       },
@@ -439,7 +449,7 @@ export const DECK_LIST: NerdcastCard[] = [
     signedSrc: null,
     socialMedia: [
       {
-        name: "Instagram",
+        name: "@carlosvoltor",
         type: "insta",
         link: "https://www.instagram.com/carlosvoltor/",
       },
@@ -475,14 +485,19 @@ export const DECK_LIST: NerdcastCard[] = [
     signedSrc: null,
     socialMedia: [
       {
-        name: "Instagram",
+        name: "@nickellis",
         type: "insta",
         link: "https://www.instagram.com/nickellis/",
       },
       {
-        name: "BlueSky",
+        name: "nickellis.bsky.social",
         type: "bluesky",
         link: "https://bsky.app/profile/did:plc:tt5gfdyj3ucwmv3u4gpy5vd3",
+      },
+      {
+        name: "@NickEllis",
+        type: "twitter",
+        link: "https://twitter.com/NickEllis",
       },
     ],
   },
@@ -506,12 +521,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://princesasdomar.com.br/",
       },
       {
-        name: "Instagram",
+        name: "@fabioyabu",
         type: "insta",
         link: "https://www.instagram.com/fabioyabu/",
       },
       {
-        name: "Twitter",
+        name: "@fabioyabu",
         type: "twitter",
         link: "https://twitter.com/fabioyabu",
       },
@@ -537,12 +552,12 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://www.youtube.com/@bunkerx",
       },
       {
-        name: "Instagram",
+        name: "@afonso3d",
         type: "insta",
         link: "https://www.instagram.com/afonso3d/",
       },
       {
-        name: "Twitter",
+        name: "@afonso3d",
         type: "twitter",
         link: "https://twitter.com/afonso3d",
       },
@@ -558,17 +573,17 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "",
     value: "Bônus",
     originalSrc: "/images/card/nerdcast-amigoimaginario.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date('2025-07-29'),
+    signedLocation: 'Rio de Janeiro, RJ',
+    signedSrc: '/images/signed-card/photo_2025-08-19 21.43.57.jpeg',
     socialMedia: [
       {
-        name: "Instagram",
+        name: "@renderia",
         type: "insta",
         link: "https://www.instagram.com/renderia/",
       },
       {
-        name: "Twitter",
+        name: "@renderia",
         type: "twitter",
         link: "https://twitter.com/renderia",
       },
