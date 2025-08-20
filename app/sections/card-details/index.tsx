@@ -121,7 +121,7 @@ const CardDetails = ({
       <h3 className="mt-6 text-2xl font-semibold text-gray-800">Assinado em</h3>
       {card.signedOn !== null && (
         <div className="mt-2 text-gray-600">
-          card.signedOn.toLocaleDateString()
+          {card.signedOn.toLocaleDateString()}
         </div>
       )}
 

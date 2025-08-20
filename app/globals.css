@@ -37,6 +37,73 @@ html {
   }
 }
 
+@keyframes march {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes march-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes march-sway {
+  0% {
+    transform: translateX(0) rotate(7deg);
+  }
+  25% {
+    transform: translateX(-25%) rotate(-7deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(7deg);
+  }
+  75% {
+    transform: translateX(-75%) rotate(-7deg);
+  }
+  100% {
+    transform: translateX(-100%) rotate(7deg);
+  }
+}
+
+@keyframes march-right-sway {
+  0% {
+    transform: translateX(-100%) rotate(7deg);
+  }
+  25% {
+    transform: translateX(-75%) rotate(-7deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(7deg);
+  }
+  75% {
+    transform: translateX(-25%) rotate(-7deg);
+  }
+  100% {
+    transform: translateX(0) rotate(7deg);
+  }
+}
+
+/* 3D Flip Card Styles */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
 #container {
   display: flex;
   align-items: center;

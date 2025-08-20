@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
 import { useAnimation } from "../../contexts/AnimationContext";
 import { FaMusic, FaPause } from "react-icons/fa";
+import FallingCards from "@/components/ui/falling-cards";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -39,51 +40,40 @@ export default function AboutTheChallenge() {
     if (!animationEnded) return;
 
     const ctx = gsap.context(() => {
+      // Set initial state
       gsap.set([azaghalRef.current, alottoniRef.current], {
         x: 300,
         opacity: 0,
       });
 
-      gsap.set([sectionRef.current], {
-        backgroundSize: "100%",
-      });
-
+      // Azaghal animation
       gsap.to(azaghalRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top center",
-          end: "center center",
-          scrub: true,
+          start: "top bottom-=100",
+          end: "bottom center",
+          scrub: 1,
+          markers: false,
         },
         x: 0,
         opacity: 1,
-        duration: 1,
         ease: "power2.out",
       });
 
+      // Alottoni animation (slightly delayed)
       gsap.to(alottoniRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top center+=50",
-          end: "center center",
-          scrub: true,
+          start: "top bottom-=50",
+          end: "bottom center",
+          scrub: 1,
+          markers: false,
         },
         x: 0,
         opacity: 1,
-        duration: 1,
         ease: "power2.out",
       });
 
-      gsap.to(sectionRef.current, {
-        backgroundSize: "125%",
-        ease: "expo.inOut",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top right",
-          end: "center center",
-          scrub: true, // smooth sync with scroll
-        },
-      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -97,13 +87,33 @@ export default function AboutTheChallenge() {
     <section
       id="aboutTheChallenge"
       ref={sectionRef}
-      className={`segment flex flex-row gap-10 md:gap-5 pl-10 pt-20 pb-0 relative overflow-hidden bg-[#FFB206] bg-[url('/images/bg/rainbow-vortex2.svg')] bg-contain bg-no-repeat w-full z-10`}
+      className={`segment flex flex-col md:flex-row gap-10 md:gap-5 px-4 md:pl-10 md:pr-0 pt-10 md:pt-20 pb-0 relative overflow-hidden w-full min-h-screen z-10`}
+      style={{
+        background: 'linear-gradient(135deg, #f97316, #fb923c, #fbbf24, #fde047)',
+        backgroundSize: '400% 400%',
+        animation: 'gradientMove 8s ease infinite'
+      }}
     >
+      <style jsx>{`
+        @keyframes gradientMove {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-20px) rotate(120deg); }
+          66% { transform: translateY(10px) rotate(240deg); }
+        }
+      `}</style>
+
+      {/* Falling Cards */}
+      <FallingCards />
       {/* LEFT COLUMN: Challenge Rules */}
-      <div className="flex flex-col justify-center h-full w-1/2 text-white pl-20 z-20">
+      <div className="flex flex-col justify-center h-full w-full md:w-1/2 text-white md:pl-20 z-20">
         {/* Massive, bold title */}
         <h2
-          className={`${bebasNeue.className} text-[64px] md:text-[28px] lg:text-[64px] xl:text-[128px] leading-none font-extrabold mb-12 md:mb-6 lg:mb-8 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000]`}
+          className={`${bebasNeue.className} text-[64px] md:text-[28px] lg:text-[64px] xl:text-[128px] leading-none font-extrabold mb-12 md:mb-6 lg:mb-8 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000] text-center md:text-left`}
         >
           DESAFIO <br /> DO BARALHO
         </h2>
@@ -112,7 +122,7 @@ export default function AboutTheChallenge() {
         <ol
           className={`${bebasNeue.className} list-decimal list-inside space-y-10 md:space-y-5 md:pb-10 leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
         >
-          <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
+          <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
             Conseguir o autógrafo em todas cartas de{" "}
             <span className="relative group inline-block cursor-pointer text-green-400">
               figuras{" "}
@@ -168,23 +178,23 @@ export default function AboutTheChallenge() {
             </span>
             .
           </li>
-          <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
+          <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
             Registrar o momento de cada carta sendo autografada.
           </li>
-          <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
+          <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
             Enviar o baralho assinado para o Jovem Nerd.
           </li>
-          <li className="text-[24px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
+          <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
             Ganhe o iPad lançado mais recentemente!
           </li>
         </ol>
 
-        <div className="-mt-4 flex flex-col w-full">
+        <div id="audio-controls" className="-mt-4 pt-16 pb-[30rem] md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full">
           <button
             onClick={toggleAudio}
             className={`${
               bebasNeue.className
-            } inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all animation-duration-[3000ms] ${
+            } w-full inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-2 border-2 rounded-full transition-all animation-duration-[3000ms] ${
               isPlaying
                 ? "bg-white text-black border-white shadow-lg shadow-yellow-400 animate-pulse"
                 : "text-white border-white hover:bg-white hover:text-black"
@@ -224,13 +234,13 @@ export default function AboutTheChallenge() {
       </div>
 
       {/* RIGHT IMAGES */}
-      <div className="flex-grow relative flex items-end justify-end h-full mt-16">
+      <div className="absolute bottom-0 right-0 flex items-end justify-center md:justify-end h-auto w-full md:w-1/2">
         {/* Image 1 — Azaghal (slightly above center) */}
         <img
           ref={azaghalRef}
           src="/images/azaghal-esquerdo.webp"
           alt="Azaghal"
-          className="absolute right-40 xl:right-52 -bottom-0 h-full max-h-[90vh] w-auto object-contain"
+          className="absolute right-20 md:right-40 xl:right-52 bottom-0 h-auto h-[50vh] md:h-[90vh] w-auto object-contain"
         />
 
         {/* Image 2 — Jovem Nerd (slightly below center) */}
@@ -238,7 +248,7 @@ export default function AboutTheChallenge() {
           ref={alottoniRef}
           src="/images/jovem-nerd-esquerdo.webp"
           alt="Jovem Nerd"
-          className="relative -right-10 h-auto max-h-[90vh] w-auto z-10"
+          className="relative -right-5 md:-right-10 bottom-0 h-auto h-[50vh] md:h-[90vh] w-auto z-10"
         />
       </div>
     </section>
