@@ -1,8 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
-
 import { NerdcastCard } from "../deck-list/card-data";
 import CardSuit from "./cardSuit";
 import CloseButton from "./closeButton";
@@ -20,14 +17,6 @@ const CardDetails = ({
   isMobile: boolean;
   closeModal: () => void;
 }) => {
-  const SignedLocationMap = useMemo(
-    () =>
-      dynamic(() => import("@/app/sections/card-details/signedLocation"), {
-        ssr: false,
-      }),
-    []
-  );
-
   // If no card, nothing should be rendered
   if (card === null) return;
 
