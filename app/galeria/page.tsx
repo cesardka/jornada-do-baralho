@@ -265,9 +265,9 @@ export default function Gallery() {
               </div> */}
 
               {/* Backdrop hint */}
-              <div className="absolute top-4 left-4 text-white/70 text-sm bg-black/30 px-3 py-1 rounded-full">
+              {/* <div className="absolute top-4 left-4 text-white/70 text-sm bg-black/30 px-3 py-1 rounded-full">
                 Clique fora da imagem para fechar
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
