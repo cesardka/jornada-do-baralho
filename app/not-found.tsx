@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import BouncingText from "../components/ui/bouncing-text";
 import MarchingCards from "../components/ui/marching-cards";
 import { SocialMediaIcon } from "./sections/card-details/socialMediaIcon";
 
@@ -20,7 +19,7 @@ export default function NotFound() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center p-4 relative">
       {/* Marching cards at top - left to right */}
       <MarchingCards direction="left" position="top" opacity={0.15} />
-      
+
       {/* Marching cards at bottom - right to left */}
       <MarchingCards direction="right" position="bottom" opacity={0.15} />
 
@@ -51,11 +50,15 @@ export default function NotFound() {
 
         {/* Illustration - Flip Card */}
         <div className="mb-8 flex justify-center relative z-10 px-4">
-          <div 
+          <div
             className="relative w-full max-w-sm h-48 md:max-w-none md:w-[40rem] md:h-[22.5rem] cursor-pointer"
             onClick={() => setIsFlipped(!isFlipped)}
           >
-            <div className={`absolute inset-0 w-full h-full transition-transform duration-700 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+            <div
+              className={`absolute inset-0 w-full h-full transition-transform duration-700 preserve-3d ${
+                isFlipped ? "rotate-y-180" : ""
+              }`}
+            >
               {/* Front - Illustration */}
               <div className="absolute inset-0 w-full h-full backface-hidden">
                 <img
@@ -64,7 +67,7 @@ export default function NotFound() {
                   className="w-full h-full rounded-lg shadow-xl object-cover"
                 />
               </div>
-              
+
               {/* Back - Lena Franzz Card */}
               <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-xl p-2 md:p-6 flex flex-col justify-center items-center text-white overflow-hidden">
                 <div className="text-center max-w-full px-1">
@@ -73,20 +76,35 @@ export default function NotFound() {
                     alt="Lena Franzz"
                     className="w-12 h-12 md:w-24 md:h-24 rounded-full mx-auto mb-2 md:mb-4 object-cover"
                   />
-                  <h3 className="text-base md:text-2xl font-bold text-white mb-1 md:mb-2">Lena Franzz</h3>
-                  <p className="text-xs md:text-base text-gray-300 mb-1 md:mb-3">Animadora, ilustradora, diretora de animação</p>
+                  <h3 className="text-base md:text-2xl font-bold text-white mb-1 md:mb-2">
+                    Lena Franzz
+                  </h3>
+                  <p className="text-xs md:text-base text-gray-300 mb-1 md:mb-3">
+                    Animadora, ilustradora, diretora de animação
+                  </p>
                   <p className="hidden md:block text-xs md:text-sm text-gray-400 leading-tight md:leading-relaxed mb-2 md:mb-3 px-1">
-                    Gaúcha naturalizada carioca, sócia-fundadora do Studio Chifrezz. 
-                    Responsável pela ilustração "Não pensa no 404..." desta página e de todas as outras na Jornada do Baralho.
+                    Gaúcha naturalizada carioca, sócia-fundadora do Studio
+                    Chifrezz. Responsável pela ilustração "Não pensa no 404..."
+                    desta página e de todas as outras na Jornada do Baralho.
                   </p>
                   <div className="flex justify-center gap-2 md:gap-4 mt-1 md:mt-4">
-                    <a href="https://www.studiochifrezz.com/" target="_blank" rel="noopener noreferrer" 
-                       className="flex items-center gap-1 md:gap-2 text-white hover:text-yellow-400 transition-colors duration-200">
+                    <a
+                      href="https://www.studiochifrezz.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 md:gap-2 text-white hover:text-yellow-400 transition-colors duration-200"
+                    >
                       <SocialMediaIcon type="chifrezz" size={12} />
-                      <span className="text-xs md:text-sm">Studio Chifrezz</span>
+                      <span className="text-xs md:text-sm">
+                        Studio Chifrezz
+                      </span>
                     </a>
-                    <a href="https://www.instagram.com/studiochifrezz" target="_blank" rel="noopener noreferrer"
-                       className="flex items-center gap-1 md:gap-2 text-white hover:text-yellow-400 transition-colors duration-200">
+                    <a
+                      href="https://www.instagram.com/studiochifrezz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 md:gap-2 text-white hover:text-yellow-400 transition-colors duration-200"
+                    >
                       <SocialMediaIcon type="insta" size={12} />
                       <span className="text-xs md:text-sm">Instagram</span>
                     </a>
