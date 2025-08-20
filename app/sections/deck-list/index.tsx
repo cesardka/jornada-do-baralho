@@ -334,6 +334,7 @@ export default function DeckList() {
                   <Image
                     src={card.originalSrc}
                     alt={`Carta do Nerdcaster "${card.name}"`}
+                    className={card.signedOn ? "gold-outline" : ""}
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
                   />
@@ -342,6 +343,7 @@ export default function DeckList() {
                   <Image
                     src="/images/card/card-back-blue.webp"
                     alt="Card Nerdcast Deck Back Red"
+                    className={card.signedOn ? "gold-outline" : ""}
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
                   />

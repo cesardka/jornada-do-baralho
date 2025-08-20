@@ -332,3 +332,141 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+/* Gold outline effect for signed cards */
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 215, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.8);
+  }
+}
+
+@keyframes goldFadeIn {
+  0% {
+    opacity: 0;
+    border-color: transparent;
+    box-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    border-color: rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.2);
+  }
+}
+
+@keyframes goldBorderFadeIn {
+  0% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes goldHighlight {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 0px rgba(255, 215, 0, 0));
+  }
+  50% {
+    filter: brightness(1.1) drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+  }
+  100% {
+    filter: brightness(1) drop-shadow(0 0 0px rgba(255, 215, 0, 0));
+  }
+}
+
+.gold-outline {
+  position: relative;
+  border: 3px solid transparent;
+  opacity: 0;
+  animation: 
+    goldFadeIn 0.8s ease-out forwards,
+    goldHighlight 0.6s ease-out 0.8s,
+    goldPulse 2s ease-in-out 1.4s infinite;
+}
+
+/* Staggered animation delays for multiple signed cards */
+.gold-outline:nth-of-type(1) {
+  animation-delay: 0s, 0.8s, 1.4s;
+}
+
+.gold-outline:nth-of-type(2) {
+  animation-delay: 0.3s, 1.1s, 1.7s;
+}
+
+.gold-outline:nth-of-type(3) {
+  animation-delay: 0.6s, 1.4s, 2.0s;
+}
+
+.gold-outline:nth-of-type(4) {
+  animation-delay: 0.9s, 1.7s, 2.3s;
+}
+
+.gold-outline:nth-of-type(5) {
+  animation-delay: 1.2s, 2.0s, 2.6s;
+}
+
+.gold-outline::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, 
+    rgba(255, 215, 0, 0.3) 0%, 
+    rgba(255, 255, 255, 0.2) 25%, 
+    rgba(255, 215, 0, 0.4) 50%, 
+    rgba(255, 255, 255, 0.1) 75%, 
+    rgba(255, 215, 0, 0.3) 100%);
+  border-radius: calc(var(--cardBorder) + 3px);
+  z-index: -1;
+  filter: blur(1px);
+  opacity: 0;
+  animation: goldFadeIn 0.8s ease-out forwards;
+}
+
+.gold-outline .flip-card-front img,
+.gold-outline .flip-card-back img {
+  border: 2px solid transparent;
+  animation: goldBorderFadeIn 0.8s ease-out forwards;
+}
+
+/* Staggered delays for pseudo-elements and images */
+.gold-outline:nth-of-type(1)::before,
+.gold-outline:nth-of-type(1) .flip-card-front img,
+.gold-outline:nth-of-type(1) .flip-card-back img {
+  animation-delay: 0s;
+}
+
+.gold-outline:nth-of-type(2)::before,
+.gold-outline:nth-of-type(2) .flip-card-front img,
+.gold-outline:nth-of-type(2) .flip-card-back img {
+  animation-delay: 0.3s;
+}
+
+.gold-outline:nth-of-type(3)::before,
+.gold-outline:nth-of-type(3) .flip-card-front img,
+.gold-outline:nth-of-type(3) .flip-card-back img {
+  animation-delay: 0.6s;
+}
+
+.gold-outline:nth-of-type(4)::before,
+.gold-outline:nth-of-type(4) .flip-card-front img,
+.gold-outline:nth-of-type(4) .flip-card-back img {
+  animation-delay: 0.9s;
+}
+
+.gold-outline:nth-of-type(5)::before,
+.gold-outline:nth-of-type(5) .flip-card-front img,
+.gold-outline:nth-of-type(5) .flip-card-back img {
+  animation-delay: 1.2s;
+}
