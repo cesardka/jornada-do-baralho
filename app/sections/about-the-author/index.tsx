@@ -1,9 +1,9 @@
 import { useRef } from "react";
-import { useAnimation } from "../../contexts/AnimationContext";
+// import { useAnimation } from "../../contexts/AnimationContext";
 import Credits from "./credits";
 
 export default function AboutTheAuthor() {
-  const { animationEnded } = useAnimation();
+  // const { animationEnded } = useAnimation();
   const aboutTheAuthorRef = useRef(null);
 
   // TODO:
