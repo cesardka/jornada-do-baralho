@@ -78,23 +78,23 @@ export default function DeckList() {
   const { animationEnded, setAnimationEnded } = useAnimation();
 
   // // Scroll to top of the page
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     gsap.registerPlugin(ScrollToPlugin);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollToPlugin);
 
-  //     const handleLoad = () => {
-  //       gsap.to(window, {
-  //         scrollTo: 0,
-  //       });
-  //     };
+      const handleLoad = () => {
+        gsap.to(window, {
+          scrollTo: 0,
+        });
+      };
 
-  //     window.addEventListener("load", handleLoad);
+      window.addEventListener("load", handleLoad);
 
-  //     return () => {
-  //       window.removeEventListener("load", handleLoad);
-  //     };
-  //   }
-  // }, []);
+      return () => {
+        window.removeEventListener("load", handleLoad);
+      };
+    }
+  }, []);
 
   useGSAP(
     () => {
