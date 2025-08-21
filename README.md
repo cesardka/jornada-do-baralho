@@ -22,6 +22,7 @@ This project is my personal quest to complete the legendary Deck Challenge, a ch
 
 - (prd) https://www.jornadadobaralho.com.br
 - (dev) https://jornada-do-baralho-git-master-cesar-hs-projects.vercel.app/
+- (drive with original files) https://drive.google.com/drive/u/1/folders/1mQQ_7-IGfJF-VlaIhC6s2Xn7voGXcvK9
 
 ## 🎯 Project Purpose
 
