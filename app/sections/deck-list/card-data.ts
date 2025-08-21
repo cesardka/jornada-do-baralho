@@ -38,9 +38,11 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-01",
     name: "Alottoni",
-    nickname: "Alê, Alex André, Feijão",
+    nickname: "Alê, Alex André, Feijão, Agian, Thomas Faraday",
     quote: {
       message: "Lambda lambda lambda, nerds! 🖖",
+      episode: "em praticamente todos os Nerdcasts",
+      link: "https://jovemnerd.com.br/busca?type=podcast&category_podcast_product_slug=nerdcast&order_by=date&order_by_direction=ASC",
     },
     suit: "♠",
     value: "K",
@@ -55,7 +57,7 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://jovemnerd.com.br/",
       },
       {
-        name: 'Jovem Nerd',
+        name: "Jovem Nerd",
         type: "youtube",
         link: "https://www.youtube.com/@JovemNerd",
       },
@@ -79,7 +81,7 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-02",
     name: "Azaghal",
-    nickname: "Rei da Oceania, Máquina de Combate",
+    nickname: "Rei da Oceania, Máquina de Combate, Ruprest, Ozob, Don Azaghal",
     quote: {
       message: "Essa é a grande realidade de hoje em dia",
       episode: "NC 459 - Sem Licença Para Dirigir",
@@ -98,7 +100,7 @@ export const DECK_LIST: NerdcastCard[] = [
         link: "https://jovemnerd.com.br/",
       },
       {
-        name: 'Jovem Nerd',
+        name: "Jovem Nerd",
         type: "youtube",
         link: "https://www.youtube.com/@JovemNerd",
       },
@@ -117,12 +119,12 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-03",
     name: "JP",
-    nickname: "",
+    nickname: "João Paulo Miguel, Nilperto, Dr. Angus Silvana",
     quote: {
       message:
         "Só tem duas coisas que eu tenho medo, barata voadora e mulher maluca",
-      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-459-sem-licenca-para-dirigir",
-      episode: "",
+      episode: "NC 61 - Bikini Girls with Machine Guns",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-61-bikini-girls-with-machine-guns",
     },
     suit: "♣",
     value: "K",
@@ -156,9 +158,12 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-04",
     name: "Sr. K",
-    nickname: "Fred, Carstens, Frederico",
+    nickname: "Fred, Carstens, Frederico, Shimira Aisu, Von Basf",
     quote: {
-      message: "Eu não sou rico... Sou irresponsável",
+      message:
+        "Duzentos mil reais por mês eu acho que eu consigo viver com tranquilidade",
+      episode: "NC 370 - E se... ganhássemos na loteria?",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-370-e-se-ganhassemos-na-loteria",
     },
     suit: "♦",
     value: "K",
@@ -190,6 +195,8 @@ export const DECK_LIST: NerdcastCard[] = [
     nickname: "Agatha Ottoni, Sra. Meu Amor",
     quote: {
       message: "Não pensa no diabo que ele aparece!",
+      episode: "NC 281 - Superstições, mandingas e farofa",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-281-supersticoes-mandingas-e-farofa",
     },
     suit: "♠",
     value: "Q",
@@ -221,6 +228,8 @@ export const DECK_LIST: NerdcastCard[] = [
     nickname: "Andréia Duboc",
     quote: {
       message: "Eu quero comer um doce do tamanho da minha cara!",
+      episode: "NC 494 - Desista da Dieta",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-494-desista-da-dieta",
     },
     suit: "♠",
     value: "Q",
@@ -251,7 +260,10 @@ export const DECK_LIST: NerdcastCard[] = [
     name: "Francine",
     nickname: "",
     quote: {
-      message: "",
+      message:
+        "Não basta você dar o endereço da amiga da sua amiga... Você tem que dar o telefone da sua amiga para receber as suas encomendas da China!",
+      episode: "NC 625 - Permanentemente desgraçado da minha cabeça!",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/permanentemente-desgracado-da-minha-cabeca",
     },
     suit: "♣",
     value: "Q",
@@ -272,7 +284,10 @@ export const DECK_LIST: NerdcastCard[] = [
     name: "Ruiva",
     nickname: "",
     quote: {
-      message: "",
+      message:
+        "Se matar barata é R$5, botar remédio no cachorro devia ser R$100...!",
+      episode: "NC 206 - Vou chamar o síndico!",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-206-vou-chamar-o-sindico",
     },
     suit: "♦",
     value: "Q",
@@ -284,9 +299,11 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-09",
     name: "Blue Hand",
-    nickname: "",
+    nickname: "Caio",
     quote: {
-      message: "",
+      message: "Serão os bicho preguiça alienígenas?",
+      episode: "NC 181 - Nerdcast para Não-Humanos",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-181-nerdcast-para-nao-humanos",
     },
     suit: "♠",
     value: "J",
@@ -298,9 +315,12 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-10",
     name: "Eduardo Spohr",
-    nickname: "",
+    nickname: "Ártimus, #dudunojô",
     quote: {
-      message: "",
+      message: "Puta que pariu... Puta que pariiiu! Puta que pariu. ",
+      episode:
+        "NC 341 - RPG Ghanor 1: O Bruxo, a Princesa e o Dragão (pós-créditos)",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-251-rpg-o-bruxo-a-princesa-e-o-dragao",
     },
     suit: "♦",
     value: "J",
@@ -331,7 +351,10 @@ export const DECK_LIST: NerdcastCard[] = [
     name: "Guga Ferrari",
     nickname: "",
     quote: {
-      message: "",
+      message:
+        'Isso porque você não usa o mantra, né, que é infalível, que é: "Jesus, mamãe. Jesus, mamãe. Jesus, mamãe..."',
+      episode: "NC 254 - Isso é uma vergonha!",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-254-isso-e-uma-vergonha",
     },
     suit: "♣",
     value: "J",
@@ -360,9 +383,12 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-12",
     name: "Tucano",
-    nickname: "Fernando Russel, Cancer Jack, O Homem de Mãos Lindas",
+    nickname:
+      "Fernando Russel, Cancer Jack, O Homem de Mãos Lindas, Feldon, Oleg Korolenko, Jimmy O'Flannagan",
     quote: {
       message: "Eu sou motoqueiro porra!",
+      episode: "NC 241 - Isso é uma furada!",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-241-isso-e-uma-furada",
     },
     suit: "♥",
     value: "J",
@@ -391,9 +417,12 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-13",
     name: "Android",
-    nickname: "",
+    nickname: "Harald Stricker, NDR",
     quote: {
-      message: "",
+      message:
+        "E O SENHOR DOS ANÉIS É UMA MEEEERRRRRDAAA! EU NÃO AGUENTO MAIS ESSE HOMEM FALANDO MAL DA FICÇÃO CIENTÍICA!",
+      episode: "NC 298 - A gênese e os gênios da ficção científica",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-298-a-genese-e-os-genios-da-ficcao-cientifica",
     },
     suit: "♣",
     value: "A",
@@ -535,7 +564,9 @@ export const DECK_LIST: NerdcastCard[] = [
     nickname:
       "Teatro de Bonecos, Grinch, Super-Homem, Buzz Lightyear, Freakazoid...",
     quote: {
-      message: "",
+      message: "É melhor uma ervilha no chão do que uma berinjela na luminária",
+      episode: "NC 265 - Era uma vez um Nerdcast... 2",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-265-era-uma-vez-um-nerdcast-2",
     },
     suit: "♥",
     value: "A",
@@ -564,9 +595,11 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-15",
     name: "Carlos Voltor",
-    nickname: "",
+    nickname: "Caquinho, Royston Cave, Steven T. Durden, Stephen Venkman",
     quote: {
-      message: "",
+      message: "Tá todo mundo rindo, mas será que é pelo mesmo motivo?",
+      episode: "NC 293 - Tintim, o macaco e o herege",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-293-tintim-o-macaco-e-o-herege",
     },
     suit: "♦",
     value: "A",
@@ -602,7 +635,10 @@ export const DECK_LIST: NerdcastCard[] = [
     name: "Nick Ellis",
     nickname: "",
     quote: {
-      message: "",
+      message:
+        "O Asimov escreveu várias histórias de detetive com fundo da ficção científica. - Hoje em dia essas histórias tão aí na televisão e chamam CSI.",
+      episode: "NC 186 - Isaac Asimov e seus escravos tchecos.",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-186-isaac-asimov-e-seus-escravos-tchecos",
     },
     suit: "♠",
     value: "A",
@@ -633,7 +669,10 @@ export const DECK_LIST: NerdcastCard[] = [
     name: "Fabio Yabu",
     nickname: "Abu Fobiya",
     quote: {
-      message: "",
+      message:
+        "Heroes? Ah, eu adoro! Minha série favorita. (...) Eu não assisto na TV não, assisto na Internet! -- Yabu em 2007 enquanto falava com executiva da NBC",
+      episode: "NC 105 - Fabio Yabu: O homem que matou o jovem nerd",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-105-fabio-yabu-o-homem-que-matou-o-jovem-nerd",
     },
     suit: "",
     value: "Joker",
@@ -662,9 +701,11 @@ export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-18",
     name: "Tresdê",
-    nickname: "",
+    nickname: "Edsert, Ulib, Cigano Igor",
     quote: {
-      message: "",
+      message: "Information Society era o Locomia dos americanos",
+      episode: "NC 275 - Era uma vez num Rock in Rio...",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-275-era-uma-vez-num-rock-in-rio",
     },
     suit: "",
     value: "Joker",
@@ -695,14 +736,17 @@ export const DECK_LIST: NerdcastCard[] = [
     name: "Amigo Imaginário",
     nickname: "Andrés Ramos",
     quote: {
-      message: "",
+      message:
+        "Olha só, amigo, 1, 2 ou 3 legiões de demônio dá pra gente dar conta. Agora 3000, parceiro...",
+      episode: "NC 197 - O sobrenatural ecziste! Ou não",
+      link: "https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-197-o-sobrenatural-ecziste-ou-nao",
     },
     suit: "",
     value: "Bônus",
     originalSrc: "/images/card/nerdcast-amigoimaginario.webp",
-    signedOn: new Date('2025-07-29'),
-    signedLocation: 'Rio de Janeiro, RJ',
-    signedSrc: '/images/signed-card/photo_2025-08-19 21.43.57.jpeg',
+    signedOn: new Date("2025-07-29"),
+    signedLocation: "Rio de Janeiro, RJ",
+    signedSrc: "/images/signed-card/photo_2025-08-19 21.43.57.jpeg",
     socialMedia: [
       {
         name: "@renderia",
