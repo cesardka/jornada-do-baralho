@@ -2,17 +2,28 @@ import Image from "next/image";
 
 export default function FallingCards() {
   const cardImages = [
-    "nerdcast-k-srk.webp",
+    "nerdcast-k-alottoni.webp",
     "nerdcast-q-francine.webp",
+    "nerdcast-k-srk.webp",
     "nerdcast-j-gugaferrari.webp",
+    "nerdcast-k-jp.webp",
+    "nerdcast-a-briggs.webp",
     "nerdcast-a-nickellis.webp",
+    "nerdcast-k-azaghal.webp",
     "nerdcast-joker-fabioyabu.webp",
-    "nerdcast-joker-tresde.webp",
+    "nerdcast-q-srajovemnerd.webp",
+    "nerdcast-q-portuguesa.webp",
+    "nerdcast-a-carlosvoltor.webp",
+    "nerdcast-j-tucano.webp",
+    "nerdcast-q-ruiva.webp",
+    "nerdcast-j-bluehand.webp",
     "nerdcast-amigoimaginario.webp",
+    "nerdcast-j-eduardospohr.webp",
+    "nerdcast-a-android.webp",
+    "nerdcast-joker-tresde.webp",
   ];
 
-  // Generate 90 cards by cycling through the 7 card types
-  const cards = Array.from({ length: 90 }, (_, i) => ({
+  const cards = Array.from({ length: 50 }, (_, i) => ({
     id: i + 1,
     image: cardImages[i % cardImages.length],
   }));
