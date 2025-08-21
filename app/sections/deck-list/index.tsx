@@ -28,7 +28,7 @@ const getScaleBasedOnScreenWidth = () => {
   if (screenWidth > 1440) return 2.5;
   if (screenWidth > 1024) return 1.8;
   if (screenWidth > 768) return 1.5;
-  return 2.0; // Increased from 1.3 to 2.0 for mobile devices
+  return 1.5; // Increased from 1.3 to 2.0 for mobile devices
 };
 
 const applyIdleAnimation = (element: HTMLElement) => {
