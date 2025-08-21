@@ -56,7 +56,7 @@ export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
       onClick={handleUserInteraction}
       onTouchStart={handleUserInteraction}
     >
-      <div className="w-auto h-1/2 md:h-full aspect-video relative overflow-hidden">
+      <div className="w-auto h-full md:h-full aspect-video relative overflow-hidden">
         <video
           ref={videoRef}
           className="w-full h-full object-cover landscape:object-contain max-w-none"
