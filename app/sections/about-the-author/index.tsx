@@ -14,9 +14,9 @@ export default function AboutTheAuthor() {
   // -[x] Add a link to the author's social media
   // -[ ] Add a link to the author's email (not sure if will add this one)
 
-  if (!animationEnded) {
-    return null;
-  }
+  // if (!animationEnded) {
+  //   return null;
+  // }
 
   return (
     <section

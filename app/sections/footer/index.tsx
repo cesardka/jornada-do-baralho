@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { useAnimation } from "../../contexts/AnimationContext";
+// import { useAnimation } from "../../contexts/AnimationContext";
 
 export default function Footer() {
-  const { animationEnded } = useAnimation();
+  // const { animationEnded } = useAnimation();
   const copyrightYear = new Date().getFullYear();
 
-  if (!animationEnded) return null;
+  // if (!animationEnded) return null;
 
   return (
     <div className="w-full h-14 p-5 flex items-center justify-center text-white text-sm bg-blue-600 z-10">

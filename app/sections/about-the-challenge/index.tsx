@@ -79,9 +79,9 @@ export default function AboutTheChallenge() {
     return () => ctx.revert();
   }, [animationEnded]);
 
-  if (!animationEnded) {
-    return null;
-  }
+  // if (!animationEnded) {
+  //   return null;
+  // }
 
   return (
     <section
