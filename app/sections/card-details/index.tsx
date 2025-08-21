@@ -54,15 +54,17 @@ const CardDetails = ({
       {/* Brief famous quote, and episode number */}
       <p className="mt-4 text-gray-600 italic">
         <q className="text-xl text-gray-500">{card.quote.message}</q>
+        <span className="flex">
         {card.quote.link && (
           <Link
             href={card.quote.link}
             target="_blank"
-            className="text-blue-500 text-sm underline ml-2 hover:text-blue-700"
+            className="text-blue-500 text-sm underline hover:text-blue-700"
           >
             {card.quote.episode}
           </Link>
         )}
+        </span>
       </p>
 
       {isAndroidCard && (
