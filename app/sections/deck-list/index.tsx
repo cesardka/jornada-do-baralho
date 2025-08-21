@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 
 import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
 import { DECK_LIST, NerdcastCard } from "./card-data";
