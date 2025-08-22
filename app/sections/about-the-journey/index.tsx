@@ -123,6 +123,14 @@ export default function AboutTheJourney() {
                   Baralho Nerdcast
                 </Link>
                 {t("aboutJourney.deck_p1_after_product")}
+                <Link
+                  href="https://www.instagram.com/caducarvalho"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
+                >
+                  Cadu Carvalho <SocialMediaIcon type="insta" size={14} />
+                </Link>
               </p>
               <p>
                 {t("aboutJourney.deck_p2_before_ep")}
@@ -220,7 +228,7 @@ export default function AboutTheJourney() {
                   rel="noopener noreferrer"
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
                 >
-                  6 de novembro de 2024{" "}
+                  {t("aboutJourney.my_p4_first_date")}{" "}
                   <SocialMediaIcon type="github" size={14} />
                 </Link>
                 {t("aboutJourney.my_p4_after_link_before_second_date")}
@@ -230,16 +238,13 @@ export default function AboutTheJourney() {
                   rel="noopener noreferrer"
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
                 >
-                  outro anúncio
+                  {t("aboutJourney.my_p4_second_date_link")}{" "}
                 </Link>
                 {t("aboutJourney.my_p4_after_second_link")}{" "}
                 <strong>{t("aboutJourney.my_p4_end")}</strong>
               </p>
 
-              <p>
-                Resta agora conseguir as assinaturas possíveis e encerrar esse
-                ciclo... Vamos nessa?
-              </p>
+              <p>{t("aboutJourney.my_p4_conclusion")}</p>
             </div>
           </div>
         </div>
