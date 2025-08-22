@@ -33,7 +33,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       deck_p1_before_ep: "Em 25 de maio de 2012, durante o episódio ",
       deck_p1_between_links: ", o Jovem Nerd lançou o ",
       deck_p1_after_product:
-        ", um baralho temático com os Nerdcasters em parceria com a Copag ilustrando vários nerdcasters da época.",
+        ", um baralho temático em parceria com a Copag ilustrando vários Nerdcasters da época.",
       deck_p2_before_ep: "No Nerdcast seguinte, ",
       deck_p2_after_ep:
         ", foi lançado o Desafio do Baralho ao final da leitura de e-mails:",
@@ -153,7 +153,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       deck_p1_before_ep: "On May 25, 2012, during episode ",
       deck_p1_between_links: ", Jovem Nerd launched the ",
       deck_p1_after_product:
-        ", a themed deck featuring the Nerdcasters in partnership with Copag, illustrating several Nerdcasters of that time.",
+        ", a themed deck in partnership with Copag, featuring several Nerdcasters of that time.",
       deck_p2_before_ep: "In the next Nerdcast, ",
       deck_p2_after_ep:
         ", the Deck Challenge was launched at the end of the email reading:",
