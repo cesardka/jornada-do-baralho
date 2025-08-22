@@ -1,7 +1,18 @@
 "use client";
 
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { messages as allMessages, SupportedLocale } from "@/app/locales";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import {
+  messages as allMessages,
+  SupportedLocale,
+  NestedMessages,
+} from "@/app/locales";
 
 export type I18nContextValue = {
   locale: SupportedLocale;
@@ -19,7 +30,10 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Load preferred locale from localStorage or browser
-    const stored = typeof window !== "undefined" ? (localStorage.getItem(STORAGE_KEY) as SupportedLocale | null) : null;
+    const stored =
+      typeof window !== "undefined"
+        ? (localStorage.getItem(STORAGE_KEY) as SupportedLocale | null)
+        : null;
     if (stored === "pt" || stored === "en") {
       setLocaleState(stored);
       return;
@@ -43,17 +57,23 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     (key: string) => {
       // Deep lookup using dot notation
       const parts = key.split(".");
-      let cur: any = msgs;
+      let cur: NestedMessages | string = msgs as NestedMessages;
       for (const part of parts) {
-        if (cur && typeof cur === "object" && part in cur) cur = cur[part];
-        else return key; // fallback to key
+        if (cur && typeof cur === "object" && part in cur) {
+          cur = (cur as NestedMessages)[part] as NestedMessages | string;
+        } else {
+          return key; // fallback to key
+        }
       }
       return typeof cur === "string" ? cur : key;
     },
     [msgs]
   );
 
-  const value = useMemo<I18nContextValue>(() => ({ locale, setLocale: setLocaleState, t }), [locale, t]);
+  const value = useMemo<I18nContextValue>(
+    () => ({ locale, setLocale: setLocaleState, t }),
+    [locale, t]
+  );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }

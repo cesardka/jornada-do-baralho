@@ -1,6 +1,7 @@
 export type SupportedLocale = "pt" | "en";
+export type NestedMessages = { [key: string]: string | NestedMessages };
 
-export const messages: Record<SupportedLocale, any> = {
+export const messages: Record<SupportedLocale, NestedMessages> = {
   pt: {
     common: {
       loading: "Carregando...",
@@ -134,7 +135,7 @@ export const messages: Record<SupportedLocale, any> = {
       pauseAudio: "Pause audio",
       imgBgAlt: "Journey image (background)",
       imgTopAlt: "Journey image (top with animation)",
-      p1_begin: "This is a personal initiative, ",
+      p1_begin: "This is my personal initiative, ",
       p1_afterName:
         ", to document and complete The Deck Challenge to get the iPad that for ",
       p1_afterYears: " years has still not been claimed.",
