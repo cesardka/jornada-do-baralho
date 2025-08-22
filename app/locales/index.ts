@@ -67,7 +67,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
           title:
             "Desenvolvedor, falso designer e pessoa que está trilhando a Jornada do Baralho",
           description:
-            'Morador de Porto Alegre - RS, é ouvinte do Nerdcast desde 2007, quando conheceu na casa de um amigo o episódio 70 - "Harry Potter: 70 mas não agüenta!" e desde então não viveu mais sem o programa no ouvido. Tomou como objetivo de vida não deixar o Nerdcast acabar sem alguém concluir esse desafio que perdura há mais de década.',
+            "Morador de Porto Alegre - RS, é um aspirante a mestre Pokémon durante a noite, e pedreiro de código durante o dia. É ouvinte e espectador do universo Jovem Nerd durante uma vida toda quase, desde os seus 14 anos (2007). Tomou como objetivo de vida não deixar o Nerdcast acabar sem alguém concluir esse desafio que perdura há mais de década.",
         },
         leo: {
           name: "Leo Brasil",
@@ -188,7 +188,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
           title:
             "Developer, fake designer, and the person trekking the Deck Journey",
           description:
-            "Living in Porto Alegre - RS, he's been a Nerdcast listener since 2007, when he discovered episode 70 – 'Harry Potter: 70 but can't take it!' at a friend's house and has never lived without the show in his ears since. He took it as a life goal to not let Nerdcast end without someone completing this challenge that has lasted for over a decade.",
+            "Living in Porto Alegre - RS, is an emerging Pokemon master by night and code developer by day. Has been imersed into Jovem Nerd's universe over the course of his life since he was a 14yo (2007).",
         },
         leo: {
           name: "Leo Brasil",
