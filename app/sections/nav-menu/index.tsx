@@ -44,7 +44,7 @@ export default function NavMenu() {
   return (
     <header
       id="nav-menu"
-      className={`w-full h-20 top-0 z-10 text-white transform transition-all sticky bg-[#016745] duration-500 ${
+      className={`w-full h-20 top-0 z-[100] text-white transform transition-all sticky bg-[#016745] duration-500 ${
         visible ? "opacity-100" : "opacity-0"
       }`}
     >
