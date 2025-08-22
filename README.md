@@ -13,6 +13,7 @@
   - [🏃‍➡️ Getting Started](#️-getting-started)
   - [👩‍🏫 Learn More](#-learn-more)
   - [🚀 Deploy on Vercel](#-deploy-on-vercel)
+  - [🔮 Feature Suggestions](#-feature-suggestions)
 
 "Jornada do Baralho" (or "Deck's Journey") is a playful nod to the [Hero's Journey](https://en.wikipedia.org/wiki/Hero%27s_journey), mentioned by [Eduardo Spohr](https://www.instagram.com/duduspohr/)'s multiple times over the years during his storytelling lessons and over multiple Nerdcasts.
 
@@ -113,3 +114,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 🔮 Feature Suggestions
+
+- [x] An option to navigate between selected cards, with arrows < and > to switch the selected card
+- [ ] New section between `About The Challenge` and `About The Authors` giving a proper context on who I am, my relationship with the Jovem Nerd universe and the history on starting the website

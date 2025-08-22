@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/all";
@@ -48,7 +49,9 @@ const applyIdleAnimation = (element: HTMLElement) => {
 export default function DeckList() {
   // 1. To be used to highlight card next to menu sliding in
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
+  const [selectedCardIndex, setSelectedCardIndex] = useState<number>(-1);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const isMobile = useScreenWidth(); // TODO: will probably need to move up to the layout, so we can use it in other components
 
   // Reset card details position when screen size changes
@@ -203,7 +206,9 @@ export default function DeckList() {
     const cardRect = cardElement.getBoundingClientRect();
 
     if (!selectedCard) {
+      const cardIndex = nerdcastCards.findIndex((c) => c.id === card.id);
       setSelectedCard(card);
+      setSelectedCardIndex(cardIndex);
 
       const translateX =
         overlayRect.left +
@@ -257,6 +262,7 @@ export default function DeckList() {
         y: 0,
         scale: 1,
         rotationY: 0,
+        zIndex: "",
         duration: DEFAULT_ANIMATION_DURATION,
         ease: "expo.inOut",
         onComplete: () => {
@@ -273,14 +279,101 @@ export default function DeckList() {
       gsap.to("#card-details", {
         ...direction,
         duration: DEFAULT_ANIMATION_DURATION,
-        ease: "eexpo.inOut",
+        ease: "expo.inOut",
         onComplete: () => {
           setSelectedCard(null);
+          setSelectedCardIndex(-1);
         },
       });
 
       document.body.style.overflow = "";
     }
+  };
+
+  const navigateToCard = (direction: "prev" | "next") => {
+    if (!selectedCard || isTransitioning || selectedCardIndex === -1) return;
+
+    const currentIndex = selectedCardIndex;
+    let newIndex: number;
+
+    if (direction === "prev") {
+      newIndex =
+        currentIndex === 0 ? nerdcastCards.length - 1 : currentIndex - 1;
+    } else {
+      newIndex =
+        currentIndex === nerdcastCards.length - 1 ? 0 : currentIndex + 1;
+    }
+
+    const newCard = nerdcastCards[newIndex];
+    const currentCardElement = document.getElementById(selectedCard.id);
+    const newCardElement = document.getElementById(newCard.id);
+    const cardDetailsElement = document.getElementById("card-details");
+    const overlayElement = document.getElementById("card-overlay");
+
+    if (!currentCardElement || !newCardElement || !cardDetailsElement || !overlayElement) return;
+
+    setIsTransitioning(true);
+
+    // Get overlay position for new card positioning
+    const overlayRect = overlayElement.getBoundingClientRect();
+    const newCardRect = newCardElement.getBoundingClientRect();
+
+    const translateX =
+      overlayRect.left +
+      overlayRect.width / 2 -
+      (newCardRect.left + newCardRect.width / 2);
+    const translateY =
+      overlayRect.top +
+      overlayRect.height / 2 -
+      (newCardRect.top + newCardRect.height / 2);
+
+    const timeline = gsap.timeline();
+
+    timeline
+      // Reset z-index of current card and set z-index for new card
+      .set(currentCardElement, { zIndex: "" })
+      .set(newCardElement, { zIndex: 40 })
+      // Slide out modal content
+      .to(cardDetailsElement, {
+        ...(isMobile ? { y: "100%" } : { x: "100%" }),
+        duration: DEFAULT_ANIMATION_DURATION,
+        ease: "expo.inOut",
+      })
+      // Scale current card back to original position
+      .to(currentCardElement, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotationY: 0,
+        duration: DEFAULT_ANIMATION_DURATION,
+        ease: "expo.inOut",
+        onComplete: () => {
+          // Apply idle animation to the old card
+          applyIdleAnimation(currentCardElement);
+        },
+      }, 0)
+      // Scale and position new card to highlighted state
+      .to(newCardElement, {
+        x: translateX,
+        y: translateY,
+        scale: getScaleBasedOnScreenWidth(),
+        duration: DEFAULT_ANIMATION_DURATION,
+        ease: "expo.inOut",
+      }, 0)
+      // Update state
+      .call(() => {
+        setSelectedCard(newCard);
+        setSelectedCardIndex(newIndex);
+      })
+      // Slide in modal content with new data
+      .to(cardDetailsElement, {
+        ...(isMobile ? { y: 0 } : { x: 0 }),
+        duration: DEFAULT_ANIMATION_DURATION,
+        ease: "expo.inOut",
+        onComplete: () => {
+          setIsTransitioning(false);
+        },
+      });
   };
 
   const handleCardMouseEnter = (card: NerdcastCard) => {
@@ -317,9 +410,37 @@ export default function DeckList() {
         >
           <div
             id="card-overlay"
-            className={`w-full h-full flex-grow basis-3/5 pb-20`}
+            className={`w-full h-full flex-grow basis-3/5 pb-20 relative`}
             onClick={resetCardPosition}
-          />
+          >
+            {/* Navigation arrows */}
+            {selectedCard && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateToCard("prev");
+                  }}
+                  disabled={isTransitioning}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed z-40"
+                  aria-label="Carta anterior"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateToCard("next");
+                  }}
+                  disabled={isTransitioning}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed z-40"
+                  aria-label="Próxima carta"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </>
+            )}
+          </div>
           <div
             id="card-details"
             className={`w-full h-full flex-grow basis-2/5 ${
