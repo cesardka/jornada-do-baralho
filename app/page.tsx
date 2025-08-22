@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimationProvider } from "./contexts/AnimationContext";
 import AboutTheAuthor from "./sections/about-the-author";
 import AboutTheChallenge from "./sections/about-the-challenge";
+import AboutTheJourney from "./sections/about-the-journey";
 import DeckList from "./sections/deck-list";
 import Footer from "./sections/footer";
 import NavMenu from "./sections/nav-menu";
@@ -82,6 +83,7 @@ export default function Card() {
           <div id="container" ref={containerRef}>
             <DeckList />
             <AboutTheChallenge />
+            <AboutTheJourney />
             <AboutTheAuthor />
             <Footer />
           </div>
