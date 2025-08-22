@@ -60,7 +60,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
           name: "Lena Franzz",
           title: "Animadora, ilustradora, diretora de animação e atriz de voz",
           description:
-            "Gaúcha naturalizada carioca desde 2013, acompanha o Nerdcast de muitos anos, já enviou artes dos fãs, fez tour gastronômico do Eskimó ao Majórica para deixar o Senhor K. com orgulho. Atualmente é sócia-fundadora do Studio Chifrezz, onde já animou projetos premiados internacionalmente e está trabalhando em mais obras para serem lançadas futuramente!",
+            "Artista responsável pelas ilustrações da Jornada do Baralho. Gaúcha naturalizada carioca desde 2013, acompanha o Nerdcast de muitos anos, já enviou artes dos fãs, fez tour gastronômico do Eskimó ao Majórica para deixar o Senhor K. com orgulho. Atualmente é sócia-fundadora do Studio Chifrezz, onde já animou projetos premiados internacionalmente e está trabalhando em mais obras para serem lançadas futuramente!",
         },
         cesar: {
           name: "César Hoffmann",
@@ -99,8 +99,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     deckList: {
       prev: "Carta anterior",
       next: "Próxima carta",
-      cardFrontAltPrefix: "Carta do Nerdcaster \"",
-      cardFrontAltSuffix: "\"",
+      cardFrontAltPrefix: 'Carta do Nerdcaster "',
+      cardFrontAltSuffix: '"',
       cardBackAlt: "Verso do baralho Nerdcast",
     },
     cardDetails: {
@@ -181,7 +181,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
           name: "Lena Franzz",
           title: "Animator, illustrator, animation director and voice actress",
           description:
-            "A gaucha who became a carioca in 2013, she's been listening to Nerdcast for many years, has sent fan art, and did the gastronomic tour from Eskimó to Majórica to make Senhor K proud. She's currently a co-founder of Studio Chifrezz, has animated internationally awarded projects and is working on more to be released in the future!",
+            "The artist commissioned to illustrate and animate the art in Jornada do Baralho. A gaucha who became a carioca in 2013, she's been listening to Nerdcast for many years, has sent fan art, and did the gastronomic tour from Eskimó to Majórica to make Senhor K proud. She's currently a co-founder of Studio Chifrezz, has animated internationally awarded projects and is working on more to be released in the future!",
         },
         cesar: {
           name: "César Hoffmann",
@@ -220,8 +220,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     deckList: {
       prev: "Previous card",
       next: "Next card",
-      cardFrontAltPrefix: "Nerdcaster card \"",
-      cardFrontAltSuffix: "\"",
+      cardFrontAltPrefix: 'Nerdcaster card "',
+      cardFrontAltSuffix: '"',
       cardBackAlt: "Nerdcast deck back",
     },
     cardDetails: {
