@@ -33,12 +33,12 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       deck_p1_before_ep: "Em 25 de maio de 2012, durante o episódio ",
       deck_p1_between_links: ", o Jovem Nerd lançou o ",
       deck_p1_after_product:
-        ", um baralho temático em parceria com a Copag ilustrando vários Nerdcasters da época.",
+        ", um baralho temático em parceria com a Copag com ilustrações de vários Nerdcasters da época, feitas pelo",
       deck_p2_before_ep: "No Nerdcast seguinte, ",
       deck_p2_after_ep:
         ", foi lançado o Desafio do Baralho ao final da leitura de e-mails:",
       my_p1_before_link:
-        "Em 11 de outubro de 2024, faltando 47 episódios para o #1000, decidi embarcar nesta jornada comprando um Baralho do Nerdcast para chamar de meu no ",
+        "Em 11 de outubro de 2024, faltando 47 episódios para o Nerdcast #1000, decidi embarcar nesta jornada comprando um Baralho do Nerdcast para chamar de meu no ",
       my_p1_after_link: ".",
       my_p2:
         "Ele já tinha algumas assinaturas, mas tinha em mente que iria atrás de todas ainda assim para completar o desafio seguindo as regras estabelecidas.",
@@ -46,10 +46,14 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p4_before_first_date:
         "Mesmo assim decidi começar o código do projeto ",
       my_p4_after_first_date_before_link: " em ",
+      my_p4_first_date: "11 de outubro de 2024",
       my_p4_after_link_before_second_date:
         " e depois dia 13 de novembro de 2024 achei ",
+      my_p4_second_date_link: "outro anúncio",
       my_p4_after_second_link: " e consegui comprar outro baralho, este ",
       my_p4_end: "completo e lacrado!!",
+      my_p4_conclusion:
+        "Resta agora conseguir as assinaturas possíveis e encerrar esse ciclo... Vamos nessa?",
     },
     aboutAuthor: {
       title: "Créditos",
@@ -149,26 +153,30 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       p2_begin:
         "I've been a Nerdcast listener since 2007, when I was 14, and I remember starting with episode ",
       p2_end:
-        ". Since then, I've become a fan of Jovem Nerd and follow the content almost daily, being one of those who listens to Nerdcast to fall asleep haha",
+        ". Since then, I've become a fan of Jovem Nerd and follow the content almost daily, being one of those who listens to Nerdcast on bed before sleep haha",
       deck_p1_before_ep: "On May 25, 2012, during episode ",
       deck_p1_between_links: ", Jovem Nerd launched the ",
       deck_p1_after_product:
-        ", a themed deck in partnership with Copag, featuring several Nerdcasters of that time.",
+        ", a themed deck in partnership with Copag, featuring several Nerdcasters of that time, as illustrated by",
       deck_p2_before_ep: "In the next Nerdcast, ",
       deck_p2_after_ep:
         ", the Deck Challenge was launched at the end of the email reading:",
       my_p1_before_link:
-        "On October 11, 2024, with 47 episodes left until #1000, I decided to embark on this journey by buying a Nerdcast Deck of my own on ",
+        "On October 11, 2024, with 47 episodes left until Nerdcast #1000, I decided to embark on this journey by buying a Nerdcast Deck of my own on ",
       my_p1_after_link: ".",
       my_p2:
         "It already had some signatures, but I intended to pursue all of them to complete the challenge by following the established rules.",
       my_p3: "... The package was lost during transport... 🤡",
       my_p4_before_first_date: "Even so, I decided to start the project code ",
       my_p4_after_first_date_before_link: " on ",
+      my_p4_first_date: "October 11th, 2024",
       my_p4_after_link_before_second_date:
         " and then on November 13, 2024 I found ",
+      my_p4_second_date_link: "another listing",
       my_p4_after_second_link: " and managed to buy another deck, this one ",
       my_p4_end: "complete and sealed!!",
+      my_p4_conclusion:
+        "It's up to now to get as many signatures as possible and close this cycle... Would you all join me?",
     },
     aboutAuthor: {
       title: "Credits",
