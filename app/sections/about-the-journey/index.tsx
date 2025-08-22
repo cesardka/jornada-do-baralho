@@ -6,8 +6,10 @@ import { bebasNeue } from "@/app/fonts";
 import { SocialMediaIcon } from "../card-details/socialMediaIcon";
 import { useRef, useState } from "react";
 import { FaPause, FaMusic } from "react-icons/fa";
+import { useI18n } from "@/app/contexts/I18nContext";
 
 export default function AboutTheJourney() {
+  const { t } = useI18n();
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -33,7 +35,7 @@ export default function AboutTheJourney() {
       {/* Desktop layout: side-by-side. Mobile: stacked (text on top, image bottom) */}
       <div className="relative flex flex-col md:flex-row w-full h-full">
         {/* RIGHT PANEL (on desktop): Text content with animated galaxy background */}
-        <div className="order-1 md:order-2 relative w-full md:w-1/2 min-h-[60vh] md:min-h-screen text-white bg-[#0a0a12]">
+        <div className="order-2 md:order-2 relative w-full md:w-1/2 min-h-[60vh] md:min-h-screen text-white bg-[#0a0a12]">
           {/* Left-edge fade to merge with image on desktop; bottom fade on mobile */}
           <div
             className="pointer-events-none absolute inset-y-0 left-0 w-24 hidden md:block"
@@ -55,12 +57,12 @@ export default function AboutTheJourney() {
             <h2
               className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6`}
             >
-              Quem sou eu
+              {t("aboutJourney.titleWhoAmI")}
             </h2>
 
             <div className="space-y-6 text-base md:text-xl leading-relaxed text-white/90 max-w-4xl">
               <p>
-                Esta é uma iniciativa pessoal minha, {""}
+                {t("aboutJourney.p1_begin")}
                 <Link
                   href="https://www.linkedin.com/in/c%C3%A9sar-hoffmann/"
                   target="_blank"
@@ -68,15 +70,14 @@ export default function AboutTheJourney() {
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
                 >
                   César Hoffmann
-                </Link>{" "}
-                , para documentar e completar o Desafio do Baralho para
-                conseguir o iPad que há {new Date().getFullYear() - 2012} anos
-                ainda não foi conquistado.
+                </Link>
+                {t("aboutJourney.p1_afterName")}
+                {new Date().getFullYear() - 2012}
+                {t("aboutJourney.p1_afterYears")}
               </p>
 
               <p>
-                Sou ouvinte do Nerdcast desde 2007, quando tinha 14 anos, e me
-                lembro de ter começado pelo episódio{" "}
+                {t("aboutJourney.p2_begin")}
                 <Link
                   href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-70-harry-potter-70-mas-nao-aguenta"
                   target="_blank"
@@ -84,20 +85,18 @@ export default function AboutTheJourney() {
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
                 >
                   #70 - Harry Potter: 70 mas não agüenta!
-                </Link>{" "}
-                na casa de um amigo. Desde então, virei fã do Jovem Nerd e
-                acompanho quase diariamente o conteúdo, sendo membro do grupo
-                que ouve Nerdcast pra dormir hahah
+                </Link>
+                {t("aboutJourney.p2_end")}
               </p>
 
               <h2
                 className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6`}
               >
-                O Baralho
+                {t("aboutJourney.titleDeck")}
               </h2>
 
               <p>
-                Em 25 de maio de 2012, durante o episódio{" "}
+                {t("aboutJourney.deck_p1_before_ep")}
                 <Link
                   href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho"
                   target="_blank"
@@ -106,7 +105,7 @@ export default function AboutTheJourney() {
                 >
                   #312 - Nerdcast do Baralho
                 </Link>
-                , o Jovem Nerd lançou o{" "}
+                {t("aboutJourney.deck_p1_between_links")}
                 <Link
                   href="https://web.archive.org/web/20121214093601/http://www.nerdstore.com.br/produto/baralho-jn.html"
                   target="_blank"
@@ -115,11 +114,10 @@ export default function AboutTheJourney() {
                 >
                   Baralho Nerdcast
                 </Link>
-                , um baralho temático com os Nerdcasters em parceria com a Copag
-                ilustrando vários nerdcasters da época.
+                {t("aboutJourney.deck_p1_after_product")}
               </p>
               <p>
-                No Nerdcast seguinte,{" "}
+                {t("aboutJourney.deck_p2_before_ep")}
                 <Link
                   href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
                   target="_blank"
@@ -128,8 +126,7 @@ export default function AboutTheJourney() {
                 >
                   #313 - HQ: Os Velhos Novos 52
                 </Link>
-                , foi lançado o Desafio do Baralho ao final da leitura de
-                e-mails:
+                {t("aboutJourney.deck_p2_after_ep")}
               </p>
 
               <div
@@ -152,7 +149,9 @@ export default function AboutTheJourney() {
                     <FaMusic className="text-xl" />
                   )}
                   <span className="text-xl leading-none">
-                    {isPlaying ? "Pausar áudio" : "Ouça o desafio"}
+                    {isPlaying
+                      ? t("aboutJourney.pauseAudio")
+                      : t("aboutJourney.listenChallenge")}
                   </span>
                 </button>
 
@@ -181,12 +180,10 @@ export default function AboutTheJourney() {
               <h2
                 className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6`}
               >
-                Minha Jornada
+                {t("aboutJourney.myJourney")}
               </h2>
               <p>
-                Em 11 de outubro de 2024, faltando 47 episódios para o #1000,
-                decidi embarcar nesta jornada comprando um Baralho do Nerdcast
-                para chamar de meu no{" "}
+                {t("aboutJourney.my_p1_before_link")}
                 <Link
                   href="https://www.enjoei.com.br/p/baralho-nerdcast-rpg-algumas-cartas-autografadas-93103206?vid=332492ff-e6b9-4f26-8667-90f70376512d"
                   target="_blank"
@@ -195,23 +192,19 @@ export default function AboutTheJourney() {
                 >
                   Enjoei
                 </Link>
-                .
+                {t("aboutJourney.my_p1_after_link")}
               </p>
 
-              <p>
-                Ele já tinha algumas assinaturas, mas tinha em mente que iria
-                atrás de todas ainda assim para completar o desafio seguindo as
-                regras estabelecidas.
-              </p>
+              <p>{t("aboutJourney.my_p2")}</p>
 
-              <p>... O pacote foi extraviado durante o transporte... 🤡</p>
+              <p>{t("aboutJourney.my_p3")}</p>
 
               <p>
-                Mesmo assim decidi começar o código do projeto{" "}
+                {t("aboutJourney.my_p4_before_first_date")}
                 <span className="text-green-300 font-extrabold">
                   Jornada do Baralho 🃏
-                </span>{" "}
-                em{" "}
+                </span>
+                {t("aboutJourney.my_p4_after_first_date_before_link")}
                 <Link
                   href="https://github.com/cesardka/jornada-do-baralho/commit/346d55275c024ff711102a24a728b02069a67069"
                   target="_blank"
@@ -220,8 +213,8 @@ export default function AboutTheJourney() {
                 >
                   6 de novembro de 2024{" "}
                   <SocialMediaIcon type="github" size={14} />
-                </Link>{" "}
-                e depois dia 13 de novembro de 2024 achei{" "}
+                </Link>
+                {t("aboutJourney.my_p4_after_link_before_second_date")}
                 <Link
                   href="https://produto.mercadolivre.com.br/MLB-4649269134-baralho-nerdcast-jovem-nerd-_JM?quantity=1&variation_id=182642369255"
                   target="_blank"
@@ -229,9 +222,9 @@ export default function AboutTheJourney() {
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
                 >
                   outro anúncio
-                </Link>{" "}
-                e consegui comprar outro baralho, este{" "}
-                <strong>completo e lacrado</strong>!!
+                </Link>
+                {t("aboutJourney.my_p4_after_second_link")}{" "}
+                <strong>{t("aboutJourney.my_p4_end")}</strong>
               </p>
 
               <p>
@@ -243,11 +236,11 @@ export default function AboutTheJourney() {
         </div>
 
         {/* LEFT PANEL (on desktop): Full image placeholder */}
-        <div className="order-2 md:order-1 relative w-full md:w-1/2 min-h-[40vh] md:min-h-screen">
+        <div className="order-1 md:order-1 relative w-full md:w-1/2 min-h-[40vh] md:min-h-screen">
           {/* Bottom image: fully visible */}
           <Image
             src={"/images/cesar-hoffmann-baralho-2024.webp"}
-            alt="Imagem da Jornada (fundo)"
+            alt={t("aboutJourney.imgBgAlt")}
             fill
             priority
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -256,7 +249,7 @@ export default function AboutTheJourney() {
           {/* Top image: diagonal mask fade to reveal the one below */}
           <Image
             src={"/images/cesar-hoffmann-baralho-velho-2024.webp"}
-            alt="Imagem da Jornada (topo com animação)"
+            alt={t("aboutJourney.imgTopAlt")}
             fill
             priority
             sizes="(max-width: 768px) 100vw, 50vw"

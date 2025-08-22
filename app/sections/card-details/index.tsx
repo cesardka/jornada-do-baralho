@@ -7,6 +7,7 @@ import CloseButton from "./closeButton";
 import Link from "next/link";
 import { SocialMediaIcon } from "./socialMediaIcon";
 import { bebasNeue } from "@/app/fonts";
+import { useI18n } from "@/app/contexts/I18nContext";
 
 const CardDetails = ({
   card,
@@ -17,6 +18,8 @@ const CardDetails = ({
   isMobile: boolean;
   closeModal: () => void;
 }) => {
+  const { t, locale } = useI18n();
+
   // If no card, nothing should be rendered
   if (card === null) return;
 
@@ -82,7 +85,7 @@ const CardDetails = ({
 
           {/* Nerdcast Episodes */}
           <h3 className="mt-6 text-2xl font-semibold text-gray-800">
-            Episódios do Nerdcast
+            {t("cardDetails.nerdcastEpisodes")}
           </h3>
           {card.socialMedia && card.socialMedia.length > 0 ? (
             <div className="mt-2 max-h-64 overflow-y-auto border border-gray-200 rounded-lg p-3 bg-gray-50">
@@ -105,7 +108,7 @@ const CardDetails = ({
               </ul>
             </div>
           ) : (
-            <p className="mt-2 text-gray-600">Nenhum episódio disponível</p>
+            <p className="mt-2 text-gray-600">{t("cardDetails.noneEpisodes")}</p>
           )}
         </>
       )}
@@ -114,7 +117,7 @@ const CardDetails = ({
       {!isAndroidCard && (
         <>
           <h3 className="mt-6 text-2xl font-semibold text-gray-800">
-            Redes Sociais
+            {t("cardDetails.social")}
           </h3>
           {card.socialMedia && card.socialMedia.length > 0 ? (
             <ul className="mt-2 space-y-2">
@@ -141,15 +144,15 @@ const CardDetails = ({
                 width={960}
                 height={540}
                 src="/images/illustrations/ilustra-sem_redes.png"
-                alt="Não encontramos as redes"
+                alt={t("cardDetails.noSocialAlt")}
                 className="w-full h-auto transition duration-300 ease-in-out group-hover:blur-md"
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                 <div
                   className={`${bebasNeue.className} text-white text-2xl font-semibold px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
                 >
-                  <p className="text-4xl">Sem redes disponíveis</p>
-                  <p className="text-xl">I want to believe</p>
+                  <p className="text-4xl">{t("cardDetails.noSocialTitle")}</p>
+                  <p className="text-xl">{t("cardDetails.noSocialSubtitle")}</p>
                 </div>
               </div>
             </div>
@@ -157,14 +160,15 @@ const CardDetails = ({
 
           {/* Card signed details */}
           <h3 className="mt-6 text-2xl font-semibold text-gray-800">
-            Assinado em
+            {t("cardDetails.signedOn")}
           </h3>
           {card.signedOn !== null && (
             <div className="mt-2 text-gray-600">
               <span className="font-semibold">
-                {card.signedOn.toLocaleDateString("pt-BR")}
+                {card.signedOn.toLocaleDateString(locale === "pt" ? "pt-BR" : "en-US")}
               </span>{" "}
-              em <span className="font-semibold">{card.signedLocation}</span>
+              {t("cardDetails.atPreposition")} {" "}
+              <span className="font-semibold">{card.signedLocation}</span>
             </div>
           )}
 
@@ -174,7 +178,7 @@ const CardDetails = ({
             <div className="mt-4">
               <Image
                 src={card.signedSrc}
-                alt={`Carta assinada por ${card.name}`}
+                alt={`${t("cardDetails.signedCardAltPrefix")} ${card.name}`}
                 width={400}
                 height={600}
                 className="w-full rounded-md shadow-md"
@@ -186,15 +190,15 @@ const CardDetails = ({
                 width={960}
                 height={540}
                 src="/images/illustrations/ilustra-sem_assinatura.png"
-                alt="Carta pendente assinatura"
+                alt={t("cardDetails.noSignatureAlt")}
                 className="w-full h-auto transition duration-300 ease-in-out group-hover:blur-md"
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                 <div
                   className={`${bebasNeue.className} text-white font-semibold px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
                 >
-                  <p className="text-4xl">Assinatura pendente</p>
-                  <p className="text-xl">Que fim levou...?</p>
+                  <p className="text-4xl">{t("cardDetails.signaturePendingTitle")}</p>
+                  <p className="text-xl">{t("cardDetails.signaturePendingSubtitle")}</p>
                 </div>
               </div>
             </div>

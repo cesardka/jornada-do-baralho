@@ -2,6 +2,7 @@ import { CreditPerson } from "./types";
 
 export const PROJECT_AUTHORS: CreditPerson[] = [
   {
+    id: "lena",
     name: "Lena Franzz",
     title: "Animadora, ilustradora, diretora de animação e atriz de voz",
     description:
@@ -23,6 +24,7 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     ],
   },
   {
+    id: "cesar",
     name: "César Hoffmann",
     title:
       "Desenvolvedor, falso designer e pessoa que está trilhando a Jornada do Baralho",
@@ -45,6 +47,7 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     ],
   },
   {
+    id: "leo",
     name: "Leo Brasil",
     title: "Compositor de trilhas, Sound Designer e Roteirista",
     description:

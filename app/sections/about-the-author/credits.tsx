@@ -6,10 +6,12 @@ import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
 import { PROJECT_AUTHORS } from "./author-data";
 import { SocialMediaIcon } from "../card-details/socialMediaIcon";
+import { useI18n } from "@/app/contexts/I18nContext";
 
 gsap.registerPlugin(useGSAP);
 
 export default function Credits() {
+  const { t } = useI18n();
   const creditsContainer = useRef<HTMLDivElement | null>(null);
   useGSAP(
     () => {
@@ -37,14 +39,24 @@ export default function Credits() {
       <h2
         className={`${bebasNeue.className} text-[64px] md:text-[28px] lg:text-[64px] xl:text-[128px] leading-none font-extrabold mb-8 md:mb-6 lg:mb-8 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000] text-white text-center`}
       >
-        Créditos
+        {t("aboutAuthor.title")}
       </h2>
 
       {/* Authors Grid */}
       <div className="flex flex-col md:flex-row flex-wrap gap-y-12 md:gap-x-16 items-center md:items-start justify-around w-full">
-        {PROJECT_AUTHORS.map((person) => (
+        {PROJECT_AUTHORS.map((person) => {
+          const nameKey = person.id ? `aboutAuthor.people.${person.id}.name` : "";
+          const titleKey = person.id ? `aboutAuthor.people.${person.id}.title` : "";
+          const descKey = person.id ? `aboutAuthor.people.${person.id}.description` : "";
+          const tName = person.id ? t(nameKey) : person.name;
+          const tTitle = person.id ? t(titleKey) : person.title;
+          const tDesc = person.id ? t(descKey) : person.description;
+          const name = person.id && tName !== nameKey ? tName : person.name;
+          const title = person.id && tTitle !== titleKey ? tTitle : person.title;
+          const description = person.id && tDesc !== descKey ? tDesc : person.description;
+          return (
           <div
-            key={person.name}
+            key={person.id || person.name}
             className="w-full md:w-1/3 max-w-full md:max-w-[20vw] flex flex-col items-center md:items-start"
           >
             <span className="relative w-full group inline-block">
@@ -57,7 +69,7 @@ export default function Credits() {
                     src="/images/kale2.png"
                     width={250}
                     height={400}
-                    alt="Kale, protagonista da animação Kale do Museu Assustador"
+                    alt={t("aboutAuthor.lenaKaleAlt")}
                     className="w-20 h-auto origin-center rotate-[-55deg]"
                   />
                 </div>
@@ -66,7 +78,7 @@ export default function Credits() {
                     src="/images/kiza.png"
                     width={250}
                     height={400}
-                    alt="Kiza, protagonista da animação Kale do Museu Assustador"
+                    alt={t("aboutAuthor.lenaKizaAlt")}
                     className="w-20 h-auto origin-center rotate-[-55deg]"
                   />
                 </div>
@@ -75,7 +87,7 @@ export default function Credits() {
               <div className="flex justify-center w-full">
                 <Image
                   src={person.imageSrc}
-                  alt={person.name}
+                  alt={name}
                   width={300}
                   height={300}
                   className={`project-author rounded-xl object-cover w-4/5 max-w-xs h-auto drop-shadow-md justify-self-center`}
@@ -87,7 +99,7 @@ export default function Credits() {
               <div
                 className={`${bebasNeue.className} flex flex-row items-center justify-center md:justify-start font-extrabold text-2xl xl:text-5xl pt-4 border-t-2 border-b-white`}
               >
-                {person.name}
+                {name}
                 <ul className="inline-flex items-center space-x-2 ml-4">
                   {person.socialMedia.map((social, index) => (
                     <li key={index}>
@@ -107,15 +119,15 @@ export default function Credits() {
               </div>
 
               <div className="italic font-semibold text-sm md:text-xs lg:text-sm xl:text-base -mt-1 mb-3">
-                {person.title}
+                {title}
               </div>
 
               <div className="text-justify text-base md:text-sm lg:text-base xl:text-lg">
-                {person.description}
+                {description}
               </div>
             </div>
           </div>
-        ))}
+        )})}
       </div>
     </div>
   );

@@ -7,11 +7,13 @@ import { bebasNeue } from "@/app/fonts";
 import { useAnimation } from "../../contexts/AnimationContext";
 import { FaMusic, FaPause } from "react-icons/fa";
 import FallingCards from "@/components/ui/falling-cards";
+import { useI18n } from "@/app/contexts/I18nContext";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function AboutTheChallenge() {
   const { animationEnded } = useAnimation();
+  const { t } = useI18n();
   const sectionRef = useRef(null);
   const azaghalRef = useRef(null);
   const alottoniRef = useRef(null);
@@ -129,7 +131,12 @@ export default function AboutTheChallenge() {
         <h2
           className={`${bebasNeue.className} text-[64px] md:text-[28px] lg:text-[64px] xl:text-[128px] leading-none font-extrabold mb-12 md:mb-6 lg:mb-8 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000] text-center md:text-left`}
         >
-          DESAFIO <br /> DO BARALHO
+          {t("aboutChallenge.title").split(" ").map((word, idx) => (
+            <span key={idx}>
+              {word}
+              {idx === 0 ? <br /> : " "}
+            </span>
+          ))}
         </h2>
 
         {/* Enlarged and stylized rules list */}
@@ -137,34 +144,34 @@ export default function AboutTheChallenge() {
           className={`${bebasNeue.className} list-decimal list-inside space-y-10 md:space-y-5 md:pb-10 leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
         >
           <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            Conseguir o autógrafo em todas cartas de{" "}
+            {t("aboutChallenge.rule1_prefix")} {" "}
             <span className="relative group inline-block cursor-pointer text-green-400">
-              figuras{" "}
+              {t("aboutChallenge.figures")} {" "}
               <div className="absolute top-0 -left-10 -translate-x-1/2 xl:-translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
                 <Image
                   src="/images/card/nerdcast-k-srk.webp"
-                  alt="Carta Sr. K"
+                  alt={t("aboutChallenge.cartaSrKAlt")}
                   width={80}
                   height={122}
                   className="w-20 h-auto origin-bottom-right rotate-[-10deg] z-10"
                 />
                 <Image
                   src="/images/card/nerdcast-q-francine.webp"
-                  alt="Carta Francine"
+                  alt={t("aboutChallenge.cartaFrancineAlt")}
                   width={80}
                   height={122}
                   className="w-20 h-auto origin-bottom-right rotate-[-5deg] z-10 -ml-4"
                 />
                 <Image
                   src="/images/card/nerdcast-j-gugaferrari.webp"
-                  alt="Carta Guga Ferrari"
+                  alt={t("aboutChallenge.cartaGugaFerrariAlt")}
                   width={80}
                   height={122}
                   className="w-20 h-auto origin-bottom-left rotate-[5deg] z-10 -ml-4"
                 />
                 <Image
                   src="/images/card/nerdcast-a-nickellis.webp"
-                  alt="Carta Nick Ellis"
+                  alt={t("aboutChallenge.cartaNickEllisAlt")}
                   width={80}
                   height={122}
                   className="w-20 h-auto origin-bottom-left rotate-[10deg] z-10 -ml-4"
@@ -173,18 +180,18 @@ export default function AboutTheChallenge() {
             </span>
             ,{" "}
             <span className="relative group inline-block cursor-pointer text-red-400">
-              coringas{" "}
+              {t("aboutChallenge.jokers")} {" "}
               <div className="absolute top-0 left-0 xl:translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
                 <Image
                   src="/images/card/nerdcast-joker-fabioyabu.webp"
-                  alt="Carta Fabio Yabu"
+                  alt={t("aboutChallenge.cartaFabioYabuAlt")}
                   width={80}
                   height={122}
                   className="w-20 h-auto rotate-[-5deg] z-10"
                 />
                 <Image
                   src="/images/card/nerdcast-joker-tresde.webp"
-                  alt="Carta Tresdê"
+                  alt={t("aboutChallenge.cartaTresdeAlt")}
                   width={80}
                   height={122}
                   className="w-20 h-auto rotate-[5deg] z-10 -ml-4"
@@ -193,11 +200,11 @@ export default function AboutTheChallenge() {
             </span>{" "}
             e{" "}
             <span className="relative group inline-block  cursor-pointer text-blue-400">
-              reserva
+              {t("aboutChallenge.reserve")}
               <div className="absolute top-0 left-0 xl:translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex z-10">
                 <Image
                   src="/images/card/nerdcast-amigoimaginario.webp"
-                  alt="Carta Amigo Imaginário"
+                  alt={t("aboutChallenge.cartaAmigoImaginarioAlt")}
                   width={80}
                   height={122}
                   className="w-20 h-auto z-10 ml-4"
@@ -207,13 +214,13 @@ export default function AboutTheChallenge() {
             .
           </li>
           <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            Registrar o momento de cada carta sendo autografada.
+            {t("aboutChallenge.rule2")}
           </li>
           <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            Enviar o baralho assinado para o Jovem Nerd.
+            {t("aboutChallenge.rule3")}
           </li>
           <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            Ganhe o iPad lançado mais recentemente!
+            {t("aboutChallenge.rule4")}
           </li>
         </ol>
 
@@ -237,7 +244,7 @@ export default function AboutTheChallenge() {
               <FaMusic className="text-xl" />
             )}
             <span className="text-xl leading-none">
-              {isPlaying ? "Pausar áudio" : "Ouça o desafio"}
+              {isPlaying ? t("aboutJourney.pauseAudio") : t("aboutJourney.listenChallenge")}
             </span>
           </button>
 
@@ -270,7 +277,7 @@ export default function AboutTheChallenge() {
         <Image
           ref={azaghalRef}
           src="/images/azaghal-esquerdo.webp"
-          alt="Azaghal"
+          alt={t("aboutChallenge.azaghalAlt")}
           width={400}
           height={600}
           className="absolute right-24 md:right-40 xl:right-52 bottom-0 h-auto md:h-[90vh] w-auto object-contain"
@@ -281,7 +288,7 @@ export default function AboutTheChallenge() {
         <Image
           ref={alottoniRef}
           src="/images/jovem-nerd-esquerdo.webp"
-          alt="Jovem Nerd"
+          alt={t("aboutChallenge.jovemNerdAlt")}
           width={400}
           height={600}
           className="relative -right-5 md:-right-10 bottom-0 h-auto md:h-[90vh] w-auto z-10"

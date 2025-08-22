@@ -11,8 +11,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import BouncingText from "../../../components/ui/bouncing-text";
+import { useI18n } from "@/app/contexts/I18nContext";
 
 export default function NavMenu() {
+  const { t, locale, setLocale } = useI18n();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -48,7 +50,7 @@ export default function NavMenu() {
     >
       <div
         style={{ margin: "0 auto" }}
-        className={`relative flex items-center justify-center h-full w-4/5 px-5 text-3xl font-bold container lg transition-all duration-500 ${
+        className={`relative flex items-center justify-start md:justify-center h-full w-4/5 px-5 text-3xl font-bold container lg transition-all duration-500 ${
           visible ? "text-md" : "invisible"
         }`}
       >
@@ -62,6 +64,17 @@ export default function NavMenu() {
 
         {/* Both buttons on the right side */}
         <div className="absolute right-0 flex items-center gap-1 md:gap-2">
+          {/* Language Switcher */}
+          <div className="flex items-center bg-[#016745] rounded overflow-hidden border border-white/20">
+            <button
+              aria-label={t("nav.lang_label")}
+              onClick={() => setLocale(locale === "pt" ? "en" : "pt")}
+              className="text-white hover:text-[#016745] hover:bg-white text-sm px-3 py-1 transition-all"
+            >
+              {locale === "pt" ? t("nav.lang_pt") : t("nav.lang_en")}
+            </button>
+          </div>
+
           {/* Reset Animation Button */}
           <Tooltip>
             <TooltipTrigger asChild>
@@ -73,7 +86,7 @@ export default function NavMenu() {
               </button>
             </TooltipTrigger>
             <TooltipContent>
-              <BouncingText text="Assistir a abertura de novo" />
+              <BouncingText text={t("nav.reset_splash")} />
             </TooltipContent>
           </Tooltip>
 
@@ -85,11 +98,11 @@ export default function NavMenu() {
                 className="text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all flex items-center gap-2"
               >
                 <ImageIcon size={20} />
-                <span className="hidden md:inline">Galeria</span>
+                <span className="hidden md:inline">{t("nav.gallery")}</span>
               </Link>
             </TooltipTrigger>
             <TooltipContent>
-              <BouncingText text="Ver galeria de ilustrações da Lena Franzz" />
+              <BouncingText text={t("nav.gallery_tooltip")} />
             </TooltipContent>
           </Tooltip>
         </div>
