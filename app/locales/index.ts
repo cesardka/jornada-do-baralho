@@ -96,6 +96,13 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       azaghalAlt: "Azaghal",
       jovemNerdAlt: "Jovem Nerd",
     },
+    deckList: {
+      prev: "Carta anterior",
+      next: "Próxima carta",
+      cardFrontAltPrefix: "Carta do Nerdcaster \"",
+      cardFrontAltSuffix: "\"",
+      cardBackAlt: "Verso do baralho Nerdcast",
+    },
     cardDetails: {
       nerdcastEpisodes: "Episódios do Nerdcast",
       noneEpisodes: "Nenhum episódio disponível",
@@ -209,6 +216,13 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       cartaAmigoImaginarioAlt: "Imaginary Friend card",
       azaghalAlt: "Azaghal",
       jovemNerdAlt: "Jovem Nerd",
+    },
+    deckList: {
+      prev: "Previous card",
+      next: "Next card",
+      cardFrontAltPrefix: "Nerdcaster card \"",
+      cardFrontAltSuffix: "\"",
+      cardBackAlt: "Nerdcast deck back",
     },
     cardDetails: {
       nerdcastEpisodes: "Nerdcast Episodes",

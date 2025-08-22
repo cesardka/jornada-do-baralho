@@ -12,6 +12,7 @@ import { DECK_LIST, NerdcastCard } from "./card-data";
 import CardDetails from "../card-details";
 import { useScreenWidth } from "../../hooks/useScreenWidth";
 import { useAnimation } from "../../contexts/AnimationContext";
+import { useI18n } from "@/app/contexts/I18nContext";
 
 gsap.registerPlugin(useGSAP);
 
@@ -47,6 +48,7 @@ const applyIdleAnimation = (element: HTMLElement) => {
 };
 
 export default function DeckList() {
+  const { t } = useI18n();
   // 1. To be used to highlight card next to menu sliding in
   const [selectedCard, setSelectedCard] = useState<NerdcastCard | null>(null);
   const [selectedCardIndex, setSelectedCardIndex] = useState<number>(-1);
@@ -490,7 +492,7 @@ export default function DeckList() {
                   }}
                   disabled={isTransitioning}
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed z-40"
-                  aria-label="Carta anterior"
+                  aria-label={t("deckList.prev")}
                 >
                   <ChevronLeft size={24} />
                 </button>
@@ -501,7 +503,7 @@ export default function DeckList() {
                   }}
                   disabled={isTransitioning}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed z-40"
-                  aria-label="Próxima carta"
+                  aria-label={t("deckList.next")}
                 >
                   <ChevronRight size={24} />
                 </button>
@@ -545,7 +547,9 @@ export default function DeckList() {
                 <div className="flip-card-front">
                   <Image
                     src={card.originalSrc}
-                    alt={`Carta do Nerdcaster "${card.name}"`}
+                    alt={`${t("deckList.cardFrontAltPrefix")}${card.name}${t(
+                      "deckList.cardFrontAltSuffix"
+                    )}`}
                     className={card.signedOn ? "gold-outline" : ""}
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
@@ -554,7 +558,7 @@ export default function DeckList() {
                 <div className="flip-card-back">
                   <Image
                     src="/images/card/card-back-blue.webp"
-                    alt="Card Nerdcast Deck Back Red"
+                    alt={t("deckList.cardBackAlt")}
                     className={card.signedOn ? "gold-outline" : ""}
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
