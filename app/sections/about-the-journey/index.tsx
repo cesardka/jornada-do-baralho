@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { bebasNeue } from "@/app/fonts";
 import { SocialMediaIcon } from "../card-details/socialMediaIcon";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaPause, FaMusic } from "react-icons/fa";
 import { useI18n } from "@/app/contexts/I18nContext";
 
@@ -12,6 +12,7 @@ export default function AboutTheJourney() {
   const { t } = useI18n();
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const DEFAULT_VOLUME = 0.3;
 
   const toggleAudio = () => {
     const audio = audioRef.current;
@@ -26,6 +27,13 @@ export default function AboutTheJourney() {
 
   const handlePlay = () => setIsPlaying(true);
   const handlePause = () => setIsPlaying(false);
+  const handleEnded = () => setIsPlaying(false);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = DEFAULT_VOLUME;
+    }
+  }, []);
 
   return (
     <section
@@ -174,6 +182,7 @@ export default function AboutTheJourney() {
                   preload="auto"
                   onPlay={handlePlay}
                   onPause={handlePause}
+                  onEnded={handleEnded}
                 />
               </div>
 
