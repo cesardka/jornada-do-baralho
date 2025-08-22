@@ -219,7 +219,7 @@ export default function AboutTheChallenge() {
 
         <div
           id="audio-controls"
-          className="-mt-4 pt-16 pb-[30rem] md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full"
+          className="hidden -mt-4 pt-16 pb-[30rem] md:pt-0 md:pb-0 flex-col items-center md:items-start w-full"
         >
           <button
             onClick={toggleAudio}
