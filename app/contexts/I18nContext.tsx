@@ -29,18 +29,16 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<SupportedLocale>(DEFAULT_LOCALE);
 
   useEffect(() => {
-    // Load preferred locale from localStorage or browser
+    // Load preferred locale from localStorage; default to pt for new users
     const stored =
       typeof window !== "undefined"
         ? (localStorage.getItem(STORAGE_KEY) as SupportedLocale | null)
         : null;
     if (stored === "pt" || stored === "en") {
       setLocaleState(stored);
-      return;
+    } else {
+      setLocaleState(DEFAULT_LOCALE);
     }
-    const nav = typeof window !== "undefined" ? navigator.language : undefined;
-    if (nav?.toLowerCase().startsWith("en")) setLocaleState("en");
-    else setLocaleState(DEFAULT_LOCALE);
   }, []);
 
   useEffect(() => {
