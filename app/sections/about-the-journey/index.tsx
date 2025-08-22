@@ -98,7 +98,7 @@ export default function AboutTheJourney() {
               </p>
 
               <h2
-                className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6`}
+                className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
               >
                 {t("aboutJourney.titleDeck")}
               </h2>
@@ -187,7 +187,7 @@ export default function AboutTheJourney() {
               </div>
 
               <h2
-                className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6`}
+                className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
               >
                 {t("aboutJourney.myJourney")}
               </h2>
