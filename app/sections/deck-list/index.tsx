@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import gsap from "gsap";
@@ -53,6 +53,159 @@ export default function DeckList() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const isMobile = useScreenWidth(); // TODO: will probably need to move up to the layout, so we can use it in other components
+
+  // Navigation function used by keyboard, arrows UI and touch
+  const navigateToCard = useCallback(
+    (direction: "prev" | "next") => {
+      if (!selectedCard || isTransitioning || selectedCardIndex === -1) return;
+
+      const currentIndex = selectedCardIndex;
+      let newIndex: number;
+
+      if (direction === "prev") {
+        newIndex =
+          currentIndex === 0 ? nerdcastCards.length - 1 : currentIndex - 1;
+      } else {
+        newIndex =
+          currentIndex === nerdcastCards.length - 1 ? 0 : currentIndex + 1;
+      }
+
+      const newCard = nerdcastCards[newIndex];
+      const currentCardElement = document.getElementById(selectedCard.id);
+      const newCardElement = document.getElementById(newCard.id);
+      const cardDetailsElement = document.getElementById("card-details");
+      const overlayElement = document.getElementById("card-overlay");
+
+      if (
+        !currentCardElement ||
+        !newCardElement ||
+        !cardDetailsElement ||
+        !overlayElement
+      )
+        return;
+
+      setIsTransitioning(true);
+
+      // Get overlay position for new card positioning
+      const overlayRect = overlayElement.getBoundingClientRect();
+      const newCardRect = newCardElement.getBoundingClientRect();
+
+      const translateX =
+        overlayRect.left +
+        overlayRect.width / 2 -
+        (newCardRect.left + newCardRect.width / 2);
+      const translateY =
+        overlayRect.top +
+        overlayRect.height / 2 -
+        (newCardRect.top + newCardRect.height / 2);
+
+      const timeline = gsap.timeline();
+
+      timeline
+        // Reset z-index of current card and set z-index for new card
+        .set(currentCardElement, { zIndex: "" })
+        .set(newCardElement, { zIndex: 40 })
+        // Slide out modal content
+        .to(cardDetailsElement, {
+          ...(isMobile ? { y: "100%" } : { x: "100%" }),
+          duration: DEFAULT_ANIMATION_DURATION,
+          ease: "expo.inOut",
+        })
+        // Scale current card back to original position
+        .to(
+          currentCardElement,
+          {
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotationY: 0,
+            duration: DEFAULT_ANIMATION_DURATION,
+            ease: "expo.inOut",
+            onComplete: () => {
+              // Apply idle animation to the old card
+              applyIdleAnimation(currentCardElement);
+            },
+          },
+          0
+        )
+        // Scale and position new card to highlighted state
+        .to(
+          newCardElement,
+          {
+            x: translateX,
+            y: translateY,
+            scale: getScaleBasedOnScreenWidth(),
+            duration: DEFAULT_ANIMATION_DURATION,
+            ease: "expo.inOut",
+          },
+          0
+        )
+        // Update state
+        .call(() => {
+          setSelectedCard(newCard);
+          setSelectedCardIndex(newIndex);
+        })
+        // Slide in modal content with new data
+        .to(cardDetailsElement, {
+          ...(isMobile ? { y: 0 } : { x: 0 }),
+          duration: DEFAULT_ANIMATION_DURATION,
+          ease: "expo.inOut",
+          onComplete: () => {
+            setIsTransitioning(false);
+          },
+        });
+    },
+    [selectedCard, selectedCardIndex, isMobile, isTransitioning]
+  );
+
+  // Add keyboard navigation and touch swipe detection
+  useEffect(() => {
+    if (!selectedCard) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        navigateToCard("prev");
+      } else if (e.key === "ArrowRight") {
+        navigateToCard("next");
+      }
+    };
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const SWIPE_THRESHOLD = 50;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > SWIPE_THRESHOLD) {
+        if (diff > 0) {
+          navigateToCard("next");
+        } else {
+          navigateToCard("prev");
+        }
+      }
+    };
+
+    // Add event listeners
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("touchstart", handleTouchStart as EventListener);
+    window.addEventListener("touchend", handleTouchEnd as EventListener);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener(
+        "touchstart",
+        handleTouchStart as EventListener
+      );
+      window.removeEventListener("touchend", handleTouchEnd as EventListener);
+    };
+  }, [selectedCard, navigateToCard]);
 
   // Reset card details position when screen size changes
   useEffect(() => {
@@ -288,92 +441,6 @@ export default function DeckList() {
 
       document.body.style.overflow = "";
     }
-  };
-
-  const navigateToCard = (direction: "prev" | "next") => {
-    if (!selectedCard || isTransitioning || selectedCardIndex === -1) return;
-
-    const currentIndex = selectedCardIndex;
-    let newIndex: number;
-
-    if (direction === "prev") {
-      newIndex =
-        currentIndex === 0 ? nerdcastCards.length - 1 : currentIndex - 1;
-    } else {
-      newIndex =
-        currentIndex === nerdcastCards.length - 1 ? 0 : currentIndex + 1;
-    }
-
-    const newCard = nerdcastCards[newIndex];
-    const currentCardElement = document.getElementById(selectedCard.id);
-    const newCardElement = document.getElementById(newCard.id);
-    const cardDetailsElement = document.getElementById("card-details");
-    const overlayElement = document.getElementById("card-overlay");
-
-    if (!currentCardElement || !newCardElement || !cardDetailsElement || !overlayElement) return;
-
-    setIsTransitioning(true);
-
-    // Get overlay position for new card positioning
-    const overlayRect = overlayElement.getBoundingClientRect();
-    const newCardRect = newCardElement.getBoundingClientRect();
-
-    const translateX =
-      overlayRect.left +
-      overlayRect.width / 2 -
-      (newCardRect.left + newCardRect.width / 2);
-    const translateY =
-      overlayRect.top +
-      overlayRect.height / 2 -
-      (newCardRect.top + newCardRect.height / 2);
-
-    const timeline = gsap.timeline();
-
-    timeline
-      // Reset z-index of current card and set z-index for new card
-      .set(currentCardElement, { zIndex: "" })
-      .set(newCardElement, { zIndex: 40 })
-      // Slide out modal content
-      .to(cardDetailsElement, {
-        ...(isMobile ? { y: "100%" } : { x: "100%" }),
-        duration: DEFAULT_ANIMATION_DURATION,
-        ease: "expo.inOut",
-      })
-      // Scale current card back to original position
-      .to(currentCardElement, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        rotationY: 0,
-        duration: DEFAULT_ANIMATION_DURATION,
-        ease: "expo.inOut",
-        onComplete: () => {
-          // Apply idle animation to the old card
-          applyIdleAnimation(currentCardElement);
-        },
-      }, 0)
-      // Scale and position new card to highlighted state
-      .to(newCardElement, {
-        x: translateX,
-        y: translateY,
-        scale: getScaleBasedOnScreenWidth(),
-        duration: DEFAULT_ANIMATION_DURATION,
-        ease: "expo.inOut",
-      }, 0)
-      // Update state
-      .call(() => {
-        setSelectedCard(newCard);
-        setSelectedCardIndex(newIndex);
-      })
-      // Slide in modal content with new data
-      .to(cardDetailsElement, {
-        ...(isMobile ? { y: 0 } : { x: 0 }),
-        duration: DEFAULT_ANIMATION_DURATION,
-        ease: "expo.inOut",
-        onComplete: () => {
-          setIsTransitioning(false);
-        },
-      });
   };
 
   const handleCardMouseEnter = (card: NerdcastCard) => {
