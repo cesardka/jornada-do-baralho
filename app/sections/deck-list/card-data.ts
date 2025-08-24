@@ -308,9 +308,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-bluehand.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-08-23"),
+    signedLocation: "Rio de Janeiro, RJ",
+    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.512.webp",
   },
   {
     id: "card-10",
@@ -359,9 +359,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-gugaferrari.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-08-23"),
+    signedLocation: "Rio de Janeiro, RJ",
+    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.54.webp",
     socialMedia: [
       {
         name: 'Podcast "Papo Furado"',
@@ -710,9 +710,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "",
     value: "Joker",
     originalSrc: "/images/card/nerdcast-joker-tresde.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-08-23"),
+    signedLocation: "Rio de Janeiro, RJ",
+    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.52.webp",
     socialMedia: [
       {
         name: "Bunker X",
@@ -744,9 +744,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "",
     value: "Bônus",
     originalSrc: "/images/card/nerdcast-amigoimaginario.webp",
-    signedOn: new Date("2025-07-29"),
+    signedOn: new Date("2025-08-23"),
     signedLocation: "Rio de Janeiro, RJ",
-    signedSrc: "/images/signed-card/photo_2025-08-19 21.43.57.jpeg",
+    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.48.webp",
     socialMedia: [
       {
         name: "@renderia",
