@@ -26,7 +26,8 @@ const illustrations = [
     src: "/images/illustrations/ilustra-sem_redes.png",
     alt: "Sem Redes - Ilustração",
     title: "Sem Redes",
-    description: "Ilustração para os Nerdcasters que não possuem redes sociais",
+    description:
+      "Ilustração para os Nerdcasters que não possuem redes sociais públicas",
     type: "image",
   },
   {
