@@ -7,6 +7,7 @@ import { SocialMediaIcon } from "../card-details/socialMediaIcon";
 import { useEffect, useRef, useState } from "react";
 import { FaPause, FaMusic } from "react-icons/fa";
 import { useI18n } from "@/app/contexts/I18nContext";
+import BouncingText from "@/components/ui/bouncing-text";
 
 export default function AboutTheJourney() {
   const { t } = useI18n();
@@ -231,6 +232,9 @@ export default function AboutTheJourney() {
                   {t("aboutJourney.my_p4_first_date")}{" "}
                   <SocialMediaIcon type="github" size={14} />
                 </Link>
+                .
+              </p>
+              <p>
                 {t("aboutJourney.my_p4_after_link_before_second_date")}
                 <Link
                   href="https://produto.mercadolivre.com.br/MLB-4649269134-baralho-nerdcast-jovem-nerd-_JM?quantity=1&variation_id=182642369255"
@@ -241,7 +245,13 @@ export default function AboutTheJourney() {
                   {t("aboutJourney.my_p4_second_date_link")}{" "}
                 </Link>
                 {t("aboutJourney.my_p4_after_second_link")}{" "}
-                <strong>{t("aboutJourney.my_p4_end")}</strong>
+                <span className="inline-flex">
+                  <BouncingText
+                    text={t("aboutJourney.my_p4_end")}
+                    rainbow
+                    className="font-extrabold text-xl"
+                  />
+                </span>
               </p>
 
               <p>{t("aboutJourney.my_p4_conclusion")}</p>
