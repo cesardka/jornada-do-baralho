@@ -5,6 +5,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
   pt: {
     common: {
       loading: "Carregando...",
+      unmute: "Ligar som",
+      skip: "Pular intro",
     },
     nav: {
       reset_splash: "Assistir a abertura de novo",
@@ -45,10 +47,10 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p3: "... O pacote foi extraviado durante o transporte... 🤡",
       my_p4_before_first_date:
         "Mesmo assim decidi começar o código do projeto ",
-      my_p4_after_first_date_before_link: " em ",
+      my_p4_after_first_date_before_link:
+        " (uma homenagem também ao Eduardo Spohr e a Jornada do Herói) em ",
       my_p4_first_date: "11 de outubro de 2024",
-      my_p4_after_link_before_second_date:
-        " e depois dia 13 de novembro de 2024 achei ",
+      my_p4_after_link_before_second_date: "Em 13 de novembro de 2024 surgiu ",
       my_p4_second_date_link: "outro anúncio",
       my_p4_after_second_link: " e consegui comprar outro baralho, este ",
       my_p4_end: "completo e lacrado!!",
@@ -129,6 +131,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
   en: {
     common: {
       loading: "Loading...",
+      unmute: "Unmute",
+      skip: "Skip intro",
     },
     nav: {
       reset_splash: "Watch opening again",
@@ -167,11 +171,12 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p2:
         "It already had some signatures, but I intended to pursue all of them to complete the challenge by following the established rules.",
       my_p3: "... The package was lost during transport... 🤡",
-      my_p4_before_first_date: "Even so, I decided to start the project code ",
-      my_p4_after_first_date_before_link: " on ",
+      my_p4_before_first_date:
+        "Even so, I decided to start coding the project ",
+      my_p4_after_first_date_before_link:
+        " (the name is also an homage to Eduardo Spohr's recurring mentions of the Hero's Journey) on ",
       my_p4_first_date: "October 11th, 2024",
-      my_p4_after_link_before_second_date:
-        " and then on November 13, 2024 I found ",
+      my_p4_after_link_before_second_date: "On November 13, 2024, I found ",
       my_p4_second_date_link: "another listing",
       my_p4_after_second_link: " and managed to buy another deck, this one ",
       my_p4_end: "complete and sealed!!",
