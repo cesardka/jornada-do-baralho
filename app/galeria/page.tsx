@@ -9,7 +9,7 @@ import { SocialMediaIcon } from "../sections/card-details/socialMediaIcon";
 
 const illustrations = [
   {
-    src: "/videos/JNB_V008.mp4",
+    src: "/videos/JNB_horizontal.mp4",
     alt: "Vídeo de Abertura - A Jornada do Baralho",
     title: "Vídeo de Abertura",
     description: "Assista ao vídeo de introdução da Jornada do Baralho!",
@@ -293,7 +293,7 @@ export default function Gallery() {
                 className="w-full h-auto rounded-xl shadow-2xl"
                 poster="/images/jornada-do-baralho.png"
               >
-                <source src="/videos/JNB_V008.mp4" type="audio/mpeg" />
+                <source src="/videos/JNB_horiontal.mp4" type="audio/mpeg" />
                 Seu navegador não suporta o elemento de vídeo.
               </video>
 
