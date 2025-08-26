@@ -174,7 +174,7 @@ export default function DeckList() {
 
     let touchStartX = 0;
     let touchEndX = 0;
-    const SWIPE_THRESHOLD = 50;
+    const SWIPE_THRESHOLD = 100;
 
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX = e.changedTouches[0].screenX;
