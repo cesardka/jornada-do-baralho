@@ -76,9 +76,9 @@ export default function AboutTheJourney() {
                   href="https://www.linkedin.com/in/c%C3%A9sar-hoffmann/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
+                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
                 >
-                  César Hoffmann
+                  César Hoffmann <SocialMediaIcon type="linkedin" size={14} />
                 </Link>
                 {t("aboutJourney.p1_afterName")}
                 {new Date().getFullYear() - 2012}
