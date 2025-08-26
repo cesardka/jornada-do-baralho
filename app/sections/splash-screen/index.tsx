@@ -26,31 +26,44 @@ export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
     const video = videoRef.current;
     if (video) {
       video.muted = isMuted;
-      video.play().catch((err) => {
-        console.error("Autoplay failed:", err);
-      });
     }
   }, [isMuted]);
 
-  // Ensure the correct source is actually loaded and played when the device classification changes
+  // Ensure the correct source is loaded; wait for readiness before playing to avoid play/pause race
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.muted = isMuted;
-      // Reload the element so the updated <source> is taken into account
-      try {
-        video.pause();
-        video.load();
-      } catch (e) {
-        // no-op
-        console.warn("Error reloading video element:", e);
-      }
-      video
-        .play()
-        .catch((err) =>
-          console.error("Autoplay after source change failed:", err)
-        );
+    if (!video) return;
+
+    video.muted = isMuted;
+
+    let cancelled = false;
+
+    const tryPlay = () => {
+      if (cancelled) return;
+      // Swallow AbortError noise; this can occur during rapid source swaps
+      video.play().catch((err) => {
+        console.debug("Autoplay attempt was interrupted:", err);
+      });
+    };
+
+    // Force the browser to re-evaluate <source> and then play when ready
+    try {
+      video.load();
+    } catch (e) {
+      console.warn("Error reloading video element:", e);
     }
+
+    const onCanPlay = () => {
+      video.removeEventListener("canplay", onCanPlay);
+      tryPlay();
+    };
+
+    video.addEventListener("canplay", onCanPlay);
+
+    return () => {
+      cancelled = true;
+      video.removeEventListener("canplay", onCanPlay);
+    };
   }, [videoToBePlayed, isMuted]);
 
   const handleVideoEnd = () => {
@@ -75,6 +88,11 @@ export default function SplashScreen({ onVideoEnd }: SplashScreenProps) {
   const handleUserInteraction = () => {
     if (!showSkipButton) {
       setShowSkipButton(true);
+    }
+    // Attempt playback on first interaction to satisfy browsers that restrict autoplay
+    const video = videoRef.current;
+    if (video && video.paused) {
+      video.play().catch(() => {});
     }
   };
 
