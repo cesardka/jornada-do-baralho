@@ -293,7 +293,7 @@ export default function Gallery() {
                 className="w-full h-auto rounded-xl shadow-2xl"
                 poster="/images/jornada-do-baralho.png"
               >
-                <source src="/videos/JNB_horiontal.mp4" type="audio/mpeg" />
+                <source src="/videos/JNB_horizontal.mp4" type="audio/mpeg" />
                 Seu navegador não suporta o elemento de vídeo.
               </video>
 
