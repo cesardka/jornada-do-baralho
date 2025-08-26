@@ -20,6 +20,20 @@ export default function AboutTheChallenge() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // Safe GA event sender with strict typing (no 'any')
+  type GAParams = Record<string, string | number | boolean>;
+  type GtagEventFn = (
+    command: "event",
+    eventName: string,
+    params?: GAParams
+  ) => void;
+
+  const sendGAEvent = (eventName: string, params?: GAParams) => {
+    if (typeof window === "undefined") return;
+    const gtag = (window as Window & { gtag?: GtagEventFn }).gtag;
+    gtag?.("event", eventName, params);
+  };
+
   const toggleAudio = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -31,7 +45,13 @@ export default function AboutTheChallenge() {
     }
   };
 
-  const handlePlay = () => setIsPlaying(true);
+  const handlePlay = () => {
+    setIsPlaying(true);
+    // GA: track audio play for "Ouça o Desafio"
+    sendGAEvent("listen_challenge_play", {
+      section: "about_the_challenge",
+    });
+  };
   const handlePause = () => setIsPlaying(false);
 
   // TODO:
@@ -131,12 +151,14 @@ export default function AboutTheChallenge() {
         <h2
           className={`${bebasNeue.className} text-[64px] md:text-[28px] lg:text-[64px] xl:text-[128px] leading-none font-extrabold mb-12 md:mb-6 lg:mb-8 xl:mb-16 uppercase tracking-wide drop-shadow-[-3px_6px_2px_#330000] text-center md:text-left`}
         >
-          {t("aboutChallenge.title").split(" ").map((word, idx) => (
-            <span key={idx}>
-              {word}
-              {idx === 0 ? <br /> : " "}
-            </span>
-          ))}
+          {t("aboutChallenge.title")
+            .split(" ")
+            .map((word, idx) => (
+              <span key={idx}>
+                {word}
+                {idx === 0 ? <br /> : " "}
+              </span>
+            ))}
         </h2>
 
         {/* Enlarged and stylized rules list */}
@@ -244,7 +266,9 @@ export default function AboutTheChallenge() {
               <FaMusic className="text-xl" />
             )}
             <span className="text-xl leading-none">
-              {isPlaying ? t("aboutJourney.pauseAudio") : t("aboutJourney.listenChallenge")}
+              {isPlaying
+                ? t("aboutJourney.pauseAudio")
+                : t("aboutJourney.listenChallenge")}
             </span>
           </button>
 

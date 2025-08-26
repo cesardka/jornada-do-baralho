@@ -47,6 +47,20 @@ const applyIdleAnimation = (element: HTMLElement) => {
   });
 };
 
+// Safe GA event sender with strict typing (no 'any')
+type GAParams = Record<string, string | number | boolean>;
+type GtagEventFn = (
+  command: "event",
+  eventName: string,
+  params?: GAParams
+) => void;
+
+const sendGAEvent = (eventName: string, params?: GAParams) => {
+  if (typeof window === "undefined") return;
+  const gtag = (window as Window & { gtag?: GtagEventFn }).gtag;
+  gtag?.("event", eventName, params);
+};
+
 export default function DeckList() {
   const { t } = useI18n();
   // 1. To be used to highlight card next to menu sliding in
@@ -361,6 +375,12 @@ export default function DeckList() {
     const cardRect = cardElement.getBoundingClientRect();
 
     if (!selectedCard) {
+      // GA: track first open of a card to view details
+      sendGAEvent("card_view", {
+        item_id: card.id,
+        item_name: card.name,
+      });
+
       const cardIndex = nerdcastCards.findIndex((c) => c.id === card.id);
       setSelectedCard(card);
       setSelectedCardIndex(cardIndex);
