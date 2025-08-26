@@ -166,57 +166,57 @@ export default function AboutTheChallenge() {
           className={`${bebasNeue.className} list-decimal list-inside space-y-10 md:space-y-5 md:pb-10 leading-tight drop-shadow-[-5px_4px_2px_#330000]`}
         >
           <li className="text-[32px] md:text-[16px] lg:text-[32px] xl:text-[56px] font-bold">
-            {t("aboutChallenge.rule1_prefix")} {" "}
+            {t("aboutChallenge.rule1_prefix")}{" "}
             <span className="relative group inline-block cursor-pointer text-green-400">
-              {t("aboutChallenge.figures")} {" "}
+              {t("aboutChallenge.figures")}{" "}
               <div className="absolute top-0 -left-10 -translate-x-1/2 xl:-translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
                 <Image
                   src="/images/card/nerdcast-k-srk.webp"
                   alt={t("aboutChallenge.cartaSrKAlt")}
                   width={80}
                   height={122}
-                  className="w-20 h-auto origin-bottom-right rotate-[-10deg] z-10"
+                  className="origin-bottom-right rotate-[-10deg] z-10"
                 />
                 <Image
                   src="/images/card/nerdcast-q-francine.webp"
                   alt={t("aboutChallenge.cartaFrancineAlt")}
                   width={80}
                   height={122}
-                  className="w-20 h-auto origin-bottom-right rotate-[-5deg] z-10 -ml-4"
+                  className="origin-bottom-right rotate-[-5deg] z-10 -ml-4"
                 />
                 <Image
                   src="/images/card/nerdcast-j-gugaferrari.webp"
                   alt={t("aboutChallenge.cartaGugaFerrariAlt")}
                   width={80}
                   height={122}
-                  className="w-20 h-auto origin-bottom-left rotate-[5deg] z-10 -ml-4"
+                  className="origin-bottom-left rotate-[5deg] z-10 -ml-4"
                 />
                 <Image
                   src="/images/card/nerdcast-a-nickellis.webp"
                   alt={t("aboutChallenge.cartaNickEllisAlt")}
                   width={80}
                   height={122}
-                  className="w-20 h-auto origin-bottom-left rotate-[10deg] z-10 -ml-4"
+                  className="origin-bottom-left rotate-[10deg] z-10 -ml-4"
                 />
               </div>
             </span>
             ,{" "}
             <span className="relative group inline-block cursor-pointer text-red-400">
-              {t("aboutChallenge.jokers")} {" "}
+              {t("aboutChallenge.jokers")}{" "}
               <div className="absolute top-0 left-0 xl:translate-x-5 -translate-y-full mt-[-1rem] opacity-0 group-hover:opacity-100 group-hover:-translate-y-[110%] transition-all duration-300 ease-out pointer-events-none flex">
                 <Image
                   src="/images/card/nerdcast-joker-fabioyabu.webp"
                   alt={t("aboutChallenge.cartaFabioYabuAlt")}
                   width={80}
                   height={122}
-                  className="w-20 h-auto rotate-[-5deg] z-10"
+                  className="rotate-[-5deg] z-10"
                 />
                 <Image
                   src="/images/card/nerdcast-joker-tresde.webp"
                   alt={t("aboutChallenge.cartaTresdeAlt")}
                   width={80}
                   height={122}
-                  className="w-20 h-auto rotate-[5deg] z-10 -ml-4"
+                  className="rotate-[5deg] z-10 -ml-4"
                 />
               </div>
             </span>{" "}
@@ -229,7 +229,7 @@ export default function AboutTheChallenge() {
                   alt={t("aboutChallenge.cartaAmigoImaginarioAlt")}
                   width={80}
                   height={122}
-                  className="w-20 h-auto z-10 ml-4"
+                  className="z-10 ml-4"
                 />
               </div>
             </span>
