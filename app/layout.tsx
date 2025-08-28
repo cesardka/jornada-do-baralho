@@ -5,6 +5,7 @@ import "./globals.css";
 import "@/app/styles/fonts.css";
 import "leaflet/dist/leaflet.css";
 import React from "react";
+import Clarity from "@/components/analytics/clarity";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -149,6 +150,7 @@ export default function RootLayout({
             gtag('config', 'G-EKW4K5RXWG');
           `}
         </Script>
+        <Clarity />
         {children}
       </body>
     </html>

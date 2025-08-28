@@ -8,6 +8,9 @@ dependencies:
   '@gsap/react':
     specifier: ^2.1.1
     version: 2.1.2(gsap@3.13.0)(react@19.0.0-rc-02c0e824-20241028)
+  '@microsoft/clarity':
+    specifier: ^1.0.0
+    version: 1.0.0
   '@radix-ui/react-tooltip':
     specifier: ^1.2.7
     version: 1.2.8(@types/react-dom@18.3.7)(@types/react@18.3.23)(react-dom@19.0.0-rc-02c0e824-20241028)(react@19.0.0-rc-02c0e824-20241028)
@@ -1607,6 +1610,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  /@microsoft/clarity@1.0.0:
+    resolution: {integrity: sha512-2QY6SmXnqRj6dWhNY8NYCN3e53j4zCFebH4wGnNhdGV1mqAsQwql2fT0w8TISxCvwwfVp8idsWLIdrRHOms1PQ==}
+    dev: false
 
   /@napi-rs/wasm-runtime@0.2.12:
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}

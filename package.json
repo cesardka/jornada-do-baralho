@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@microsoft/clarity": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.2.7",
     "alpinejs": "^3.14.3",
     "class-variance-authority": "^0.7.1",
