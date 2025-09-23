@@ -125,6 +125,13 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/manifest.json",
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        { url: '/feed.xml', title: 'Jornada do Baralho - Blog RSS Feed' }
+      ]
+    }
+  },
 };
 
 export default function RootLayout({
