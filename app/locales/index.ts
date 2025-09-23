@@ -130,6 +130,11 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         popupDesc: "Esse é apenas um exemplo, mas espero um dia ir lá!",
       },
     },
+    readTheBlog: {
+      title: "",
+      description: "Reunir todas essas joias do infinito pode ser um processo lento e espaçado, por isso resolvi criar um blog para também trazer todos os bastidores de como está sendo tanto para conseguir as assinaturas, como também como foi que eu fiz para criar esse site, quais as minhas referências, e para onde vai esse projeto!",
+      readBlogButton: "Leia a Blogada do Baralho",
+    },
     blog: {
       title: "Blogada do Baralho",
       sortBy: "Ordenar por",
@@ -273,6 +278,11 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         popupTitle: "Bar Lagoa",
         popupDesc: "This is just an example, but I hope to go there someday!",
       },
+    },
+    readTheBlog: {
+      title: "",
+      description: "Reunir todas essas joias do infinito pode ser um processo lento e espaçado, por isso resolvi criar um blog para também trazer todos os bastidores de como está sendo tanto para conseguir as assinaturas, como também como foi que eu fiz para criar esse site, quais as minhas referências, e para onde vai esse projeto!",
+      readBlogButton: "Leia a Blogada do Baralho",
     },
     blog: {
       title: "The Deck Journey - Blog",

@@ -4,13 +4,13 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRepeat } from "react-icons/fa6";
+import { FaBookOpen } from "react-icons/fa";
 import { ImageIcon } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import BouncingText from "../../../components/ui/bouncing-text";
 import { useI18n } from "@/app/contexts/I18nContext";
 
 export default function NavMenu() {
@@ -50,7 +50,7 @@ export default function NavMenu() {
     >
       <div
         style={{ margin: "0 auto" }}
-        className={`relative flex items-center justify-start md:justify-center h-full w-4/5 px-5 text-3xl font-bold container lg transition-all duration-500 ${
+        className={`relative flex items-center justify-between md:justify-center h-full w-4/5 px-5 text-3xl font-bold container lg transition-all duration-500 ${
           visible ? "text-md" : "invisible"
         }`}
       >
@@ -63,7 +63,7 @@ export default function NavMenu() {
         />
 
         {/* Both buttons on the right side */}
-        <div className="absolute right-0 flex items-center gap-1 md:gap-2">
+        <div className="absolute -right-10 flex items-center gap-0 md:gap-2">
           {/* Language Switcher */}
           <div className="flex items-center bg-[#016745] rounded overflow-hidden border border-white/20">
             <button
@@ -86,7 +86,7 @@ export default function NavMenu() {
               </button>
             </TooltipTrigger>
             <TooltipContent>
-              <BouncingText text={t("nav.reset_splash")} />
+              <p>{t("nav.reset_splash")}</p>
             </TooltipContent>
           </Tooltip>
 
@@ -102,7 +102,23 @@ export default function NavMenu() {
               </Link>
             </TooltipTrigger>
             <TooltipContent>
-              <BouncingText text={t("nav.gallery_tooltip")} />
+              <p>{t("nav.gallery_tooltip")}</p>
+            </TooltipContent>
+          </Tooltip>
+
+          {/* Blog link */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href="/blog"
+                className="text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all flex items-center gap-2"
+              >
+                <FaBookOpen size={20} />
+                <span className="hidden md:inline">{t("nav.blog")}</span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{t("nav.blog_tooltip")}</p>
             </TooltipContent>
           </Tooltip>
         </div>
