@@ -12,6 +12,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       reset_splash: "Assistir a abertura de novo",
       gallery: "Galeria",
       gallery_tooltip: "Ver galeria de ilustrações da Lena Franzz",
+      blog: "Blog",
+      blog_tooltip: "Acompanhe a Blogada do Baralho",
       lang_pt: "PT 🇧🇷",
       lang_en: "EN 🇺🇸",
       lang_label: "Idioma",
@@ -44,7 +46,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p1_after_link: ".",
       my_p2:
         "Ele já tinha algumas assinaturas, mas tinha em mente que iria atrás de todas ainda assim para completar o desafio seguindo as regras estabelecidas.",
-      my_p3: "... O pacote foi extraviado durante o transporte... 🤡",
+      my_p3: "... O pacote foi extraviado durante o transporte... ",
       my_p4_before_first_date:
         "Mesmo assim decidi começar o código do projeto ",
       my_p4_after_first_date_before_link:
@@ -56,6 +58,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p4_end: "completo e lacrado!!",
       my_p4_conclusion:
         "Resta agora conseguir as assinaturas possíveis e encerrar esse ciclo... Vamos nessa?",
+      readBlog: "Acompanhe a Blogada do Baralho",
     },
     aboutAuthor: {
       title: "Créditos",
@@ -127,6 +130,19 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         popupDesc: "Esse é apenas um exemplo, mas espero um dia ir lá!",
       },
     },
+    blog: {
+      title: "Blogada do Baralho",
+      sortBy: "Ordenar por",
+      newest: "Mais recentes",
+      oldest: "Mais antigos",
+      filterByTag: "Filtrar por tag",
+      allTags: "Todas as tags",
+      noPosts: "Nenhum post encontrado",
+      backToBlog: "Voltar ao blog",
+      allPosts: "Todos os posts",
+      sharePost: "Compartilhar post",
+      locale: "pt",
+    },
   },
   en: {
     common: {
@@ -138,6 +154,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       reset_splash: "Watch opening again",
       gallery: "Gallery",
       gallery_tooltip: "See Lena Franzz's illustration gallery",
+      blog: "Blog",
+      blog_tooltip: "Follow the journey through the blog",
       lang_pt: "PT 🇧🇷",
       lang_en: "EN 🇺🇸",
       lang_label: "Language",
@@ -170,7 +188,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p1_after_link: ".",
       my_p2:
         "It already had some signatures, but I intended to pursue all of them to complete the challenge by following the established rules.",
-      my_p3: "... The package was lost during transport... 🤡",
+      my_p3: "... The package was lost during transport... ",
       my_p4_before_first_date:
         "Even so, I decided to start coding the project ",
       my_p4_after_first_date_before_link:
@@ -182,6 +200,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p4_end: "complete and sealed!!",
       my_p4_conclusion:
         "It's up to now to get as many signatures as possible and close this cycle... Would you all join me?",
+      readBlog: "Read the Blog",
     },
     aboutAuthor: {
       title: "Credits",
@@ -254,6 +273,19 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         popupTitle: "Bar Lagoa",
         popupDesc: "This is just an example, but I hope to go there someday!",
       },
+    },
+    blog: {
+      title: "The Deck Journey - Blog",
+      sortBy: "Sort by",
+      newest: "Newest",
+      oldest: "Oldest",
+      filterByTag: "Filter by tag",
+      allTags: "All tags",
+      noPosts: "No posts found",
+      backToBlog: "Back to blog",
+      allPosts: "All posts",
+      sharePost: "Share post",
+      locale: "en",
     },
   },
 };
