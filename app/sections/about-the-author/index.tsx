@@ -1,9 +1,7 @@
 import { useRef } from "react";
-// import { useAnimation } from "../../contexts/AnimationContext";
 import Credits from "./credits";
 
 export default function AboutTheAuthor() {
-  // const { animationEnded } = useAnimation();
   const aboutTheAuthorRef = useRef(null);
 
   // TODO:
@@ -13,10 +11,6 @@ export default function AboutTheAuthor() {
   // -[x] Add a link to the author's website
   // -[x] Add a link to the author's social media
   // -[ ] Add a link to the author's email (not sure if will add this one)
-
-  // if (!animationEnded) {
-  //   return null;
-  // }
 
   return (
     <section

@@ -5,6 +5,7 @@ import React from "react";
 interface BouncingTextProps {
   text: string;
   className?: string;
+  color?: string;
   // When true, letters display a moving rainbow gradient clipped to text
   rainbow?: boolean;
   // Duration in seconds for a full rainbow cycle
@@ -14,6 +15,7 @@ interface BouncingTextProps {
 export default function BouncingText({
   text,
   className,
+  color = "#ffffff",
   rainbow = false,
   rainbowSpeedSeconds = 3,
 }: BouncingTextProps) {
@@ -21,7 +23,7 @@ export default function BouncingText({
     <span className="flex space-x-[1px]">
       {text.split("").map((char, i) => {
         const delay = i * 0.02;
-        const baseClass = `inline-block text-sm ${className ?? ""}`;
+        const baseClass = `inline-block text-sm`;
         const animations = rainbow
           ? `bounce 1s infinite, rainbow ${rainbowSpeedSeconds}s linear infinite`
           : `bounce 1s infinite`;
@@ -39,13 +41,13 @@ export default function BouncingText({
               animationDelay,
             }
           : {
-              color: "#ffffff",
+              color,
               animation: animations,
               animationDelay,
             };
 
         return (
-          <span key={i} className={baseClass} style={style}>
+          <span key={i} className={className ? className : baseClass} style={style}>
             {char === " " ? "\u00A0" : char}
           </span>
         );
