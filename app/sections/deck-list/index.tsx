@@ -17,7 +17,7 @@ import { useI18n } from "@/app/contexts/I18nContext";
 gsap.registerPlugin(useGSAP);
 
 const nerdcastCards = DECK_LIST;
-const CARD_WIDTH = 100; // Will possibly go for hard-coded values based on screen size
+const CARD_WIDTH = 500; // Will possibly go for hard-coded values based on screen size
 const CARD_HEIGHT = CARD_WIDTH * 1.52; // Will possibly go for hard-coded values based on screen size
 const FRONT_FACING_CARD_DEG = 0;
 const BACK_FACING_CARD_DEG = 180;

@@ -118,7 +118,7 @@ export default function NavMenu() {
                   <span className="hidden md:inline">{t("nav.blog")}</span>
                 </Link>
                 {/* NEW Badge */}
-                <div className="absolute -top-3 -right-4 transform rotate-12 bg-red-500 hidden md:flex items-center justify-center text-white px-2 py-1 rounded-sm shadow-lg border-2 border-white z-10 starburst duration-[10s] ease-in-out animate-pulse">
+                <div className="absolute -top-3 -right-4 transform rotate-12 bg-red-500 hidden md:flex items-center justify-center text-white px-2 py-1 rounded-sm shadow-lg border-2 border-white z-10 starburst duration-1000 ease-in-out animate-pulse">
                   <span className="block text-[0.5rem] leading-none">
                     {t("common.new")}
                   </span>
