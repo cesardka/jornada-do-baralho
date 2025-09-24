@@ -6,6 +6,7 @@ import { I18nProvider, useI18n } from "./contexts/I18nContext";
 import AboutTheAuthor from "./sections/about-the-author";
 import AboutTheChallenge from "./sections/about-the-challenge";
 import AboutTheJourney from "./sections/about-the-journey";
+import ReadTheBlog from "./sections/read-the-blog";
 import DeckList from "./sections/deck-list";
 import Footer from "./sections/footer";
 import NavMenu from "./sections/nav-menu";
@@ -23,7 +24,7 @@ function LoadingView({ isLoadingFadingOut }: { isLoadingFadingOut: boolean }) {
         }`}
       >
         <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" />
-        <BouncingText text={t("common.loading")} />
+        <BouncingText className="text-xl" text={t("common.loading")} />
       </div>
     </div>
   );
@@ -88,6 +89,7 @@ export default function Card() {
                 <DeckList />
                 <AboutTheChallenge />
                 <AboutTheJourney />
+                <ReadTheBlog />
                 <AboutTheAuthor />
                 <Footer />
               </div>

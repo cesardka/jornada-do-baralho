@@ -109,13 +109,21 @@ export default function NavMenu() {
           {/* Blog link */}
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link
-                href="/blog"
-                className="text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all flex items-center gap-2"
-              >
-                <FaBookOpen size={20} />
-                <span className="hidden md:inline">{t("nav.blog")}</span>
-              </Link>
+              <div className="relative">
+                <Link
+                  href="/blog"
+                  className="text-white bg-[#016745] hover:text-[#016745] hover:bg-white text-sm px-3 py-1 rounded transition-all flex items-center gap-2"
+                >
+                  <FaBookOpen size={20} />
+                  <span className="hidden md:inline">{t("nav.blog")}</span>
+                </Link>
+                {/* NEW Badge */}
+                <div className="absolute -top-3 -right-4 transform rotate-12 bg-red-500 hidden md:flex items-center justify-center text-white px-2 py-1 rounded-sm shadow-lg border-2 border-white z-10 starburst duration-[10s] ease-in-out animate-pulse">
+                  <span className="block text-[0.5rem] leading-none">
+                    {t("common.new")}
+                  </span>
+                </div>
+              </div>
             </TooltipTrigger>
             <TooltipContent>
               <p>{t("nav.blog_tooltip")}</p>
