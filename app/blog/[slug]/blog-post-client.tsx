@@ -1,24 +1,55 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Tag } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  Tag,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { PostData } from "@/lib/posts";
 import { useI18n } from "@/app/contexts/I18nContext";
 
 interface BlogPostClientProps {
   post: PostData;
+  previousPost: PostData | null;
+  nextPost: PostData | null;
 }
 
-export default function BlogPostClient({ post }: BlogPostClientProps) {
+export default function BlogPostClient({
+  post,
+  previousPost,
+  nextPost,
+}: BlogPostClientProps) {
   const { t } = useI18n();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation after component mounts
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 50); // Small delay to ensure smooth animation
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <article className="max-w-4xl mx-auto">
+    <article
+      className={`
+        max-w-5xl mx-auto sm:pl-14 p-10
+        bg-[url('/images/paper-checkered-texture-bg3.webp')] bg-[length:400px] bg-repeat
+        shadow-xl
+        transition-all duration-700 ease-out
+        ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-56 opacity-0"}
+      `}
+    >
       {/* Back to blog button */}
       <div className="mb-8">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
+          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800  duration-300 transition-colors py-2 px-4 hover:bg-blue-100"
         >
           <ArrowLeft size={20} />
           {t("blog.backToBlog")}
@@ -72,16 +103,55 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
 
       {/* Navigation to other posts */}
       <footer className="mt-12 pt-8 border-t border-gray-200">
-        <div className="flex justify-between items-center">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-          >
-            <ArrowLeft size={16} />
-            {t("blog.allPosts")}
-          </Link>
+        {/* Previous/Next Post Navigation */}
+        <div className="flex justify-between items-center border-t border-gray-100">
+          <div className="flex-1">
+            {nextPost ? (
+              <Link
+                href={`/blog/${nextPost.id}`}
+                className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <ChevronLeft
+                  size={20}
+                  className="text-gray-400 group-hover:text-blue-600 transition-colors duration-300"
+                />
+                <div className="text-left">
+                  <div className="text-sm text-gray-500 mb-1">
+                    {t("blog.previousPost")}
+                  </div>
+                  <div className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2 overflow-ellipsis">
+                    {nextPost.title}
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <div className="p-4"></div>
+            )}
+          </div>
 
-          <div className="text-sm text-gray-500">{t("blog.sharePost")}</div>
+          <div className="flex-1">
+            {previousPost ? (
+              <Link
+                href={`/blog/${previousPost.id}`}
+                className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 justify-end text-right"
+              >
+                <div className="text-right">
+                  <div className="text-sm text-gray-500 mb-1">
+                    {t("blog.nextPost")}
+                  </div>
+                  <div className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2 overflow-ellipsis">
+                    {previousPost.title}
+                  </div>
+                </div>
+                <ChevronRight
+                  size={20}
+                  className="text-gray-400 group-hover:text-blue-600 transition-colors duration-300"
+                />
+              </Link>
+            ) : (
+              <div className="p-4"></div>
+            )}
+          </div>
         </div>
       </footer>
     </article>

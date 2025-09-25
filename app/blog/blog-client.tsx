@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { PostData } from "@/lib/posts";
 import { useI18n } from "@/app/contexts/I18nContext";
+import { RSSButton } from "@/components/ui/rss-button/rss-button";
 
 interface BlogClientProps {
   allPosts: PostData[];
@@ -11,20 +13,43 @@ interface BlogClientProps {
 
 export default function BlogClient({ allPosts }: BlogClientProps) {
   const { t } = useI18n();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const allTags = useMemo(() => {
-    const tags = new Set<string>();
-    allPosts.forEach((post) => post.tags.forEach((tag) => tags.add(tag)));
-    return Array.from(tags);
-  }, [allPosts]);
+  // Initialize selected tags from URL params on mount
+  useEffect(() => {
+    const tagParam = searchParams.get("tag");
+    if (tagParam) {
+      // Handle both single tag and comma-separated multiple tags
+      const tags = Array.isArray(tagParam) ? tagParam : tagParam.split(",");
+      setSelectedTags(tags.filter((tag) => tag.trim() !== ""));
+    }
+  }, [searchParams]);
+
+  // Update URL when selected tags change
+  const updateURL = (tags: string[]) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (tags.length > 0) {
+      params.set("tag", tags.join(","));
+    } else {
+      params.delete("tag");
+    }
+
+    const newURL = params.toString() ? `?${params.toString()}` : "/blog";
+    router.push(newURL, { scroll: false });
+  };
 
   const filteredAndSortedPosts = useMemo(() => {
     let posts = allPosts;
 
-    if (selectedTag) {
-      posts = posts.filter((post) => post.tags.includes(selectedTag));
+    // Filter by selected tags (posts must include ANY of the selected tags)
+    if (selectedTags.length > 0) {
+      posts = posts.filter((post) =>
+        selectedTags.some((selectedTag) => post.tags.includes(selectedTag))
+      );
     }
 
     posts.sort((a, b) => {
@@ -36,29 +61,37 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
     });
 
     return posts;
-  }, [allPosts, sortOrder, selectedTag]);
+  }, [allPosts, sortOrder, selectedTags]);
+
+  const addTagFilter = (tag: string) => {
+    if (!selectedTags.includes(tag)) {
+      const newTags = [...selectedTags, tag];
+      setSelectedTags(newTags);
+      updateURL(newTags);
+    }
+  };
+
+  const removeTagFilter = (tagToRemove: string) => {
+    const newTags = selectedTags.filter((tag) => tag !== tagToRemove);
+    setSelectedTags(newTags);
+    updateURL(newTags);
+  };
+
+  const clearAllFilters = () => {
+    setSelectedTags([]);
+    updateURL([]);
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold text-center md:text-left">{t("blog.title")}</h1>
-        <a
-          href="/feed.xml"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors text-sm font-medium"
-          title="Subscribe to RSS Feed"
-        >
-          <svg
-            className="w-4 h-4"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M3.429 2.571c8.571 0 15.429 6.857 15.429 15.429h-3.714c0-6.857-5.714-12.571-12.571-12.571v-2.857zM3.429 7.714c5.143 0 9.714 4.571 9.714 9.714h-3.714c0-3.429-2.571-6-6-6v-3.714zM6.857 14.857c0 1.143-0.857 2-2 2s-2-0.857-2-2 0.857-2 2-2 2 0.857 2 2z"></path>
-          </svg>
-          RSS Feed
-        </a>
+        <h1 className="text-4xl font-bold text-center md:text-left">
+          {t("blog.title")}
+        </h1>
+
+        <div className="hidden sm:block">
+          <RSSButton />
+        </div>
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
@@ -67,7 +100,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
           <span className="font-medium">{t("blog.sortBy")}:</span>
           <button
             onClick={() => setSortOrder("newest")}
-            className={`px-3 py-1 rounded-md text-sm ${
+            className={`px-3 py-1 rounded-md text-sm duration-300 ${
               sortOrder === "newest"
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 hover:bg-gray-300"
@@ -77,7 +110,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
           </button>
           <button
             onClick={() => setSortOrder("oldest")}
-            className={`px-3 py-1 rounded-md text-sm ${
+            className={`px-3 py-1 rounded-md text-sm duration-300 ${
               sortOrder === "oldest"
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 hover:bg-gray-300"
@@ -86,22 +119,49 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
             {t("blog.oldest")}
           </button>
         </div>
+      </div>
 
-        {/* Tag Filter */}
-        <div className="flex items-center gap-2">
-          <span className="font-medium">{t("blog.filterByTag")}:</span>
-          <select
-            onChange={(e) => setSelectedTag(e.target.value || null)}
-            className="border rounded-md px-2 py-1 bg-white"
-            value={selectedTag || ""}
-          >
-            <option value="">{t("blog.allTags")}</option>
-            {allTags.map((tag) => (
-              <option key={tag} value={tag}>
-                {tag}
-              </option>
-            ))}
-          </select>
+      {/* Tag Filter Pills */}
+      <div
+        className={`transition-all duration-300 ease-in-out overflow-hidden ${
+          selectedTags.length > 0
+            ? "max-h-96 opacity-100 mb-6"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        <div
+          className={`transition-transform duration-300 ease-in-out ${
+            selectedTags.length > 0 ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className="font-medium text-gray-700">
+                {t("blog.activeFilters")}:
+              </span>
+              {selectedTags.map((tag) => (
+                <div
+                  key={tag}
+                  className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                >
+                  <span>#{tag}</span>
+                  <button
+                    onClick={() => removeTagFilter(tag)}
+                    className="ml-1 text-blue-600 hover:text-blue-800 font-bold duration-300"
+                    aria-label={`Remove ${tag} filter`}
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={clearAllFilters}
+              className="text-sm text-gray-600 hover:text-gray-800 underline duration-300"
+            >
+              {t("blog.clearAllFilters")}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -109,13 +169,25 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
       <div className="space-y-8">
         {filteredAndSortedPosts.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">{t("blog.noPosts")}</p>
+            <p className="text-gray-500 text-lg">
+              {selectedTags.length > 0
+                ? t("blog.noPostsWithTags")
+                : t("blog.noPosts")}
+            </p>
+            {selectedTags.length > 0 && (
+              <button
+                onClick={clearAllFilters}
+                className="mt-2 text-blue-600 hover:text-blue-800 underline duration-300"
+              >
+                {t("blog.clearFiltersToSeeAll")}
+              </button>
+            )}
           </div>
         ) : (
           filteredAndSortedPosts.map(({ id, date, title, tags }) => (
             <article
               key={id}
-              className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <header className="mb-2">
                 <h2 className="text-2xl font-bold">
@@ -141,8 +213,12 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                 {tags.map((tag) => (
                   <button
                     key={tag}
-                    onClick={() => setSelectedTag(tag)}
-                    className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs hover:bg-gray-300 transition-colors"
+                    onClick={() => addTagFilter(tag)}
+                    className={`px-2 py-1 rounded-full text-xs transition-colors duration-300 ${
+                      selectedTags.includes(tag)
+                        ? "bg-blue-200 text-blue-800"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    }`}
                   >
                     #{tag}
                   </button>
