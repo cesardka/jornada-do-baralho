@@ -56,3 +56,24 @@ export async function getPostData(id: string): Promise<PostData> {
     ...(matterResult.data as { title: string; date: string; tags: string[] }),
   };
 }
+
+export function getAdjacentPosts(currentPostId: string): {
+  previousPost: PostData | null;
+  nextPost: PostData | null;
+} {
+  const allPosts = getSortedPostsData();
+  const currentIndex = allPosts.findIndex((post) => post.id === currentPostId);
+
+  if (currentIndex === -1) {
+    return { previousPost: null, nextPost: null };
+  }
+
+  // Previous post is the one before in the sorted array (more recent)
+  const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+
+  // Next post is the one after in the sorted array (older)
+  const nextPost =
+    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+
+  return { previousPost, nextPost };
+}
