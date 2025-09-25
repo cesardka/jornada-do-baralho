@@ -15,10 +15,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 
         <footer className="text-center p-6">
           <div className="max-w-6xl mx-auto mb-6">
-            <p className="text-sm font-bold">
-              Receba as próximas atualizações direto do seu e-mail
-            </p>
-            <NewsletterForm label="seufrancisco@debusao.com.ar" />
+            <NewsletterForm label="seufrancisco@debusao.com.ar" header={true} />
           </div>
 
           <p className="text-sm text-gray-500 flex flex-col gap-1 space-y-1">
