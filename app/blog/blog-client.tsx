@@ -15,7 +15,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
   const { t } = useI18n();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
+  const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("oldest");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   // Initialize selected tags from URL params on mount
