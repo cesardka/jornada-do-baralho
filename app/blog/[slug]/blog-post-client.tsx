@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -56,6 +57,16 @@ export default function BlogPostClient({
         </Link>
       </div>
 
+      <div className="relative">
+        <Image
+          src={`/images/bg/paper-clip-2.webp`}
+          alt={post.title}
+          width={60}
+          height={80}
+          className="absolute -top-[8rem] w-5 -right-12 sm:right-3"
+        />
+      </div>
+
       {/* Post header */}
       <header className="mb-8 pb-8 border-b border-gray-200">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
@@ -88,7 +99,9 @@ export default function BlogPostClient({
                 href={`/blog?tag=${encodeURIComponent(tag)}`}
                 className="px-3 py-1 text-blue-800 text-sm shadow-sm transition-all duration-300 bg-cover bg-center hover:brightness-105 hover:shadow-md"
                 style={{
-                  backgroundImage: `url('/images/bg/washi-tape-texture${index + 1}.webp')`,
+                  backgroundImage: `url('/images/bg/washi-tape-texture${
+                    index + 1
+                  }.webp')`,
                 }}
               >
                 #{tag}

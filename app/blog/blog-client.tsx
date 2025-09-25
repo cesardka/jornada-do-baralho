@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PostData } from "@/lib/posts";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { RSSButton } from "@/components/ui/rss-button/rss-button";
-import Image from "next/image";
 
 interface BlogClientProps {
   allPosts: PostData[];
@@ -195,7 +195,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
           filteredAndSortedPosts.map(({ id, date, title, tags }) => (
             <article
               key={id}
-              className="p-6 sm:pl-12 shadow-md hover:shadow-lg transition-shadow duration-300 bg-[url('/images/bg/paper-texture-notebook-post5.webp')] bg-cover bg-left-top"
+              className="p-6 sm:pl-10 shadow-md hover:shadow-lg transition-shadow duration-300 bg-[url('/images/bg/paper-texture-notebook-post5.webp')] bg-cover bg-left-top"
             >
               <div className="relative">
                 <Image
@@ -203,7 +203,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                   alt={title}
                   width={50}
                   height={35}
-                  className="absolute -top-4 -right-5 sm:right-8 rotate-45"
+                  className="absolute -top-4 -right-8 sm:right-3 rotate-45"
                 />
               </div>
               <header className="mb-2">
