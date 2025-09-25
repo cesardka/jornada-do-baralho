@@ -42,7 +42,7 @@ export default function NotFound() {
             {/* <BouncingText text="Carta não encontrada!" /> */}
           </div>
           <p className="text-gray-300 text-lg md:text-xl">
-            Parece que esta página saiu do baralho... 🃏
+            Parece que esta carta está fora do baralho... 🃏
           </p>
           <p className="text-gray-400 text-base md:text-lg">
             A página que você está procurando não existe ou foi movida.
