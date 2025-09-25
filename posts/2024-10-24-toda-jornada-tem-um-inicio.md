@@ -1,6 +1,7 @@
 ---
 title: "Toda Jornada Tem Um Começo"
 date: "2024-10-11"
+active: true
 tags: ["historia", "bastidores", "jornada do baralho"]
 ---
 

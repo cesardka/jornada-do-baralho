@@ -10,6 +10,7 @@ export interface PostData {
   id: string;
   title: string;
   date: string;
+  active?: boolean;
   tags: string[];
   contentHtml?: string;
 }
@@ -24,11 +25,11 @@ export function getSortedPostsData(): PostData[] {
 
     return {
       id,
-      ...(matterResult.data as { title: string; date: string; tags: string[] }),
+      ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[] }),
     };
   });
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPostsData.filter((post) => post.active).sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getAllPostIds() {
@@ -53,7 +54,7 @@ export async function getPostData(id: string): Promise<PostData> {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { title: string; date: string; tags: string[] }),
+    ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[] }),
   };
 }
 
