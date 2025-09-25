@@ -1,6 +1,6 @@
 ---
-title: "Toda Jornada Tem Um Começo"
-date: "2024-10-11"
+title: "Toda Jornada Tem Um Começo..."
+date: "2024-10-24"
 active: true
 tags: ["historia", "bastidores", "jornada do baralho"]
 ---
@@ -13,7 +13,7 @@ Já me apresentei brevemente na página inicial do site, comentando que sou ouvi
 
 Sou desenvolvedor de software há quase 10 anos, gosto muito da área de _frontend_ (mas atuo também como _backend_), especialmente por ser o lugar onde posso juntar a computação com meus devaneios de designer, animador e ilustrador de meia-tigela para dar vida a algumas bobices.
 
-Nesse projeto decidi me dar essa oportunidade de reinventar a roda e criar um blog do zero, para customizar do meu jeitinho para tornar a experiência aqui mais única, assim como muito era antigamente na internet com os sites em Flash. 😜
+Nesse projeto decidi me dar essa oportunidade de ser um pouco vaidoso e reinventar a roda ao criar um blog do zero, para customizar do meu jeitinho e tornar a experiência aqui mais única, assim como era antigamente na internet discada com os sites em Flash. 😜
 
 Está sendo uma experiēncia muito interessante, considerando que eu no máximo antes tinha um Fotolog e olhe lá, mas conto melhor sobre o processo com um olhar mais técnico em outro post futuro!
 
@@ -34,7 +34,7 @@ Dia 11 de outubro de 2024 decidi tomar minha primeira iniciativa para começar a
 
 Eu fiquei até impressionado que o baralho já tinha até algumas assinaturas nele, como do Bluehand, Amigo Imaginário e Guga Ferrari, que são pessoas bem menos acessíveis publicamente e já não estão mais tão presentes no núcleo do Jovem Nerd.
 
-Independentemente, como o desafio pede que as cartas sejam autografadas e exista o registro desse autógrafo sendo dado, eu já contava que iria atrás de todos eles ainda assim pra que no final não digam que estou forçando a barra ou coisa do tipo.
+Independentemente, como o desafio pede que as cartas sejam autografadas e exista o registro desse autógrafo sendo dado, eu já contava que iria atrás de todos eles ainda assim pra que no final não digam que estou forçando a barra ou coisa do tipo só pra ganhar o bendito iPad.
 
 ... mas eu não contava com o pior...
 
@@ -42,11 +42,11 @@ Infelizmente no dia 23 de outubro recebi uma notificação da Jadlog me avisando
 
 ![Conversa com vendedora do Enjoei, anunciando que a Jadlog extraviou o pacote](/images/posts/2024-10-24/Screenshot%202025-09-25%20at%2002.27.01.png)
 
-A Enjoei me extornou o valor da compra e deram o valor segurado para a vendedora, mas ainda assim achei muita sacanagem perderam o produto assim, justamente por se tratar de um item histórico... 😭
+A Enjoei me estornou o valor da compra e deram o valor segurado para a vendedora, mas ainda assim achei muita sacanagem perderam o produto assim, justamente por se tratar de um item tão único e significativo... Ficou o sentimento de que todo mundo saiu perdendo nessa história. 😭
 
-Admito que fiquei muito desbundado com isso, mas ainda assim não perdi o brilho no olhar e continuei adiantando o que dava.
+Admito que fiquei muito desbundado com isso, mas ainda assim continuei adiantando o que dava para que o projeto saísse do papel.
 
-Até que em 5 de novembro de 2024 finalmente fui agraciado com [um anúncio no Mercado Livre](https://www.mercadolivre.com.br/baralho-nerdcast-jovem-nerd/up/MLBU1763341614) com um baralho **NOVO** e **LACRADO**!! Foi perfeito, e isso facilitaria muito para escanear as cartas e depois registrar as assinaturas sem qualquer ruído!
+Eis que em 5 de novembro de 2024 finalmente fui agraciado com [um anúncio no Mercado Livre](https://www.mercadolivre.com.br/baralho-nerdcast-jovem-nerd/up/MLBU1763341614) com um baralho **NOVO** e **LACRADO**!! Foi perfeito, e isso facilitaria muito para escanear as cartas e depois registrar as assinaturas sem qualquer ruído! Comprei na hora.
 
 ![Anúncio do Baralho Nerdcast no Mercado Livre](/images/posts/2024-10-24/Screenshot%202025-09-25%20at%2002.32.17.png)
 
