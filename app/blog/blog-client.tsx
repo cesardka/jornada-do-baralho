@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { PostData } from "@/lib/posts";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { RSSButton } from "@/components/ui/rss-button/rss-button";
+import Image from "next/image";
 
 interface BlogClientProps {
   allPosts: PostData[];
@@ -63,11 +64,15 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
     return posts;
   }, [allPosts, sortOrder, selectedTags]);
 
-  const addTagFilter = (tag: string) => {
-    if (!selectedTags.includes(tag)) {
-      const newTags = [...selectedTags, tag];
+  const addTagFilter = (tagToAdd: string) => {
+    if (!selectedTags.includes(tagToAdd)) {
+      const newTags = [...selectedTags, tagToAdd];
       setSelectedTags(newTags);
       updateURL(newTags);
+    // } else {
+    //   const newTags = selectedTags.filter((tag) => tag !== tagToAdd);
+    //   setSelectedTags(newTags);
+    //   updateURL(newTags);
     }
   };
 
@@ -139,10 +144,13 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
               <span className="font-medium text-gray-700">
                 {t("blog.activeFilters")}:
               </span>
-              {selectedTags.map((tag) => (
+              {selectedTags.map((tag, index) => (
                 <div
                   key={tag}
-                  className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  className={`flex items-center gap-1 px-3 py-1 bg-cover bg-center text-blue-800 text-sm`}
+                  style={{
+                    backgroundImage: `url('/images/bg/washi-tape-texture${index + 1}.webp')`,
+                  }}
                 >
                   <span>#{tag}</span>
                   <button
@@ -187,8 +195,17 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
           filteredAndSortedPosts.map(({ id, date, title, tags }) => (
             <article
               key={id}
-              className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="p-6 sm:pl-12 shadow-md hover:shadow-lg transition-shadow duration-300 bg-[url('/images/bg/paper-texture-notebook-post5.webp')] bg-cover bg-left-top"
             >
+              <div className="relative">
+                <Image
+                  src={`/images/bg/paper-clip-1.webp`}
+                  alt={title}
+                  width={50}
+                  height={35}
+                  className="absolute -top-4 -right-5 sm:right-8 rotate-45"
+                />
+              </div>
               <header className="mb-2">
                 <h2 className="text-2xl font-bold">
                   <Link
@@ -198,7 +215,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                     {title}
                   </Link>
                 </h2>
-                <small className="text-gray-500">
+                <small className="text-gray-500 selection:text-gray-300 selection:bg-slate-500">
                   {new Date(date).toLocaleDateString(
                     t("blog.locale") === "pt" ? "pt-BR" : "en-US",
                     {
@@ -210,15 +227,18 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                 </small>
               </header>
               <div className="flex flex-wrap gap-2">
-                {tags.map((tag) => (
+                {tags.map((tag, index) => (
                   <button
                     key={tag}
                     onClick={() => addTagFilter(tag)}
-                    className={`px-2 py-1 rounded-full text-xs transition-colors duration-300 ${
+                    className={`px-3 py-1 cursor-pointer text-sm shadow-sm transition-all duration-300 bg-cover bg-center ${
                       selectedTags.includes(tag)
-                        ? "bg-blue-200 text-blue-800"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        ? "text-blue-800 brightness-90 hover:text-blue-600"
+                        : "text-gray-700 hover:brightness-105 hover:text-blue-800 hover:shadow-md"
                     }`}
+                    style={{
+                      backgroundImage: `url('/images/bg/washi-tape-texture${index + 1}.webp')`,
+                    }}
                   >
                     #{tag}
                   </button>

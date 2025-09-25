@@ -22,7 +22,7 @@ Está sendo uma experiēncia muito interessante, considerando que eu no máximo 
 Tudo começou depois de eu ouvir o [Nerdcast #950](https://jovemnerd.com.br/podcasts/nerdcast/o-melhor-de-950-nerdcasts).  
 _Era terça-feira... Chovia muito..._ (mentira)
 
-Na abertura do episódio o Alē e o Deive começaram a dar sinais mais fortes de quererem terminar no episódio 1000, para _**fechar esse ciclo**_ no ápice. Fiquei bem reflexivo sobre como seria o futuro do site e dos programas, já que é algo que bem ou mal me acompanha diariamente por diversas vias (notícias, áudio, vídeo) há mais de 15 anos! Insano para pra pensar isso.
+Na abertura do episódio o Alē e o Deive começaram a dar sinais mais fortes de quererem terminar no episódio 1000, para _**fechar esse ciclo**_ no ápice. Fiquei bem reflexivo sobre como seria o futuro do site e dos programas, já que é algo que bem ou mal me acompanha diariamente por diversas vias (notícias, áudio, vídeo) há mais de 15 anos! Insano, agora parando pra pensar nisso.
 
 Comecei a matutar sobre esse desafio perdido que ainda estava invicto, que já faziam 13 anos sem grandes atualizações de ouvintes progredindo... Era algo que eu já tinha muito curiosidade e tinha no meu radar como algo que queria muito ver acontecer. Até que um dia me dei conta...
 

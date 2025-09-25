@@ -39,7 +39,7 @@ export default function BlogPostClient({
     <article
       className={`
         max-w-5xl mx-auto sm:pl-14 p-10
-        bg-[url('/images/paper-checkered-texture-bg3.webp')] bg-[length:400px] bg-repeat
+        bg-[url('/images/bg/paper-checkered-texture-bg3.webp')] bg-[length:400px] bg-repeat
         shadow-xl
         transition-all duration-700 ease-out
         ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-56 opacity-0"}
@@ -82,11 +82,14 @@ export default function BlogPostClient({
         {post.tags && post.tags.length > 0 && (
           <div className="flex items-center gap-2 flex-wrap">
             <Tag size={16} className="text-gray-500" />
-            {post.tags.map((tag) => (
+            {post.tags.map((tag, index) => (
               <Link
                 key={tag}
                 href={`/blog?tag=${encodeURIComponent(tag)}`}
-                className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition-colors"
+                className="px-3 py-1 text-blue-800 text-sm shadow-sm transition-all duration-300 bg-cover bg-center hover:brightness-105 hover:shadow-md"
+                style={{
+                  backgroundImage: `url('/images/bg/washi-tape-texture${index + 1}.webp')`,
+                }}
               >
                 #{tag}
               </Link>
@@ -109,7 +112,7 @@ export default function BlogPostClient({
             {nextPost ? (
               <Link
                 href={`/blog/${nextPost.id}`}
-                className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 hover:shadow-md transition-all duration-300"
               >
                 <ChevronLeft
                   size={20}
@@ -133,7 +136,7 @@ export default function BlogPostClient({
             {previousPost ? (
               <Link
                 href={`/blog/${previousPost.id}`}
-                className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 justify-end text-right"
+                className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 hover:shadow-md transition-all duration-300 justify-end text-right"
               >
                 <div className="text-right">
                   <div className="text-sm text-gray-500 mb-1">

@@ -13,7 +13,7 @@ export default function ReadTheBlog() {
   return (
     <section
       id="readTheBlog"
-      className="segment relative w-full min-h-screen overflow-hidden bg-[url('/images/paper-texture-bg2.jpg')] bg-cover bg-center"
+      className="segment relative w-full min-h-screen overflow-hidden bg-[url('/images/bg/paper-texture-bg2.jpg')] bg-cover bg-center"
     >
       {/* Background Card Images */}
       <div className="absolute -left-10 bottom-0 pointer-events-none">

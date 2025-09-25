@@ -6,7 +6,7 @@ import BlogNavMenu from "../sections/nav-menu/blog-nav-menu";
 export default function BlogLayout({ children }: { children: ReactNode }) {
   return (
     <I18nProvider>
-      <div className="min-h-screen bg-gray-50 text-gray-800 font-sans bg-[url('/images/paper-texture-bg2.jpg')] bg-cover bg-center flex flex-col">
+      <div className="min-h-screen bg-gray-50 text-gray-800 font-sans bg-[url('/images/bg/paper-texture-bg2.jpg')] bg-cover bg-center flex flex-col">
         <BlogNavMenu />
 
         <main className="container mx-auto px-1 sm:p-4 md:p-8 flex-1">
