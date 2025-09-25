@@ -1,6 +1,7 @@
 ---
 title: "A Jornada do Papel ao Código"
 date: "2025-07-25"
+active: true
 tags: ["desenvolvimento", "bastidores"]
 ---
 
