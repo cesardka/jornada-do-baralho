@@ -12,3 +12,5 @@ WIP ---
 4. Mostrar as cartas assinadas
 5. Trazer o ponto de que já tem o ingresso dA Própria Carne no RJ (mesmo eu sendo de POA) e da CCXP para conseguir mais assinaturas
 6. Quem sabe também falar sobre um possível cronograma de assinaturas
+7. Finalziar dizendo que agora que já temos 4 assinaturas, já dá pra contar como o oficial a Jornada do Baralho para além do plano das ideias
+8. Vou mandar um e-mail para o JN pedindo um feedback e saber se o desafio ainda é válido!
