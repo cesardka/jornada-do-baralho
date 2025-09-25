@@ -1,4 +1,6 @@
 export const RSSButton = () => {
+  return (<></>);
+
   return (
     <a
       href="/feed.xml"
