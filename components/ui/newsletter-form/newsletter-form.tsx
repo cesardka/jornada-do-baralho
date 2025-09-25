@@ -5,6 +5,9 @@ import { useI18n } from "@/app/contexts/I18nContext";
 export default function NewsletterForm({ label }: { label?: string }) {
   const { t } = useI18n();
 
+  // TODO: make sure the newsletter is working as expected
+  return (<></>);
+
   return (
     <form
       action="https://buttondown.com/api/emails/embed-subscribe/jornadadobaralho"
@@ -21,7 +24,6 @@ export default function NewsletterForm({ label }: { label?: string }) {
           name="email"
           id="bd-email"
           className="text-sm w-full h-10 bg-white border-0 inset-1 rounded-r-none border-gray-500 rounded-md px-4 py-2 mx-0 shadow-sm shadow-gray-400"
-          // placeholder={t("readTheBlog.newsletterInput")}
           placeholder={label ? label : t("readTheBlog.newsletterLabel")}
         />
 
