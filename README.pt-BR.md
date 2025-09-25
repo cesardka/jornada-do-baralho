@@ -11,6 +11,11 @@
   - [Créditos](#créditos)
 - [Desenvolvimento](#desenvolvimento)
   - [🏃‍➡️ Como Começar](#️-como-começar)
+  - [📡 Feed RSS](#-feed-rss)
+    - [URL do Feed RSS](#url-do-feed-rss)
+    - [Funcionalidades](#funcionalidades)
+    - [Como Usar](#como-usar)
+    - [Implementação Técnica](#implementação-técnica)
   - [👩‍🏫 Saiba Mais](#-saiba-mais)
   - [🚀 Deploy no Vercel](#-deploy-no-vercel)
 
@@ -97,6 +102,41 @@ pnpm dev
 ```
 
 Quando o servidor estiver rodando, abra http://localhost:3042 🖖 no seu navegador para visualizar o projeto.
+
+## 📡 Feed RSS
+
+O site inclui um sistema completo de feed RSS para o blog com as seguintes funcionalidades:
+
+### URL do Feed RSS
+
+- **Produção:** https://www.jornadadobaralho.com.br/feed
+- **Desenvolvimento:** http://localhost:3042/feed
+
+### Funcionalidades
+
+- **Padrão RSS 2.0:** Conformidade total com a especificação RSS 2.0
+- **Posts Recentes:** Inclui automaticamente os 10 posts mais recentes do blog
+- **Conteúdo Completo:** Cada item do feed contém o conteúdo HTML completo do post
+- **Metadados Ricos:** Inclui datas de publicação, autores, categorias e descrições
+- **Descoberta Automática:** Feed é automaticamente descoberto por navegadores e leitores de feed
+- **Otimizado para Performance:** Cache de 1 hora para performance otimizada
+- **Localização Portuguesa:** Configurado para locale pt-BR com formatação de data adequada
+
+### Como Usar
+
+1. **Assinar em Leitores de Feed:** Copie a URL do feed para qualquer leitor RSS (Feedly, Inoreader, etc.)
+2. **Descoberta pelo Navegador:** Navegadores modernos detectam automaticamente o feed RSS ao visitar o blog
+3. **Botão RSS:** Clique no botão laranja RSS no cabeçalho do blog para abrir o feed diretamente
+4. **Acesso Programático:** Use a URL do feed em aplicações que consomem feeds RSS
+
+### Implementação Técnica
+
+- **Route Handler:** `/app/feed/route.ts` - Rota da API Next.js gerando XML
+- **Processamento de Conteúdo:** Usa o mesmo pipeline de processamento markdown do blog
+- **Atualizações Automáticas:** Feed atualiza automaticamente quando novos posts são publicados
+- **SEO Amigável:** Inclui estrutura XML adequada com seções CDATA para conteúdo HTML
+
+O feed RSS permite que os usuários se mantenham atualizados com novos posts do blog sem verificar manualmente o site, sendo compatível com todos os principais leitores de feed e agregadores de notícias.
 
 ## 👩‍🏫 Saiba Mais
 

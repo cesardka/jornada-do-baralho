@@ -11,6 +11,11 @@
   - [Credits](#credits)
 - [Development](#development)
   - [🏃‍➡️ Getting Started](#️-getting-started)
+  - [📡 RSS Feed](#-rss-feed)
+    - [RSS Feed URL](#rss-feed-url)
+    - [Features](#features)
+    - [How to Use](#how-to-use)
+    - [Technical Implementation](#technical-implementation)
   - [👩‍🏫 Learn More](#-learn-more)
   - [🚀 Deploy on Vercel](#-deploy-on-vercel)
   - [🔮 Feature Suggestions](#-feature-suggestions)
@@ -100,6 +105,41 @@ pnpm dev
 
 Once the server is running, open http://localhost:3042 🖖 in your browser to view the project.
 
+## 📡 RSS Feed
+
+The website includes a comprehensive RSS feed system for the blog with the following features:
+
+### RSS Feed URL
+
+- **Production:** https://www.jornadadobaralho.com.br/feed.xml
+- **Development:** http://localhost:3042/feed.xml
+
+### Features
+
+- **RSS 2.0 Standard:** Full compliance with RSS 2.0 specification
+- **Latest Posts:** Automatically includes the 10 most recent blog posts
+- **Full Content:** Each feed item contains the complete HTML content of the post
+- **Rich Metadata:** Includes publication dates, authors, categories, and descriptions
+- **Automatic Discovery:** Feed is automatically discoverable by browsers and feed readers
+- **Performance Optimized:** 1-hour caching for optimal performance
+- **Portuguese Locale:** Configured for pt-BR locale with proper date formatting
+
+### How to Use
+
+1. **Subscribe in Feed Readers:** Copy the feed URL into any RSS reader (Feedly, Inoreader, etc.)
+2. **Browser Discovery:** Modern browsers automatically detect the RSS feed when visiting the blog
+3. **RSS Button:** Click the orange RSS button in the blog header to open the feed directly
+4. **Programmatic Access:** Use the feed URL in applications that consume RSS feeds
+
+### Technical Implementation
+
+- **Route Handler:** `/app/feed/route.ts` - Next.js API route generating XML
+- **Content Processing:** Uses the same markdown processing pipeline as the blog
+- **Automatic Updates:** Feed updates automatically when new posts are published
+- **SEO Friendly:** Includes proper XML structure with CDATA sections for HTML content
+
+The RSS feed enables users to stay updated with new blog posts without manually checking the website, and it's compatible with all major feed readers and news aggregators.
+
 ## 👩‍🏫 Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -118,4 +158,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## 🔮 Feature Suggestions
 
 - [x] An option to navigate between selected cards, with arrows < and > to switch the selected card
-- [ ] New section between `About The Challenge` and `About The Authors` giving a proper context on who I am, my relationship with the Jovem Nerd universe and the history on starting the website
+- [x] New section between `About The Challenge` and `About The Authors` giving a proper context on who I am, my relationship with the Jovem Nerd universe and the history on starting the website
+- [ ] Add a page so other users may track their own progress of the challenge -- as suggested by Azaghal himself!
