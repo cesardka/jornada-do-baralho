@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
-import { useAnimation } from "../../contexts/AnimationContext";
 import { FaMusic, FaPause } from "react-icons/fa";
 import FallingCards from "@/components/ui/falling-cards";
 import { useI18n } from "@/app/contexts/I18nContext";
@@ -12,7 +11,6 @@ import { useI18n } from "@/app/contexts/I18nContext";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function AboutTheChallenge() {
-  const { animationEnded } = useAnimation();
   const { t } = useI18n();
   const sectionRef = useRef(null);
   const azaghalRef = useRef(null);
@@ -60,8 +58,6 @@ export default function AboutTheChallenge() {
   // -[ ] Add a description of what and who is Jovem Nerd and Azaghal, and their history
 
   useEffect(() => {
-    if (!animationEnded) return;
-
     const ctx = gsap.context(() => {
       // Set initial state
       gsap.set([azaghalRef.current, alottoniRef.current], {
@@ -99,11 +95,7 @@ export default function AboutTheChallenge() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [animationEnded]);
-
-  // if (!animationEnded) {
-  //   return null;
-  // }
+  }, []);
 
   return (
     <section
@@ -145,6 +137,7 @@ export default function AboutTheChallenge() {
 
       {/* Falling Cards */}
       <FallingCards />
+
       {/* LEFT COLUMN: Challenge Rules */}
       <div className="flex flex-col justify-center h-full w-full md:w-1/2 text-white md:pl-20 z-20">
         {/* Massive, bold title */}

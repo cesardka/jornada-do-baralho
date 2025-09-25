@@ -17,8 +17,8 @@ import { useI18n } from "@/app/contexts/I18nContext";
 gsap.registerPlugin(useGSAP);
 
 const nerdcastCards = DECK_LIST;
-const CARD_WIDTH = 500; // Will possibly go for hard-coded values based on screen size
-const CARD_HEIGHT = CARD_WIDTH * 1.52; // Will possibly go for hard-coded values based on screen size
+const CARD_WIDTH = 500;
+const CARD_HEIGHT = CARD_WIDTH * 1.52;
 const FRONT_FACING_CARD_DEG = 0;
 const BACK_FACING_CARD_DEG = 180;
 const DEFAULT_ANIMATION_DURATION = 0.5;
@@ -26,12 +26,10 @@ const DEFAULT_ANIMATION_DURATION = 0.5;
 const getScaleBasedOnScreenWidth = () => {
   const screenWidth = window.innerWidth;
 
-  console.log({ screenWidth });
-
   if (screenWidth > 1440) return 2.5;
   if (screenWidth > 1024) return 1.8;
   if (screenWidth > 768) return 1.5;
-  return 1.5; // Increased from 1.3 to 2.0 for mobile devices
+  return 1.5;
 };
 
 const applyIdleAnimation = (element: HTMLElement) => {
