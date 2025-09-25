@@ -1,7 +1,7 @@
 ---
 title: "Nerdcast 996 e A Leitura de E-mails"
-date: "2025-08-20"
-tags: ["bastidores", "jornada do baralho"]
+date: "2025-09-25"
+tags: ["bastidores", "jovem nerd", "jornada do baralho"]
 ---
 
 WIP ---
