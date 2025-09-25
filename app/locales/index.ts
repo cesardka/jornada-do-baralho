@@ -190,7 +190,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       imgTopAlt: "Journey image (top with animation)",
       p1_begin: "This is my personal initiative, ",
       p1_afterName:
-        ", to document and complete The Deck Challenge to get the iPad that for ",
+        ", to document and complete The DeckVenture to get the iPad that for ",
       p1_afterYears: " years has still not been claimed.",
       p2_begin:
         "I've been a Nerdcast listener since 2007, when I was 14, and I remember starting with episode ",
@@ -202,7 +202,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         ", a themed deck in partnership with Copag, featuring several Nerdcasters of that time, as illustrated by",
       deck_p2_before_ep: "In the next Nerdcast, ",
       deck_p2_after_ep:
-        ", the Deck Challenge was launched at the end of the email reading:",
+        ", the DeckVenture was launched at the end of the email reading:",
       my_p1_before_link:
         "On October 11, 2024, with 47 episodes left until Nerdcast #1000, I decided to embark on this journey by buying a Nerdcast Deck of my own on ",
       my_p1_after_link: ".",
@@ -251,7 +251,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       },
     },
     aboutChallenge: {
-      title: "THE DECK CHALLENGE",
+      title: "THE DeckVenture",
       rule1_prefix: "Get the autograph on all",
       figures: "face cards",
       jokers: "jokers",
@@ -302,7 +302,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       description_21_jornada_thanos: " The ideal is to approach it more like a slow and spaced process, just like Thanos' journey through the Infinity Stones.",
       description_3_apesar_disso: "Despite that...",
       description_3_vem_ai: "Many things are happening behind the scenes!",
-      description_4_curtiu: "Did you enjoy the Deck Journey™?",
+      description_4_curtiu: "Did you enjoy the Deck Journey?",
       description_5_curiosidade: "Are you curious about how the website was made?",
       description_6_quer_saber: "Want to know what it was like to get the signatures?",
       description_7_blogada: "This and much more you'll discover by reading the new blog",
