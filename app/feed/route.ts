@@ -1,8 +1,8 @@
-import { getSortedPostsData, getPostData } from '@/lib/posts';
+import { getSortedPostsData, getPostData } from "@/lib/posts";
 
 export async function GET() {
   const posts = getSortedPostsData();
-  
+
   // Get full content for the latest 10 posts
   const postsWithContent = await Promise.all(
     posts.slice(0, 10).map(async (post) => {
@@ -11,8 +11,8 @@ export async function GET() {
     })
   );
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jornada-do-baralho.vercel.app';
-  const feedUrl = `${siteUrl}/feed.xml`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jornada-do-baralho.com.br";
+  const feedUrl = `${siteUrl}/feed`;
   const blogUrl = `${siteUrl}/blog`;
 
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -35,7 +35,7 @@ export async function GET() {
       .map((post) => {
         const postUrl = `${siteUrl}/blog/${post.id}`;
         const pubDate = new Date(post.date).toUTCString();
-        
+
         return `
     <item>
       <title><![CDATA[${post.title}]]></title>
@@ -43,17 +43,17 @@ export async function GET() {
       <link>${postUrl}</link>
       <guid isPermaLink="true">${postUrl}</guid>
       <pubDate>${pubDate}</pubDate>
-      <category><![CDATA[${post.tags.join(', ')}]]></category>
+      <category><![CDATA[${post.tags.join(", ")}]]></category>
     </item>`;
       })
-      .join('')}
+      .join("")}
   </channel>
 </rss>`;
 
   return new Response(rssXml, {
     headers: {
-      'Content-Type': 'application/rss+xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "Cache-Control": "public, max-age=3600, s-maxage=3600",
     },
   });
 }
