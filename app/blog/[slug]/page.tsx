@@ -14,6 +14,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const post = await getPostData(slug);
     const { previousPost, nextPost } = getAdjacentPosts(slug);
 
+    if(!post.active) {
+      notFound();
+    }
+
     return (
       <BlogPostClient
         post={post}
