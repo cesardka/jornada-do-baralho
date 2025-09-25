@@ -145,6 +145,9 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       description_7_blogada: "Isso e muito mais você vai descobrir lendo o novo blog",
       description_8_newsletter: "Ou assine a newsletter para receber atualizações sobre o desafio conforme as novidades forem acontecendo!",
       readBlogButton: "Leia a Blogada do Baralho",
+      newsletterLabel: "... ou inscreva-se na newsletter!",
+      newsletterInput: "seu e-mail aqui",
+      newsletterSend: "Se inscreva!",
     },
     blog: {
       title: "Blogada do Baralho",
@@ -304,7 +307,10 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       description_6_quer_saber: "Want to know what it was like to get the signatures?",
       description_7_blogada: "This and much more you'll discover by reading the new blog",
       description_8_newsletter: "Or subscribe to the newsletter to receive updates about the challenge as news happens!",
-      readBlogButton: "Read the Deck Blog",
+      readBlogButton: "Read the Deck's Blogventure",
+      newsletterLabel: "... or subscribe to the newsletter!",
+      newsletterInput: "your e-mail here",
+      newsletterSend: "Subscribe",
     },
     blog: {
       title: "The Deck Journey - Blog",

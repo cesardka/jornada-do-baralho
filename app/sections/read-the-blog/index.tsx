@@ -61,7 +61,7 @@ export default function ReadTheBlog() {
         </h2>
 
         <div className="flex flex-col items-center justify-center mb-6 mt-0">
-          <p className="text-sm italic">
+          <p className="text-sm italic text-center">
             {t("readTheBlog.description_1_quote_rebelde")}
           </p>
         </div>
@@ -108,6 +108,43 @@ export default function ReadTheBlog() {
           {/* When submitted, it will send an email to the user with a link to confirm their subscription */}
           {/* I aim to use a third-party service to store the emails and send the emails eventually */}
           {/* </div> */}
+
+          <form
+            action="https://buttondown.com/api/emails/embed-subscribe/jornadadobaralho"
+            method="post"
+            target="popupwindow"
+            onSubmit={() =>
+              window.open("https://buttondown.com/jornadadobaralho", "popupwindow")
+            }
+            className="embeddable-buttondown-form flex flex-col items-center justify-center space-y-2 mt-2 text-center text-sm"
+          >
+            <div className="flex flex-row w-full sm:w-1/3 space-x-0">
+              <input
+                type="email"
+                name="email"
+                id="bd-email"
+                className="text-sm w-full h-10 bg-white border-0 inset-1 rounded-r-none border-gray-500 rounded-md px-4 py-2 mx-0 shadow-sm shadow-gray-400"
+                // placeholder={t("readTheBlog.newsletterInput")}
+                placeholder={t("readTheBlog.newsletterLabel")}
+              />
+
+              <input
+                type="submit"
+                className="text-sm h-10 flex items-center justify-center border-0 rounded-md border-l-0 rounded-l-none bg-blue-500 hover:bg-blue-600 duration-300 text-white w-1/3 px-4 py-2 my-0 shadow-sm shadow-gray-400 cursor-pointer"
+                value={t("readTheBlog.newsletterSend")}
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <a
+                href="https://buttondown.com/refer/jornadadobaralho"
+                target="_blank"
+                className="text-xs"
+              >
+                Powered by Buttondown.
+              </a>
+            </div>
+          </form>
         </div>
       </div>
     </section>
