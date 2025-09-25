@@ -41,10 +41,10 @@ export default function NotFound() {
           <div className="text-2xl md:text-3xl text-white font-semibold">
             {/* <BouncingText text="Carta não encontrada!" /> */}
           </div>
-          <p className="text-gray-300 text-lg md:text-xl">
+          <p className="text-gray-300 text-lg md:text-3xl">
             Parece que esta carta está fora do baralho... 🃏
           </p>
-          <p className="text-gray-400 text-base md:text-lg">
+          <p className="text-gray-400 text-base md:text-md">
             A página que você está procurando não existe ou foi movida.
           </p>
         </div>
@@ -89,8 +89,8 @@ export default function NotFound() {
                   </p>
                   <p className="hidden md:block text-xs md:text-sm text-gray-400 leading-tight md:leading-relaxed mb-2 md:mb-3 px-1">
                     Gaúcha naturalizada carioca, sócia-fundadora do Studio
-                    Chifrezz. Responsável pela ilustração &quotNão pensa no
-                    404...&quot desta página e de todas as outras na Jornada do
+                    Chifrezz. Responsável pela ilustração &quot;Não pensa no
+                    404...&quot; desta página e de todas as outras na Jornada do
                     Baralho.
                   </p>
                   <div className="flex justify-center gap-2 md:gap-4 mt-1 md:mt-4">
