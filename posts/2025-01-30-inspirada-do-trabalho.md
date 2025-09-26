@@ -1,11 +1,15 @@
 ---
 title: "Inspirada do Trabalho"
 date: "2025-01-30"
-active: true
+active: false
 tags: ["desenvolvimento", "bastidores"]
 ---
 
-Algo que queria trazer para o mundo foi como o processo de criação da Jornada do Baralho nasceu antes de mais nada num bloquinho de caderno que estava parado aqui na minha mesa do escritório, e como daquilo acabou se transformando em designs e animações que foram evoluindo ao longo do projeto.
+Eu sempre tive muita curiosidade ao navegar por sites mais diferentões quais eram as referências deles.
+
+O clássico seria mencionar sites da época em Flash, ou todos aqueles discadores malucos da época do CD do iG, mas eu queria também trazer referências mais atuais até pra educar sobre o que a web é capaz hoje em dia com uma mistura de CSS, Javascript e Aleluia.
+
+Acho que é no mínimo justo eu fazer o mesmo e ter algo documentado publicamente para o mundo sobre como aconteceu o processo criativo da Jornada do Baralho e quais as referências que fizeram parte de todo o projeto.
 
 ### Como surgiu a ideia?
 
