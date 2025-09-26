@@ -19,7 +19,7 @@ Já me apresentei brevemente na página inicial do site, comentando que sou ouvi
 
 Sou desenvolvedor de software há quase 10 anos, gosto muito da área de _frontend_, especialmente por ser o lugar onde posso juntar a computação com meus devaneios de designer, animador e ilustrador de meia-tigela para dar vida a algumas bobices. (mas atuo também como _backend_ 🤙).
 
-Se esses termos forem muito alienígenas, a Alura fez [um post](https://www.alura.com.br/artigos/o-que-e-front-end-e-back-end?srsltid=AfmBOopVxbwY71t9XpE--aQzazgMeWEDKlKEiVJ13RHUOvqseUe_6LhX) bem bacana explicando sobre cada um, mas sendo breve: _frontend_ pinta botão, _backend_ cuida da fiação.
+Se esses termos forem muito alienígenas, a **Alura** fez [um post](https://www.alura.com.br/artigos/o-que-e-front-end-e-back-end?srsltid=AfmBOopVxbwY71t9XpE--aQzazgMeWEDKlKEiVJ13RHUOvqseUe_6LhX) bem bacana explicando sobre cada um, mas sendo breve: _frontend_ pinta botão, _backend_ cuida da fiação.
 
 Nesse projeto decidi me dar a oportunidade de ser um pouco vaidoso e reinventar a roda ao criar um blog do zero, para customizar do meu jeitinho e tornar a experiência aqui mais única, assim como era antigamente na internet discada com os sites em Flash. 😜
 
@@ -38,7 +38,7 @@ Comecei a matutar sobre esse desafio perdido que ainda estava intocado, que já 
 
 Por que não eu?
 
-Voltei ao episódio [#312 - Nerdcast do Baralho](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho), onde eles faziam o lançamento oficial do produto e logo em seguida ouvi o [#313 - HQ: Os Velhos Novos 52](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52), onde de fato é lançado o desafio durante a leitura de e-mails.
+Voltei ao episódio [#312 - Nerdcast do Baralho](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho), onde eles faziam o lançamento oficial do [produto](https://web.archive.org/web/20121214093601/http://www.nerdstore.com.br/produto/baralho-jn.html) e logo em seguida ouvi o [#313 - HQ: Os Velhos Novos 52](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52), onde de fato é lançado o desafio durante a leitura de e-mails.
 
 O Desafio do Baralho consiste dos seguintes pré-requisitos para conseguir o iPad:
 1. Ter um baralho

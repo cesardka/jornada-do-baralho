@@ -94,7 +94,7 @@ export default function ReadTheBlog() {
           <p className="md:w-2/3 flex justify-center mx-auto pb-24 md:pb-0">
             <button
               onClick={() => router.push("/blog")}
-              className={`${bebasNeue.className} w-full inline-flex items-center justify-center gap-2 font-bold text-3xl md:text-5xl hover:bg-black hover:text-white uppercase px-6 py-6 md:py-12 border-2 rounded-full transition-all duration-300 text-black border-black bg-white shadow-lg shadow-gray-400`}
+              className={`${bebasNeue.className} w-full inline-flex items-center justify-center bg-[url('/images/bg/washi-tape-texture4.webp')] bg-cover bg-center gap-2 font-bold text-3xl md:text-5xl uppercase px-6 py-6 md:py-12 transition-all duration-300 text-black hover:brightness-110 hover:drop-shadow-md hover:shadow-gray-400`}
             >
               {t("readTheBlog.readBlogButton")}
             </button>
