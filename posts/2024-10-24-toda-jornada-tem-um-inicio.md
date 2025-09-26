@@ -32,9 +32,9 @@ Mas bem, vamos ao Desafio...
 Tudo começou depois de eu ouvir o [Nerdcast #950](https://jovemnerd.com.br/podcasts/nerdcast/o-melhor-de-950-nerdcasts). 
 _Era terça-feira... Chovia muito..._ (mentira)
 
-Na abertura do episódio o Alē e o Deive começaram a dar sinais mais fortes de quererem terminar no episódio 1000, para _**fechar esse ciclo**_ no ápice. Talvez seja brincadeira, talvez não. De qualquer forma, fiquei bem reflexivo sobre como seria o futuro do site e dos programas, já que é algo que bem ou mal me acompanha diariamente por diversas vias (notícias, áudio, vídeo) há mais de 15 anos! Insano, agora parando pra pensar nisso.
+Na abertura do episódio, Alexandre Ottoni _do Jovem Nerd_ e Deive começaram a dar sinais mais fortes de quererem terminar no episódio 1000, para _**fechar esse ciclo**_ no ápice. Talvez seja brincadeira, talvez não. De qualquer forma, fiquei bem reflexivo sobre como seria o futuro do site e dos programas, já que é algo que bem ou mal me acompanha diariamente por diversas vias (notícias, áudio, vídeo) há mais de 15 anos! Insano, agora parando pra pensar nisso.
 
-Comecei a matutar sobre esse desafio perdido que ainda estava intocado, que já faziam 13 anos sem grandes atualizações de ouvintes progredindo... Era algo que eu já tinha muito curiosidade e tinha no meu radar como algo que queria muito ver acontecer. Até que um dia me dei conta... 💡
+Comecei a matutar sobre esse desafio perdido que ainda estava intocado, que já faziam 13 anos sem grandes atualizações de ouvintes progredindo... Era algo que eu já tinha muito curiosidade e tinha no meu radar como algo que queria muito ver acontecer. Até que um dia me dei conta... 💡🫏
 
 Por que não eu?
 
@@ -65,7 +65,7 @@ Infelizmente no dia 23 de outubro recebi uma notificação da Jadlog me avisando
 
 ![Conversa com vendedora do Enjoei, anunciando que a Jadlog extraviou o pacote](/images/posts/2024-10-24/Screenshot%202025-09-25%20at%2002.27.01.png)
 
-A Enjoei me estornou o valor da compra e deram o valor segurado para a vendedora, mas ainda assim achei muita sacanagem perderam o produto assim, ainda mais por se tratar de um item tão único e significativo... Ficou o sentimento de que todo mundo saiu perdendo nessa história.
+O Enjoei me estornou o valor da compra e deram o valor segurado para a vendedora, mas ainda assim achei muita sacanagem perderam o produto assim, ainda mais por se tratar de um item tão único e significativo... Ficou o sentimento de que todo mundo saiu perdendo nessa história.
 
 Admito que fiquei muito desbundado com isso, mas ainda assim continuei adiantando o que dava para que o projeto saísse do mundo das ideias.
 
