@@ -44,7 +44,6 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: "César Hoffmann", url: "https://github.com/cesardka" },
-    { name: "Lena Franzz", url: "https://www.studiochifrezz.com/" },
   ],
   creator: "César Hoffmann",
   publisher: "César Hoffmann",
