@@ -7,7 +7,7 @@ tags: ["historia", "bastidores", "jornada do baralho"]
 
 Olá, pessoal! César Hoffmann aqui!
 
-Percebi que fazer um site para mostrar essa minha proposta da Jornada do Baralho não é algo que funciona sendo simplesmente uma _landing page_... Até porque eu duvido que as pessoas ficariam voltando aqui periodicamente pra quem sabe ter alguma novidade.
+Percebi que fazer um site para mostrar essa minha proposta da Jornada do Baralho não é algo que funciona como uma simples _landing page_... Até porque eu duvido que as pessoas ficariam voltando aqui periodicamente pra quem sabe ter alguma novidade.
 
 Achei que seria justo adicionar um blog, tanto para compartilhar sobre como foi o processo de criação do site, os _"conceitos"_ e _"easter eggs"_ das ilustrações, e acho que mais importante de tudo é a quantas anda a coleta das assinaturas!
 
@@ -15,7 +15,7 @@ Mas antes de mais nada, sendo esse meu primeiro post...
 
 ### Quem sou eu?
 
-Já me apresentei brevemente na página inicial do site, comentando que sou ouvinte do Nerdcast desde meus 14 anos, que já ouvi tudo muito mais vezes que qualquer pessoa normal ouviria, que boto pra tocar os episódios pra dormir... Vamos pular essa parte! hahaha
+Já me apresentei brevemente na página inicial do site, comentando que sou ouvinte do Nerdcast desde meus 14 anos, que já ouvi tudo mais vezes que qualquer pessoa normal ouviria, que boto pra tocar os episódios pra dormir... Vamos pular essa parte!
 
 Sou desenvolvedor de software há quase 10 anos, gosto muito da área de _frontend_, especialmente por ser o lugar onde posso juntar a computação com meus devaneios de designer, animador e ilustrador de meia-tigela para dar vida a algumas bobices. (mas atuo também como _backend_ 🤙).
 
@@ -34,7 +34,7 @@ _Era terça-feira... Chovia muito..._ (mentira)
 
 Na abertura do episódio, Alexandre Ottoni _do Jovem Nerd_ e Deive começaram a dar sinais mais fortes de quererem terminar no episódio 1000, para _**fechar esse ciclo**_ no ápice. Talvez seja brincadeira, talvez não. De qualquer forma, fiquei bem reflexivo sobre como seria o futuro do site e dos programas, já que é algo que bem ou mal me acompanha diariamente por diversas vias (notícias, áudio, vídeo) há mais de 15 anos! Insano, agora parando pra pensar nisso.
 
-Comecei a matutar sobre esse desafio perdido que ainda estava intocado, que já faziam 13 anos sem grandes atualizações de ouvintes progredindo... Era algo que eu já tinha muito curiosidade e tinha no meu radar como algo que queria muito ver acontecer. Até que um dia me dei conta... 💡🫏
+Comecei a matutar sobre esse desafio perdido que ainda estava intocado, que já faziam 13 anos sem grandes atualizações de ouvintes progredindo... Era algo que eu já tinha muito curiosidade e que já tinha no meu radar como algo que queria muito ver acontecer. Até que um dia me dei conta... 💡🫏
 
 Por que não eu?
 
@@ -43,7 +43,7 @@ Voltei ao episódio [#312 - Nerdcast do Baralho](https://jovemnerd.com.br/podcas
 O Desafio do Baralho consiste dos seguintes pré-requisitos para conseguir o iPad:
 1. Ter um baralho
 2. Ter as cartas de figuras, coringas e extra assinadas
-3. Ter um registro das assinaturas sendo feitas
+3. Ter um registro delas sendo feitas
 
 ... Eu não tinha nem o baralho ainda!
 
@@ -57,7 +57,7 @@ No dia 11 de outubro de 2024 decidi tomar minha primeira iniciativa para começa
 
 Eu fiquei até impressionado que o baralho já tinha algumas assinaturas nele, como do Bluehand, Amigo Imaginário e Guga Ferrari, que são pessoas bem menos acessíveis publicamente e já não estão mais tão presentes no núcleo do Jovem Nerd.
 
-Ainda assim, como o desafio pede que as cartas sejam autografadas e exista o registro desse autógrafo sendo dado, eu já contava que iria atrás de todos eles ainda assim pra que no final não digam que estou forçando a barra ou coisa do tipo só pra ganhar o bendito iPad. hahaha
+Ainda assim, como o desafio pede que as cartas sejam autografadas e exista o registro desse autógrafo sendo dado, eu já contava que iria atrás de todos eles ainda assim pra que no final não digam que estou forçando a barra só pra ganhar o bendito iPad. hahaha
 
 ... mas eu não contava com o pior...
 
@@ -67,9 +67,9 @@ Infelizmente no dia 23 de outubro recebi uma notificação da Jadlog me avisando
 
 O Enjoei me estornou o valor da compra e deram o valor segurado para a vendedora, mas ainda assim achei muita sacanagem perderam o produto assim, ainda mais por se tratar de um item tão único e significativo... Ficou o sentimento de que todo mundo saiu perdendo nessa história.
 
-Admito que fiquei muito desbundado com isso, mas ainda assim continuei adiantando o que dava para que o projeto saísse do mundo das ideias.
+Admito que fiquei muito desbundado com isso, porém continuei adiantando o que dava para que o projeto saísse do mundo das ideias.
 
-Eis que em 5 de novembro de 2024 finalmente fui agraciado com [um anúncio no Mercado Livre](https://www.mercadolivre.com.br/baralho-nerdcast-jovem-nerd/up/MLBU1763341614) com um baralho **NOVO** e **LACRADO**!! Foi perfeito, e isso facilitaria muito para escanear as cartas e depois registrar as assinaturas sem qualquer ruído! Comprei na hora.
+Eis que em 5 de novembro de 2024 finalmente fui agraciado com [um anúncio no Mercado Livre](https://www.mercadolivre.com.br/baralho-nerdcast-jovem-nerd/up/MLBU1763341614) com um baralho **NOVO** e **LACRADO**!! Foi perfeito, e isso facilitaria muito para escanear as cartas e depois registrar os autógrafos sem qualquer ruído! Comprei na hora.
 
 ![Anúncio do Baralho Nerdcast no Mercado Livre](/images/posts/2024-10-24/Screenshot%202025-09-25%20at%2002.32.17.png)
 

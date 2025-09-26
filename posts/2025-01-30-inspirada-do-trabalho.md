@@ -5,9 +5,9 @@ active: true
 tags: ["desenvolvimento", "bastidores"]
 ---
 
-Eu sempre tive muita curiosidade ao navegar por sites mais diferentões quais eram as referências deles.
+Eu sempre tive muita curiosidade ao navegar por sites mais diferentões e entender quais eram as referências deles.
 
-O clássico seria mencionar sites da época em Flash, todos aqueles discadores malucos da época do CD do iG e os CDs de jogos que vendiam em tudo quanto era banca de revista, mas eu queria também trazer referências mais atuais até pra trazer mais luz sobre o que a web é capaz hoje em dia com uma mistura de CSS, Javascript e Aleluia.
+O clássico seria mencionar sites d̶a̶ i̶d̶a̶d̶e̶ d̶a̶ p̶e̶d̶r̶a̶ da época do Flash, todos aqueles discadores malucos que vinham em revistas, como o do CD do iG, e os de jogos que vendiam em tudo quanto era tabacaria, mas eu queria também trazer referências mais atuais até pra ilustrar mais sobre o que a web é capaz hoje em dia com uma mistura de CSS, Javascript e Aleluia.
 
 Espero que ter o processo documentado publicamente para o mundo sobre como surgiu e quais as bases pra Jornada do Baralho 🃏 abra portas para outras pessoas se aventurarem e quem sabe tornar a web mais divertida e expressiva.
 
@@ -17,7 +17,7 @@ Então vamos lá!
 
 Eu colecionava [_Pokémon Estampas Ilustradas_](https://tcg.pokemon.com/pt-br/) quando criança, até os meus 14 anos mais ou menos. Em 2023, pouco antes de anunciarem uma coleção focada nos Pokémons da região de Kanto ([Escarlate e Violeta - 151](https://copag.com.br/pokemon/blog/detalhes/nova-colecao-especial-escarlate-e-violeta-151)), eu acabei voltando e desde então não parei mais.
 
-Voltar ao mundo dos card games me trouxe muitas ideias, principalmente por interagir com o [Pokémon TCG Live](https://tcg.pokemon.com/pt-br/tcgl/) - o simulador online oficial para jogar Pokémon TCG
+Voltar ao mundo dos card games me trouxe muitas ideias, principalmente por interagir com o [Pokémon TCG Live](https://tcg.pokemon.com/pt-br/tcgl/) - o simulador online oficial para jogar o jogo de cartas físico.
 
 ![Pokémon TCG Live](/images/posts/2025-01-30/pokemon_tcg_live.gif)
 
@@ -55,17 +55,17 @@ Pois é, um pouco exagerada a reação da nossa Taylor Swift de faz-de-conta... 
 
 Dando uma breve aula de história sobre desenvolvimento web (não sou professor, mas...), a web dos anos 90 e início dos anos 2000 era super mais simples do que temos hoje. Eu ainda peguei um pouquinho de como era desenvolver nesse período por conta do meu curso técnico em informática que fiz junto do meu ensino médio em 2008.
 
-Os sites naquele tempo tinham duas alternativas: ou eram feitos com um HTML, CSS e Javascript super limitados pelos navegadores disponíveis, que acabavam sendo páginas mais estáticas, ou eram feitos em Flash, uma tecnologia que trazia mais interatividade e animações, mas que era pesada e consumia muito processamento. Fabio Yabu na época tinha o [ComboRangers](https://web.archive.org/web/20070111212928/http://www2.uol.com.br/comborangers/) e contou no [Nerdcast #105 - O Homem que Matou o Jovem Nerd](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-105-fabio-yabu-o-homem-que-matou-o-jovem-nerd) sobre como até foi chamado para usarem o site dele como benchmark para o lançamento de um processador da Intel.
+Os sites naquele tempo tinham duas alternativas: ou eram feitos com um HTML, CSS e Javascript super limitados pelos navegadores disponíveis, que acabavam sendo páginas mais estáticas, ou eram feitos em Flash, uma tecnologia da Adobe que trazia mais interatividade e animações, mas que era pesada e consumia muito processamento. Fabio Yabu na época tinha o [ComboRangers](https://web.archive.org/web/20070111212928/http://www2.uol.com.br/comborangers/) e contou no [Nerdcast #105 - O Homem que Matou o Jovem Nerd](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-105-fabio-yabu-o-homem-que-matou-o-jovem-nerd) sobre como até foi chamado para usarem o site dele como benchmark para o lançamento de um processador da Intel.
 
-Um exemplo estático desse período seria [o site do Space Jam](http://web.archive.org/web/19970124032137/http://www.spacejam.com/index.cgi), um marco da internet de site com muita expressividade, dadas as limitações que existiam na época.
+Um exemplo estático desse período seria [a página do Space Jam](http://web.archive.org/web/19970124032137/http://www.spacejam.com/index.cgi), um marco da internet de site com muita expressividade, dadas as limitações que existiam na época.
 
 ![Site Space Jam com o mesmo design desde 1996](/images/posts/2025-01-30/site_space_jam.png)
 
-Outro exemplo, agora usando Flash, seria tanto o site do [ComboRangers](https://web.archive.org/web/20070111212928/http://www2.uol.com.br/comborangers/) que mencionei antes, que era como uma revista em quadrinhos digital, ou então [o site do Jamiroquai em 2004](https://web.archive.org/web/20041025081603/http://www.jamiroquai.co.uk/flash.htm) que representa bem como era a arte dos _websítios interativos_ e seus áudios terrivelmente comprimidos.
+Outro exemplo, agora usando Flash, seria tanto o site do [ComboRangers](https://web.archive.org/web/20070111212928/http://www2.uol.com.br/comborangers/) que mencionei antes, que era como uma revista em quadrinhos digital, ou então [o portal do Jamiroquai em 2004](https://web.archive.org/web/20041025081603/http://www.jamiroquai.co.uk/flash.htm) que representa bem como era a arte dos _websítios interativos_ e seus áudios terrivelmente comprimidos.
 
 ![Site do Jamiroquai em 2004](/images/posts/2025-01-30/site_jamiroquai.gif)
 
-Mas todo império tem seu fim. [Steve Jobs em 2006 declarou guerra ao Flash](https://www.cnet.com/culture/steve-jobs-letter-explaining-apples-flash-distaste/), dando a primeira rasteira que derrubou o dominó do Flash, até que a sua última peça caísse em **31 de dezembro de 2020**, quando a A[dobe encerrou oficialmente o suporte](https://www.adobe.com/br/products/flashplayer/end-of-life-alternative.html) à tecnologia. 🕊️ Descanse em paz, doce príncipe.
+Mas todo império tem seu fim. [Steve Jobs em 2006 declarou guerra ao Flash](https://www.cnet.com/culture/steve-jobs-letter-explaining-apples-flash-distaste/), dando a primeira rasteira que derrubou o dominó animado da Adobe, até que a sua última peça caísse em **31 de dezembro de 2020**, quando [a empresa encerrou oficialmente o suporte](https://www.adobe.com/br/products/flashplayer/end-of-life-alternative.html) à tecnologia. 🕊️ Descanse em paz, doce príncipe.
 
 ### O Futuro Já Começou
 
@@ -75,7 +75,7 @@ O HTML5, o CSS3 e o Javascript ECMA6 foram surgindo e revolucionando a internet,
 
 Juntando todos esses fatores, culminou na existência da minha maior influência para a Jornada do Baralho 🃏: a biblioteca **[GreenSock Animation Platform](https://gsap.com/)** (GSAP para os íntimos). 
 
-Não vou entrar muito em detalhes pois esse não é um post técnico, mas se você quiser entender a importância do GSAP, sua história desde o Flash até os dias de hoje, tem [essa entrevista em inglês](https://okaydev.co/articles/jack-doyle) muito bacana com o Jack Doyle, criador da plataforma.
+Não vou entrar muito em detalhes pois esse não é um post técnico, mas se você quiser entender a importância do GSAP, sua história desde o finado Flash até os dias de hoje, tem [essa entrevista em inglês](https://okaydev.co/articles/jack-doyle) muito bacana com o Jack Doyle, criador da plataforma.
 
 A biblioteca é muito poderosa e tem tudo quanto é tipo de _plugin_ para que o usuário possa animar coisas de tudo quanto é jeito: ao dar um scroll, ao clicar, ao passar o mouse, dividir em partes... Imagens valem mais que mil palavras, aqui um _showcase_ do próprio site de 2024:
 
