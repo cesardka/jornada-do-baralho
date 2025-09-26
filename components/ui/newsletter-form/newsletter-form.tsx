@@ -23,8 +23,6 @@ export default function NewsletterForm({
   //   </div>
   // );
 
-  return (<></>);
-
   return (
     <>
       {header && (
