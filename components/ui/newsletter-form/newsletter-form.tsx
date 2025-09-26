@@ -27,7 +27,7 @@ export default function NewsletterForm({
     <>
       {header && (
         <p className="text-sm font-bold">
-          Receba as próximas atualizações direto do seu e-mail
+          {t("readTheBlog.newsletterHeader")}
         </p>
       )}
 
@@ -45,13 +45,13 @@ export default function NewsletterForm({
             type="email"
             name="email"
             id="bd-email"
-            className="text-sm w-full h-10 bg-red-200 border-0 inset-1 rounded-r-none border-gray-500 rounded-md px-4 py-2 mx-0 shadow-sm shadow-gray-400 text-red-600 placeholder:text-red-400"
+            className="text-sm w-full h-10 bg-red-200 border-0 inset-1 rounded-r-none border-gray-500 rounded-tl-none rounded-md px-4 py-2 mx-0 shadow-sm border-b-2 border-b-red-300 shadow-gray-400 text-red-900 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-red-400 focus:ring-opacity-50"
             placeholder={label ? label : t("readTheBlog.newsletterLabel")}
           />
 
           <input
             type="submit"
-            className="text-sm h-10 flex items-center justify-center border-0 rounded-md border-l-0 rounded-l-none bg-blue-600 hover:bg-blue-800 duration-300 text-white w-1/3 px-4 py-2 my-0 shadow-sm shadow-gray-400 cursor-pointer"
+            className="text-sm h-10 flex items-center justify-center border-0 rounded-md border-l-0 rounded-l-none rounded-br-none bg-blue-600 hover:bg-blue-800 border-r-4 border-b-2 hover:border-b-blue-900 hover:border-blue-600 border-b-blue-700 border-blue-400 duration-300 text-white w-1/3 px-4 py-2 my-0 shadow-sm shadow-gray-400 cursor-pointer"
             value={t("readTheBlog.newsletterSend")}
           />
         </div>

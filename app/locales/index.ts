@@ -148,6 +148,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       newsletterLabel: "... ou inscreva-se na newsletter!",
       newsletterInput: "seu e-mail aqui",
       newsletterSend: "Se inscreva!",
+      newsletterHeader: "Receba as próximas atualizações direto do seu e-mail",
+      newsletterInvalidEmail: "Por favor, insira um e-mail válido",
     },
     blog: {
       title: "Blogada do Baralho",
@@ -317,6 +319,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       newsletterLabel: "... or subscribe to the newsletter!",
       newsletterInput: "your e-mail here",
       newsletterSend: "Subscribe",
+      newsletterHeader: "Receba as próximas atualizações direto do seu e-mail",
+      newsletterInvalidEmail: "Please enter a valid email address",
     },
     blog: {
       title: "The Deck Journey - Blog",

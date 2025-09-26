@@ -7,10 +7,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { PostData } from "@/lib/posts";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { RSSButton } from "@/components/ui/rss-button/rss-button";
+import gsap from "gsap";
 
 interface BlogClientProps {
   allPosts: PostData[];
 }
+
+gsap.registerPlugin();
 
 export default function BlogClient({ allPosts }: BlogClientProps) {
   const { t } = useI18n();
@@ -18,6 +21,15 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
   const searchParams = useSearchParams();
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("oldest");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Initialize selected tags from URL params on mount
   useEffect(() => {
@@ -69,10 +81,8 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
       const newTags = [...selectedTags, tagToAdd];
       setSelectedTags(newTags);
       updateURL(newTags);
-    // } else {
-    //   const newTags = selectedTags.filter((tag) => tag !== tagToAdd);
-    //   setSelectedTags(newTags);
-    //   updateURL(newTags);
+    } else {
+      removeTagFilter(tagToAdd);
     }
   };
 
@@ -91,6 +101,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
     <div className="max-w-4xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
         <h1 className="text-4xl font-bold text-center md:text-left">
+          {/* TODO: add some styling to make title stand out -- it currently looks so boring and unremarkable */}
           {t("blog.title")}
         </h1>
 
@@ -149,7 +160,9 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                   key={tag}
                   className={`flex items-center gap-1 px-3 py-1 bg-cover bg-center text-blue-800 text-sm`}
                   style={{
-                    backgroundImage: `url('/images/bg/washi-tape-texture${index + 1}.webp')`,
+                    backgroundImage: `url('/images/bg/washi-tape-texture${
+                      index + 1
+                    }.webp')`,
                   }}
                 >
                   <span>#{tag}</span>
@@ -176,8 +189,8 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
       {/* Posts List */}
       <div className="space-y-8">
         {filteredAndSortedPosts.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
+          <div className="text-center bg-[url('/images/bg/paper-texture-notebook-post5.webp')] bg-cover bg-left-top max-h-20 px-20 py-40 -mt-20 flex flex-col items-center justify-center">
+            <p className="text-gray-600 text-lg font-mono">
               {selectedTags.length > 0
                 ? t("blog.noPostsWithTags")
                 : t("blog.noPosts")}
@@ -185,17 +198,23 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
             {selectedTags.length > 0 && (
               <button
                 onClick={clearAllFilters}
-                className="mt-2 text-blue-600 hover:text-blue-800 underline duration-300"
+                className="mt-4 text-gray-600 hover:text-gray-800 hover:brightness-110 duration-300 bg-[url('/images/bg/washi-tape-texture5.webp')] bg-cover bg-center px-6 py-2"
               >
                 {t("blog.clearFiltersToSeeAll")}
               </button>
             )}
           </div>
         ) : (
-          filteredAndSortedPosts.map(({ id, date, title, tags }) => (
+          filteredAndSortedPosts.map(({ id, date, title, tags }, index) => (
             <article
               key={id}
               className="p-6 sm:pl-10 shadow-md hover:shadow-lg transition-shadow duration-300 bg-[url('/images/bg/paper-texture-notebook-post5.webp')] bg-cover bg-left-top"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(-5rem)",
+                transition: "all 0.5s ease-in-out",
+                transitionDelay: `${index * 0.1}s`,
+              }}
             >
               <div className="relative">
                 <Image
@@ -237,7 +256,9 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                         : "text-gray-700 hover:brightness-105 hover:text-blue-800 hover:shadow-md"
                     }`}
                     style={{
-                      backgroundImage: `url('/images/bg/washi-tape-texture${index + 1}.webp')`,
+                      backgroundImage: `url('/images/bg/washi-tape-texture${
+                        index + 1
+                      }.webp')`,
                     }}
                   >
                     #{tag}
