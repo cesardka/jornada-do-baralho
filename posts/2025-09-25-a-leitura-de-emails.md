@@ -54,7 +54,7 @@ Aliás, eles comentaram que a carta do Harald vai ser considerada como optativa,
 
 ![Ilustração Harald Stricker](/images/illustrations/ilustra-harald_stricker.jpeg)
 
-Mas se **você 🫵** tiver a carta do Harald assinada, e com um registro da carta sendo assinada, por favor entre em contato comigo tanto pelo Instagram [@cesardka](https://instagram.com/cesardka) quanto pelo e-mail [cesardka@hotmail.com](mailto:cesardka@hotmail.com) e vamos conversar pra incluir esse registro ao acervo! Seria muito legal conseguir reunir todo mundo! 🙂
+Mas se **você 🫵** tiver a carta do Harald assinada, e com um registro da carta sendo autografada, por favor entre em contato comigo tanto pelo Instagram [@cesardka](https://instagram.com/cesardka) quanto pelo e-mail [cesardka@hotmail.com](mailto:cesardka@hotmail.com) e vamos conversar pra incluir esse registro ao acervo! Seria muito legal conseguir reunir todo mundo! 🙂
 
 ### ... e agora, mais do que nunca, rumo ao iPad!
 
