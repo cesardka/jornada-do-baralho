@@ -5,11 +5,11 @@ tags: ["bastidores", "jovem nerd", "jornada do baralho"]
 active: true
 ---
 
-Agora com 4 assinaturas, acho que é a hora ideal para trazer o assunto da Jornada do Baralho para a atenção dos _meninos_ e entender se faz sentido continuar nessa empreitada, já que apareceu uma oportunidade de mão beijada de iniciar o projeto, e não queria também enviar um e-mail só pra mostrar o site sem ter algo concreto de que já estou ativamente participando da Jornada.
+Agora com 4 assinaturas, acho que é a hora ideal para trazer o assunto da **Jornada do Baralho 🃏** para a atenção dos _meninos_ e entender se faz sentido continuar nessa empreitada, já que apareceu uma oportunidade de mão beijada de iniciar o projeto, e não queria também enviar um e-mail só pra mostrar o site sem ter algo concreto de que já estou ativamente participando da Jornada.
 
 ### Enviando o e-mail
 
-No dia **25 de agosto de 2025** redigi e enviei um e-mail para o e-mail [nerdcast@jovemnerd.com.br](mailto:nerdcast@jovemnerd.com.br) me introduzindo nessa pauta off-topic e apresentando a Jornada do Baralho. Até redigi o e-mail diretamente ao Mau (nem sei se ele ainda tem esse papel de fazer a triagem dos e-mails, na verdade) porque a intenção era ser um papo de bastidor antes de mais nada. O e-mail em questão começava assim:
+No dia **25 de agosto de 2025** redigi e enviei um correio eletrônico para o e-mail [nerdcast@jovemnerd.com.br](mailto:nerdcast@jovemnerd.com.br) me introduzindo nessa pauta off-topic e apresentando a Jornada do Baralho. Até redigi o e-mail diretamente ao Mau (nem sei se ele ainda tem esse papel de fazer a triagem dos e-mails, na verdade) porque a intenção era ser um papo de bastidor antes de mais nada. O e-mail em questão começava assim:
 
 ![E-mail enviado ao Nerdcast apresentando a Jornada do Baralho](/images/posts/2025-08-25/email_nerdcast.png)
 
