@@ -15,7 +15,7 @@ Por padrão, tanto por conta do trabalho como pela vida de treinador Pokémon-de
 
 Foi um ambiente que eu nunca me imaginaria participando, e que, sinceramente, foi uma experiência incrível para quebrar essa relação abstrata ouvinte-podcaster, de perceber que são pessoas de verdade, que se alimentam, brincam, conversam... Nada dos programas é atuado, e ver isso com meus próprios olhos foi algo que eu nunca vou esquecer.
 
-Nesse evento acabei encontrando o Guga Ferrari, o Afonso Tresdê, o Bluehand e o Amigo Imaginário (anfitrião da ocasião). Eu admito que tive muita resistência pra trazer o assunto do Baralho Nerdcast, porque fiquei receoso de me tornar o corta-clima do rolê falando sobre algo da internet, de algo que eles participaram anos atrás, e quem sabe dar a impressão que eu seria um "infiltrado" numa ocasião que deveria ter sido apenas um encontro de amigos.
+Nesse evento acabei encontrando o Guga Ferrari, o Afonso Tresdê, o Bluehand e o Amigo Imaginário. Eu admito que tive muita resistência pra trazer o assunto do Baralho Nerdcast, porque fiquei receoso de me tornar o corta-clima do rolê falando sobre algo da internet, de algo que eles participaram anos atrás, e quem sabe dar a impressão que eu seria um "infiltrado" numa ocasião que deveria ter sido apenas um encontro de amigos.
 
 Depois de muito tempo, o Sol até já indo embora, a Lena foi perdendo a paciência comigo e acabou me dando um "empurrãozinho" ao trazer o assunto do Baralho para a roda. Mostrei o site pra eles e surpreendentemente todo mundo reagiu de forma super receptiva, elogiaram o site, as ilustrações e assinaram as cartas prontamente!
 
