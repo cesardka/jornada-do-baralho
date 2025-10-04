@@ -21,7 +21,7 @@ Como o site não havia sido publicamente anunciado, eu tinha uma noção bem mai
 
 ### Nerdcast 1000 - O Fim?
 
-Eis que no dia **27 de agosto de 2025** sou surpreendido ao assistir o [NerdOffice sobre o Trailer de Fallout](https://www.youtube.com/watch?v=Xj3VRPwzI5g) e aparece Jovem Nerd, Azaghal e a patroa LUIZA TRAJANO anunciando que o episódio tem que chegar até o 100.000 (cem mil, puta que pariu! hahaha)
+Eis que no dia **27 de agosto de 2025** sou surpreendido ao assistir o [NerdOffice sobre o Trailer de Fallout](https://www.youtube.com/watch?v=Xj3VRPwzI5g) e aparece Jovem Nerd, Azaghal e a patroa LUIZA TRAJANO anunciando que o programa tem mais é que chegar ao episódio 100.000 (CEM MIL), puta que pariu! hahaha
 
 E junto disso, [um anúncio de dois eventos presenciais](https://www.youtube.com/watch?v=wzG7xiZHC_w), nos dias **4 e 5 de outubro de 2025**, em comemoração aos 1000 episódios que serão alcançados. Qual a minha surpresa ao ver esses astros todos se alinhando e trazendo todas essas pessoas ao mesmo lugar, em um evento especial, facilitando para conseguir as assinaturas? Olha esse elenco de estrelas!
 
