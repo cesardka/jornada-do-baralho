@@ -43,7 +43,7 @@ Fiquei até curioso se eles já tinham visto o e-mail, ou entrado no site, mas n
 
 Até então eu não tinha recebido resposta nenhuma de feedback por e-mail, já tinha sido lançado o episódio [995 - Como era bom o Cinema dos Anos 90 - Parte 1](https://jovemnerd.com.br/podcasts/nerdcast/como-era-bom-o-cinema-dos-anos-90-parte-1) e não houve nenhuma menção (não que eles fossem obrigados também), as estatísticas de acesso continuavam na mesma... Desencanei e continuei trabalhando como se nada tivesse acontecido. Meu plano se manteve o mesmo: conforme for possível, vou pegar as assinaturas, e no pior dos casos apresento pessoalmente o site para a galera. Tudo era questão de tempo.
 
-Eis que chega o dia **5 de setembro de 2025**.  
+E o tempo passou, até chegar ao dia **5 de setembro de 2025**.  
 Era sexta-feira, chovia muito... (dessa vez é verdade!)
 
 Eu estava fazendo uma faxina na cozinha, com meu fonezinho de ouvido, numa tarde calma sem reuniões e botei pra tocar o episódio [996 - Cid Cidoso e a Lenda da Tailândia](https://jovemnerd.com.br/podcasts/nerdcast/cid-cidoso-e-a-lenda-da-tailandia). Aos **23:30** do episódio, eu escuto o meu nome sendo falado pelo Alottoni. **UÉ?**
