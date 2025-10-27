@@ -47,9 +47,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-alottoni.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_alottoni.png",
     socialMedia: [
       {
         name: 'Site "Jovem Nerd"',
@@ -90,9 +90,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♥",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-azaghal.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_azaghal.webp",
     socialMedia: [
       {
         name: 'Site "Jovem Nerd"',
@@ -129,9 +129,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-jp.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_jp.webp",
     socialMedia: [
       {
         name: "Agência de Viagem 'Glad Vip Travel'",
@@ -168,9 +168,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-srk.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_sr_k.jpeg",
     socialMedia: [
       {
         name: 'Joalheria Virtual "FCarstens Jewelry"',
@@ -201,9 +201,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-srajovemnerd.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_sra_jovem_nerd.webp",
     socialMedia: [
       {
         name: 'Podcast "Caneca de Mamicas"',
@@ -234,9 +234,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-portuguesa.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_portuguesa.jpeg",
     socialMedia: [
       {
         name: 'Podcast "Caneca de Mamicas"',
@@ -292,9 +292,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-ruiva.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-14T20:26:48.000Z"),
+    signedLocation: "Pré-Estreia \"A Própria Carne\" no Rio de Janeiro, RJ",
+    signedSrc: "/images/signed-card/assinatura_ruiva.webp",
   },
   {
     id: "card-09",
@@ -310,7 +310,7 @@ export const DECK_LIST: NerdcastCard[] = [
     originalSrc: "/images/card/nerdcast-j-bluehand.webp",
     signedOn: new Date("2025-08-23"),
     signedLocation: "Rio de Janeiro, RJ",
-    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.512.webp",
+    signedSrc: "/images/signed-card/assinatura_bluehand.webp",
   },
   {
     id: "card-10",
@@ -361,7 +361,7 @@ export const DECK_LIST: NerdcastCard[] = [
     originalSrc: "/images/card/nerdcast-j-gugaferrari.webp",
     signedOn: new Date("2025-08-23"),
     signedLocation: "Rio de Janeiro, RJ",
-    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.54.webp",
+    signedSrc: "/images/signed-card/assinatura_guga_ferrari.webp",
     socialMedia: [
       {
         name: 'Podcast "Papo Furado"',
@@ -393,9 +393,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♥",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-tucano.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_tucano.webp",
     socialMedia: [
       {
         name: "Hamburgueria 'Seven Kings Burger'",
@@ -604,9 +604,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-carlosvoltor.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedSrc: "/images/signed-card/assinatura_carlos_voltor.jpeg",
     socialMedia: [
       {
         name: "@carlosvoltor",
@@ -643,9 +643,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-nickellis.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedLocation: "Nerdcast 1000, no Teatro Moise Safra, São Paulo, SP",
+    signedSrc: "/images/signed-card/assinatura_nick_ellis.jpeg",
     socialMedia: [
       {
         name: "@nickellis",
@@ -712,7 +712,7 @@ export const DECK_LIST: NerdcastCard[] = [
     originalSrc: "/images/card/nerdcast-joker-tresde.webp",
     signedOn: new Date("2025-08-23"),
     signedLocation: "Rio de Janeiro, RJ",
-    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.52.webp",
+    signedSrc: "/images/signed-card/assinatura_tresde.webp",
     socialMedia: [
       {
         name: "Bunker X",
@@ -746,7 +746,7 @@ export const DECK_LIST: NerdcastCard[] = [
     originalSrc: "/images/card/nerdcast-amigoimaginario.webp",
     signedOn: new Date("2025-08-23"),
     signedLocation: "Rio de Janeiro, RJ",
-    signedSrc: "/images/signed-card/photo_2025-08-24 15.26.48.webp",
+    signedSrc: "/images/signed-card/assinatura_amigo_imaginario.webp",
     socialMedia: [
       {
         name: "@renderia",
