@@ -46,6 +46,14 @@ const illustrations = [
       "Ilustração em homenagem ao Harald Stricker, o Android, nosso saudoso nerdcaster e todo um elenco de personagens que marcaram a passagem dele pelo universo Jovem Nerd",
     type: "image",
   },
+  {
+    src: "/images/signed-card/assinatura_alottoni.png",
+    alt: "Ilustração de César e Alexandre Ottoni com carta assinadas em mãos",
+    title: "Re-encenação da foto com Alottoni",
+    description:
+      "Versão ilustrada re-encenando como seria a foto com carta assinada por Alê durante o Banquete Real by Bem Brasil... Acabei esquecendo de pedir pra tirar foto na hora 😅 (mais detalhes no blog)",
+    type: "image",
+  },
 ];
 
 export default function Gallery() {
