@@ -293,7 +293,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-ruiva.webp",
     signedOn: new Date("2025-10-14T20:26:48.000Z"),
-    signedLocation: "Pré-Estreia \"A Própria Carne\" no Rio de Janeiro, RJ",
+    signedLocation: 'Pré-Estreia "A Própria Carne" no Rio de Janeiro, RJ',
     signedSrc: "/images/signed-card/assinatura_ruiva.webp",
   },
   {
@@ -677,9 +677,10 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "",
     value: "Joker",
     originalSrc: "/images/card/nerdcast-joker-fabioyabu.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-11-02T15:26:48.000Z"),
+    signedLocation:
+      'palestra "Música, Choro e Combo Rangers de Dentes: Variando Entre Estilos Produzindo Quadrinhos no Brasil" durante a 72ª Feira do Livro de Porto Alegre',
+    signedSrc: "/images/signed-card/assinatura_fabio_yabu.jpg",
     socialMedia: [
       {
         name: 'Site "Princesas do Mar"',
