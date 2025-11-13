@@ -325,9 +325,10 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-eduardospohr.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2025-11-08T16:26:48.000Z"),
+    signedLocation:
+      'sessão de autógrafos após lançamento do livro "Santo Guerreiro: O Império do Leste" na 71ª Feira do Livro de Porto Alegre',
+    signedSrc: "/images/signed-card/assinatura_eduardo_spohr.jpeg",
     socialMedia: [
       {
         name: 'Site "Eduardo Spohr"',
@@ -679,7 +680,7 @@ export const DECK_LIST: NerdcastCard[] = [
     originalSrc: "/images/card/nerdcast-joker-fabioyabu.webp",
     signedOn: new Date("2025-11-02T15:26:48.000Z"),
     signedLocation:
-      'palestra "Música, Choro e Combo Rangers de Dentes: Variando Entre Estilos Produzindo Quadrinhos no Brasil" durante a 72ª Feira do Livro de Porto Alegre',
+      'palestra "Música, Choro e Combo Rangers de Dentes: Variando Entre Estilos Produzindo Quadrinhos no Brasil" durante a 71ª Feira do Livro de Porto Alegre',
     signedSrc: "/images/signed-card/assinatura_fabio_yabu.jpg",
     socialMedia: [
       {
