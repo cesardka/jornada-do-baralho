@@ -48,8 +48,9 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "K",
     originalSrc: "/images/card/nerdcast-k-alottoni.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
-    signedSrc: "/images/signed-card/assinatura_alottoni.png",
+    signedLocation:
+      "CCXP 2025, na sessão de autógrafos do Jovem Nerd Zerando a Vida",
+    signedSrc: "/images/signed-card/assinatura_alottoni2.jpg",
     socialMedia: [
       {
         name: 'Site "Jovem Nerd"',
