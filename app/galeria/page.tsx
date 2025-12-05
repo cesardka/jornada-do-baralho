@@ -162,7 +162,7 @@ export default function Gallery() {
         {/* Gallery Grid */}
         <div className="max-w-5xl mx-auto">
           <div
-            className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 transition-all duration-1000 delay-300 ${
+            className={`grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 transition-all duration-1000 delay-300 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
