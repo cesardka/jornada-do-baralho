@@ -42,9 +42,7 @@ export const metadata: Metadata = {
     "nerdcaster",
     "jovem nerd",
   ],
-  authors: [
-    { name: "César Hoffmann", url: "https://github.com/cesardka" },
-  ],
+  authors: [{ name: "César Hoffmann", url: "https://github.com/cesardka" }],
   creator: "César Hoffmann",
   publisher: "César Hoffmann",
   applicationName: "Jornada do Baralho",
@@ -126,10 +124,10 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   alternates: {
     types: {
-      'application/rss+xml': [
-        { url: '/feed.xml', title: 'Jornada do Baralho - Blog RSS Feed' }
-      ]
-    }
+      "application/rss+xml": [
+        { url: "/feed.xml", title: "Jornada do Baralho - Blog RSS Feed" },
+      ],
+    },
   },
 };
 
@@ -143,6 +141,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <link
+          rel="preload"
+          href="/images/card/card-back-blue.webp"
+          as="image"
+          type="image/webp"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/images/card/card-back-red.webp"
+          as="image"
+          type="image/webp"
+          fetchPriority="high"
+        />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EKW4K5RXWG"
