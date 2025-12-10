@@ -39,7 +39,7 @@ Surpreendentemente, foi uma peça que me fez doer a barriga de tanto rir, e admi
 
 Agora só me restava voltar pra casa e dormir.
 
-Mas qual não foi a minha surpresa ao ser acordado às 5 da manhã com a minha sobrinha-felina transformada em um emissário maligno do vampiro ancestral com a missão de me atacar enquanto eu dormia? Esse momento me levou a ter que ir pra UPA, tomar antinflamatório, antibiótico, e várias outras complicações que viriam desse episódio canônico que vou poupar vocês de ler, já que o foco hoje é outro e já me estendi além da conta.
+Mas qual não foi a minha surpresa ao ser acordado às 5 da manhã com a minha sobrinha-felina transformada em um emissário maligno do vampiro ancestral com a missão de me atacar enquanto eu dormia? Esse momento me levou a ter que ir pra UPA, tomar anti-inflamatório, antibiótico, e várias outras complicações que viriam desse episódio canônico que vou poupar vocês de ler, já que o foco hoje é outro e já me estendi além da conta.
 
 Eu sigo amando a Phoebe, apesar de tudo.
 
