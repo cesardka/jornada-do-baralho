@@ -226,7 +226,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                 />
               </div>
               <header className="mb-2">
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-2xl font-bold mr-10">
                   <Link
                     href={`/blog/${id}`}
                     className="hover:text-blue-600 transition-colors"
