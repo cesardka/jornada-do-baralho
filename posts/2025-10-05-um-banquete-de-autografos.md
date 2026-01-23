@@ -156,7 +156,7 @@ E eu sofri calado. Perdi o Eduardo Spohr de bobeira. 🤦‍♂️
 
 ### Mas a Esperança Não Morre
 
-Mas não perdi a esperança e nem me desesperei! Eu já sabia que o Spohr iria para Porto Alegre para a 23ª Feira do Livro, já tinha até conversado com ele no Twitter sobre isso, e lá eu com certeza conseguiria encontrar ele. A jornada continua! 😊
+Apesar de tudo, esse incidente não me fez ficar desesperado! Eu já sabia que o Spohr iria para Porto Alegre para a 23ª Feira do Livro, já tinha até conversado com ele no Twitter sobre isso, e lá eu com certeza conseguiria encontrar ele. A jornada continua! 😊
 
 No total, o banquete rendeu mais **8 assinaturas** (+2 extras). Agora estamos com **13 de 18 assinaturas**.
 
