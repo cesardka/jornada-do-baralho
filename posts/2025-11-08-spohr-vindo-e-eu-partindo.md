@@ -1,0 +1,63 @@
+---
+title: "Spohr Vindo, E Eu Partindo"
+date: "2025-11-08"
+tags: ["assinatura", "jornada do baralho"]
+active: true
+---
+
+<!-- RESUMO DA OBRA
+
+- Recapitulando a minha mágoa comigo mesmo, tive a oportunidade de encontrar com o Eduardo Spohr no Banquete Real by Bem Brasil na Arena Magalu, no dia 05 de outubro de 2025
+- Infelizmente, por descuido meu e talvez um excesso de confiança, acabei deixando ele ir embora sem bater um papo com ele e pegar uma assinatura, mesmo a gente já tendo uma pré-conversa online sobre ele aparecer no evento
+- No mesmo dia que anunciaram o encontro que acabei tendo com o Fábio Yabu no dia de Finados, a Jambô e o universo resolveram me dar [mais uma chance](https://x.com/jamboeditora/status/1982921455118504119) de me encontrar com Dudu Spohr:
+- [FOTO ANUNCIO JAMBO SESSAO EDUARDO SPOHR]
+- Ele costuma vir à Feira do Livro de Porto Alegre com uma certa frequência, sempre vejo ele divulgando os encontros com os fãs que levam todos os livros possíveis e imagináveis pra ele assinar, e bater papo. 
+- Gosto muito como ele mesmo sendo uma pessoa que aparenta ser super reservada, não deixa de ser solícito e fazer questão de se conectar com o público dele tanto pelas redes como presencialmente em todo o Brasil
+- Mas tinha um porém nesse encontro: durante o dia que o Eduardo Spohr estaria em Porto Alegre para a sessão de autógrafos, eu teria um evento a trabalho na Bahia e infelizmente eu não teria como cancelar a minha presença lá... :(
+- Para compensar isso, pedi para a minha namorada quebrar um galho para mim e enquanto eu estivesse lá trabalhando... ralando muito... sofrendo...
+- [FOTO MINHA SOFRENDO MUITO NA PRAIA]
+- Ela passearia na feira do livro, leva o baralho para o bate-papo, e aproveita o passeio pra tirar uma foto com ele com um retrato meu! Olha que coisa boa!
+- Dessa vez o local divulgado estava correto e não foi alterado, poupando uma caça ao tesouro de última hora em meio à busca pelo bate-papo
+- Não tive a oportunidade de conversar com o Dudu, mas pelo que ouvi ele foi muito receptivo com todo mundo. Especialmente paciente também com o público muitas vezes neurodivergente que lida com ele, demonstrou conduzir uma conversa com o público muito bem, só tenho a agradecer e admirar ele pelo trabalho incrível.
+- Aproveitei a oportunidade e compramos o livro "Santo Guerreiro: Roma Invicta" (5ª edição, da Verus Editora) para acompanhar mais essa saga fantástica que ele criou!
+- Depois do breve papo, do autógrafo dado ao livro, chegou a hora do baralho, e esse foi o momento em que pude fazer minha "presença" surgir pelo menos em forma de retrato impresso para ele segurar junto das cartas, enquanto eu estava na Bahia confraternizando com o pessoal da minha empresa.
+- [FOTO EDUARDO SPOHR ASSINANDO CARTA]
+ -->
+
+Recapitulando a minha mágoa comigo mesmo, tive a oportunidade de encontrar com o Eduardo Spohr no Banquete Real by Bem Brasil na Arena Magalu, que aconteceu junto com a celebração do Nerdcast 1000 no dia 05 de outubro de 2025. Infelizmente, por puro descuido meu e talvez um excesso de confiança, acabei deixando ele ir embora sem bater um papo com ele e pegar uma assinatura no Valete de Ouro.
+
+No mesmo dia que anunciaram a palestra do Fábio Yabu e Fred Rubim que aconteceria no dia de finados, [a Jambô também anunciou](https://x.com/jamboeditora/status/1982921455118504119) que Dudu Spohr estaria em Porto Alegre para um bate-papo e sessão de autógrafos no dia 8 de novembro de 2025. É o universo me dando mais uma chance!! Obrigado, vida!!!
+
+![Tweet da Jambo anunciando sessão de autógrafos com Dudu Spohr](/images/posts/2025-11-08/anuncio-eduardo-spohr-porto-alegre.png)
+
+Ele costuma vir à Feira do Livro de Porto Alegre com uma certa frequência, sempre vejo ele divulgando os encontros com os fãs que levam todos os livros possíveis e imagináveis pra ele assinar e bater papo. Gosto muito como ele mesmo sendo uma pessoa que aparenta ser super reservada, não deixa de ser solícito e fazer questão de se conectar com o público dele tanto pelas redes como presencialmente por todo o Brasil. Pensa num homem que viaja!
+
+Mas tinha um pequeno porém nessa grande coincidência do destino...
+
+Entre os dias 6 e 10 de novembro de 2025 eu estava com tudo pago e marcado para viajar para a Bahia à trabalho, e infelizmente não teria como cancelar a minha presença de última hora assim..... 😭
+
+Apesar de tudo, isso não me impediria de pegar a assinatura do Eduardo de forma indireta, em meu nome! Pedi para minha namorada quebrar um galho para mim e enquanto eu estivesse lá na Bahia trabalhando... sofrendo... ralando muito... num resort com tudo à vontade... ela poderia fazer esse favorzinho pra mim.
+
+Seria uma ótima oportunidade para ela passar na feira do livro mais uma vez, dar uma voltinha, comprar uns livrinhos a mais, e levar um retrato meu consigo junto das cartas do baralho para o bate-papo, e já pegaria a assinatura do Eduardo Spohr. Olha que coisa boa. Só vi vantagens!
+
+Presenciem o sofrimento desse cidadão longe de seu habitat natural:
+
+![Sou biólogo e afirmo que este animal está em sofrimento](/images/posts/2025-11-08/cesar-na-bahia.jpg)
+
+Enquanto isso, em Porto Alegre, nesse dia não estava chovendo (finalmente 🙏), e o local divulgado era o correto, então não teve mistério. Não tive a oportunidade de conversar diretamente com o Dudu, mas segundo o relato que recebi, ele é uma pessoa muito receptiva com todo mundo, especialmente considerando que é muita gente para ser atendida, de tudo quanto é maneira e ele demonstra ser super experiente em conduzir o papo até mesmo com os mais tímidos e neurodivergentes dos fãs. Só tenho a agradecer e admirar ele pelo trabalho incrível tanto de escrita trazendo histórias abordando temas como fantasia, religião e história de forma original e criativa, como também pelo que ele faz pelo público, incluindo as muitas mentorias e mini-podcasts no canal do Telegram.
+
+O homem é fantástico, além de ser um ótimo piadista. 😜
+
+![Fotos do Eduardo Spohr segurando meu retrato e assinando as cartas do baralho](/images/posts/2025-11-08/dudu-spohr-assinatura-com-retrato.jpg)
+
+Aproveitamos essa oportunidade para comprar o livro **"Santo Guerreiro: Roma Invicta"** (5ª edição, da Verus Editora) para nos aventurar por essa trilogia que começou em 2020, seguido pelo **"Santo Guerreiro: Ventos do Norte"** (2022) e foi concluída agora em 2025, com o lançamento do **"Santo Guerreiro: Império do Leste"**.
+
+Os livros do Dudu são facilmente achados em qualquer livraria local, além das digitais. Ouvi dizer que até em revistinha da Avon! Para quem tiver curiosidade, coloco aqui alguns links da Amazon (não-afiliado) para vocês que quiserem comprar as obras do nosso autor nerd:
+
+* [Santo Guerreiro: Roma Invicta](https://www.amazon.com.br/Santo-guerreiro-Roma-invicta-Vol-ebook/dp/B08NS23CW6/ref=sr_1_4?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KOP7BE9QJNVW&dib=eyJ2IjoiMSJ9.uLrsDzn9LhruJslWbOy9CsIhsd795Wzwz4ZRYDI3BiwJsd0j512nyWKMUY4QIOpH2WA7wpyc9IDxRJKjo_OYolty-lYrVYX_eS0640FiOegxckANSMLkINSB-HgXM0a6xuInKcWS7oCuuj1gQFIE9hCG99Ug2Ql06rm6JNMytUQNRbTmMqCL2BIXrq8hTk_q0VhHq1SDhJYDnEi_ajDYocc36k5wnS60D8GpF0vGF07dVdJ-wzBZd9plWABdnuuY1F_EO2RojihF2hzSQywMmQ07wcA3g6iATOd6l09Zh4w.u_eHyvjWG5UbTaOab65IlScnMzyvzNWx-toH094GWX0&dib_tag=se&keywords=eduardo+spohr&qid=1770018369&sprefix=eduardo+spo%2Caps%2C270&sr=8-4) (vol. 1), [Santo Guerreiro: Ventos do Norte](https://www.amazon.com.br/Santo-guerreiro-Ventos-norte-Vol-ebook/dp/B0BB3BWCTJ/ref=sr_1_5?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KOP7BE9QJNVW&dib=eyJ2IjoiMSJ9.uLrsDzn9LhruJslWbOy9CsIhsd795Wzwz4ZRYDI3BiwJsd0j512nyWKMUY4QIOpH2WA7wpyc9IDxRJKjo_OYolty-lYrVYX_eS0640FiOegxckANSMLkINSB-HgXM0a6xuInKcWS7oCuuj1gQFIE9hCG99Ug2Ql06rm6JNMytUQNRbTmMqCL2BIXrq8hTk_q0VhHq1SDhJYDnEi_ajDYocc36k5wnS60D8GpF0vGF07dVdJ-wzBZd9plWABdnuuY1F_EO2RojihF2hzSQywMmQ07wcA3g6iATOd6l09Zh4w.u_eHyvjWG5UbTaOab65IlScnMzyvzNWx-toH094GWX0&dib_tag=se&keywords=eduardo+spohr&qid=1770018369&sprefix=eduardo+spo%2Caps%2C270&sr=8-5) (vol. 2) e [Santo Guerreiro: Império do Leste](https://www.amazon.com.br/Santo-Guerreiro-Imp%C3%A9rio-Leste-Vol/dp/6559243710/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KOP7BE9QJNVW&dib=eyJ2IjoiMSJ9.uLrsDzn9LhruJslWbOy9CsIhsd795Wzwz4ZRYDI3BiwJsd0j512nyWKMUY4QIOpH2WA7wpyc9IDxRJKjo_OYolty-lYrVYX_eS0640FiOegxckANSMLkINSB-HgXM0a6xuInKcWS7oCuuj1gQFIE9hCG99Ug2Ql06rm6JNMytUQNRbTmMqCL2BIXrq8hTk_q0VhHq1SDhJYDnEi_ajDYocc36k5wnS60D8GpF0vGF07dVdJ-wzBZd9plWABdnuuY1F_EO2RojihF2hzSQywMmQ07wcA3g6iATOd6l09Zh4w.u_eHyvjWG5UbTaOab65IlScnMzyvzNWx-toH094GWX0&dib_tag=se&keywords=eduardo+spohr&qid=1770018369&sprefix=eduardo+spo%2Caps%2C270&sr=8-2) (vol. 3)
+* [Filhos do Éden: Herdeiros de Atlântida](https://www.amazon.com.br/Herdeiros-Atl%C3%A2ntida-Filhos-%C3%89den-vol-ebook/dp/B00AHEHOOY/ref=sr_1_8?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KOP7BE9QJNVW&dib=eyJ2IjoiMSJ9.uLrsDzn9LhruJslWbOy9CsIhsd795Wzwz4ZRYDI3BiwJsd0j512nyWKMUY4QIOpH2WA7wpyc9IDxRJKjo_OYolty-lYrVYX_eS0640FiOegxckANSMLkINSB-HgXM0a6xuInKcWS7oCuuj1gQFIE9hCG99Ug2Ql06rm6JNMytUQNRbTmMqCL2BIXrq8hTk_q0VhHq1SDhJYDnEi_ajDYocc36k5wnS60D8GpF0vGF07dVdJ-wzBZd9plWABdnuuY1F_EO2RojihF2hzSQywMmQ07wcA3g6iATOd6l09Zh4w.u_eHyvjWG5UbTaOab65IlScnMzyvzNWx-toH094GWX0&dib_tag=se&keywords=eduardo+spohr&qid=1770018369&sprefix=eduardo+spo%2Caps%2C270&sr=8-8) (vol. 1), [Filhos do Éden: Anjos da Morte](https://www.amazon.com.br/Anjos-Morte-Filhos-%C3%89den-vol-ebook/dp/B00EAQUP6Y/ref=sr_1_10?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KOP7BE9QJNVW&dib=eyJ2IjoiMSJ9.uLrsDzn9LhruJslWbOy9CsIhsd795Wzwz4ZRYDI3BiwJsd0j512nyWKMUY4QIOpH2WA7wpyc9IDxRJKjo_OYolty-lYrVYX_eS0640FiOegxckANSMLkINSB-HgXM0a6xuInKcWS7oCuuj1gQFIE9hCG99Ug2Ql06rm6JNMytUQNRbTmMqCL2BIXrq8hTk_q0VhHq1SDhJYDnEi_ajDYocc36k5wnS60D8GpF0vGF07dVdJ-wzBZd9plWABdnuuY1F_EO2RojihF2hzSQywMmQ07wcA3g6iATOd6l09Zh4w.u_eHyvjWG5UbTaOab65IlScnMzyvzNWx-toH094GWX0&dib_tag=se&keywords=eduardo+spohr&qid=1770018369&sprefix=eduardo+spo%2Caps%2C270&sr=8-10) (vol. 2) e [Filhos do Éden: Paraíso Perdido](https://www.amazon.com.br/Para%C3%ADso-perdido-Filhos-%C3%89den-vol-ebook/dp/B0187TP870/ref=sr_1_9?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KOP7BE9QJNVW&dib=eyJ2IjoiMSJ9.uLrsDzn9LhruJslWbOy9CsIhsd795Wzwz4ZRYDI3BiwJsd0j512nyWKMUY4QIOpH2WA7wpyc9IDxRJKjo_OYolty-lYrVYX_eS0640FiOegxckANSMLkINSB-HgXM0a6xuInKcWS7oCuuj1gQFIE9hCG99Ug2Ql06rm6JNMytUQNRbTmMqCL2BIXrq8hTk_q0VhHq1SDhJYDnEi_ajDYocc36k5wnS60D8GpF0vGF07dVdJ-wzBZd9plWABdnuuY1F_EO2RojihF2hzSQywMmQ07wcA3g6iATOd6l09Zh4w.u_eHyvjWG5UbTaOab65IlScnMzyvzNWx-toH094GWX0&dib_tag=se&keywords=eduardo+spohr&qid=1770018369&sprefix=eduardo+spo%2Caps%2C270&sr=8-9) (vol. 3)
+* e [A Batalha do Apocalipse](https://www.amazon.com.br/batalha-do-Apocalipse-Eduardo-Spohr-ebook/dp/B00A3CSWOQ/ref=sr_1_6?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KOP7BE9QJNVW&dib=eyJ2IjoiMSJ9.uLrsDzn9LhruJslWbOy9CsIhsd795Wzwz4ZRYDI3BiwJsd0j512nyWKMUY4QIOpH2WA7wpyc9IDxRJKjo_OYolty-lYrVYX_eS0640FiOegxckANSMLkINSB-HgXM0a6xuInKcWS7oCuuj1gQFIE9hCG99Ug2Ql06rm6JNMytUQNRbTmMqCL2BIXrq8hTk_q0VhHq1SDhJYDnEi_ajDYocc36k5wnS60D8GpF0vGF07dVdJ-wzBZd9plWABdnuuY1F_EO2RojihF2hzSQywMmQ07wcA3g6iATOd6l09Zh4w.u_eHyvjWG5UbTaOab65IlScnMzyvzNWx-toH094GWX0&dib_tag=se&keywords=eduardo+spohr&qid=1770018369&sprefix=eduardo+spo%2Caps%2C270&sr=8-6), o primeiro grande clássico lançado lá em 2007, no episódio do [Nerdcast 80](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-80-a-batalha-do-apocalipse)!
+
+Quando surgir uma próxima oportunidade de encontrar com ele pessoalmente, faço questão de levar o baralho comigo e tirar uma foto com a carta assinada para ter esse feito comigo em carne e osso. Muito obrigado, Dudu! ❤️🙏
+
+Com mais essa conquista, estamos nos aproximando do final da Jornada... Só faltam agora mais 2 assinaturas: **Guilherme Briggs**, nosso Ás de Copas, e **Francine**, nossa Rainha de Paus.
