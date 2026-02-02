@@ -5,7 +5,7 @@ import { remark } from "remark";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
-import { remarkVideo } from "./remark-video";
+import { remarkVideo, remarkAudio } from "./remark-video";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -52,6 +52,7 @@ export async function getPostData(id: string): Promise<PostData> {
 
   const processedContent = await remark()
     .use(remarkVideo)
+    .use(remarkAudio)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeStringify)
