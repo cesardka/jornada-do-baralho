@@ -3,6 +3,7 @@ title: "A Própria Sorte"
 date: "2025-10-14"
 tags: ["assinatura", "a própria carne", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-10-14/banner.webp"
 ---
 
 <!-- RESUMO DA OBRA

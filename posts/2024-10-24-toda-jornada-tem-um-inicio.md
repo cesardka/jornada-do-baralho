@@ -3,6 +3,7 @@ title: "Toda Jornada Tem Um Começo..."
 date: "2024-11-13"
 active: true
 tags: ["historia", "bastidores", "jornada do baralho"]
+banner: "/images/posts/2024-10-24/photo_2025-09-25 02.59.38.jpeg"
 ---
 
 Olá, pessoal! César Hoffmann aqui!

@@ -3,6 +3,7 @@ title: "Flopada do Baralho"
 date: "2025-12-07"
 tags: ["bastidores", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-12-07/banner.webp"
 ---
 
 <!-- RESUMO DA OBRA

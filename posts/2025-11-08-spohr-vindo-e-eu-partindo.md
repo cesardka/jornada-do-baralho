@@ -3,6 +3,7 @@ title: "Spohr Vindo, E Eu Partindo"
 date: "2025-11-08"
 tags: ["assinatura", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-11-08/banner.webp"
 ---
 
 <!-- RESUMO DA OBRA

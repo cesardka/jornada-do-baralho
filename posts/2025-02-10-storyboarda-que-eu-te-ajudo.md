@@ -3,6 +3,7 @@ title: "Storyboarda Que Eu Te Ajudo"
 date: "2025-02-10"
 active: true
 tags: ["desenvolvimento", "bastidores", "artes"]
+banner: "/images/posts/2025-02-10/primeiro_rascunho_jornadadobaralho.webp"
 ---
 
 Em termos de código, eu já sabia bem o que eu tinha que fazer, e o que era possível ou não de forma prática animar com o que eu tinha de conhecimento técnico.

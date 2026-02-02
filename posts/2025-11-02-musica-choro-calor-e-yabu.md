@@ -3,6 +3,7 @@ title: "Música, Choro, Combo Rangers de Dentes e O Homem Que (quase) Matou o Jo
 date: "2025-11-02"
 tags: ["assinatura", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-11-02/banner.webp"
 ---
 
 <!-- RESUMO DA OBRA

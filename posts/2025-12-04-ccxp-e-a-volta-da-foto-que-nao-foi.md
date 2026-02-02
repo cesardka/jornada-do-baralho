@@ -3,6 +3,7 @@ title: "O Retorno da Foto Que Não Foi (agora na CCXP!)"
 date: "2025-12-04"
 tags: ["bastidores", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-12-04/banner.webp"
 ---
 
 <!-- RESUMO DA OBRA

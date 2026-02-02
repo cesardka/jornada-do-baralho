@@ -3,6 +3,7 @@ title: "O encontro inesperado e as primeiras assinaturas"
 date: "2025-08-25"
 tags: ["assinatura", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-08-20/banner.webp"
 ---
 
 Agora com as artes prontas, e o código do site publicado, com domínio oficial e tudo bonitinho, era chegada a hora de ir atrás do que realmente interessa: as assinaturas!

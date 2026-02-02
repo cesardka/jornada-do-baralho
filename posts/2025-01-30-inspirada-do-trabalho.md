@@ -3,6 +3,7 @@ title: "Inspirada do Trabalho"
 date: "2025-01-30"
 active: true
 tags: ["desenvolvimento", "bastidores"]
+banner: "/images/posts/2025-01-30/balatro_mobile_trailer.webp"
 ---
 
 Eu sempre tive muita curiosidade ao navegar por sites mais diferentões e entender quais eram as referências deles.

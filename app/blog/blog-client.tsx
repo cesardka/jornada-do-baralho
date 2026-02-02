@@ -61,7 +61,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
     // Filter by selected tags (posts must include ANY of the selected tags)
     if (selectedTags.length > 0) {
       posts = posts.filter((post) =>
-        selectedTags.some((selectedTag) => post.tags.includes(selectedTag))
+        selectedTags.some((selectedTag) => post.tags.includes(selectedTag)),
       );
     }
 
@@ -205,68 +205,91 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
             )}
           </div>
         ) : (
-          filteredAndSortedPosts.map(({ id, date, title, tags }, index) => (
-            <article
-              key={id}
-              className="p-6 sm:pl-10 shadow-md hover:shadow-lg transition-shadow duration-300 bg-[url('/images/bg/paper-texture-notebook-post5.webp')] bg-cover bg-left-top"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(-5rem)",
-                transition: "all 0.5s ease-in-out",
-                transitionDelay: `${index * 0.1}s`,
-              }}
-            >
-              <div className="relative">
-                <Image
-                  src={`/images/bg/paper-clip-1.webp`}
-                  alt={title}
-                  width={50}
-                  height={35}
-                  className="absolute -top-4 -right-8 sm:right-3 rotate-45"
-                />
-              </div>
-              <header className="mb-2">
-                <h2 className="text-2xl font-bold mr-10">
-                  <Link
-                    href={`/blog/${id}`}
-                    className="hover:text-blue-600 transition-colors"
-                  >
-                    {title}
-                  </Link>
-                </h2>
-                <small className="text-gray-500 selection:text-gray-300 selection:bg-slate-500">
-                  {new Date(date).toLocaleDateString(
-                    t("blog.locale") === "pt" ? "pt-BR" : "en-US",
-                    {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    }
+          filteredAndSortedPosts.map(
+            ({ id, date, title, tags, banner }, index) => (
+              <article
+                key={id}
+                className="p-6 sm:pl-10 shadow-md hover:shadow-lg transition-shadow duration-300 bg-[url('/images/bg/paper-texture-notebook-post5.webp')] bg-cover bg-left-top relative"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(-5rem)",
+                  transition: "all 0.5s ease-in-out",
+                  transitionDelay: `${index * 0.1}s`,
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src={`/images/bg/paper-clip-1.webp`}
+                    alt={title}
+                    width={50}
+                    height={35}
+                    className={`absolute -top-4 -right-8 sm:right-3 rotate-45 z-10`}
+                  />
+
+                  {/* Polaroid Banner Image */}
+                  {banner && (
+                    <Link
+                      href={`/blog/${id}`}
+                      className="hover:text-blue-600 transition-colors"
+                    >
+                      <div className="absolute -top-2 -right-6 sm:-top-6 sm:-right-6 z-0 rotate-3 hover:rotate-2 transition-transform duration-150">
+                        <div className="bg-white p-1.5 sm:p-2 shadow-lg">
+                          <Image
+                            src={banner}
+                            alt={`${title} banner`}
+                            width={80}
+                            height={80}
+                            className="w-24 h-20 sm:w-32 sm:h-28 object-cover"
+                          />
+                          <div className="h-3 sm:h-4 bg-white" />
+                        </div>
+                      </div>
+                    </Link>
                   )}
-                </small>
-              </header>
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag, index) => (
-                  <button
-                    key={tag}
-                    onClick={() => addTagFilter(tag)}
-                    className={`px-3 py-1 cursor-pointer text-sm shadow-sm transition-all duration-300 bg-cover bg-center ${
-                      selectedTags.includes(tag)
-                        ? "text-blue-800 brightness-90 hover:text-blue-600"
-                        : "text-gray-700 hover:brightness-105 hover:text-blue-800 hover:shadow-md"
-                    }`}
-                    style={{
-                      backgroundImage: `url('/images/bg/washi-tape-texture${
-                        index + 1
-                      }.webp')`,
-                    }}
-                  >
-                    #{tag}
-                  </button>
-                ))}
-              </div>
-            </article>
-          ))
+                </div>
+                <header className="mb-2">
+                  <h2 className={`text-2xl font-bold mr-20 sm:mr-24`}>
+                    <Link
+                      href={`/blog/${id}`}
+                      className="hover:text-blue-600 transition-colors"
+                    >
+                      {title}
+                    </Link>
+                  </h2>
+                  <small className="text-gray-500 selection:text-gray-300 selection:bg-slate-500">
+                    {new Date(date).toLocaleDateString(
+                      t("blog.locale") === "pt" ? "pt-BR" : "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      },
+                    )}
+                  </small>
+                </header>
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag, index) => (
+                    <button
+                      key={tag}
+                      onClick={() => addTagFilter(tag)}
+                      className={`px-3 py-1 cursor-pointer text-sm shadow-sm transition-all duration-300 bg-cover bg-center ${
+                        selectedTags.includes(tag)
+                          ? "text-blue-800 brightness-90 hover:text-blue-600"
+                          : "text-gray-700 hover:brightness-105 hover:text-blue-800 hover:shadow-md"
+                      }`}
+                      style={{
+                        backgroundImage: `url('/images/bg/washi-tape-texture${
+                          index + 1
+                        }.webp')`,
+                      }}
+                    >
+                      #{tag}
+                    </button>
+                  ))}
+                </div>
+              </article>
+            ),
+          )
         )}
       </div>
     </div>

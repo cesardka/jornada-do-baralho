@@ -3,6 +3,7 @@ title: "Mil Nerdcast Chegarás..."
 date: "2025-10-04"
 tags: ["assinatura", "nerdcast 1000", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-10-04/banner.webp"
 ---
 
 Chegamos ao ponto dessa jornada em que já tivemos várias conquistas:

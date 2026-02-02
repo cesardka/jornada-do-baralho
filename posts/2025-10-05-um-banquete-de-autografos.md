@@ -3,6 +3,7 @@ title: "Um Banquete De Autógrafos"
 date: "2025-10-05"
 tags: ["assinatura", "nerdcast 1000", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-10-05/banner.webp"
 ---
 
 Depois do evento épico do Nerdcast 1000 no teatro, chegou a hora do segundo ato dessa jornada: **O Banquete Real by Bem Brasil** na Arena Magalu. No dia anterior eu consegui apenas uma assinatura (do Nick Ellis, que já foi uma grata surpresa e mais um passo rumo ao iPad), mas hoje seria a oportunidade de ouro para encontrar os NOVE Nerdcasters que estariam presentes!

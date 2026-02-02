@@ -15,6 +15,7 @@ export interface PostData {
   date: string;
   active?: boolean;
   tags: string[];
+  banner?: string;
   contentHtml?: string;
 }
 
@@ -28,7 +29,7 @@ export function getSortedPostsData(): PostData[] {
 
     return {
       id,
-      ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[] }),
+      ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[]; banner?: string }),
     };
   });
 
@@ -60,7 +61,7 @@ export async function getPostData(id: string): Promise<PostData> {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[] }),
+    ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[]; banner?: string }),
   };
 }
 

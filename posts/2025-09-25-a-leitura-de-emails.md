@@ -3,6 +3,7 @@ title: "Nerdcast 996 e A Leitura de E-mails"
 date: "2025-09-25"
 tags: ["bastidores", "jovem nerd", "jornada do baralho"]
 active: true
+banner: "/images/posts/2025-08-25/banner.webp"
 ---
 
 Agora com 4 assinaturas, acho que é a hora ideal para trazer o assunto da **Jornada do Baralho 🃏** para a atenção dos _meninos_ e entender se faz sentido continuar nessa empreitada, já que apareceu uma oportunidade de mão beijada de iniciar o projeto, e não queria também enviar um e-mail só pra mostrar o site sem ter algo concreto de que já estou ativamente participando da Jornada.
