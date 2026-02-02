@@ -64,7 +64,7 @@ Assim que cheguei, às 17h15, já encontrei a fila de entrada que dava acesso ao
 - Sessão 2 às 19h (👈 essa era a minha)
 - Sessão 3 às 21h30
 
-Um grande banner temático nos recebia mostrando a parceria entre Jovem Nerd e a Bem Brasil, para então ao lado já retirar o kit com brinders. O kit incluía os seguintes itens:
+Um grande banner temático nos recebia mostrando a parceria entre Jovem Nerd e a Bem Brasil, para então ao lado já retirar o kit com brindes. O kit incluía os seguintes itens:
 
 - Vasilha NerdCast 1000 x Bem Brasil
 - Copo plástico temático NerdCast 1000 x Bem Brasil
@@ -140,13 +140,13 @@ E então, história foi feita... De novo.
 
 ### Sônia... Eu te amo...
 
-Para quem não pôde participar do evento, eles fizeram uma grande amalga dos melhores momentos entre as três sessões, e um pouco dos bastidores com o Vidane no [NerdOffice que postaram em 15 de outubro](https://www.youtube.com/watch?v=OGn3IiBHcWY). Vale a pena conferir para ter um gostinho e relembrar esse evento único. 😊
+Para quem não pôde participar do evento, eles fizeram uma grande amálgama dos melhores momentos entre as três sessões, e um pouco dos bastidores com o Vidane no [NerdOffice que postaram em 15 de outubro](https://www.youtube.com/watch?v=OGn3IiBHcWY). Vale a pena conferir para ter um gostinho e relembrar esse evento único. 😊
 
 Todas as três apresentações foram diferentes, para quem tem qualquer dúvida se eles roteirizam esses papos.
 
 A primeira, inicialmente não contava com o Alexandre e nem com a Agatha, pois eles estavam em função da ferida do acidente grave que aconteceu na manhã daquele dia. Foi revelado também durante esse primeiro momento a verdadeira e lendária foto do Jovem Nerd de Toalha. (perdi isso)
 
-A segunda sessão, que eu participei, agora já contava com o elenco completo desde o início, e foi aí que o Alexandre foi fazer a graça de aparecer na cortina antes de iniciar o papo comemorativo. E depois o pessoal foi bebendo cervejinha, comendo batatinha... Até que então aconteceu o karaokê improvisado de [Sônia - Leo Jaime](https://www.youtube.com/watch?v=NsRyK5RAayM&list=RDNsRyK5RAayM&start_radio=1). E com direito a trenzinho! Foi incrível.
+A segunda sessão, que eu participei, agora já contava com o elenco completo desde o início, e foi aí que o Alexandre foi fazer a graça de aparecer na cortina antes de iniciar o papo comemorativo. E depois o pessoal foi bebendo cervejinha, comendo batatinha... Até que então aconteceu o karaokê improvisado de [Sônia - Leo Jaime](https://www.youtube.com/watch?v=NsRyK5RAayM). E com direito a trenzinho! Foi incrível.
 
 A terceira e última, ao que tudo indica, já foi o resultado da cerveja subindo à cabeça e aí foi um papo para tirar as crianças da sala. Eu não estava lá, mas o [Verdun](https://www.instagram.com/verdun_meu_advogado/?hl=en), advogado do grupo, estava e todo mundo sabe que era estritamente proibido gravar o que era dito lá! Fica na imaginação de todos nós o que o álcool trouxe de assunto. hahahah
 
