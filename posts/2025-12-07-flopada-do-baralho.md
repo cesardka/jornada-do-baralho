@@ -70,7 +70,7 @@ Eu como desenvolvedor sei que eles teriam acesso a esses dados, e teriam como di
 
 Depois de algumas semanas tentando, vou apenas assumir essa derrota e a partir de hoje não recomendar às pessoas a frequentarem o DreamFest. Tenho plena consciência de que meu alcance é microscópico, mas não quero deixar isso só reservado pra mim e ter a chance de que outra pessoa possa ser destratada por bobagem.
 
-A grande ironia do destino nesse dia foi que enquanto eu voltava para casa, o Guilherme Briggs havia voltado para Sào Paulo e ele acabou tendo uma [sessão de fotos com os fãs na CCXP](https://www.instagram.com/p/DR9njYVkeU1/). 😭
+A grande ironia do destino nesse dia foi que enquanto eu voltava para casa, o Guilherme Briggs havia voltado para São Paulo e ele acabou tendo uma [sessão de fotos com os fãs na CCXP](https://www.instagram.com/p/DR9njYVkeU1/). 😭
 
 ![Fotos com os dubladores](/images/posts/2025-12-07/fotos-com-dubladores.png)
 
