@@ -25,9 +25,9 @@ banner: "/images/posts/2025-11-08/banner.webp"
 - [FOTO EDUARDO SPOHR ASSINANDO CARTA]
  -->
 
-Recapitulando a minha mágoa comigo mesmo, tive a oportunidade de encontrar com o Eduardo Spohr no Banquete Real by Bem Brasil na Arena Magalu, que aconteceu junto com a celebração do Nerdcast 1000 no dia 05 de outubro de 2025. Infelizmente, por puro descuido meu e talvez um excesso de confiança, acabei deixando ele ir embora sem bater um papo com ele e pegar uma assinatura no Valete de Ouro.
+Recapitulando a minha mágoa comigo mesmo, tive a oportunidade de encontrar com o Eduardo Spohr no **Banquete Real by Bem Brasil na Arena Magalu**, que aconteceu junto com [a celebração do Nerdcast 1000](https://nerdcast1000.com.br/) no dia **05 de outubro de 2025**. Infelizmente, por puro descuido meu e talvez um excesso de confiança, acabei deixando ele ir embora sem bater um papo com ele e pegar uma assinatura no Valete de Ouro.
 
-No mesmo dia que anunciaram a palestra do Fábio Yabu e Fred Rubim que aconteceria no dia de finados, [a Jambô também anunciou](https://x.com/jamboeditora/status/1982921455118504119) que Dudu Spohr estaria em Porto Alegre para um bate-papo e sessão de autógrafos no dia 8 de novembro de 2025. É o universo me dando mais uma chance!! Obrigado, vida!!!
+No mesmo dia que anunciaram a palestra do [Fábio Yabu](https://www.instagram.com/fabioyabu) e [Fred Rubim](https://www.instagram.com/fredrubim_art) que aconteceria no dia de finados, [a Jambô também anunciou](https://x.com/jamboeditora/status/1982921455118504119) que Dudu Spohr estaria em Porto Alegre para um bate-papo e sessão de autógrafos no dia **08 de novembro de 2025**. É o universo me dando mais uma chance!! Obrigado, vida!!!
 
 ![Tweet da Jambo anunciando sessão de autógrafos com Dudu Spohr](/images/posts/2025-11-08/anuncio-eduardo-spohr-porto-alegre.png)
 
@@ -35,7 +35,7 @@ Ele costuma vir à Feira do Livro de Porto Alegre com uma certa frequência, sem
 
 Mas tinha um pequeno porém nessa grande coincidência do destino...
 
-Entre os dias 6 e 10 de novembro de 2025 eu estava com tudo pago e marcado para viajar para a Bahia à trabalho, e infelizmente não teria como cancelar a minha presença de última hora assim..... 😭
+Entre os dias **06 e 10 de novembro de 2025** eu estava com tudo pago e marcado para viajar para a Bahia à trabalho, e infelizmente não teria como cancelar a minha presença de última hora assim..... 😭
 
 Apesar de tudo, isso não me impediria de pegar a assinatura do Eduardo de forma indireta, em meu nome! Pedi para minha namorada quebrar um galho para mim e enquanto eu estivesse lá na Bahia trabalhando... sofrendo... ralando muito... num resort com tudo à vontade... ela poderia fazer esse favorzinho pra mim.
 
@@ -45,7 +45,7 @@ Presenciem o sofrimento desse cidadão longe de seu habitat natural:
 
 ![Sou biólogo e afirmo que este animal está em sofrimento](/images/posts/2025-11-08/cesar-na-bahia.jpg)
 
-Enquanto isso, em Porto Alegre, nesse dia não estava chovendo (finalmente 🙏), e o local divulgado era o correto, então não teve mistério. Não tive a oportunidade de conversar diretamente com o Dudu, mas segundo o relato que recebi, ele é uma pessoa muito receptiva com todo mundo, especialmente considerando que é muita gente para ser atendida, de tudo quanto é maneira e ele demonstra ser super experiente em conduzir o papo até mesmo com os mais tímidos e neurodivergentes dos fãs. Só tenho a agradecer e admirar ele pelo trabalho incrível tanto de escrita trazendo histórias abordando temas como fantasia, religião e história de forma original e criativa, como também pelo que ele faz pelo público, incluindo as muitas mentorias e mini-podcasts no canal do Telegram.
+Enquanto isso, em Porto Alegre, nesse dia não estava chovendo (finalmente 🙏), e o local divulgado era o correto, então não teve mistério. Não tive a oportunidade de conversar diretamente com o Dudu, mas segundo o relato que recebi, ele é uma pessoa muito receptiva com todo mundo, especialmente considerando que é muita gente para ser atendida, de tudo quanto é maneira e ele demonstra ser super experiente em conduzir o bate-papo até mesmo com os mais tímidos e neurodivergentes dos fãs. Só tenho a agradecer e admirar ele pelo trabalho incrível tanto de escrita trazendo histórias abordando temas como fantasia, religião e história de forma original e criativa, como também pelo que ele faz pelo público, incluindo as muitas mentorias e mini-podcasts no canal do Telegram.
 
 O homem é fantástico, além de ser um ótimo piadista. 😜
 

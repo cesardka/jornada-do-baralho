@@ -51,7 +51,7 @@ Não costumo ir todos os anos para a CCXP, mas em 2025 seria parada obrigatória
 
 ### CCXP 25 
 
-Esse ano a CCXP aconteceu entre os dias 4 a 7 de dezembro, e sempre no São Paulo Expo.
+Esse ano a CCXP aconteceu entre os dias **4 a 7 de dezembro**, e sempre no **São Paulo Expo**.
 
 A estrutura do evento em todos os anos é geralmente a mesma, que eu separaria em 4 quadrantes:
 
@@ -66,7 +66,7 @@ O mapa desse ano é bem lúdico, e não consegui achar em qualidade muito alta c
 
 O legal da CCXP é que eles contam com um sistema de ruas e avenidas, que servem como coordenadas para a pessoa poder se localizar na exposição.
 
-Eles disponibilizam também um app próprio da CCXP, que conta com um MAPA interno do evento!! Ele dá o caminho certinho que a pessoa precisa seguir para chegar de um ponto a outro. Usei algumas vezes e fiquei muito contente com o resultado. Parabéns à equipe de desenvolvimento e usabilidade por este Waze para pedestres!
+Eles disponibilizam também um app próprio da CCXP (tem pra Android e iOS), que conta com um **MAPA interno do evento**!! Ele dá o caminho certinho que a pessoa precisa seguir para chegar de um ponto a outro. Usei algumas vezes e fiquei muito contente com o resultado. Parabéns à equipe de desenvolvimento e usabilidade por este Waze para pedestres!
 
 ### Minhas recomendações
 
@@ -84,7 +84,7 @@ Uma recomendação importante: se você for do tipo que gosta de comprar muitos 
 
 Meu objetivo principal esse ano, até outubro pelo menos, era vir aqui para encontrar o Fábio Yabu para pegar uma assinatura com ele, mas como acabou surgindo a oportunidade de me encontrar com ele em Porto Alegre, então vou tentar usar esse momento pra encontrar o Alexandre em algum lugar e tirar a foto com ele que fiquei devendo do dia do Banquete Real by Bem Brasil
 
-A Jambô mais uma vez [havia divulgado](https://x.com/jamboeditora/status/1995178751144161352) que aconteceria uma sessão de autógrafos com Alexandre, Deive e Rafael de Pino, autor da biogaria "Jovem Nerd ZERANDO A VIDA", lançada pela Jambô em comemoração ao lançamento do Nerdcast 1000 em outubro de 2025, na quinta-feira às 16h!
+A Jambô mais uma vez [havia divulgado](https://x.com/jamboeditora/status/1995178751144161352) que aconteceria uma sessão de autógrafos com **Alexandre**, **Deive** e **Rafael de Pino**, autor da biogaria ["Jovem Nerd ZERANDO A VIDA"](https://www.amazon.com.br/Jovem-Nerd-Zerando-Rafael-Pino/dp/8583652090), lançada pela Jambô em comemoração ao lançamento do Nerdcast 1000 em outubro de 2025, na quinta-feira às 16h!
 
 ![Tweet da Jambô](/images/posts/2025-12-04/tweet-jambo.png)
 
