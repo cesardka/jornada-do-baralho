@@ -47,7 +47,7 @@ Bom que assim evito qualquer imprevisto no meio do caminho, caso por algum motiv
 
 ![Entrada do Clube do Comércio no Centro Histórico de Porto Alegre](/images/posts/2025-11-02/entrada-clube-do-comercio.png)
 
-No dia 2 de novembro de 2025 estava chovendo (juro por Deus!), mas a área da feira do livro geralmente é coberta, e o local da palestra seria num prédio histórico no Centro da cidade. Era pra ser tranquilo. Cheguei um pouco em cima da hora no local e subi direto para a Sala dos Jacarandás como estava indicado no anúncio original. Sentei, vi que tinha um pessoal palestrando, a sala bem cheia... Mas estranhei que nenhuma daquelas pessoas no palco se parecia com o Fábio ou com o Fred, e a pauta não parecia ser a que estava indicada na arte... 🤔
+No dia 2 de novembro de 2025 estava chovendo (juro por Deus!), mas a área da feira do livro geralmente é coberta, e o local da palestra seria num prédio histórico no Centro da cidade. Era pra ser tranquilo. Cheguei um pouco em cima da hora ao edifício e subi direto para a Sala dos Jacarandás como estava indicado no anúncio original. Sentei, vi que tinha um pessoal palestrando, a sala bem cheia... Mas estranhei que nenhuma daquelas pessoas no palco se parecia com o Fábio ou com o Fred, e a pauta não parecia ser a que estava indicada na arte... 🤔
 
 Quando consegui me dar conta que as pessoas no palco não estavam se preparando pra sair e dar espaço a outros palestrantes, resolvi sair e tentar pegar informação com o pessoal do staff da Feira do Livro pra ver onde seria o local correto desse encontro. Depois de muito ping-pong entre os colaboradores, me mandaram ir para o espaço de Autógrafos Coletivos. Achei estranho um local desses pra ter uma palestra, mas lá fui eu. 
 
