@@ -22,10 +22,10 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  colorScheme: "dark light",
+  colorScheme: "light",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    // { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 
