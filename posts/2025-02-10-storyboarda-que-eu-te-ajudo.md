@@ -54,7 +54,7 @@ Diga-se de passagem, o Nerdinho ficou uma gracinha!
 
 Algumas iterações depois, no dia **5 de abril de 2025** a animação foi finalizada!
 
-![Animação finalizada](/images/posts/2025-02-10/abertura_jnb2.gif)
+![Animação finalizada](/videos/JNB_horizontal.mp4)
 
 Assistir e participar do processo de criação foi muito fantástico pra mim, e a Lena é uma pessoa que admiro e confio muito. Valeu muito a pena o resultado final.
 

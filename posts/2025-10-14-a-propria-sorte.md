@@ -6,42 +6,6 @@ active: true
 banner: "/images/posts/2025-10-14/banner.webp"
 ---
 
-<!-- RESUMO DA OBRA
-
-- Eu estava em Belo Horizonte para o campeonato regional de Pokemon TCG, que aconteceu entre os dias 11 e 12 de outubro de 2025
-- Eu decidi comprar uma passagem de onibus de Belo Horizonte para o Rio saindo domingo à noite para chegar segunda cedinho de manhã, dia 13 de outubro de 2025
-- O trajeto foi tranquilo, dormi a viagem toda e nem sequer desci pra ir no Graal
-- [FOTO AIPOM EM MINAS]
-- Assim que acordei, por algum motivo estava me sentindo muito fraco, mas ainda assim consegui me virar e pegar um táxi até a casa da minha amiga Lena
-- Cheguei lá febril, pálido, todo capenga, xoxo, a ponto de morrer, e ainda por cima com a perna direita infeccionada
-- Recapitulando que fui mordido pela Phoebe, gata da minha irmã, no madrugada anterior ao Nerdcast 1000, há umas 2 ~ 3 semanas atrás
-- Consegui me consultar e comecei o tratamento com antibiótico, tomada e juntando meus cacos para na poder ir à sessão de terça-feira dA Própria Carne
-- A sessão que escolhi de "A Própria Carne" seria no dia 14 de outubro de 2025, no Cinemark Downtown RJ, às 19h30
-- Mostrar que comprei o ingresso e a passagem prA Própria Carne antes de anunciarem o evento do NerdCast 1000
-- Explicar que acabei decidindo por esta sessão, ao invés da outra no dia 13 no Cinemark Cinelandia, porque imaginei que seria um lugar mais tranquilo e onde outros Nerdcasters além do Azaghal e as pessoas diretamente envolvidas na produção do filme iriam aparecer
-- Lembrando que quando enviei o e-mail anunciando a Jornada do Baralho, até então acreditava que esse evento seria a minha única oportunidade de encontrar o Alexandre, Agatha, Andreia, Deive e outros cariocas do rolê num mesmo lugar tão fácil, antes de anunciarem o Nerdcast 1000
-- Eu nunca tinha ido ao Downtown antes, então aproveitei e cheguei um pouco mais cedinho pra dar uma explorada. O lugar parece ser um shopping meio ao céu aberto? Não sei se entendi bem o conceito, mas fiquei incrédulo em como é grande lá dentro!
-- [FOTOS DO DOWNTOWN]
-- Assim que encontrei onde era o Cinemark, já avistei alguns Nerdcasters conversando em vários núcleos pelo saguão, incluindo a Portuguesa, a maravilhosa da Mary Joe, o Tresdê, o Caquinho, Sr. K... Mas esses todos eu já tinha conseguido a assinatura, e também não ia querer ser o chato batrendo cartão dando oi e interrompendo as pessoas só pra lembrar a eles que eu existo
-- No entanto, a sorte me trouxe uma surpresa que eu não esperava. Quem estava lá também, conversando tranquila? A RUIVA! Esposa do Sr. K, a nossa Rainha de Ouro! MILHÕES!!!!
-- Dessa vez, diferente das outras, e já que acabei perdendo o Eduardo Spohr por conta da minha bundamolice, tomei coragem e fui falar com ela, encontrando uma brecha pra me introduzir na conversa e me apresentar. De começo acho que ela não imaginava o que um loiro bobão, vestindo casaco em pleno Rio de Janeiro, tinha pra falar pra ela. Mas logo que eu disse que era muito fã dela e acompanho ela pelo Nerdcast há mais de década, ela já abriu um sorriso e veio me abraçar. Muito muito muito querida, uma diva acessível!
-- Aproveitei o gancho e falei que eu tinha um baralho que eu gostaria que ela assinasse e registrasse um retrato comigo, se ela não se importasse, claro! Ela me deu a assinatura e tiramos essa linda selfie!
-- [FOTO COM A RUIVA]
-- Depois da selfie, deixei a Nerdcaster em paz e fui tentar dar uma volta no salão até abrirem para o público entrar na sala
-- O ingresso que comprei era o nível XP Tour, que dava direito à sessão de pré-estreia, nomes nos créditos do filme, um combo de pipoca + refri com um balde temático exclusivo de A Própria Carne e um áudio exclusivo do Luis Carlos Persy!
-- [FOTO DO BALDE]
-- Eu apoiei o projeto principalmente pela confiança que eu tinha nas produções do Jovem Nerd e por conhecer o trabalho do Ian como diretor, mas acima de tudo como uma aposta porque eu não sabia o que esperar do filme, ainda mais por ser uma primeira colaboração entre esses dois universos tão próximos mas tão distantes ao mesmo tempo
-- Felizmente, já nos primeiros minutos fui muito bem surpreendido com um nível de produção no filme de classe A, nada com filme com cara de novela ou com trabalho de faculdade de cinema, nem terror trash. Souberam lidar bem com as limitações do orçamento criando uma história mais contida, com um núcleo forte e enxuto de personagens, sem extrapolar com mil subtramas e um tempo de filme que deixe um gostinho bom de quero-mais.
-- Minhas únicas ressalvas são que tem momentos que eles sussurram muito, mas não é algo que prejudica a obra. Mixagem de som deve ser um caos pra uma mídia que tu não tem muito controle de como as salas vão estar equipadas
-- Depois da exibição do filme, rolou uma conversa de uns 45 minutos com algumas pessoas do elenco (Luis Carlos Persy e a Jade estavam lá), Azaghal, Ian, e o Délcio Machado, responsável pelos efeitos digitais do filme. Muito foda inclusive como toda a parte de CGI do filme é muito sutil e cautelosa, sendo muito mais um complemento do que coisas claramente destoantes do filme (exceto o final, que mostrou demais 🫣 mas só assistindo pra vocês entenderem e discodarem de mim!)
-- Ao final, o microfone rodou pelos assentos pra galera fazer perguntas, e finalmente um momento pra tirar foto com os diretores / produtores do filme!
-- [FOTO COM DEIVE E IAN]
-- O filme "A Própria Carne" atualmente está disponível pra assistir via streaming ou aluguel em tudo quanto é plataforma! Vale a pena dar uma chance e ver um terror original nacional
-- [FOTO DE DIVULGAÇÃO]
-- A campanha do filme contou com 2008 participantes, que foram creditados no filme que estreou no dia 30 de outubro de 2025 em todos os cinemas Cinemark do Brasil, e chegou a disputar as cabeças de filmes nacionais assistidos contra O Agente Secreto. Sinceramente, um feito do caralho, mais ainda considerando que é o primeiro filme produzidos pelo pessoal. Parabéns! Que venham mais obras pela frente!
-- Dito isso, chegamos atualmente a 13 assinaturas, entre as 18 possíveis! Esse desafio está voando muito rápido! Só mais 5!
- -->
-
 Durante os dias 11 e 12 de outubro, eu estive em Belo Horizonte para participar do regional de Pokémon TCG para continuar com a minha jornada paralela de Mestre Pokémon de araque. Apesar de ser nascido e criado em Porto Alegre / RS, quando adolescente minha família se mudou para Contagem / MG por 1 ano, e voltar para Minas depois de tanto tempo, foi uma experiência bacana de reencontro com Minas Gerais agora como um adulto estabelecido.
 
 Queria aproveitar esse espaço para dar meus parabéns para [A Pão de Queijaria](https://www.instagram.com/apaodequeijaria), ou quem quer que tenha sido o primeiro mineiro, que teve a ideia de fazer sanduíches com pão de queijo no lugar do pão normal. É coisa de louco! Com um doce de leite então.... Putz. Me derreto.
