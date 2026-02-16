@@ -100,9 +100,16 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold text-center md:text-left">
+        <h1 className="text-4xl font-bold text-center flex justify-center items-center w-full">
           {/* TODO: add some styling to make title stand out -- it currently looks so boring and unremarkable */}
-          {t("blog.title")}
+          {/* {t("blog.title")} */}
+          <Image
+            src="/images/blogada-do-baralho-logo.webp"
+            alt="Logo Blogada do Baralho"
+            width={500}
+            height={80}
+            className="mx-auto md:mx-0 h-auto object-contain"
+          />
         </h1>
 
         <div className="hidden sm:block">
