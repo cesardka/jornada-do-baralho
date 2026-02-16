@@ -555,3 +555,47 @@ html {
 .audio-player-wrapper audio::-webkit-media-controls-time-remaining-display {
   color: #1e40af;
 }
+
+/* Image Lightbox - Clickable images in blog posts */
+.image-lightbox {
+  cursor: zoom-in;
+  margin: 1.5rem 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-lightbox:hover {
+  transform: scale(1.01);
+}
+
+.image-lightbox img {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+  width: 100%;
+  height: auto;
+}
+
+.image-lightbox:hover img {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Lightbox modal image - scale up on larger screens */
+.lightbox-modal-image {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .lightbox-modal-image {
+    min-width: 60vw;
+  }
+}
+
+@media (min-width: 1280px) {
+  .lightbox-modal-image {
+    min-width: 50vw;
+  }
+}

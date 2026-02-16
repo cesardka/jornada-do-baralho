@@ -5,7 +5,12 @@ import { remark } from "remark";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
-import { remarkVideo, remarkAudio } from "./remark-video";
+import {
+  remarkVideo,
+  remarkAudio,
+  remarkImageLightbox,
+  remarkYoutube,
+} from "./remark-plugins";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -29,11 +34,19 @@ export function getSortedPostsData(): PostData[] {
 
     return {
       id,
-      ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[]; banner?: string }),
+      ...(matterResult.data as {
+        title: string;
+        date: string;
+        active?: boolean;
+        tags: string[];
+        banner?: string;
+      }),
     };
   });
 
-  return allPostsData.filter((post) => post.active).sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPostsData
+    .filter((post) => post.active)
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getAllPostIds() {
@@ -53,6 +66,8 @@ export async function getPostData(id: string): Promise<PostData> {
   const processedContent = await remark()
     .use(remarkVideo)
     .use(remarkAudio)
+    .use(remarkImageLightbox)
+    .use(remarkYoutube)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeStringify)
@@ -62,7 +77,13 @@ export async function getPostData(id: string): Promise<PostData> {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { title: string; date: string; active?: boolean; tags: string[]; banner?: string }),
+    ...(matterResult.data as {
+      title: string;
+      date: string;
+      active?: boolean;
+      tags: string[];
+      banner?: string;
+    }),
   };
 }
 

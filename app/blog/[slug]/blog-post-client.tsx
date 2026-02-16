@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -26,6 +27,15 @@ export default function BlogPostClient({
 }: BlogPostClientProps) {
   const { t } = useI18n();
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleImageClick = useCallback((e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const figure = target.closest(".image-lightbox") as HTMLElement;
+    if (figure && figure.dataset.src) {
+      setSelectedImage(figure.dataset.src);
+    }
+  }, []);
 
   useEffect(() => {
     // Trigger animation after component mounts
@@ -35,6 +45,19 @@ export default function BlogPostClient({
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Add click listeners to lightbox images
+    const container = document.querySelector(".prose");
+    if (container) {
+      container.addEventListener("click", handleImageClick as EventListener);
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener("click", handleImageClick as EventListener);
+      }
+    };
+  }, [handleImageClick]);
 
   return (
     <article
@@ -116,6 +139,38 @@ export default function BlogPostClient({
         className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-code:text-blue-600 prose-code:bg-blue-50 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-blockquote:border-l-blue-500 prose-blockquote:text-gray-600 prose-img:rounded-lg prose-img:shadow-md"
         dangerouslySetInnerHTML={{ __html: post.contentHtml || "" }}
       />
+
+      {/* Image Lightbox Modal - rendered via portal to escape article context */}
+      {selectedImage &&
+        createPortal(
+          <div
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 overflow-auto animate-in fade-in duration-300"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="min-h-full flex items-center justify-center p-4 py-8">
+              <div
+                className="relative inline-block animate-in zoom-in-95 duration-300"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={selectedImage}
+                  alt="Imagem ampliada"
+                  width={1200}
+                  height={800}
+                  className="lightbox-modal-image rounded-xl shadow-2xl"
+                />
+
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="absolute top-2 right-2 bg-white/90 text-black w-10 h-10 rounded-full hover:bg-white transition-all duration-200 flex items-center justify-center shadow-lg font-bold text-lg"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
 
       {/* Navigation to other posts */}
       <footer className="mt-12 pt-8 border-t border-gray-200">

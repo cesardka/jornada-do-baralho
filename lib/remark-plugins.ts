@@ -84,3 +84,71 @@ export function remarkAudio() {
     );
   };
 }
+
+const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"];
+
+/**
+ * Remark plugin that wraps images in a clickable container for lightbox functionality.
+ *
+ * Example: ![Alt text](/path/to/image.png) becomes:
+ * <figure class="image-lightbox" data-src="/path/to/image.png">
+ *   <img src="/path/to/image.png" alt="Alt text" />
+ * </figure>
+ */
+export function remarkImageLightbox() {
+  return (tree: Root) => {
+    visit(
+      tree,
+      "image",
+      (node: Image, index: number | undefined, parent: Parent | undefined) => {
+        const src = node.url;
+        const isImage = imageExtensions.some((ext) =>
+          src.toLowerCase().endsWith(ext),
+        );
+
+        // Skip if it's a video or audio file (already handled by other plugins)
+        const isMedia =
+          videoExtensions.some((ext) => src.toLowerCase().endsWith(ext)) ||
+          audioExtensions.some((ext) => src.toLowerCase().endsWith(ext));
+
+        if (isImage && !isMedia && parent && typeof index === "number") {
+          const alt = node.alt || "";
+
+          const imageHtml = `<figure class="image-lightbox" data-src="${src}"><img src="${src}" alt="${alt}" loading="lazy" /></figure>`;
+
+          (parent.children as unknown[])[index] = {
+            type: "html",
+            value: imageHtml,
+          };
+        }
+      },
+    );
+  };
+}
+
+export function remarkYoutube() {
+  return (tree: Root) => {
+    visit(
+      tree,
+      "image",
+      (node: Image, index: number | undefined, parent: Parent | undefined) => {
+        const src = node.url;
+        const youtubeMatch = src.match(
+          /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+        );
+
+        if (youtubeMatch && parent && typeof index === "number") {
+          const videoId = youtubeMatch[1];
+          const alt = node.alt || "YouTube Video";
+
+          const youtubeHtml = `<div class="youtube-video-wrapper"><iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" title="${alt}" frameborder="0" allowfullscreen></iframe></div>`;
+
+          (parent.children as unknown[])[index] = {
+            type: "html",
+            value: youtubeHtml,
+          };
+        }
+      },
+    );
+  };
+}
