@@ -16,7 +16,7 @@ Ele costuma vir à Feira do Livro de Porto Alegre com uma certa frequência, sem
 
 Mas tinha um pequeno porém nessa grande coincidência do destino...
 
-Entre os dias **06 e 10 de novembro de 2025** eu estava com tudo pago e marcado para viajar para a Bahia à trabalho, e infelizmente não teria como cancelar a minha presença de última hora assim..... 😭
+Entre os dias **06 e 10 de novembro de 2025** eu estava com tudo pago e marcado para viajar para a Bahia a trabalho, e infelizmente não teria como cancelar a minha presença de última hora assim..... 😭
 
 Apesar de tudo, isso não me impediria de pegar a assinatura do Eduardo de forma indireta, em meu nome! Pedi para minha namorada quebrar um galho para mim e enquanto eu estivesse lá na Bahia trabalhando... sofrendo... ralando muito... num resort com tudo à vontade... ela poderia fazer esse favorzinho pra mim.
 

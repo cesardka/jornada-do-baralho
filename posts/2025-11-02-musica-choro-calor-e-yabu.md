@@ -1,5 +1,5 @@
 ---
-title: "Música, Choro, Combo Rangers de Dentes e O Homem Que (quase) Matou o Jovem Nerd"
+title: "Música, Choro, Combo Rangers de Dente e O Homem Que (quase) Matou o Jovem Nerd"
 date: "2025-11-02"
 tags: ["assinatura", "jornada do baralho"]
 active: true
@@ -38,13 +38,13 @@ Dessa vez a foto é minha, no dia do evento! E realmente, tinha muito autor dand
 
 Mesmo eu chegando atrasado, o papo ainda se estendeu bastante. A conversa era na temática "Música, Choro e Combo Rangers de Dente", mediado por um host (que me esqueci o nome, mil desculpas!) e falando sobre o universo de cada um, tanto na parte de escrita pro Fábio, como na de ilustração pro Fred, e lidando com questões editoriais em todos os níveis, desde as obras mais _indie_ ou até coisas como Turma da Mônica, Jovem Nerd. A plateia também pôde interagir com os dois e fazer perguntas, mas eu já tinha chegado atrasado e não tinha nada de interessante pra perguntar também, sendo sincero 😜 Preferi ficar de ouvinte nessa, ainda mais que eu estava no fundo do fundo dos assentos.
 
-Ao final, começou a se criar uma fila informal para as pessoas falarem com cada um dos convidados, e depois de um tempinho lá fui eu falar com Abu Fobiya! Uma grande coincidência durante a palestra foi que em dado momento foi citado o processo de criação colaborativa da obra [Independência ou Mortos](https://jovemnerd.com.br/noticias/hqs-e-livros/independencia-ou-mortos-a-primeira-graphic-novel-do-selo-nerdbooks), e o próprio Yabu comentou sobre como foi fazer o quadrinho en conjunto com nosso amado Harald Stricker, o ilustrador da obra em parceria junto com o Fábio de roteirista para o pessoal do Jovem Nerd. Escutem o [Nerdcast sobre o making of](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-327-making-of-independencia-ou-mortos) do quadrinho para mais detalhes!
+Ao final, começou a se criar uma fila informal para as pessoas falarem com cada um dos convidados, e depois de um tempinho lá fui eu falar com Abu Fobiya! Uma grande coincidência durante a palestra foi que em dado momento foi citado o processo de criação colaborativa da obra [Independência ou Mortos](https://jovemnerd.com.br/noticias/hqs-e-livros/independencia-ou-mortos-a-primeira-graphic-novel-do-selo-nerdbooks), e o próprio Yabu comentou sobre como foi fazer o quadrinho em conjunto com nosso amado Harald Stricker, o ilustrador da obra em parceria junto com o Fábio de roteirista para o pessoal do Jovem Nerd. Escutem o [Nerdcast sobre o making of](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-327-making-of-independencia-ou-mortos) do quadrinho para mais detalhes!
 
-Acreditem ou não, eu tinha trazido comigo o quadrinho para ele autografar! Quando fui falar com ele e mostrei isso, deu pra perceber como o rosto dele irradiou surpresa de ver a HQ depois de tanto tempo. Óbviamente depois disso, aproveitei pra introduzir o baralho Nerdcast, para ele assinar a carta dele e me dar a honra de quem sabe conseguir concluir esse desafio que perdura desde 2012.
+Acreditem ou não, eu tinha trazido comigo o quadrinho para ele autografar! Quando fui falar com ele e mostrei isso, deu pra perceber como o rosto dele irradiou surpresa de ver a HQ depois de tanto tempo. Obviamente depois disso, aproveitei pra introduzir o baralho Nerdcast, para ele assinar a carta dele e me dar a honra de quem sabe conseguir concluir esse desafio que perdura desde 2012.
 
 ![Independência ou Mortos](/images/posts/2025-11-02/independencia-ou-mortos.webp)
 
-Foi uma interação linda, até alguém da Jambô tirou uns retratos dessa nossa conversa, mas não sei onde foram parar esses registros, não encontrei em nenhum canal oficial. Eu conheço o Yabu de muitos anos e amo acomapnhar as coisas que ele produz, a forma como ele se expressa. Ele é um exemplo pra mim e me senti realizado podendo bater um breve papo com ele e registrar esse momento de carinho. Muito obrigado!
+Foi uma interação linda, até alguém da Jambô tirou uns retratos dessa nossa conversa, mas não sei onde foram parar esses registros, não encontrei em nenhum canal oficial. Eu conheço o Yabu de muitos anos e amo acompanhar as coisas que ele produz, a forma como ele se expressa. Ele é um exemplo pra mim e me senti realizado podendo bater um breve papo com ele e registrar esse momento de carinho. Muito obrigado!
 
 ![Fábio autografando o baralho](/images/signed-card/assinatura_fabio_yabu.jpg)
 

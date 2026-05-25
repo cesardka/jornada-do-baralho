@@ -16,7 +16,7 @@ Já era pouco mais de meio dia, e eu estava no sofá, mexendo no Instagram, quan
 
 Fui surpreendido com uma postagem de cancelamento de última hora da Florinda Meza, a mãe do Kiko, esposa do Chaves. O post foi super deprimente, relatando que houve problema de produção e ela não participaria. Achei estranho, afinal era algo que já estava marcado e anunciado há muitos meses, e [jornais locais ainda noticiavam isso um dia antes do evento](https://www.instagram.com/reel/DR46rs7jils/?hl=en).
 
-![Comunicado Oficial Florinda Meza](/images/posts/2025-12-07/comunidado-oficial.png)
+![Comunicado Oficial Florinda Meza](/images/posts/2025-12-07/comunicado-oficial.png)
 
 Começou a me subir um gelo na espinha. Alguma coisa me dizia que algo não estava certo. Resolvi procurar sobre o Guilherme Briggs e o evento.
 
@@ -26,7 +26,7 @@ Começou a me subir um gelo na espinha. Alguma coisa me dizia que algo não esta
 
 A presença do Guilherme Briggs no Dream Fest havia sido alterada no cronograma do evento, mudando do dia 7 de dezembro (domingo) para o dia 6 de dezembro (sábado). E não foi feito comunicado nenhum por e-mail ou qualquer outra forma de contato direto com quem comprou os ingressos, seja ele VIP ou qualquer outra categoria, que eu comprei somente com esse objetivo, e comprei as passagens para voltar para casa justamente considerando esse cronograma.
 
-Não querendo fazer um grande drama nem nada, mas isso acabou com meu dia, e eu imediatamente desisti de sair. Nem fui ao evento. Até porque teria mais nada lá que eu quisesse ver que já não tivesse visto na CCXP de forma muito maior e melhor produzida.
+Não querendo fazer um grande drama nem nada, mas isso acabou com meu dia, e eu imediatamente desisti de sair. Nem fui ao evento. Até porque não teria mais nada lá que eu quisesse ver que já não tivesse visto na CCXP de forma muito maior e melhor produzida.
 
 Eu comprei meu ingresso no dia 18 de outubro de 2025, e, segundo o evento, a alteração da presença do Briggs foi anunciada "amplamente" (apenas no instagram deles, que eu não acompanho) a partir do dia 7 de novembro. Uma diferença de 3 semanas, e a única forma de comunicação feita foi [neste post](https://www.instagram.com/p/DQwicqDjXyb/).
 
@@ -34,11 +34,11 @@ Eu comprei meu ingresso no dia 18 de outubro de 2025, e, segundo o evento, a alt
 
 Quando eu me dei conta disso tudo, começou a passar flashes na minha mente do Deive falando _"ELE TÁ AQUI! VAI LÁ FALAR COM O BRIGGS"_ (som de eco), o Briggs passando do meu lado enquanto eu almoçava e eu falando _"NÃO TEM PROBLEMA, DOMINGO EU VEJO ELE LÁ"_, e o Eduardo Spohr caminhando para o horizonte, em preto e branco.
 
-![Re-encenação dramático desse momento](/images/posts/2025-12-07/lobo-pidao.webp)
+![Reencenação dramática desse momento](/images/posts/2025-12-07/lobo-pidao.webp)
 
 É claro também que mesmo com todas essas situações e falta de comunicação citadas acima, a organização do evento se recusou a reembolsar quem foi prejudicado e enganado tanto pelos anúncios da Florinda e do Briggs. Pior ainda se a pessoa comprou o ingresso há mais de 7 dias (imagino que a maioria), já que a política de cancelamento deles não cobre esses casos. E os e-mails que foram pouco respondidos, quando não ignorados, serviram de nada.
 
-Comunicação direta com os compradores de ingresso usando o contato direto que vocês tem cadastrado é essencial. É marketing, é transparência. É o mínimo do mínimo!
+Comunicação direta com os compradores de ingresso usando o contato direto que vocês têm cadastrado é essencial. É marketing, é transparência. É o mínimo do mínimo!
 
 Eu como desenvolvedor sei que eles teriam acesso a esses dados, e teriam como disparar um e-mail nem que seja apenas direcionado às categorias que seriam mais afetadas por essa alteração, para que pudessem se adaptar e resolver isso de forma mais justa e transparente possível. É triste...
 

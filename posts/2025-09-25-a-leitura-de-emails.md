@@ -34,7 +34,7 @@ Nessa live inclusive, o papo sobre o baralho surgiu aos [00:35:15](https://www.y
 
 ![Ilustração Harald Stricker para capa e contra-capa da primeira versão publicada da Nerd Books d'A Batalha do Apocalipse, livro de Eduardo Spohr](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNxzWi_M5B4ej7xcyxSah4xnpa1ZPWmHoRCpzDR7BYjnYvOBspJvVOUM4eXTOOANQmRr_4F5AQTZ8GdKeYux5rkYTU_0YrgamQLC2_pzp0dziFELSF5n0Ua0qWgt7ZYj4TS5Q7eVuxzxo1/s1600/ABDA.jpg)
 
-Fiquei até curioso se eles já tinham visto o e-mail, ou entrado no site, mas não vi acesso nenhum. Resolvi mandar uma mensagem no chat da live falando publicamente pela primeira vez da **Jornada do Baralho 🃏** (comum mesmo, não ia pagar super chat pra ser vaidoso desse jeito 😜) colocando o endereço do site e dizendo que tem alguém indo atrás de todas as assinaturas.
+Fiquei até curioso se eles já tinham visto o e-mail, ou entrado no site, mas não vi acesso nenhum. Resolvi mandar uma mensagem no chat da live falando publicamente pela primeira vez da **Jornada do Baralho 🃏** (comum mesmo, não ia pagar Super Chat pra ser vaidoso desse jeito 😜) colocando o endereço do site e dizendo que tem alguém indo atrás de todas as assinaturas.
 
 ... mas ninguém clicou no link... 😭🪈🎶
 
@@ -62,6 +62,7 @@ Mas se **você 🫵** tiver a carta do Harald assinada, e com um registro da car
 ### ... e agora, mais do que nunca, rumo ao iPad!
 
 ---
+
 #### Rastreie suas assinaturas
 
 O Azaghal durante a leitura do e-mail sugeriu criar um serviço para que as pessoas pudessem rastrear quantas cartas elas mesmas têm assinadas. O [Djonathan Krause](https://www.instagram.com/naosou.dj/) entrou em contato comigo e acabou se voluntariando para fazer essa funcionalidade! [Deem uma olhada](https://www.linkedin.com/posts/djonathan-krause-8981a788_opensource-jovemnerd-activity-7375978257378099201-7M3_/?utm_medium=ios_app&rcm=ACoAABKJqjQBSXgWkyWJsCqJvb9jsbs5fokVoP0&utm_source=social_share_send&utm_campaign=copy_link)!

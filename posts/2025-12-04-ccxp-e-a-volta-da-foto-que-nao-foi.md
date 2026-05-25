@@ -37,7 +37,7 @@ Eu considero ideal chegar a partir das 13h no evento, para curtir até o último
 
 Quando a pessoa compra o ingresso, é dada a opção de enviar das credenciais por Correio para a casa da pessoa, para já chegar com o crachá no pescoço e passar por todas as etapas de segurança até o saguão. Seria uma pena se eu não tivesse esquecido em casa as minhas credenciais em Porto Alegre, e por isso tive que pegar uma fila e pagar por credenciais a mais para poder entrar... Esse é um processo que pode demorar um tanto, então dá pra vivenciar todas as fases do luto enquanto passa o tempo na fila.
 
-Ao desembolsar R$50 para emitir uma cópida da credencial, deu tudo certo e pude entrar no São Paulo Expo.
+Ao desembolsar R$50 para emitir uma cópia da credencial, deu tudo certo e pude entrar no São Paulo Expo.
 
 Agora é só curtir o resto do evento com tranquilidade.
 
@@ -47,13 +47,13 @@ Uma recomendação importante: se você for do tipo que gosta de comprar muitos 
 
 Meu objetivo principal esse ano, até outubro pelo menos, era vir aqui para encontrar o Fábio Yabu para pegar uma assinatura com ele, mas como acabou surgindo a oportunidade de me encontrar com ele em Porto Alegre, então vou tentar usar esse momento pra encontrar o Alexandre em algum lugar e tirar a foto com ele que fiquei devendo do dia do Banquete Real by Bem Brasil
 
-A Jambô mais uma vez [havia divulgado](https://x.com/jamboeditora/status/1995178751144161352) que aconteceria uma sessão de autógrafos com **Alexandre**, **Deive** e **Rafael de Pino**, autor da biogaria ["Jovem Nerd ZERANDO A VIDA"](https://www.amazon.com.br/Jovem-Nerd-Zerando-Rafael-Pino/dp/8583652090), lançada pela Jambô em comemoração ao lançamento do Nerdcast 1000 em outubro de 2025, na quinta-feira às 16h!
+A Jambô mais uma vez [havia divulgado](https://x.com/jamboeditora/status/1995178751144161352) que aconteceria uma sessão de autógrafos com **Alexandre**, **Deive** e **Rafael de Pino**, autor da biografia ["Jovem Nerd ZERANDO A VIDA"](https://www.amazon.com.br/Jovem-Nerd-Zerando-Rafael-Pino/dp/8583652090), lançada pela Jambô em comemoração ao lançamento do Nerdcast 1000 em outubro de 2025, na quinta-feira às 16h!
 
 ![Tweet da Jambô](/images/posts/2025-12-04/tweet-jambo.png)
 
 Não muito depois que cheguei ao evento, por puro acaso acabei passando em frente ao stand da **Pipoca e Nanquim** e aproveitei para comprar o quadrinho da A Própria Carne, que conta sobre os personagens da trama antes dos acontecimentos do filme. Esse quadrinho era uma das opções de bônus para a campanha de financiamento do filme. Ver ele ao vivo, ainda mais agora conhecendo a obra cinematográfica foi incrível, achei que seria uma compra apropriada.
 
-Logo adiante tinha também o stand da Jambô, e reparei em uma fila longa que vinha se formando. Nào tinha certeza se seria para a sessão do pessoal do Jovem Nerd, mas ao me comunicar com os populares na fila entendi que precisaria pegar um "vale" para poder estar na fila. Esse vale vem de brinde ao comprar alguma das obras do universo Jovem Nerd na loja da Jambô!
+Logo adiante tinha também o stand da Jambô, e reparei em uma fila longa que vinha se formando. Não tinha certeza se seria para a sessão do pessoal do Jovem Nerd, mas ao me comunicar com os populares na fila entendi que precisaria pegar um "vale" para poder estar na fila. Esse vale vem de brinde ao comprar alguma das obras do universo Jovem Nerd na loja da Jambô!
 
 No meu caso, como eu já tinha o Zerando a Vida, e acabei de sair da **Pipoca e Nanquim** com o quadrinho dA Própria Carne, resolvi pegar os dois livros da série A Lenda de Ruff Ghanor pra compensar e garantir meu vale. Peguei meu lugar na fila e Agora É Só Esperar™️ ☝️
 

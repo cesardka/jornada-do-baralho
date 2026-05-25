@@ -30,7 +30,7 @@ Mas bem, vamos ao Desafio...
 
 ### O Começo
 
-Tudo começou depois de eu ouvir o [Nerdcast #950](https://jovemnerd.com.br/podcasts/nerdcast/o-melhor-de-950-nerdcasts). 
+Tudo começou depois de eu ouvir o [Nerdcast #950](https://jovemnerd.com.br/podcasts/nerdcast/o-melhor-de-950-nerdcasts).
 _Era terça-feira... Chovia muito..._ (mentira)
 
 Na abertura do episódio, Alexandre Ottoni _do Jovem Nerd_ e Deive começaram a dar sinais mais fortes de quererem terminar no episódio 1000, para _**fechar esse ciclo**_ no ápice. Talvez seja brincadeira, talvez não. De qualquer forma, fiquei bem reflexivo sobre como seria o futuro do site e dos programas, já que é algo que bem ou mal me acompanha diariamente por diversas vias (notícias, áudio, vídeo) há mais de 15 anos! Insano, agora parando pra pensar nisso.
@@ -42,6 +42,7 @@ Por que não eu?
 Voltei ao episódio [#312 - Nerdcast do Baralho](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho), onde eles faziam o lançamento oficial do [produto](https://web.archive.org/web/20121214093601/http://www.nerdstore.com.br/produto/baralho-jn.html) e logo em seguida ouvi o [#313 - HQ: Os Velhos Novos 52](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52), onde de fato é lançado o desafio durante a leitura de e-mails.
 
 O Desafio do Baralho consiste dos seguintes pré-requisitos para conseguir o iPad:
+
 1. Ter um baralho
 2. Ter as cartas de figuras, coringas e extra assinadas
 3. Ter um registro delas sendo feitas
@@ -62,7 +63,7 @@ Ainda assim, como o desafio pede que as cartas sejam autografadas e exista o reg
 
 ... mas eu não contava com o pior...
 
-Infelizmente no dia 23 de outubro recebi uma notificação da Jadlog me avisando que o pacote tinha sido extravado e entrei em contato com a vendedora, que confirmou a informação.
+Infelizmente no dia 23 de outubro recebi uma notificação da Jadlog me avisando que o pacote tinha sido extraviado e entrei em contato com a vendedora, que confirmou a informação.
 
 ![Conversa com vendedora do Enjoei, anunciando que a Jadlog extraviou o pacote](/images/posts/2024-10-24/Screenshot%202025-09-25%20at%2002.27.01.png)
 

@@ -14,7 +14,7 @@ Chegamos ao ponto dessa jornada em que já tivemos várias conquistas:
 4. recebi a validação do Alexandre e do Deive de que esse devaneio não é só loucura minha
 5. ... e agora estou prestes a presenciar um SUPER EVENTO que vai reunir 9 das 18 estrelas em um único local!!
 
-Independente do final dessa aventura (se houver), eu já posso me sentir realizado de muitas maneiras.
+Independentemente do final dessa aventura (se houver), eu já posso me sentir realizado de muitas maneiras.
 
 ### Tem Que Ser Com Emoção
 
@@ -114,7 +114,7 @@ Na dúvida, fiquei acompanhando de longe o Vidane fazendo a live e vendo a hora 
 
 <!-- FOTO VIDANE NA LIVE -->
 
-![Principe Vidane e seu fiel escudeiro na live do NC1000](/images/posts/2025-10-04/vidane_entrevista.jpg)
+![Príncipe Vidane e seu fiel escudeiro na live do NC1000](/images/posts/2025-10-04/vidane_entrevista.jpg)
 
 Eu não lembro ao certo o que causou o primeiro contato, mas em dado momento conheci o [Rafa Gardini](https://www.instagram.com/rafa.gardini/?hl=en), um cosplayer fodão de Ozob, e a [Juh Portilla](https://www.instagram.com/juhportilla), uma das cosplayers mais fodas e uma das fãs mais apaixonadas pelo mundo Jovem Nerd que conheci, que foram pessoas incríveis comigo e me acolheram por um tantinho nessa noite.
 
@@ -128,7 +128,7 @@ Eu me desprendi do povo e fiquei numa fila que se formou pra entrar na segunda a
 
 No fim das contas o que determinava o acesso ao auditório era a sessão da pessoa e a categoria (Milhões, Megaboga e Humildão, nessa ordem).
 
-Já quase 19h, entrei no auditório e escolhi um lugar na segunda-fileira e não tão no meio. A minha linha de raciocínio é que como eu estava sozinho, preencher esses lugares mais ao canto era mais ideal para dar preferencia a quem estava entrando em grupos maiores poder ficar no meio. Não sei se faz tanto sentido, mas tentei ser solidário. Não sei, falando agora em _voz alta_ acho que nada disso fez sentido.
+Já quase 19h, entrei no auditório e escolhi um lugar na segunda-fileira e não tão no meio. A minha linha de raciocínio é que como eu estava sozinho, preencher esses lugares mais ao canto era mais ideal para dar preferência a quem estava entrando em grupos maiores poder ficar no meio. Não sei se faz tanto sentido, mas tentei ser solidário. Não sei, falando agora em _voz alta_ acho que nada disso fez sentido.
 
 Em frente ao palco, tinha uma tela projetando cortes de [Nerdcast Stories](https://www.youtube.com/playlist?list=PLS0fUCS21DUGhGfh0zW-xk330m9osMkgS) rolando em loop para aquecer a galera mostrando vários momentos clássicos dos participantes até que todo mundo estivesse alocado nos seus assentos.
 

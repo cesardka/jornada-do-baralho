@@ -56,7 +56,7 @@ Pois é, um pouco exagerada a reação da nossa Taylor Swift de faz-de-conta... 
 
 Dando uma breve aula de história sobre desenvolvimento web (não sou professor, mas...), a web dos anos 90 e início dos anos 2000 era super mais simples do que temos hoje. Eu ainda peguei um pouquinho de como era desenvolver nesse período por conta do meu curso técnico em informática que fiz junto do meu ensino médio em 2008.
 
-Os sites naquele tempo tinham duas alternativas: ou eram feitos com um HTML, CSS e Javascript super limitados pelos navegadores disponíveis, que acabavam sendo páginas mais estáticas, ou eram feitos em Flash, uma tecnologia da Adobe que trazia mais interatividade e animações, mas que era pesada e consumia muito processamento. Fabio Yabu na época tinha o [ComboRangers](https://web.archive.org/web/20070111212928/http://www2.uol.com.br/comborangers/) e contou no [Nerdcast #105 - O Homem que Matou o Jovem Nerd](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-105-fabio-yabu-o-homem-que-matou-o-jovem-nerd) sobre como até foi chamado para usarem o site dele como benchmark para o lançamento de um processador da Intel.
+Os sites naquele tempo tinham duas alternativas: ou eram feitos com um HTML, CSS e JavaScript super limitados pelos navegadores disponíveis, que acabavam sendo páginas mais estáticas, ou eram feitos em Flash, uma tecnologia da Adobe que trazia mais interatividade e animações, mas que era pesada e consumia muito processamento. Fabio Yabu na época tinha o [ComboRangers](https://web.archive.org/web/20070111212928/http://www2.uol.com.br/comborangers/) e contou no [Nerdcast #105 - O Homem que Matou o Jovem Nerd](https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-105-fabio-yabu-o-homem-que-matou-o-jovem-nerd) sobre como até foi chamado para usarem o site dele como benchmark para o lançamento de um processador da Intel.
 
 Um exemplo estático desse período seria [a página do Space Jam](http://web.archive.org/web/19970124032137/http://www.spacejam.com/index.cgi), um marco da internet de site com muita expressividade, dadas as limitações que existiam na época.
 
@@ -74,7 +74,7 @@ Apesar do falecimento do Flash, não significa que a internet ficou parada, ou q
 
 O HTML5, o CSS3 e o Javascript ECMA6 foram surgindo e revolucionando a internet, trazendo novas formas de interatividade com a estrutura dos sites, acessibilidade e performance. Logo depois, veio o [jQuery](https://jquery.com/), biblioteca de Javascript que, na minha opinião, moldou e influenciou muito como é feito o desenvolvimento web atualmente, mas que também [já não é mais aquela Coca-Cola que já foi](https://boomdevs.com/bolg/is-jquery-dead/).
 
-Juntando todos esses fatores, culminou na existência da minha maior influência para a Jornada do Baralho 🃏: a biblioteca **[GreenSock Animation Platform](https://gsap.com/)** (GSAP para os íntimos). 
+Juntando todos esses fatores, culminou na existência da minha maior influência para a Jornada do Baralho 🃏: a biblioteca **[GreenSock Animation Platform](https://gsap.com/)** (GSAP para os íntimos).
 
 Não vou entrar muito em detalhes pois esse não é um post técnico, mas se você quiser entender a importância do GSAP, sua história desde o finado Flash até os dias de hoje, tem [essa entrevista em inglês](https://okaydev.co/articles/jack-doyle) muito bacana com o Jack Doyle, criador da plataforma.
 

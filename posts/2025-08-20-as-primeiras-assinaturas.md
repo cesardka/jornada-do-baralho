@@ -12,7 +12,7 @@ Meu primeiro passo pra isso foi comprar um ingresso para o [tour d'A Própria Ca
 
 ... Eu não contava com outra surpresa do destino no meio do caminho...
 
-Por padrão, tanto por conta do trabalho como pela vida de treinador Pokémon-de-araque, eu costumo viajar com uma certa frequência. Acabou calhando de em Agosto eu ter uma viagem planejada ao Rio. Quando vou lá, acabo sempre me hospedando na casa da Lena, e por uma grande coincidência do destino, ela me convidou para ir a um churrasco de amigos no dia **23 de agosto de 2025**. O amigo em questão? O **Amigo Imaginário**!
+Por padrão, tanto por conta do trabalho como pela vida de treinador Pokémon-de-araque, eu costumo viajar com uma certa frequência. Acabou calhando de em agosto eu ter uma viagem planejada ao Rio. Quando vou lá, acabo sempre me hospedando na casa da Lena, e por uma grande coincidência do destino, ela me convidou para ir a um churrasco de amigos no dia **23 de agosto de 2025**. O amigo em questão? O **Amigo Imaginário**!
 
 Foi um ambiente que eu nunca me imaginaria participando, e que, sinceramente, foi uma experiência incrível para quebrar essa relação abstrata ouvinte-podcaster, de perceber que são pessoas de verdade, que se alimentam, brincam, conversam... Nada dos programas é atuado, e ver isso com meus próprios olhos foi algo que eu nunca vou esquecer.
 
