@@ -1,0 +1,34 @@
+# Blender 5.1.2 MTL File: 'caixa2.blend'
+# www.blender.org
+
+newmtl CaixaBaralho_FrontClean
+Ns 202.500000
+Ka 1.000000 1.000000 1.000000
+Kd 0.520000 0.540000 0.580000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Bump caixa-baralho-nerdcast/texture_normal.png
+
+newmtl CaixaBaralho_PBR
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Ns caixa-baralho-nerdcast/texture_roughness.png
+map_Bump -bm 1.000000 caixa-baralho-nerdcast/texture_normal.png
+
+newmtl CaixaBaralho_Top
+Ns 671.757019
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
