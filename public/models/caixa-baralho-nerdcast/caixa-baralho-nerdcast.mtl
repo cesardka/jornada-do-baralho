@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 3
-map_Bump caixa-baralho-nerdcast/texture_normal.png
+map_Bump texture_normal.png
 
 newmtl CaixaBaralho_PBR
 Ka 1.000000 1.000000 1.000000
@@ -20,8 +20,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 3
-map_Ns caixa-baralho-nerdcast/texture_roughness.png
-map_Bump -bm 1.000000 caixa-baralho-nerdcast/texture_normal.png
+map_Ns texture_roughness.png
+map_Bump -bm 1.000000 texture_normal.png
 
 newmtl CaixaBaralho_Top
 Ns 671.757019
