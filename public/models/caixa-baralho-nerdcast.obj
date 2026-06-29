@@ -1,6 +1,6 @@
 # Blender 5.1.2
 # www.blender.org
-mtllib caixa2.mtl
+mtllib caixa-baralho-nerdcast.mtl
 o model
 v -0.920981 0.365962 -0.589150
 v -0.920683 0.335673 -0.567361
