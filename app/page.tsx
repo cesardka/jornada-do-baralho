@@ -13,6 +13,7 @@ import NavMenu from "./sections/nav-menu";
 import SplashScreen from "./sections/splash-screen";
 import TinBox from "./sections/tin-box";
 import BouncingText from "../components/ui/bouncing-text";
+import SpriteAnimation from "../components/ui/sprite-animation";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 function LoadingView({ isLoadingFadingOut }: { isLoadingFadingOut: boolean }) {
@@ -24,8 +25,8 @@ function LoadingView({ isLoadingFadingOut }: { isLoadingFadingOut: boolean }) {
           isLoadingFadingOut ? "opacity-0" : "opacity-100"
         }`}
       >
-        <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" />
-        <BouncingText className="text-xl" text={t("common.loading")} />
+        <SpriteAnimation card="alottoni" fps={30} className="w-32" />
+        <BouncingText className="text-xl mt-1" text={t("common.loading")} />
       </div>
     </div>
   );
@@ -34,8 +35,8 @@ function LoadingView({ isLoadingFadingOut }: { isLoadingFadingOut: boolean }) {
 export default function Card() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [splashState, setSplashState] = useState<
-    "loading" | "splash" | "content"
-  >("loading");
+    "pending" | "loading" | "splash" | "content"
+  >("pending");
   const [isFadingIn, setIsFadingIn] = useState(false);
   const [isLoadingFadingOut, setIsLoadingFadingOut] = useState(false);
 
@@ -43,18 +44,22 @@ export default function Card() {
     const splashSeen = localStorage.getItem("splashSeen");
 
     if (splashSeen === "true") {
+      // Returning user — skip the loading + splash entirely to avoid the
+      // sprite-sheet flash before the video would play.
       setSplashState("content");
-    } else {
-      // Start fade-out after 500ms
-      const startFade = setTimeout(() => setIsLoadingFadingOut(true), 500);
-      // Wait for fade to complete before transitioning
-      const showSplash = setTimeout(() => setSplashState("splash"), 1500); // 1s fade duration
-
-      return () => {
-        clearTimeout(startFade);
-        clearTimeout(showSplash);
-      };
+      return;
     }
+
+    setSplashState("loading");
+    // Start fade-out after 4s (gives the sprite time to loop clearly)
+    const startFade = setTimeout(() => setIsLoadingFadingOut(true), 1000);
+    // Wait for fade to complete before transitioning
+    const showSplash = setTimeout(() => setSplashState("splash"), 4000); // 1s fade duration
+
+    return () => {
+      clearTimeout(startFade);
+      clearTimeout(showSplash);
+    };
   }, []);
 
   const handleVideoEnd = () => {
@@ -73,7 +78,7 @@ export default function Card() {
 
   return (
     <I18nProvider>
-      {splashState === "loading" ? (
+      {splashState === "pending" ? null : splashState === "loading" ? (
         <LoadingView isLoadingFadingOut={isLoadingFadingOut} />
       ) : splashState === "splash" ? (
         <SplashScreen onVideoEnd={handleVideoEnd} />
