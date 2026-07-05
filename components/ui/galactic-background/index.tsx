@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Ticker } from "pixi.js";
 
 interface GalacticBackgroundProps {
@@ -27,6 +27,12 @@ export default function GalacticBackground({
   className = "",
 }: GalacticBackgroundProps) {
   const hostRef = useRef<HTMLDivElement>(null);
+  // Flips to true once the PixiJS ticker has run its first frame — used to
+  // fade the shader canvas in on top of the CSS fallback. During SSR and the
+  // brief window before pixi.js finishes dynamic-importing + initializing,
+  // the fallback is the only thing rendered, so the section never shows as
+  // a plain black rectangle.
+  const [shaderReady, setShaderReady] = useState(false);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -71,6 +77,12 @@ export default function GalacticBackground({
         width: "100%",
         height: "100%",
         pointerEvents: "none",
+        // Start invisible so the CSS radial-gradient fallback shows through
+        // until the shader has drawn its first real frame. The ticker's
+        // addOnce callback below flips this to opacity: 1 with a 700ms
+        // ease so the transition reads as a soft reveal.
+        opacity: "0",
+        transition: "opacity 700ms ease-out",
       } as CSSStyleDeclaration);
       host.appendChild(app.canvas);
 
@@ -439,6 +451,16 @@ export default function GalacticBackground({
       };
       app.ticker.add(tick);
 
+      // After the very first frame renders, fade the canvas in on top of
+      // the CSS fallback. Using addOnce guarantees a real GPU paint has
+      // landed — not just app.init resolving. The React state is also
+      // flipped so downstream consumers (if any) can react.
+      app.ticker.addOnce(() => {
+        if (destroyed) return;
+        app.canvas.style.opacity = "1";
+        setShaderReady(true);
+      });
+
       // -----------------------------------------------------------------
       // Aura position: fixed at "one viewport-height / 2" from the top of
       // the canvas, so it sits at the visible viewport center when the user
@@ -499,6 +521,22 @@ export default function GalacticBackground({
       ref={hostRef}
       aria-hidden="true"
       className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}
-    />
+    >
+      {/* CSS radial-gradient fallback. Painted immediately (first paint,
+          before pixi.js finishes its dynamic import + init) so the section
+          is never a black rectangle for first-time visitors. Colors mirror
+          the shader's palette: deep-forest edges, emerald mid-halo,
+          near-white core. Fades to zero opacity once the shader canvas has
+          drawn its first real frame so we don't double-paint the aura. */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
+          shaderReady ? "opacity-0" : "opacity-100"
+        }`}
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 50%, #59f299 0%, #106b3d 22%, #05231f 55%, #010503 90%)",
+        }}
+      />
+    </div>
   );
 }
