@@ -1,6 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 interface BouncingTextProps {
   text: string;
@@ -10,6 +12,12 @@ interface BouncingTextProps {
   rainbow?: boolean;
   // Duration in seconds for a full rainbow cycle
   rainbowSpeedSeconds?: number;
+  // Duration in seconds of one bounce for a single letter
+  bounceDurationSeconds?: number;
+  // Delay between adjacent letters starting their bounce (in seconds)
+  stagger?: number;
+  // How high each letter jumps, in em (relative to font size)
+  bounceHeightEm?: number;
 }
 
 export default function BouncingText({
@@ -18,17 +26,54 @@ export default function BouncingText({
   color = "#ffffff",
   rainbow = false,
   rainbowSpeedSeconds = 3,
+  bounceDurationSeconds = 1,
+  stagger = 0.08,
+  bounceHeightEm = 0.5,
 }: BouncingTextProps) {
-  return (
-    <span className="flex space-x-[1px]">
-      {text.split("").map((char, i) => {
-        const delay = i * 0.02;
-        const baseClass = `inline-block text-sm`;
-        const animations = rainbow
-          ? `bounce 1s infinite, rainbow ${rainbowSpeedSeconds}s linear infinite`
-          : `bounce 1s infinite`;
-        const animationDelay = rainbow ? `${delay}s, ${delay}s` : `${delay}s`;
+  const containerRef = useRef<HTMLSpanElement>(null);
 
+  useGSAP(
+    () => {
+      const letters = gsap.utils.toArray<HTMLElement>("[data-bt-letter]");
+      if (letters.length === 0) return;
+
+      // Bounce: each letter tweens up then yoyos back down, staggered by index.
+      gsap.to(letters, {
+        y: `-${bounceHeightEm}em`,
+        duration: bounceDurationSeconds / 2,
+        ease: "sine.inOut",
+        stagger,
+        yoyo: true,
+        repeat: -1,
+      });
+
+      if (rainbow) {
+        gsap.to(letters, {
+          backgroundPosition: "200% 50%",
+          duration: rainbowSpeedSeconds,
+          ease: "none",
+          repeat: -1,
+        });
+      }
+    },
+    {
+      scope: containerRef,
+      dependencies: [
+        text,
+        stagger,
+        bounceDurationSeconds,
+        bounceHeightEm,
+        rainbow,
+        rainbowSpeedSeconds,
+      ],
+    },
+  );
+
+  const baseClass = "inline-block text-sm";
+
+  return (
+    <span ref={containerRef} className="flex space-x-[1px]">
+      {text.split("").map((char, i) => {
         const style: React.CSSProperties = rainbow
           ? {
               WebkitBackgroundClip: "text",
@@ -37,44 +82,21 @@ export default function BouncingText({
               backgroundImage:
                 "linear-gradient(45deg, #ff004c, #ff8a00, #ffe600, #17ff00, #00f0ff, #0044ff, #b800ff, #ff004c)",
               backgroundSize: "200% 200%",
-              animation: animations,
-              animationDelay,
+              backgroundPosition: "0% 50%",
             }
-          : {
-              color,
-              animation: animations,
-              animationDelay,
-            };
+          : { color };
 
         return (
-          <span key={i} className={className ? className : baseClass} style={style}>
+          <span
+            key={i}
+            data-bt-letter
+            className={className ? className : baseClass}
+            style={style}
+          >
             {char === " " ? "\u00A0" : char}
           </span>
         );
       })}
-      <style jsx>{`
-        /* Local keyframes so inline animation references are always available */
-        @keyframes bounce {
-          0%,
-          100% {
-            transform: translateY(-25%);
-            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-          }
-          50% {
-            transform: translateY(0);
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          }
-        }
-
-        @keyframes rainbow {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </span>
   );
 }
