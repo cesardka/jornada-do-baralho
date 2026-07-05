@@ -11,6 +11,7 @@ import DeckList from "./sections/deck-list";
 import Footer from "./sections/footer";
 import NavMenu from "./sections/nav-menu";
 import SplashScreen from "./sections/splash-screen";
+import TinBox from "./sections/tin-box";
 import BouncingText from "../components/ui/bouncing-text";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 
@@ -86,6 +87,7 @@ export default function Card() {
             >
               <NavMenu />
               <div id="container" ref={containerRef}>
+                {/* <TinBox /> */}
                 <DeckList />
                 <AboutTheChallenge />
                 <AboutTheJourney />
