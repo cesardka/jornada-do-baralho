@@ -78,7 +78,10 @@ export const SocialMediaIcon = ({
     case "linkedin":
       return <FaLinkedin size={size} />;
     case "chifrezz":
-      return <StudioChifrezz className="w-8 h-8" />;
+      // Match the numeric `size` prop used by every other icon (react-icons
+      // renders at exactly `size`x`size` px). Previously hardcoded to w-8 h-8
+      // which made this icon appear ~2x larger than its siblings.
+      return <StudioChifrezz width={size} height={size} />;
     case "spotify":
       return <FaSpotify size={size} />;
     case "football":
