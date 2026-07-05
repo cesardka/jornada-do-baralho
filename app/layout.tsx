@@ -148,13 +148,6 @@ export default function RootLayout({
           type="image/webp"
           fetchPriority="high"
         />
-        <link
-          rel="preload"
-          href="/images/card/card-back-red.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EKW4K5RXWG"
