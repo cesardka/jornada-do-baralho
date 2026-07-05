@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -23,7 +23,7 @@ export default function AboutTheChallenge() {
   type GtagEventFn = (
     command: "event",
     eventName: string,
-    params?: GAParams
+    params?: GAParams,
   ) => void;
 
   const sendGAEvent = (eventName: string, params?: GAParams) => {
@@ -57,45 +57,41 @@ export default function AboutTheChallenge() {
   // -[x] Add a link to the challenge's website
   // -[ ] Add a description of what and who is Jovem Nerd and Azaghal, and their history
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Set initial state
+  // Scroll-driven reveal for the two right-hand character images.
+  // A single scrubbed timeline slides them in from just off the right edge
+  // while the section scrolls into view. useGSAP scoped to sectionRef takes
+  // care of cleanup on unmount.
+  useGSAP(
+    () => {
+      // xPercent: 100 = "shift right by the element's own width", so cards
+      // always start just off-screen relative to themselves regardless of
+      // device resolution.
       gsap.set([azaghalRef.current, alottoniRef.current], {
-        x: 300,
+        xPercent: 100,
         opacity: 0,
       });
 
-      // Azaghal animation
-      gsap.to(azaghalRef.current, {
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.out" },
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top bottom-=100",
+          start: "top bottom",
           end: "bottom center",
-          scrub: 1,
-          markers: false,
+          scrub: 0.6,
         },
-        x: 0,
-        opacity: 1,
-        ease: "power2.out",
       });
 
-      // Alottoni animation (slightly delayed)
-      gsap.to(alottoniRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom-=50",
-          end: "bottom center",
-          scrub: 1,
-          markers: false,
-        },
-        x: 0,
-        opacity: 1,
-        ease: "power2.out",
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+      // Azaghal leads, Alottoni follows a hair later. Same target: rest at
+      // xPercent: 0 with full opacity.
+      tl.to(azaghalRef.current, { xPercent: 0, opacity: 1, duration: 1 }, 0);
+      tl.to(
+        alottoniRef.current,
+        { xPercent: 0, opacity: 1, duration: 1 },
+        0.15,
+      );
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section
