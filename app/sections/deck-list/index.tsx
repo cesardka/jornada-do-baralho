@@ -14,6 +14,7 @@ import { useScreenWidth } from "../../hooks/useScreenWidth";
 import { useAnimation } from "../../contexts/AnimationContext";
 import { useI18n } from "@/app/contexts/I18nContext";
 import SparkleParticles from "@/components/ui/sparkle-particles";
+import GalacticBackground from "@/components/ui/galactic-background";
 
 gsap.registerPlugin(useGSAP);
 
@@ -485,7 +486,18 @@ export default function DeckList() {
   };
 
   return (
-    <section className="segment w-full min-h-screen h-full flex flex-col items-center justify-center bg-[url('/images/bg/8764038.jpg')] bg-cover bg-no-repeat bg-center pb-8">
+    <section className="segment relative w-full min-h-screen h-full flex flex-col items-center justify-center pb-8 bg-[#01130a]">
+      {/* GalacticBackground uses -z-10 to sit behind the section content.
+          Wrapped in an isolated container so the negative z-index stays
+          local to this section and doesn't leak underneath sibling sections.
+          The wrapper also does the overflow clipping for the WebGL canvas,
+          so the section itself must NOT set overflow-hidden — doing so would
+          clip the selected-card scale-up transform where it visually extends
+          past the section's top edge (which is what created the phantom
+          "header clipping the card" bug). */}
+      <div className="absolute inset-0 isolate overflow-hidden pointer-events-none">
+        <GalacticBackground className="-z-10" />
+      </div>
       {/* Card overlay */}
       {animationEnded && (
         <div
