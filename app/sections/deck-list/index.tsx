@@ -13,6 +13,7 @@ import CardDetails from "../card-details";
 import { useScreenWidth } from "../../hooks/useScreenWidth";
 import { useAnimation } from "../../contexts/AnimationContext";
 import { useI18n } from "@/app/contexts/I18nContext";
+import SparkleParticles from "@/components/ui/sparkle-particles";
 
 gsap.registerPlugin(useGSAP);
 
@@ -50,7 +51,7 @@ type GAParams = Record<string, string | number | boolean>;
 type GtagEventFn = (
   command: "event",
   eventName: string,
-  params?: GAParams
+  params?: GAParams,
 ) => void;
 
 const sendGAEvent = (eventName: string, params?: GAParams) => {
@@ -140,7 +141,7 @@ export default function DeckList() {
               applyIdleAnimation(currentCardElement);
             },
           },
-          0
+          0,
         )
         // Scale and position new card to highlighted state
         .to(
@@ -152,7 +153,7 @@ export default function DeckList() {
             duration: DEFAULT_ANIMATION_DURATION,
             ease: "expo.inOut",
           },
-          0
+          0,
         )
         // Update state
         .call(() => {
@@ -169,7 +170,7 @@ export default function DeckList() {
           },
         });
     },
-    [selectedCard, selectedCardIndex, isMobile, isTransitioning]
+    [selectedCard, selectedCardIndex, isMobile, isTransitioning],
   );
 
   // Add keyboard navigation and touch swipe detection
@@ -215,7 +216,7 @@ export default function DeckList() {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener(
         "touchstart",
-        handleTouchStart as EventListener
+        handleTouchStart as EventListener,
       );
       window.removeEventListener("touchend", handleTouchEnd as EventListener);
     };
@@ -350,7 +351,7 @@ export default function DeckList() {
           yoyo: true,
         });
     },
-    { scope: container }
+    { scope: container },
   );
 
   // On click, the card selected should:
@@ -362,7 +363,7 @@ export default function DeckList() {
   // 6. The selected card must move slightly based on mouse position (ref: https://tcg.pokemon.com/en-us/galleries/temporal-forces/#seeall)
   const handleCardClick = (
     card: NerdcastCard,
-    event: React.MouseEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLDivElement>,
   ) => {
     const cardElement = event.currentTarget;
     const overlayElement = document.getElementById("card-overlay");
@@ -566,9 +567,9 @@ export default function DeckList() {
                   <Image
                     src={card.originalSrc}
                     alt={`${t("deckList.cardFrontAltPrefix")}${card.name}${t(
-                      "deckList.cardFrontAltSuffix"
+                      "deckList.cardFrontAltSuffix",
                     )}`}
-                    className={card.signedOn ? "gold-outline" : ""}
+                    className={card.signedOn ? "signed-card-glow" : ""}
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
                   />
@@ -577,12 +578,13 @@ export default function DeckList() {
                   <Image
                     src="/images/card/card-back-blue.webp"
                     alt={t("deckList.cardBackAlt")}
-                    className={card.signedOn ? "gold-outline" : ""}
+                    className={card.signedOn ? "signed-card-glow" : ""}
                     width={CARD_WIDTH}
                     height={CARD_HEIGHT}
                   />
                 </div>
               </div>
+              {card.signedOn && <SparkleParticles />}
             </div>
           );
         })}
