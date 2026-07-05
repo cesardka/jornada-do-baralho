@@ -36,7 +36,7 @@ Conforme eu fui fazendo o código do site, acabei pensando em uma possibilidade 
 
 Foi então que decidi comissionar (tá certo essa palavra ou tô sendo vítima de anglicismo?) minha amiga e animadora premiada para fazer essa introdução maravilhosa!
 
-Ela mora no Rio já há muitos anos, mas calhou de em janeiro de 2025 eu estaria no Rio para um campeonato regional de Pokémon e lá pude encontrar a Lena para conversar sobre essa proposta, mostrar o primeiro protótipo e receber um feedback dela. Voltando pra casa, no dia **10 de fevereiro de 2025** consegui parar e escrever detalhadamente o que eu imaginei:
+Ela mora no Rio já há muitos anos, mas calhou de em janeiro de 2025 eu estar no Rio para um campeonato regional de Pokémon e lá pude encontrar a Lena para conversar sobre essa proposta, mostrar o primeiro protótipo e receber um feedback dela. Voltando pra casa, no dia **10 de fevereiro de 2025** consegui parar e escrever detalhadamente o que eu imaginei:
 
 ![Descrevendo como seria a animação de entrada da Jornada do Baralho](/images/posts/2025-02-10/primeira_commission_abertura.webp)
 
@@ -60,7 +60,7 @@ Assistir e participar do processo de criação foi muito fantástico pra mim, e 
 
 ### Quem é Lena Franzz?
 
-A Lena, além de ser minha melhor amiga de uma vida toda, é animadora, diretora de animação, atriz de voz e fundadora do [Studio Chiffrezz](https://www.studiochifrezz.com/). Já foi premiada pelo curta metragem dela [Hornzz](https://www.studiochifrezz.com/projects/hornzz) e posso ir longe ainda mencionando o tanto de coisa absurda que ela já fez parte, como Irmão do Jorel, filmes do Snoopy, Tuca and Bertie, Batman... Currículo absurdo!
+A Lena, além de ser minha melhor amiga de uma vida toda, é animadora, diretora de animação, atriz de voz e fundadora do [Studio Chifrezz](https://www.studiochifrezz.com/). Já foi premiada pelo curta metragem dela [Hornzz](https://www.studiochifrezz.com/projects/hornzz) e posso ir longe ainda mencionando o tanto de coisa absurda que ela já fez parte, como Irmão do Jorel, filmes do Snoopy, Tuca and Bertie, Batman... Currículo absurdo!
 
 Se você gostou das ilustrações, sugiro dar um pulo na página de [Galeria](/galeria) onde eu juntei todas as artes que compõem a Jornada do Baralho. 🃏❤️
 

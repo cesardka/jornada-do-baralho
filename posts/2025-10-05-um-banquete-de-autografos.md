@@ -55,7 +55,7 @@ O Azaghal estava muito animado esse dia interagindo com todo mundo. Quando me ap
 
 Por acaso, percebi à esquerda do spot em um cantinho o Leo Radiofobia, sua esposa e o Sr. K conversando. Resolvi ser mais corajoso dessa vez e interagi com eles (mas me sentindo meio culpado e metido), tentando ser mais direto quanto ao baralho — afinal, não queria interromper demais o momento deles.
 
-O Leo foi super gentil e tirou pra mim a foto com o Sr. K, que realmente é uma pessoa tão reservada quanto ele transparece ser. Existe um ar de timidez em meio à toda loucura que ele apresenta nos programas, e pra mim isso dá um charme muito legal à persona dele. E vamos de joinha na foto! 👍
+O Leo foi super gentil e tirou pra mim a foto com o Sr. K, que realmente é uma pessoa tão reservada quanto ele transparece ser. Existe um ar de timidez em meio a toda loucura que ele apresenta nos programas, e pra mim isso dá um charme muito legal à persona dele. E vamos de joinha na foto! 👍
 
 ![Foto com o Sr. K](/images/posts/2025-10-05/foto_sr_k.jpeg)
 

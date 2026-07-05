@@ -31,11 +31,11 @@ Eles disponibilizam também um app próprio da CCXP (tem pra Android e iOS), que
 
 ### Minhas recomendações
 
-Eu considero ideal chegar a partir das 13h no evento, para curtir até o último minuto do dia às 21h, quando botam a vassoura de ponta-cabeça na porta e tocar a música no último volume para todo mundo ir embora pra casa. Como você vai saber qual o sinal? Ah, você com certeza vai perceber... Mas é basicamente esse coro da [música tema da CCXP](https://www.youtube.com/watch?v=aLL9DxKTQhg) tocando em loop para _litorar_ seus ouvidos:
+Eu considero ideal chegar a partir das 13h no evento, para curtir até o último minuto do dia às 21h, quando botam a vassoura de ponta-cabeça na porta e tocar a música no último volume para todo mundo ir embora pra casa. Como você vai saber qual o sinal? Ah, você com certeza vai perceber... Mas é basicamente esse coro da [música tema da CCXP](https://www.youtube.com/watch?v=aLL9DxKTQhg) tocando em loop para _torturar_ seus ouvidos:
 
 ![Coro da música tema da CCXP](/images/posts/2025-12-04/ta-na-hora-de-dar-tchau.mp3)
 
-Quando a pessoa compra o ingresso, é dada a opção de enviar das credenciais por Correio para a casa da pessoa, para já chegar com o crachá no pescoço e passar por todas as etapas de segurança até o saguão. Seria uma pena se eu não tivesse esquecido em casa as minhas credenciais em Porto Alegre, e por isso tive que pegar uma fila e pagar por credenciais a mais para poder entrar... Esse é um processo que pode demorar um tanto, então dá pra vivenciar todas as fases do luto enquanto passa o tempo na fila.
+Quando a pessoa compra o ingresso, é dada a opção de enviar as credenciais por Correio para a casa da pessoa, para já chegar com o crachá no pescoço e passar por todas as etapas de segurança até o saguão. Seria uma pena se eu não tivesse esquecido em casa as minhas credenciais em Porto Alegre, e por isso tive que pegar uma fila e pagar por credenciais a mais para poder entrar... Esse é um processo que pode demorar um tanto, então dá pra vivenciar todas as fases do luto enquanto passa o tempo na fila.
 
 Ao desembolsar R$50 para emitir uma cópia da credencial, deu tudo certo e pude entrar no São Paulo Expo.
 
@@ -75,7 +75,7 @@ Consegui a foto com o Alexandre segurando a carta, eles autografaram o livro, ma
 
 ![Foto com Alexandre](/images/signed-card/assinatura_alottoni2.jpg)
 
-Gravamos vários B-Rolls mostrando as assinaturas, fui entrevistado pelos Alexandre e o Deive, e respondi que não teria porque sair correndo pelo Briggs, afinal eu já tinha comprado um super ingresso VIP para encontrar com ele no dia 7 de dezembro (naquele domingo mesmo!), em um evento de Novo Hamburgo / RS, o Dream Fest. Comprei só pra isso!
+Gravamos vários B-Rolls mostrando as assinaturas, fui entrevistado pelo Alexandre e pelo Deive, e respondi que não teria porque sair correndo pelo Briggs, afinal eu já tinha comprado um super ingresso VIP para encontrar com ele no dia 7 de dezembro (naquele domingo mesmo!), em um evento de Novo Hamburgo / RS, o Dream Fest. Comprei só pra isso!
 
 Como era uma **certeza** pra mim, nem tava preocupado, até porque o Briggs fica mais pelos palcos e eu conseguir atacar ou encontrar ele passeando pelo saguão era bem mais difícil. Não sei se teria alguma sessão de autógrafos dedicada a ele na CCXP, e admito que não fui atrás disso também.
 

@@ -24,7 +24,7 @@ Um detalhe importante: eu tinha comprado o ingresso e a passagem pra essa sessã
 
 ### Downtown: um shopping, um planeta, uma dimensão paralela
 
-Eu nunca tinha ido ao Downtown nesses anos todos que frquentei o Estado da Guanabara, então aproveitei pra chegar um pouquinho mais cedo pra explorar. O lugar parece um shopping meio a céu aberto? Não sei se é um shopping exatamente, mas passa essa impressão. Talvez seja um _conceito_... hahaha. Só sei que fiquei incrédulo de como é grande o espaço. Achei sensacional esse espaço híbrido. Chiquérrimo, e ainda tava rolando até uma mini Oktoberfest por ali.
+Eu nunca tinha ido ao Downtown nesses anos todos que frequentei o Estado da Guanabara, então aproveitei pra chegar um pouquinho mais cedo pra explorar. O lugar parece um shopping meio a céu aberto? Não sei se é um shopping exatamente, mas passa essa impressão. Talvez seja um _conceito_... hahaha. Só sei que fiquei incrédulo de como é grande o espaço. Achei sensacional esse espaço híbrido. Chiquérrimo, e ainda tava rolando até uma mini Oktoberfest por ali.
 
 ![Downtown RJ](/images/posts/2025-10-14/downtown-rj.webp)
 
@@ -58,7 +58,7 @@ Para quem escolheu esse nível de apoio, a pipoca e o refrigerante eram entregue
 
 Os lugares não eram marcados, e depois de uns 10 minutos do horário marcado a sessão começou e, felizmente, já nos primeiros minutos fui surpreendido com um nível de produção bem acima do que eu esperava. Não era um filme com cara de novela, nem de trabalho de faculdade de cinema ou terror trash. Eles souberam lidar muito bem com as limitações do orçamento, criaram uma história mais contida, com um núcleo enxuto de personagens e sem mil subtramas, sem manias de grandeza arrastando o filme por mais de 2h. Isso deixou a película com um gostinho de “quero mais”.
 
-Minha única ressalva é que existem momentos que eles sussurram demais. Não atrapalha o filme, mas imagino que mixagem de som pra cinema seja uma novidade pra eles e um caos quando você não tem controle sobre o equipamento da sala, já que as experiências anteriores deles eram de áudiodramas, onde cada pessoa tem como ter pleno controle do nível de som ideal pra si, e no cinema é um terceiro gerenciando para muitos. Sou leigo de cinema, me corrijam se eu estiver viajando muito!
+Minha única ressalva é que existem momentos que eles sussurram demais. Não atrapalha o filme, mas imagino que mixagem de som pra cinema seja uma novidade pra eles e um caos quando você não tem controle sobre o equipamento da sala, já que as experiências anteriores deles eram de audiodramas, onde cada pessoa tem como ter pleno controle do nível de som ideal pra si, e no cinema é um terceiro gerenciando para muitos. Sou leigo de cinema, me corrijam se eu estiver viajando muito!
 
 Depois da exibição, rolou um papo de uns 45 minutos com parte do elenco (Luis Carlos Persy e a Jade Mascarenhas estavam lá), o Azaghal, o Ian e o Délcio Gomes, responsável pelos efeitos digitais. Falando no Délcio, foi muito foda ver como o CGI é sutil e funciona mais como complemento aos efeitos práticos. Toda a equipe de efeitos visuais tá de parabéns!
 

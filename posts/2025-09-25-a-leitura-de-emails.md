@@ -34,7 +34,7 @@ Nessa live inclusive, o papo sobre o baralho surgiu aos [00:35:15](https://www.y
 
 ![Ilustração Harald Stricker para capa e contra-capa da primeira versão publicada da Nerd Books d'A Batalha do Apocalipse, livro de Eduardo Spohr](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNxzWi_M5B4ej7xcyxSah4xnpa1ZPWmHoRCpzDR7BYjnYvOBspJvVOUM4eXTOOANQmRr_4F5AQTZ8GdKeYux5rkYTU_0YrgamQLC2_pzp0dziFELSF5n0Ua0qWgt7ZYj4TS5Q7eVuxzxo1/s1600/ABDA.jpg)
 
-Fiquei até curioso se eles já tinham visto o e-mail, ou entrado no site, mas não vi acesso nenhum. Resolvi mandar uma mensagem no chat da live falando publicamente pela primeira vez da **Jornada do Baralho 🃏** (comum mesmo, não ia pagar Super Chat pra ser vaidoso desse jeito 😜) colocando o endereço do site e dizendo que tem alguém indo atrás de todas as assinaturas.
+Fiquei até curioso se eles já tinham visto o e-mail, ou entrado no site, mas não vi acesso nenhum. Resolvi mandar uma mensagem no chat da live falando publicamente pela primeira vez da **Jornada do Baralho 🃏** (mensagem comum mesmo, não ia pagar Super Chat pra ser vaidoso desse jeito 😜) colocando o endereço do site e dizendo que tem alguém indo atrás de todas as assinaturas.
 
 ... mas ninguém clicou no link... 😭🪈🎶
 

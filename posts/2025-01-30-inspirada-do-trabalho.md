@@ -42,7 +42,7 @@ Ainda não sou grande coisa como jogador de Poker, mas agora Balatro se tornou m
 
 Apesar de eu já ter mencionado ali em cima como algo que talvez seja clichê, eu queria trazer um breve histórico sobre a arte perdida das tecnologias esquisitas, especialmente ali entre os anos 90 e 2000, na era da internet discada.
 
-Fui uma criança da internet discada e dos jogos _point and click_. Meu avô era funcionário da [Datamec](https://pt.wikipedia.org/wiki/Datamec), extinta empresa estatal de tecnologia privatizada em 1999, e eu acabei tendo acesso a computador em casa e internet desde muito cedo. O meu tablet era basicamente um monitor de tubo gigante numa típica escrivainha-pedestal onde eu passava o tempo no MSPaint, Warcraft II, e outros jogos que ele me trazia de presente.
+Fui uma criança da internet discada e dos jogos _point and click_. Meu avô era funcionário da [Datamec](https://pt.wikipedia.org/wiki/Datamec), extinta empresa estatal de tecnologia privatizada em 1999, e eu acabei tendo acesso a computador em casa e internet desde muito cedo. O meu tablet era basicamente um monitor de tubo gigante numa típica escrivaninha-pedestal onde eu passava o tempo no MSPaint, Warcraft II, e outros jogos que ele me trazia de presente.
 
 Eu sempre fiquei fascinado com o estilo dos jogos daquela época, principalmente quando tinham ponteiros customizados, os menus com formatos orgânicos, as cores limitadas, as animaçõezinhas...
 

@@ -32,11 +32,11 @@ Eu comprei meu ingresso no dia 18 de outubro de 2025, e, segundo o evento, a alt
 
 ![Ingresso VIP](/images/posts/2025-12-07/ingresso-dreamfest.png)
 
-Quando eu me dei conta disso tudo, começou a passar flashes na minha mente do Deive falando _"ELE TÁ AQUI! VAI LÁ FALAR COM O BRIGGS"_ (som de eco), o Briggs passando do meu lado enquanto eu almoçava e eu falando _"NÃO TEM PROBLEMA, DOMINGO EU VEJO ELE LÁ"_, e o Eduardo Spohr caminhando para o horizonte, em preto e branco.
+Quando eu me dei conta disso tudo, começaram a passar flashes na minha mente do Deive falando _"ELE TÁ AQUI! VAI LÁ FALAR COM O BRIGGS"_ (som de eco), o Briggs passando do meu lado enquanto eu almoçava e eu falando _"NÃO TEM PROBLEMA, DOMINGO EU VEJO ELE LÁ"_, e o Eduardo Spohr caminhando para o horizonte, em preto e branco.
 
 ![Reencenação dramática desse momento](/images/posts/2025-12-07/lobo-pidao.webp)
 
-É claro também que mesmo com todas essas situações e falta de comunicação citadas acima, a organização do evento se recusou a reembolsar quem foi prejudicado e enganado tanto pelos anúncios da Florinda e do Briggs. Pior ainda se a pessoa comprou o ingresso há mais de 7 dias (imagino que a maioria), já que a política de cancelamento deles não cobre esses casos. E os e-mails que foram pouco respondidos, quando não ignorados, serviram de nada.
+É claro também que mesmo com todas essas situações e falta de comunicação citadas acima, a organização do evento se recusou a reembolsar quem foi prejudicado e enganado tanto pelos anúncios da Florinda e do Briggs. Pior ainda se a pessoa comprou o ingresso há mais de 7 dias (imagino que a maioria), já que a política de cancelamento deles não cobre esses casos. E os e-mails que foram pouco respondidos, quando não ignorados, de nada serviram.
 
 Comunicação direta com os compradores de ingresso usando o contato direto que vocês têm cadastrado é essencial. É marketing, é transparência. É o mínimo do mínimo!
 

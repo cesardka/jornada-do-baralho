@@ -82,7 +82,7 @@ Um grande banner temático nos recebia mostrando a parceria entre Jovem Nerd e a
 
 ![Foto 1: Sacolinha com kit do evento; Foto 2: Vista superior de dentro da sacola com os brindes comemorativos](/images/posts/2025-10-04/kit_nerdcast1000.webp)
 
-Entrando mais adiante no salão, havia uma parede enorme lotada de posters com os Nerdcasters que participaram do comemoração do Nerdcast 1000 (ilustradas pelo Randall Randomm [@randallrandomm](https://www.instagram.com/randallrandomm/?hl=en) que estavam FANTÁSTICAS), vários dos prêmios que eles ganharam ao longo dos mais de 20 anos de Jovem Nerd (iBest, MTV, Spotify, Leão de Cannes...). Foi incrível presenciar de perto tantos itens históricos que eu bem ou mal acompanhei, mas de muito longe como apenas um mero ouvinte.
+Entrando mais adiante no salão, havia uma parede enorme lotada de posters com os Nerdcasters que participaram da comemoração do Nerdcast 1000 (ilustrados pelo Randall Randomm [@randallrandomm](https://www.instagram.com/randallrandomm/?hl=en) que estavam FANTÁSTICAS), vários dos prêmios que eles ganharam ao longo dos mais de 20 anos de Jovem Nerd (iBest, MTV, Spotify, Leão de Cannes...). Foi incrível presenciar de perto tantos itens históricos que eu bem ou mal acompanhei, mas de muito longe como apenas um mero ouvinte.
 
 <!-- FOTO PREMIOS EM DISPLAY DO GRUPO JOVEM NERD -->
 
@@ -128,7 +128,7 @@ Eu me desprendi do povo e fiquei numa fila que se formou pra entrar na segunda a
 
 No fim das contas o que determinava o acesso ao auditório era a sessão da pessoa e a categoria (Milhões, Megaboga e Humildão, nessa ordem).
 
-Já quase 19h, entrei no auditório e escolhi um lugar na segunda-fileira e não tão no meio. A minha linha de raciocínio é que como eu estava sozinho, preencher esses lugares mais ao canto era mais ideal para dar preferência a quem estava entrando em grupos maiores poder ficar no meio. Não sei se faz tanto sentido, mas tentei ser solidário. Não sei, falando agora em _voz alta_ acho que nada disso fez sentido.
+Já quase 19h, entrei no auditório e escolhi um lugar na segunda fileira e não tão no meio. A minha linha de raciocínio é que como eu estava sozinho, preencher esses lugares mais ao canto era mais ideal para dar preferência a quem estava entrando em grupos maiores poder ficar no meio. Não sei se faz tanto sentido, mas tentei ser solidário. Não sei, falando agora em _voz alta_ acho que nada disso fez sentido.
 
 Em frente ao palco, tinha uma tela projetando cortes de [Nerdcast Stories](https://www.youtube.com/playlist?list=PLS0fUCS21DUGhGfh0zW-xk330m9osMkgS) rolando em loop para aquecer a galera mostrando vários momentos clássicos dos participantes até que todo mundo estivesse alocado nos seus assentos.
 
@@ -154,7 +154,7 @@ Uma coisa que fiquei intrigado de presenciar foi que o [Eduardo Spohr](https://w
 
 ### Três Fãs Penetras E Um Sonho
 
-Eu, Rafa e Juh ficamos na espreita do palco ao final da nossa apresentação, na esperança de puxar alguém da produção e ver se rolava um encontro rapidinho com o elenco. O tempo era apertado, e eles mal teriam tempo de descansar até o início da última sessão da noite que já estava atrasada, mas tentar não custava nada. Nesse meio tempo, os dois foram puxados para uma entrevista, o [Load](https://www.instagram.com/loadcomics/?hl=en) apareceu pra fazer uma matéria, o [Vidane](https://www.instagram.com/principevidane/?hl=en) entrou com a live e foi até os bastidores... Infelizmente não tinhamos credenciais para acessar essas partes do evento. 😜
+Eu, Rafa e Juh ficamos na espreita do palco ao final da nossa apresentação, na esperança de puxar alguém da produção e ver se rolava um encontro rapidinho com o elenco. O tempo era apertado, e eles mal teriam tempo de descansar até o início da última sessão da noite que já estava atrasada, mas tentar não custava nada. Nesse meio tempo, os dois foram puxados para uma entrevista, o [Load](https://www.instagram.com/loadcomics/?hl=en) apareceu pra fazer uma matéria, o [Vidane](https://www.instagram.com/principevidane/?hl=en) entrou com a live e foi até os bastidores... Infelizmente não tínhamos credenciais para acessar essas partes do evento. 😜
 
 As coisas não estavam parecendo muito positivas pro nosso lado, até que chegou o momento de nos correrem do auditório porque o pessoal da próxima leva precisava entrar. Ficamos os três aguardando no lado de fora, até apareceu o [Marcelo Bassoli](https://www.instagram.com/marcelobassoli/?hl=en) e o [Mau Faccio](https://www.instagram.com/sitedomau/) nesse meio tempo pro Rafa pegar a assinatura, mas no fim não conseguimos ir além disso e encontrar com o resto dos Nerdcasters.
 

@@ -67,7 +67,7 @@ Infelizmente no dia 23 de outubro recebi uma notificação da Jadlog me avisando
 
 ![Conversa com vendedora do Enjoei, anunciando que a Jadlog extraviou o pacote](/images/posts/2024-10-24/Screenshot%202025-09-25%20at%2002.27.01.png)
 
-O Enjoei me estornou o valor da compra e deram o valor segurado para a vendedora, mas ainda assim achei muita sacanagem perderam o produto assim, ainda mais por se tratar de um item tão único e significativo... Ficou o sentimento de que todo mundo saiu perdendo nessa história.
+O Enjoei me estornou o valor da compra e deram o valor segurado para a vendedora, mas ainda assim achei muita sacanagem perderem o produto assim, ainda mais por se tratar de um item tão único e significativo... Ficou o sentimento de que todo mundo saiu perdendo nessa história.
 
 Admito que fiquei muito desbundado com isso, porém continuei adiantando o que dava para que o projeto saísse do mundo das ideias.
 
