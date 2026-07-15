@@ -269,9 +269,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-francine.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2026-07-15T14:30:00.000Z"),
+    signedLocation: "Rio de Janeiro, RJ",
+    signedSrc: "/images/signed-card/assinatura_francine.webp",
     socialMedia: [
       {
         name: "Agência de Viagem 'Glad Vip Travel'",
