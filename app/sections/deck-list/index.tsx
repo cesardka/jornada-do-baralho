@@ -575,7 +575,15 @@ export default function DeckList() {
               onMouseLeave={() => handleCardMouseLeave(card)}
             >
               <div className="flip-card-inner">
-                <div className="flip-card-front">
+                <div
+                  className="flip-card-front"
+                  style={{
+                    backgroundImage: `url("${card.originalSrc.replace(
+                      "/images/card/",
+                      "/images/cards-LQ/",
+                    )}")`,
+                  }}
+                >
                   <Image
                     src={card.originalSrc}
                     alt={`${t("deckList.cardFrontAltPrefix")}${card.name}${t(

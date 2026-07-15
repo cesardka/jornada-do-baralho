@@ -216,7 +216,16 @@ html {
 
 .flip-card-back {
   transform: rotateY(180deg);
-  background-image: url("/images/card/card-back-blue-lower.webp");
+  background-image: url("/images/cards-LQ/card-back-blue.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--cardBorder);
+}
+
+/* Low-quality background placeholder for card fronts. The full-res
+ * <Image> is rendered on top and covers this once decoded. */
+.flip-card-front {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
