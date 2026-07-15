@@ -143,6 +143,13 @@ export default function RootLayout({
       >
         <link
           rel="preload"
+          href="/images/card/card-back-blue-lower.webp"
+          as="image"
+          type="image/webp"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
           href="/images/card/card-back-blue.webp"
           as="image"
           type="image/webp"

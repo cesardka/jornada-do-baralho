@@ -216,6 +216,11 @@ html {
 
 .flip-card-back {
   transform: rotateY(180deg);
+  background-image: url("/images/card/card-back-blue-lower.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--cardBorder);
 }
 
 /* ------------------------------------ */
