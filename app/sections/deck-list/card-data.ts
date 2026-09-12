@@ -429,9 +429,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-android.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2012-10-12T19:26:48.000Z"),
+    signedLocation: "Livraria Arte & Letra, Curitiba - PR",
+    signedSrc: "/images/signed-card/assinatura_harald.jpg",
     socialMedia: [
       {
         name: "Nerdcast 594 - Blade Runner 2049: menos noir e mais futurista",
@@ -573,9 +573,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♥",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-briggs.webp",
-    signedOn: null,
-    signedLocation: null,
-    signedSrc: null,
+    signedOn: new Date("2026-09-11T19:26:48.000Z"),
+    signedLocation: "Go Games Festival, Goiânia - GO",
+    signedSrc: "/images/signed-card/assinatura_briggs.jpeg",
     socialMedia: [
       {
         name: "Dublapédia",
