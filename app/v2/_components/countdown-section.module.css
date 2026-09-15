@@ -1,0 +1,348 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  width: 100%;
+  height: max(42rem, 100svh);
+  color: white;
+  background: #071219;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: max(42rem, 100svh);
+  pointer-events: none;
+}
+
+.layer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+.background {
+  z-index: 0;
+  transform: scale(1.06);
+  transform-origin: center;
+}
+
+.fire {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  transform: scale(1.06);
+  transform-origin: center;
+}
+
+.fireFrame {
+  visibility: hidden;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  scale: 0.95;
+  translate: 0 2%;
+  transform-origin: center;
+}
+
+.fireFrame:first-child {
+  visibility: visible;
+  background-image: url("/images/bg/countdown/fire/placeholder.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+
+.podium {
+  z-index: 3;
+}
+
+.ambientGlow {
+  z-index: 2;
+  opacity: 0.38;
+  mix-blend-mode: screen;
+  animation: ambient-pulse 1.8s ease-in-out infinite alternate;
+}
+
+.statue {
+  z-index: 3;
+  transform: scale(1.06);
+  transform-origin: center;
+}
+
+.statueLit {
+  opacity: 0.12;
+  animation: statue-pulse 1.8s ease-in-out infinite alternate;
+}
+
+.eyesScene {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  transform: scale(1.06);
+  transform-origin: center;
+}
+
+.eyesTracker {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.eyesBlink {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 46%;
+  will-change: transform, opacity;
+}
+
+.eyesImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+}
+
+.statueHitTarget {
+  position: absolute;
+  z-index: 1;
+  top: 5%;
+  left: 31%;
+  width: 38%;
+  height: 62%;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.statueHitTarget:focus-visible {
+  outline: 3px solid #ffbf5e;
+  outline-offset: -8px;
+}
+
+.foreground {
+  z-index: 3;
+  transform: translateY(3%) scale(1.025);
+  transform-origin: center;
+}
+
+.foregroundGlow {
+  z-index: 5;
+  opacity: 0.45;
+  transform: translateY(3%) scale(1.025);
+  transform-origin: center;
+  animation: foreground-pulse 1.2s ease-in-out infinite alternate;
+}
+
+.content {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  width: min(100% - 2rem, 96rem);
+  height: max(42rem, 100svh);
+  margin-inline: auto;
+  padding-block: clamp(5rem, 8vh, 6.5rem) clamp(2rem, 5vh, 4rem);
+  pointer-events: none;
+}
+
+.heading {
+  max-width: 54rem;
+  margin-inline: auto;
+  text-align: center;
+  text-shadow: 0 3px 18px rgb(0 0 0 / 90%);
+  pointer-events: auto;
+}
+
+.eyebrow,
+.title,
+.elapsed {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.eyebrow {
+  margin-bottom: 0.55rem;
+  color: #ffbf5e;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.title {
+  font-size: clamp(3.4rem, 8vw, 7.5rem);
+  line-height: 0.88;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.wordLine {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.22em;
+}
+
+.wordMask {
+  --word-leading: 0.12em;
+
+  display: inline-block;
+  overflow: clip;
+  height: calc(1lh + var(--word-leading));
+  clip-path: inset(0);
+  contain: paint;
+}
+
+.wordTrack {
+  display: block;
+  will-change: transform;
+}
+
+.wordCopy {
+  display: block;
+  box-sizing: border-box;
+  height: calc(1lh + var(--word-leading));
+  padding-block-start: var(--word-leading);
+}
+
+.wordCopy + .wordCopy {
+  padding-block-start: calc(var(--word-leading) + 0.1em);
+}
+
+.elapsed {
+  align-self: center;
+  margin-top: auto;
+  color: rgb(255 255 255 / 88%);
+  font-size: clamp(0.78rem, 1.3vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 95%);
+}
+
+.dayCount {
+  display: inline-block;
+  visibility: hidden;
+  overflow: clip;
+  width: 5ch;
+  height: 1lh;
+  margin-inline: 0;
+  opacity: 0;
+  transform-origin: center bottom;
+  vertical-align: bottom;
+  clip-path: inset(0);
+  contain: paint;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.dayCountTrack,
+.dayCountCopy {
+  display: block;
+  height: 1lh;
+}
+
+.dayCountTrack {
+  will-change: transform;
+}
+
+@keyframes statue-pulse {
+  from {
+    opacity: 0.12;
+  }
+  to {
+    opacity: 0.92;
+  }
+}
+
+@keyframes ambient-pulse {
+  from {
+    opacity: 0.12;
+  }
+  to {
+    opacity: 0.58;
+  }
+}
+
+@keyframes foreground-pulse {
+  from {
+    opacity: 0.08;
+  }
+  to {
+    opacity: 0.68;
+  }
+}
+
+@media (min-width: 40.01rem) and (max-width: 64rem) {
+  .eyebrow {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+  }
+
+  .title {
+    font-size: clamp(4.75rem, 10vw, 7rem);
+  }
+
+  .elapsed {
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+  }
+}
+
+@media (max-width: 40rem) {
+  .statueHitTarget {
+    top: 8%;
+    left: 15%;
+    width: 70%;
+    height: 58%;
+  }
+
+  .section,
+  .content {
+    height: max(38rem, 100svh);
+  }
+
+  .scene {
+    height: max(38rem, 100svh);
+  }
+
+  .content {
+    padding-top: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer,
+  .eyesTracker,
+  .eyesBlink,
+  .wordTrack,
+  .dayCountTrack {
+    will-change: auto;
+  }
+
+  .ambientGlow,
+  .statueLit,
+  .foregroundGlow {
+    animation: none;
+  }
+
+  .statueLit {
+    opacity: 0.55;
+  }
+
+  .eyebrow,
+  .title,
+  .elapsed {
+    visibility: visible;
+    opacity: 1;
+  }
+}
