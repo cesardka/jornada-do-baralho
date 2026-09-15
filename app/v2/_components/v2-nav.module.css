@@ -1,0 +1,245 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: 5rem;
+  color: white;
+  background: transparent;
+}
+
+.header nav {
+  text-shadow:
+    0 1px 5px rgb(0 0 0 / 90%),
+    0 0 18px rgb(0 0 0 / 65%);
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 85%))
+    drop-shadow(0 0 14px rgb(0 0 0 / 55%));
+}
+
+.adaptiveControl {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    backdrop-filter 180ms ease;
+}
+
+.adaptiveControl:focus-visible {
+  background: rgb(0 0 0 / 58%);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 28%),
+    0 4px 20px rgb(0 0 0 / 20%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .adaptiveControl:hover {
+    background: rgb(0 0 0 / 58%);
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 28%),
+      0 4px 20px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+  }
+}
+
+.dialog {
+  opacity: 0;
+  transform: translateX(100%);
+  transition:
+    opacity 320ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    display 320ms allow-discrete,
+    overlay 320ms allow-discrete;
+  transition-behavior: allow-discrete;
+}
+
+.dialog[open]:not([data-closing]) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 0%);
+  transition:
+    background-color 320ms ease,
+    display 320ms allow-discrete,
+    overlay 320ms allow-discrete;
+}
+
+.dialog[open]:not([data-closing])::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+
+.dialogPanel {
+  overflow-y: auto;
+}
+
+.mobileSections li,
+.mobileUtilities {
+  opacity: 0;
+  transform: translateX(1.5rem);
+  transition:
+    opacity 240ms ease,
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dialog[open]:not([data-closing]) .mobileSections li,
+.dialog[open]:not([data-closing]) .mobileUtilities {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobileSections li:nth-child(1) {
+  transition-delay: 40ms;
+}
+
+.mobileSections li:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.mobileSections li:nth-child(3) {
+  transition-delay: 100ms;
+}
+
+.mobileSections li:nth-child(4) {
+  transition-delay: 130ms;
+}
+
+.mobileSections li:nth-child(5) {
+  transition-delay: 160ms;
+}
+
+.mobileSections li:nth-child(6) {
+  transition-delay: 190ms;
+}
+
+.mobileSections li:nth-child(7),
+.mobileUtilities {
+  transition-delay: 220ms;
+}
+
+.dialog[data-closing] .mobileSections li,
+.dialog[data-closing] .mobileUtilities {
+  transition-delay: 0ms;
+}
+
+.mobileSectionLink,
+.mobileUtility,
+.mobileClose {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.mobileSectionLink:focus-visible {
+  color: #016745;
+  background: white;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+  transform: translateX(0.45rem);
+}
+
+.mobileUtility:focus-visible {
+  color: #016745;
+  background: white;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+  transform: translateY(-0.15rem) scale(1.03);
+}
+
+.mobileClose:focus-visible {
+  background: rgb(255 255 255 / 15%);
+  transform: rotate(90deg) scale(1.08);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mobileSectionLink:hover {
+    color: #016745;
+    background: white;
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+    transform: translateX(0.45rem);
+  }
+
+  .mobileUtility:hover {
+    color: #016745;
+    background: white;
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+    transform: translateY(-0.15rem) scale(1.03);
+  }
+
+  .mobileClose:hover {
+    background: rgb(255 255 255 / 15%);
+    transform: rotate(90deg) scale(1.08);
+  }
+}
+
+@starting-style {
+  .dialog[open] {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .dialog[open]::backdrop {
+    background: rgb(0 0 0 / 0%);
+  }
+
+  .dialog[open] .mobileSections li,
+  .dialog[open] .mobileUtilities {
+    opacity: 0;
+    transform: translateX(1.5rem);
+  }
+}
+
+.desktopNav {
+  display: none;
+}
+
+.menuButton {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog,
+  .dialog::backdrop,
+  .mobileSections li,
+  .mobileUtilities,
+  .mobileSectionLink,
+  .mobileUtility,
+  .mobileClose {
+    transition-duration: 100ms;
+  }
+
+  .dialog,
+  .dialog[open],
+  .mobileSections li,
+  .dialog[open] .mobileSections li,
+  .mobileUtilities,
+  .dialog[open] .mobileUtilities,
+  .mobileSectionLink,
+  .mobileUtility,
+  .mobileClose {
+    transform: none;
+  }
+}
+
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  .logo {
+    height: 3.5rem;
+  }
+
+  .desktopNav {
+    display: flex;
+  }
+
+  .menuButton,
+  .dialog {
+    display: none;
+  }
+}
