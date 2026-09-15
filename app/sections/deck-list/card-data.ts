@@ -12,6 +12,7 @@ export type NerdcastCard = {
   originalSrc: string;
   signedOn: Date | null;
   signedLocation: string | null;
+  signedContext?: string;
   signedSrc: string | null;
   socialMedia?: {
     name: string;
@@ -47,9 +48,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-alottoni.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation:
-      "CCXP 2025, na sessão de autógrafos do Jovem Nerd Zerando a Vida",
+    signedOn: new Date("2025-12-04"),
+    signedLocation: "CCXP 2025",
+    signedContext: "Sessão de autógrafos do Jovem Nerd: Zerando a Vida",
     signedSrc: "/images/signed-card/assinatura_alottoni2.jpg",
     socialMedia: [
       {
@@ -92,7 +93,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "K",
     originalSrc: "/images/card/nerdcast-k-azaghal.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_azaghal.webp",
     socialMedia: [
       {
@@ -131,7 +133,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "K",
     originalSrc: "/images/card/nerdcast-k-jp.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_jp.webp",
     socialMedia: [
       {
@@ -170,7 +173,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "K",
     originalSrc: "/images/card/nerdcast-k-srk.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_sr_k.jpeg",
     socialMedia: [
       {
@@ -203,7 +207,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-srajovemnerd.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_sra_jovem_nerd.webp",
     socialMedia: [
       {
@@ -236,7 +241,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-portuguesa.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_portuguesa.jpeg",
     socialMedia: [
       {
@@ -294,7 +300,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-ruiva.webp",
     signedOn: new Date("2025-10-14T20:26:48.000Z"),
-    signedLocation: 'Pré-Estreia "A Própria Carne" no Rio de Janeiro, RJ',
+    signedLocation: "Rio de Janeiro, RJ",
+    signedContext: 'Pré-estreia de "A Própria Carne"',
     signedSrc: "/images/signed-card/assinatura_ruiva.webp",
   },
   {
@@ -327,8 +334,9 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "J",
     originalSrc: "/images/card/nerdcast-j-eduardospohr.webp",
     signedOn: new Date("2025-11-08T16:26:48.000Z"),
-    signedLocation:
-      'sessão de autógrafos após lançamento do livro "Santo Guerreiro: O Império do Leste" na 71ª Feira do Livro de Porto Alegre',
+    signedLocation: "71ª Feira do Livro de Porto Alegre",
+    signedContext:
+      'Sessão de autógrafos após o lançamento de "Santo Guerreiro: O Império do Leste"',
     signedSrc: "/images/signed-card/assinatura_eduardo_spohr.jpeg",
     socialMedia: [
       {
@@ -396,7 +404,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "J",
     originalSrc: "/images/card/nerdcast-j-tucano.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_tucano.webp",
     socialMedia: [
       {
@@ -431,7 +440,7 @@ export const DECK_LIST: NerdcastCard[] = [
     originalSrc: "/images/card/nerdcast-a-android.webp",
     signedOn: new Date("2012-10-12T19:26:48.000Z"),
     signedLocation: "Livraria Arte & Letra, Curitiba - PR",
-    signedSrc: "/images/signed-card/assinatura_harald.jpg",
+    signedSrc: "/images/illustrations/ilustra-harald_stricker.jpeg",
     socialMedia: [
       {
         name: "Nerdcast 594 - Blade Runner 2049: menos noir e mais futurista",
@@ -574,7 +583,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "A",
     originalSrc: "/images/card/nerdcast-a-briggs.webp",
     signedOn: new Date("2026-09-11T19:26:48.000Z"),
-    signedLocation: "Go Games Festival, Goiânia - GO",
+    signedLocation: "Goiânia, GO",
+    signedContext: "Go Games Festival",
     signedSrc: "/images/signed-card/assinatura_briggs.jpeg",
     socialMedia: [
       {
@@ -607,7 +617,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "A",
     originalSrc: "/images/card/nerdcast-a-carlosvoltor.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Arena Magalu, Banquete Real by Bem Brasil",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_carlos_voltor.jpeg",
     socialMedia: [
       {
@@ -646,7 +657,8 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "A",
     originalSrc: "/images/card/nerdcast-a-nickellis.webp",
     signedOn: new Date("2025-10-05T15:26:48.000Z"),
-    signedLocation: "Nerdcast 1000, no Teatro Moise Safra, São Paulo, SP",
+    signedLocation: "Teatro Moise Safra, São Paulo, SP",
+    signedContext: "Nerdcast 1000",
     signedSrc: "/images/signed-card/assinatura_nick_ellis.jpeg",
     socialMedia: [
       {
@@ -680,8 +692,9 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Joker",
     originalSrc: "/images/card/nerdcast-joker-fabioyabu.webp",
     signedOn: new Date("2025-11-02T15:26:48.000Z"),
-    signedLocation:
-      'palestra "Música, Choro e Combo Rangers de Dentes: Variando Entre Estilos Produzindo Quadrinhos no Brasil" durante a 71ª Feira do Livro de Porto Alegre',
+    signedLocation: "71ª Feira do Livro de Porto Alegre",
+    signedContext:
+      'Palestra "Música, Choro e Combo Rangers de Dentes: Variando Entre Estilos Produzindo Quadrinhos no Brasil"',
     signedSrc: "/images/signed-card/assinatura_fabio_yabu.jpg",
     socialMedia: [
       {
