@@ -2,28 +2,33 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { EXRLoader } from "three/examples/jsm/loaders/EXRLoader.js";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
-import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import gsap from "gsap";
 
 const MODEL_DIR = "/models/caixa-baralho-nerdcast";
 const OBJ_FILE = "caixa-baralho-nerdcast.obj";
+const ENVIRONMENT_FILE = "forest.exr";
+const BLENDER_POINT_LIGHT_POSITION = new THREE.Vector3(
+  4.076245,
+  5.903862,
+  -1.005454,
+);
 
 // Texture filenames inside MODEL_DIR
 const TEX_FILES = {
+  bodyDiffuse: "texture_diffuse.png",
   bodyRoughness: "texture_roughness.png",
   bodyNormal: "texture_normal.png",
   lidArtwork: "caixa2-transp.png",
   interior: "caixa-baralho-nerdcast-textura-interna.png",
 } as const;
 
-// Per-material base colors derived from the MTL Kd entries, then tinted slightly warm
-// (a touch more red/green than blue) so the polished tin reads as champagne-silver
-// rather than cold chrome.
-const BODY_KD = new THREE.Color(0.78, 0.74, 0.68);
-const LID_TOP_KD = new THREE.Color(0.78, 0.74, 0.68);
-const FRONT_CLEAN_KD = new THREE.Color(0.55, 0.52, 0.48);
-const LID_INTERIOR_KD = new THREE.Color(0.65, 0.62, 0.57);
+// Base colors mirror the active Blender material nodes in linear color space.
+const BODY_KD = new THREE.Color(0.85, 0.87, 0.92);
+const LID_TOP_KD = new THREE.Color(0.626889, 0.641639, 0.678515);
+const FRONT_CLEAN_KD = new THREE.Color(0.52, 0.54, 0.58);
+const LID_INTERIOR_KD = new THREE.Color(0.627, 0.642, 0.679);
 
 /**
  * TinBox section
@@ -33,7 +38,31 @@ const LID_INTERIOR_KD = new THREE.Color(0.65, 0.62, 0.57);
  * is intentionally minimal so we can layer additional ThreeJS animations
  * and a PixiJS 2D overlay on top of it later.
  */
-export default function TinBox() {
+type TinBoxProps = {
+  embedded?: boolean;
+  autoRotate?: boolean;
+  interactiveLid?: boolean;
+  loadingLabel?: string;
+  modelScale?: number;
+  overscanPercent?: number;
+  spinEaseDuration?: number;
+  spinStartDelay?: number;
+  onReady?: (firstFrame: string | null) => void;
+  className?: string;
+};
+
+export default function TinBox({
+  embedded = false,
+  autoRotate = false,
+  interactiveLid = true,
+  loadingLabel = "Carregando caixa…",
+  modelScale = 1,
+  overscanPercent = 0,
+  spinEaseDuration = 0,
+  spinStartDelay = 0,
+  onReady,
+  className = "",
+}: TinBoxProps) {
   const mountRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -45,6 +74,13 @@ export default function TinBox() {
     // mode mounts → cleans up → mounts again in dev; long-running texture/OBJ loads
     // could otherwise mutate a torn-down renderer).
     let disposed = false;
+    let assetsLoaded = false;
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let shouldRotate = autoRotate && !motionQuery.matches;
+    const handleMotionChange = () => {
+      shouldRotate = autoRotate && !motionQuery.matches;
+    };
+    motionQuery.addEventListener("change", handleMotionChange);
 
     // ---- Renderer ----
     const renderer = new THREE.WebGLRenderer({
@@ -57,8 +93,10 @@ export default function TinBox() {
     // canvas freezing and clicks appearing to stop working.
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.9;
+    renderer.toneMapping = THREE.AgXToneMapping;
+    renderer.toneMappingExposure = 1;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
     // Explicit CSS so the canvas always fills the absolutely-positioned mount
     // regardless of what setSize does — canvas is inline-replaced by default which
     // was making it render at its intrinsic buffer size instead of scaling with the
@@ -71,44 +109,62 @@ export default function TinBox() {
     // ---- Scene & camera ----
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 100);
-    camera.position.set(2.5, 1.8, 3.2);
-    camera.lookAt(0, 0.2, 0);
+    camera.position.set(
+      embedded ? 3.35 : 2.5,
+      embedded ? 2.8 : 1.8,
+      embedded ? 4.3 : 3.2,
+    );
+    camera.lookAt(0, embedded ? 0 : 0.2, 0);
 
     // ---- Environment (so metallic surfaces have something to reflect) ----
-    // Without an env map, metals appear nearly black because they only reflect.
-    // RoomEnvironment gives a generic studio-cube with bright panels & dark walls,
-    // which yields recognizable metal highlights/streaks on a curved surface.
     const pmrem = new THREE.PMREMGenerator(renderer);
-    const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-    scene.environment = envTex;
-    scene.environmentIntensity = 0.85;
+    let environmentSource: THREE.DataTexture | null = null;
+    let environmentTexture: THREE.Texture | null = null;
 
     // ---- Lights ----
-    // Warm hemisphere (sunset-ish sky / amber ground) gives the silver a warm cast.
-    const hemi = new THREE.HemisphereLight(0xffe9c6, 0x2a1810, 0.35);
-    scene.add(hemi);
-
-    // Warm key light — main highlight streak across the tin.
-    const key = new THREE.DirectionalLight(0xffd9a0, 0.7);
-    key.position.set(3, 4, 2);
+    const key = new THREE.PointLight(0xffffff, 1, 0, 2);
+    key.power = 1000;
+    key.castShadow = true;
+    key.shadow.mapSize.set(512, 512);
+    key.shadow.camera.near = 0.1;
+    key.shadow.camera.far = 30;
+    key.shadow.bias = -0.0005;
+    key.shadow.radius = 2;
     scene.add(key);
 
-    // Warm low-intensity fill to avoid a cold blue shadow side.
-    const fill = new THREE.DirectionalLight(0xffcf99, 0.2);
-    fill.position.set(-3, 2, -1);
-    scene.add(fill);
-
-    // Amber rim from behind for separation.
-    const rim = new THREE.DirectionalLight(0xffb56b, 0.3);
-    rim.position.set(0, 2, -4);
-    scene.add(rim);
+    const shadowPlane = new THREE.Mesh(
+      new THREE.PlaneGeometry(10, 10),
+      new THREE.ShadowMaterial({ color: 0x06261a, opacity: 0.34 }),
+    );
+    shadowPlane.rotation.x = -Math.PI / 2;
+    shadowPlane.receiveShadow = true;
+    scene.add(shadowPlane);
 
     // Root group so we can animate box + lid together
     const root = new THREE.Group();
+    root.rotation.x = autoRotate ? 0.12 : 0;
     scene.add(root);
 
     // ---- Texture loading ----
-    const texLoader = new THREE.TextureLoader().setPath(`${MODEL_DIR}/`);
+    const loadingManager = new THREE.LoadingManager();
+    loadingManager.onLoad = () => {
+      if (!disposed) assetsLoaded = true;
+    };
+    new EXRLoader(loadingManager)
+      .setPath(`${MODEL_DIR}/`)
+      .load(ENVIRONMENT_FILE, (source) => {
+        if (disposed) {
+          source.dispose();
+          return;
+        }
+        environmentSource = source;
+        environmentTexture = pmrem.fromEquirectangular(source).texture;
+        scene.environment = environmentTexture;
+        scene.environmentIntensity = 1;
+      });
+    const texLoader = new THREE.TextureLoader(loadingManager).setPath(
+      `${MODEL_DIR}/`,
+    );
     const loadTex = (file: string, srgb: boolean): THREE.Texture => {
       const t = texLoader.load(file);
       t.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
@@ -116,14 +172,13 @@ export default function TinBox() {
       return t;
     };
 
+    const bodyDiffuseTex = loadTex(TEX_FILES.bodyDiffuse, true);
     const bodyRoughTex = loadTex(TEX_FILES.bodyRoughness, false);
     const bodyNormalTex = loadTex(TEX_FILES.bodyNormal, false);
     const lidArtworkTex = loadTex(TEX_FILES.lidArtwork, true);
     const interiorTex = loadTex(TEX_FILES.interior, true);
 
-    // Clamp the artwork to its transparent border so UVs slightly past [0,1]
-    // (the lid's bevel faces, due to Blender's 70% planar UV scale) sample the
-    // transparent edge of the PNG rather than wrapping the image back over the bevel.
+    // Clamp WebGL sampling safely; the lid shader masks UVs outside [0,1] to match Blender CLIP.
     lidArtworkTex.wrapS = THREE.ClampToEdgeWrapping;
     lidArtworkTex.wrapT = THREE.ClampToEdgeWrapping;
 
@@ -131,67 +186,62 @@ export default function TinBox() {
     // Body sides (CaixaBaralho_PBR): mirrors the MTL Kd=0.8 + map_Ns + map_Bump entries.
     // - MTL `map_Ns` (specular exponent map) ↔ Three.js `roughnessMap`
     // - MTL `map_Bump`                       ↔ Three.js `normalMap`
-    // We intentionally skip `metalnessMap` and use a constant metalness=1.0; the metallic
-    // texture marks worn (non-metallic) patches which kill the polished tin look.
-    // The base `roughness` multiplier is lowered from 1.0 → 0.45 because the raw map values
-    // average too high otherwise — the surface ends up looking like blurred fuzz.
+    // Blender leaves its metallic texture node disconnected, so metalness remains constant.
     const bodyMat = new THREE.MeshStandardMaterial({
       color: BODY_KD,
+      map: bodyDiffuseTex,
       roughnessMap: bodyRoughTex,
       normalMap: bodyNormalTex,
       metalness: 1.0,
-      roughness: 0.45,
+      roughness: 1.0,
     });
+    bodyMat.onBeforeCompile = (shader) => {
+      shader.fragmentShader = shader.fragmentShader.replace(
+        "#include <map_fragment>",
+        `
+        #ifdef USE_MAP
+          vec4 sampledDiffuse = texture2D( map, vMapUv );
+          float grayscale = dot(sampledDiffuse.rgb, vec3(0.2126, 0.7152, 0.0722));
+          diffuseColor.rgb *= vec3(grayscale * 1.4);
+          diffuseColor.a *= sampledDiffuse.a;
+        #endif
+        `,
+      );
+    };
 
     // Front "clean" face: uniform silver matching MTL Kd, polished.
     const frontCleanMat = new THREE.MeshStandardMaterial({
       color: FRONT_CLEAN_KD,
       metalness: 1.0,
-      roughness: 0.35,
+      roughness: 0.55,
     });
 
-    // Lid top: silver base (MTL Kd=0.8) with the transparent Nerdcast artwork composited via
-    // its own alpha. The Blender UV is a planar projection from above, which smears along
-    // the lid's rounded bevels. We mask the overlay by the surface's local-up normal so
-    // only the truly flat top portion shows the artwork; bevel/corner faces stay plain silver.
+    // Lid top mirrors Blender's cool silver base, normal map, CLIP extension, and alpha mix.
     const lidTopMat = new THREE.MeshStandardMaterial({
       color: LID_TOP_KD,
       map: lidArtworkTex,
+      normalMap: bodyNormalTex,
       metalness: 1.0,
-      roughness: 0.18,
+      roughness: 0.180392,
     });
     lidTopMat.onBeforeCompile = (shader) => {
-      // Add a varying carrying the object-space normal so we can test "is this face
-      // pointing up in the model's local frame?" regardless of how root is rotated.
-      shader.vertexShader = shader.vertexShader
-        .replace(
-          "#include <common>",
-          "#include <common>\nvarying vec3 vObjectNormal;",
-        )
-        .replace(
-          "#include <beginnormal_vertex>",
-          "#include <beginnormal_vertex>\nvObjectNormal = objectNormal;",
-        );
-
-      shader.fragmentShader = shader.fragmentShader
-        .replace(
-          "#include <common>",
-          "#include <common>\nvarying vec3 vObjectNormal;",
-        )
-        .replace(
-          "#include <map_fragment>",
-          `
-          #ifdef USE_MAP
-            vec4 sampledOverlay = texture2D( map, vMapUv );
-            // Mask: only faces nearly parallel to the lid's local +Y get the artwork.
-            // Tightened threshold (0.97..0.999) so even the gentle bevel curving away
-            // from the top stays as plain silver — kills the smear into the rounded edge.
-            float topness = smoothstep(0.97, 0.999, normalize(vObjectNormal).y);
-            float overlayA = sampledOverlay.a * topness;
-            diffuseColor.rgb = mix( diffuseColor.rgb, sampledOverlay.rgb, overlayA );
-          #endif
-          `,
-        );
+      shader.fragmentShader = shader.fragmentShader.replace(
+        "#include <map_fragment>",
+        `
+        #ifdef USE_MAP
+          vec2 artworkUv = vMapUv;
+          float inBounds =
+            step(0.0, artworkUv.x) * step(artworkUv.x, 1.0) *
+            step(0.0, artworkUv.y) * step(artworkUv.y, 1.0);
+          vec4 sampledOverlay = texture2D(
+            map,
+            clamp(artworkUv, vec2(0.0), vec2(1.0))
+          );
+          float overlayA = sampledOverlay.a * inBounds;
+          diffuseColor.rgb = mix(diffuseColor.rgb, sampledOverlay.rgb, overlayA);
+        #endif
+        `,
+      );
     };
 
     // Lid interior (under-side of the lid): metallic silver (MTL Lid_Interior Kd).
@@ -219,11 +269,13 @@ export default function TinBox() {
     // ---- Model loading ----
     let lidObject: THREE.Object3D | null = null;
     let boxObject: THREE.Object3D | null = null;
+    let modelLoaded = false;
+    let readyNotified = false;
     // Pivot group that hinges the lid around its back edge. Once assigned, the
     // animation loop drives its rotation.x on a sine cycle to open/close the lid.
     let lidPivot: THREE.Group | null = null;
 
-    const objLoader = new OBJLoader();
+    const objLoader = new OBJLoader(loadingManager);
     objLoader.setPath(`${MODEL_DIR}/`);
     objLoader.load(OBJ_FILE, (object) => {
       // Bail if the component has unmounted while the OBJ was downloading.
@@ -258,10 +310,17 @@ export default function TinBox() {
       // Scale so the longest dimension is ~1.2 units (0.6x of the previous 2.0)
       const maxDim = Math.max(size.x, size.y, size.z);
       const targetSize = 1.2;
-      const scale = targetSize / maxDim;
+      const scale = (targetSize / maxDim) * modelScale;
       object.scale.setScalar(scale);
+      key.position
+        .copy(BLENDER_POINT_LIGHT_POSITION)
+        .sub(center)
+        .multiplyScalar(scale);
 
       root.add(object);
+      root.updateMatrixWorld(true);
+      shadowPlane.position.y =
+        new THREE.Box3().setFromObject(root).min.y - 0.08;
 
       // --- Reparent the lid under a hinge pivot ---
       // The lid currently sits as a direct child of `object`. To make it open
@@ -295,7 +354,7 @@ export default function TinBox() {
         lidPivot.add(lidObject);
       }
 
-      if (!disposed) setLoaded(true);
+      if (!disposed) modelLoaded = true;
     });
 
     // ---- Resize handling ----
@@ -342,7 +401,9 @@ export default function TinBox() {
         overwrite: true,
       });
     };
-    renderer.domElement.addEventListener("pointerdown", onPointerDown);
+    if (interactiveLid) {
+      renderer.domElement.addEventListener("pointerdown", onPointerDown);
+    }
 
     // Throttle the hover raycast to the next animation frame so rapid mouse
     // movements don't trigger 100s of raycasts per second.
@@ -362,35 +423,69 @@ export default function TinBox() {
           : "default";
       });
     };
-    renderer.domElement.addEventListener("pointermove", onPointerMove);
+    if (interactiveLid) {
+      renderer.domElement.addEventListener("pointermove", onPointerMove);
+    }
 
     // ---- Animation loop (renders only; lid tween is owned by GSAP) ----
     let rafId = 0;
-    const animate = () => {
+    let previousFrameTime = performance.now();
+    let spinStartsAt = Number.POSITIVE_INFINITY;
+    const animate = (frameTime: number) => {
       void boxObject;
       void lidObject;
+      if (shouldRotate && frameTime >= spinStartsAt) {
+        const elapsed =
+          (frameTime - Math.max(previousFrameTime, spinStartsAt)) / 1000;
+        const easeProgress = Math.min(
+          1,
+          (frameTime - spinStartsAt) / Math.max(spinEaseDuration * 1000, 1),
+        );
+        const easedSpeed = 1 - Math.pow(1 - easeProgress, 3);
+        root.rotation.y =
+          (root.rotation.y + elapsed * 0.14 * easedSpeed) % (Math.PI * 2);
+      }
+      previousFrameTime = frameTime;
       renderer.render(scene, camera);
+      if (modelLoaded && assetsLoaded && !readyNotified && !disposed) {
+        readyNotified = true;
+        spinStartsAt = frameTime + spinStartDelay * 1000;
+        let firstFrame: string | null = null;
+        try {
+          firstFrame = renderer.domElement.toDataURL("image/webp", 0.68);
+        } catch {
+          firstFrame = null;
+        }
+        setLoaded(true);
+        onReady?.(firstFrame);
+      }
       rafId = requestAnimationFrame(animate);
     };
-    animate();
+    rafId = requestAnimationFrame(animate);
 
     // ---- Cleanup ----
     return () => {
       disposed = true;
+      motionQuery.removeEventListener("change", handleMotionChange);
       cancelAnimationFrame(rafId);
       ro.disconnect();
       renderer.domElement.removeEventListener("pointerdown", onPointerDown);
       renderer.domElement.removeEventListener("pointermove", onPointerMove);
       if (lidPivot) gsap.killTweensOf(lidPivot.rotation);
       pmrem.dispose();
-      envTex.dispose();
+      environmentTexture?.dispose();
+      environmentSource?.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
       }
-      [bodyRoughTex, bodyNormalTex, lidArtworkTex, interiorTex].forEach((t) =>
-        t.dispose(),
-      );
+      [
+        bodyDiffuseTex,
+        bodyRoughTex,
+        bodyNormalTex,
+        lidArtworkTex,
+        interiorTex,
+      ].forEach((t) => t.dispose());
       scene.traverse((obj) => {
         const mesh = obj as THREE.Mesh;
         if (mesh.geometry) mesh.geometry.dispose();
@@ -402,19 +497,39 @@ export default function TinBox() {
         }
       });
     };
-  }, []);
+  }, [
+    autoRotate,
+    embedded,
+    interactiveLid,
+    modelScale,
+    onReady,
+    spinEaseDuration,
+    spinStartDelay,
+  ]);
 
   return (
     <section
-      id="tinBox"
-      className="segment relative flex h-screen w-full items-center justify-center bg-neutral-900"
+      id={embedded ? undefined : "tinBox"}
+      className={
+        embedded
+          ? `relative h-full w-full ${className}`
+          : `segment relative flex h-screen w-full items-center justify-center bg-neutral-900 ${className}`
+      }
     >
-      <div ref={mountRef} className="absolute inset-0" />
-      {!loaded && (
+      <div
+        ref={mountRef}
+        className="absolute inset-0"
+        style={
+          embedded && overscanPercent > 0
+            ? { inset: `-${overscanPercent}%` }
+            : undefined
+        }
+      />
+      {!loaded && loadingLabel ? (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-white/60">
-          Carregando caixa…
+          {loadingLabel}
         </div>
-      )}
+      ) : null}
     </section>
   );
 }

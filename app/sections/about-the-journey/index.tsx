@@ -9,7 +9,11 @@ import { FaPause, FaMusic } from "react-icons/fa";
 import { useI18n } from "@/app/contexts/I18nContext";
 import BouncingText from "@/components/ui/bouncing-text";
 
-export default function AboutTheJourney() {
+export default function AboutTheJourney({
+  showDeckHistory = true,
+}: {
+  showDeckHistory?: boolean;
+}) {
   const { t } = useI18n();
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -98,81 +102,83 @@ export default function AboutTheJourney() {
                 {t("aboutJourney.p2_end")}
               </p>
 
-              <h2
-                className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
-              >
-                {t("aboutJourney.titleDeck")}
-              </h2>
+              {showDeckHistory ? (
+                <>
+                  <h2
+                    className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
+                  >
+                    {t("aboutJourney.titleDeck")}
+                  </h2>
 
-              <p>
-                {t("aboutJourney.deck_p1_before_ep")}
-                <Link
-                  href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  #312 - Nerdcast do Baralho
-                </Link>
-                {t("aboutJourney.deck_p1_between_links")}
-                <Link
-                  href="https://web.archive.org/web/20121214093601/http://www.nerdstore.com.br/produto/baralho-jn.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  Baralho Nerdcast
-                </Link>
-                {t("aboutJourney.deck_p1_after_product")}
-                <Link
-                  href="https://www.instagram.com/caducarvalho"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
-                >
-                  Cadu Carvalho <SocialMediaIcon type="insta" size={14} />
-                </Link>
-              </p>
-              <p>
-                {t("aboutJourney.deck_p2_before_ep")}
-                <Link
-                  href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  #313 - HQ: Os Velhos Novos 52
-                </Link>
-                {t("aboutJourney.deck_p2_after_ep")}
-              </p>
+                  <p>
+                    {t("aboutJourney.deck_p1_before_ep")}
+                    <Link
+                      href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      #312 - Nerdcast do Baralho
+                    </Link>
+                    {t("aboutJourney.deck_p1_between_links")}
+                    <Link
+                      href="https://web.archive.org/web/20121214093601/http://www.nerdstore.com.br/produto/baralho-jn.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      Baralho Nerdcast
+                    </Link>
+                    {t("aboutJourney.deck_p1_after_product")}
+                    <Link
+                      href="https://www.instagram.com/caducarvalho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
+                    >
+                      Cadu Carvalho <SocialMediaIcon type="insta" size={14} />
+                    </Link>
+                  </p>
+                  <p>
+                    {t("aboutJourney.deck_p2_before_ep")}
+                    <Link
+                      href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      #313 - HQ: Os Velhos Novos 52
+                    </Link>
+                    {t("aboutJourney.deck_p2_after_ep")}
+                  </p>
 
-              <div
-                id="audio-controls"
-                className="-mt-4 py-2 md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full"
-              >
-                <button
-                  onClick={toggleAudio}
-                  className={`${
-                    bebasNeue.className
-                  } w-full inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-4 border-2 rounded-full transition-all animation-duration-[3000ms] ${
-                    isPlaying
-                      ? "bg-white text-black border-white shadow-sm shadow-gray-400 animate-pulse"
-                      : "text-white border-white hover:bg-white hover:text-black"
-                  }`}
-                >
-                  {isPlaying ? (
-                    <FaPause className="text-xl" />
-                  ) : (
-                    <FaMusic className="text-xl" />
-                  )}
-                  <span className="text-xl leading-none">
-                    {isPlaying
-                      ? t("aboutJourney.pauseAudio")
-                      : t("aboutJourney.listenChallenge")}
-                  </span>
-                </button>
+                  <div
+                    id="audio-controls"
+                    className="-mt-4 py-2 md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full"
+                  >
+                    <button
+                      onClick={toggleAudio}
+                      className={`${
+                        bebasNeue.className
+                      } w-full inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-4 border-2 rounded-full transition-all animation-duration-[3000ms] ${
+                        isPlaying
+                          ? "bg-white text-black border-white shadow-sm shadow-gray-400 animate-pulse"
+                          : "text-white border-white hover:bg-white hover:text-black"
+                      }`}
+                    >
+                      {isPlaying ? (
+                        <FaPause className="text-xl" />
+                      ) : (
+                        <FaMusic className="text-xl" />
+                      )}
+                      <span className="text-xl leading-none">
+                        {isPlaying
+                          ? t("aboutJourney.pauseAudio")
+                          : t("aboutJourney.listenChallenge")}
+                      </span>
+                    </button>
 
-                {/* <p className="mt-2 text-xs text-white/80 italic w-full flex-inline items-center justify-center">
+                    {/* <p className="mt-2 text-xs text-white/80 italic w-full flex-inline items-center justify-center">
                   Trecho da leitura de e-mail do{" "}
                   <Link
                     href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
@@ -185,15 +191,17 @@ export default function AboutTheJourney() {
                   , publicado em 1º de junho de 2012
                 </p> */}
 
-                <audio
-                  ref={audioRef}
-                  src="/sounds/nc313_desafio_do_baralho.mp3"
-                  preload="auto"
-                  onPlay={handlePlay}
-                  onPause={handlePause}
-                  onEnded={handleEnded}
-                />
-              </div>
+                    <audio
+                      ref={audioRef}
+                      src="/sounds/nc313_desafio_do_baralho.mp3"
+                      preload="auto"
+                      onPlay={handlePlay}
+                      onPause={handlePause}
+                      onEnded={handleEnded}
+                    />
+                  </div>
+                </>
+              ) : null}
 
               <h2
                 className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
