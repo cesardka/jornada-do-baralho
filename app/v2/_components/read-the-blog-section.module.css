@@ -1,0 +1,242 @@
+.section {
+  position: relative;
+  height: 200svh;
+  min-height: 72rem;
+  background: #36abc4;
+}
+
+.stickyScene {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 36rem;
+  overflow: clip;
+  isolation: isolate;
+}
+
+.scenario,
+.cloud {
+  position: absolute;
+  pointer-events: none;
+}
+
+.scenario {
+  z-index: 0;
+  inset: -2%;
+}
+
+.plane {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.planeOne {
+  top: 50%;
+  left: 50%;
+  width: min(38vw, 42rem);
+  aspect-ratio: 3994 / 1850;
+}
+
+.planeTwo {
+  top: 0;
+  left: 50%;
+  width: clamp(7rem, 16vw, 15rem);
+  aspect-ratio: 1222 / 866;
+}
+
+.cloud {
+  inset: 0;
+  will-change: transform;
+}
+
+.artwork {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  object-fit: contain;
+  object-position: center;
+  user-select: none;
+}
+
+.scenario .artwork {
+  background-size: cover;
+  object-fit: cover;
+}
+
+.leftHalf {
+  clip-path: inset(0 50% 0 0);
+}
+
+.rightHalf {
+  clip-path: inset(0 0 0 50%);
+}
+
+.cloudForegroundLeft {
+  z-index: 7;
+  scale: 1.18;
+}
+
+.cloudForegroundLeft .artwork {
+  background-position: left top;
+  object-position: left top;
+}
+
+.cloudMidgroundCenter {
+  z-index: 5;
+}
+
+.cloudMidgroundCenter .artwork {
+  object-position: center;
+}
+
+.cloudForegroundSides {
+  z-index: 6;
+  scale: 1.14;
+}
+
+.cloudForegroundSides .artwork {
+  background-position: center bottom;
+  object-position: center bottom;
+}
+
+.cloudBackgroundTopRight {
+  z-index: 3;
+}
+
+.cloudBackgroundTopRight .artwork {
+  background-position: right top;
+  object-position: right top;
+  transform: translateX(2%);
+}
+
+.cloudBackgroundSides {
+  z-index: 2;
+}
+
+.cloudBackgroundSidesLeft {
+  transform-origin: left center;
+}
+
+.cloudBackgroundSidesRight {
+  translate: 1% 0;
+  transform-origin: right center;
+}
+
+.cloudBackgroundSides .artwork {
+  background-position: center top;
+  object-position: center top;
+}
+
+.content {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  width: min(90%, 62rem);
+  height: 100%;
+  margin-inline: auto;
+  padding: 5rem 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.title {
+  max-width: 15ch;
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.94;
+  text-wrap: balance;
+  text-shadow: 0 3px 18px rgb(5 71 91 / 45%);
+}
+
+.cta {
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+  border: 2px solid white;
+  padding: 0.75rem clamp(2rem, 5vw, 4.5rem) 0.6rem;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: white;
+  box-shadow: 0 8px 28px rgb(5 71 91 / 20%);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.cta:hover {
+  background: white;
+  color: #167d98;
+  transform: translateY(-2px);
+}
+
+.cta:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 5px;
+}
+
+@media (max-width: 64rem) {
+  .cloudMidgroundCenter {
+    inset-inline: -90%;
+  }
+
+  .title {
+    max-width: 12ch;
+    font-size: clamp(4rem, 10vw, 7rem);
+  }
+
+  .cta {
+    padding: 1rem clamp(3rem, 8vw, 5rem) 0.85rem;
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .section {
+    height: 180svh;
+    min-height: 60rem;
+  }
+
+  .stickyScene {
+    min-height: 30rem;
+  }
+
+  .scenario {
+    inset: -6%;
+  }
+
+  .cloud {
+    inset: 0;
+  }
+
+  .cloudMidgroundCenter {
+    inset-inline: -210%;
+  }
+
+  .title {
+    max-width: 10ch;
+    font-size: clamp(4rem, 18vw, 6.5rem);
+  }
+
+  .cta {
+    padding: 1rem clamp(2.75rem, 13vw, 4.5rem) 0.85rem;
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud,
+  .plane {
+    display: none;
+  }
+
+  .cta {
+    transition: none;
+  }
+}
