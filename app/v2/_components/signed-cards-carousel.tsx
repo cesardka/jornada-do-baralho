@@ -281,7 +281,7 @@ export default function SignedCardsCarousel() {
 
       const cards = section.querySelectorAll<HTMLElement>("[data-signed-card]");
       const idleCards =
-        section.querySelectorAll<HTMLElement>("[data-idle-card]");
+        sequence.querySelectorAll<HTMLElement>("[data-idle-card]");
       let position = 0;
       let sequenceWidth = sequence.offsetWidth;
       let isDragging = false;
@@ -301,10 +301,11 @@ export default function SignedCardsCarousel() {
         });
       }
 
+      const setTrackX = gsap.quickSetter(track, "x", "px");
       const render = () => {
         if (sequenceWidth === 0) return;
         const wrapped = gsap.utils.wrap(-sequenceWidth, 0, position);
-        gsap.set(track, { x: wrapped });
+        setTrackX(wrapped);
       };
 
       const resetCards = () => {
@@ -352,21 +353,16 @@ export default function SignedCardsCarousel() {
         },
       });
 
-      const minimumFrameTime =
-        1000 /
-        (performanceTier === "low"
-          ? 20
-          : performanceTier === "standard"
-            ? 30
-            : 60);
-      let accumulatedTime = 0;
-      const tick = (_time: number, deltaTime: number) => {
-        if (pausedRef.current || isDragging || !isVisible) return;
-        accumulatedTime += deltaTime;
-        if (accumulatedTime < minimumFrameTime) return;
-        position -= accumulatedTime * 0.13;
-        accumulatedTime = 0;
-        render();
+      let animationFrame = 0;
+      let previousFrameTime = performance.now();
+      const tick = (frameTime: number) => {
+        const deltaTime = Math.min(frameTime - previousFrameTime, 50);
+        previousFrameTime = frameTime;
+        if (!pausedRef.current && !isDragging && isVisible) {
+          position -= deltaTime * 0.13;
+          render();
+        }
+        animationFrame = requestAnimationFrame(tick);
       };
 
       const resizeObserver = new ResizeObserver(() => {
@@ -383,14 +379,14 @@ export default function SignedCardsCarousel() {
       );
       visibilityObserver.observe(section);
 
-      gsap.ticker.add(tick);
+      animationFrame = requestAnimationFrame(tick);
       render();
 
       return () => {
         observer.kill();
         resizeObserver.disconnect();
         visibilityObserver.disconnect();
-        gsap.ticker.remove(tick);
+        cancelAnimationFrame(animationFrame);
       };
     },
     {
@@ -422,9 +418,9 @@ export default function SignedCardsCarousel() {
               ? 20
               : performanceTier === "standard"
                 ? 24
-                : 60
+                : 30
           }
-          resolutionCap={performanceTier === "high" ? 1.5 : 1}
+          resolutionCap={performanceTier === "high" ? 1.25 : 1}
           className="-z-10"
         />
       ) : null}

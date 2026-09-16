@@ -150,6 +150,7 @@ export default function SparkleParticles({
     const starPath = buildStarPath();
 
     let raf = 0;
+    let running = false;
     let prev = performance.now();
     let spawnAcc = 0;
     let arcAcc = 0;
@@ -260,12 +261,25 @@ export default function SparkleParticles({
 
       ctx.restore();
 
-      raf = requestAnimationFrame(tick);
+      if (running) raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
+
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !running) {
+        running = true;
+        prev = performance.now();
+        raf = requestAnimationFrame(tick);
+      } else if (!entry.isIntersecting && running) {
+        running = false;
+        cancelAnimationFrame(raf);
+      }
+    });
+    visibilityObserver.observe(canvas);
 
     return () => {
+      running = false;
       cancelAnimationFrame(raf);
+      visibilityObserver.disconnect();
       ro.disconnect();
     };
   }, [rate, arcIntervalMs, palette]);
