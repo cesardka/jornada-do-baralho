@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -18,11 +18,11 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const CHALLENGE_START = Date.UTC(2012, 5, 1);
 const DAY_IN_MS = 24 * 60 * 60 * 1000;
 const FIRE_FPS = 12;
-const FIRE_FRAMES = Array.from(
-  { length: 9 },
-  (_, index) =>
-    `/images/bg/countdown/fire/frame-${String(index + 1).padStart(2, "0")}.webp`,
-);
+const FIRE_FRAME_COUNT = 9;
+const FIRE_SHEETS = {
+  mobile: "/images/bg/countdown/fire/spritesheet-mobile.webp",
+  desktop: "/images/bg/countdown/fire/spritesheet-desktop.webp",
+} as const;
 
 function getElapsedDays() {
   return Math.floor((Date.now() - CHALLENGE_START) / DAY_IN_MS);
@@ -60,116 +60,144 @@ function FireAnimation({
   onReady: () => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const frameRefs = useRef<Array<HTMLImageElement | null>>([]);
-  const loadedFrames = useRef(new Set<number>());
-  const [sequenceReady, setSequenceReady] = useState(false);
-  const [loadSequence, setLoadSequence] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const sheetRef = useRef<HTMLImageElement | null>(null);
+  const [sheetReady, setSheetReady] = useState(false);
 
   useEffect(() => {
+    if (sheetRef.current) return;
+
+    let cancelled = false;
     let idleCallback: number | undefined;
+    const loadSheet = async () => {
+      const source = window.matchMedia("(max-width: 40rem)").matches
+        ? FIRE_SHEETS.mobile
+        : FIRE_SHEETS.desktop;
+      const sheet = new window.Image();
+      sheet.src = source;
+      try {
+        await sheet.decode();
+      } catch {
+        return;
+      }
+      if (cancelled) return;
+      sheetRef.current = sheet;
+      setSheetReady(true);
+      onReady();
+    };
     const timer = window.setTimeout(
       () => {
         if ("requestIdleCallback" in window) {
-          idleCallback = window.requestIdleCallback(
-            () => setLoadSequence(true),
-            { timeout: 1200 },
-          );
+          idleCallback = window.requestIdleCallback(() => void loadSheet(), {
+            timeout: 1200,
+          });
         } else {
-          setLoadSequence(true);
+          void loadSheet();
         }
       },
       tier === "high" ? 900 : tier === "standard" ? 1300 : 1800,
     );
 
     return () => {
+      cancelled = true;
       window.clearTimeout(timer);
       if (idleCallback !== undefined) window.cancelIdleCallback(idleCallback);
     };
-  }, [tier]);
+  }, [onReady, tier]);
 
-  useGSAP(
-    () => {
-      if (!sequenceReady || !entranceComplete) return;
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const sheet = sheetRef.current;
+    if (!canvas || !sheet || !sheetReady || !entranceComplete) return;
 
-      const frames = frameRefs.current.filter(
-        (frame): frame is HTMLImageElement => frame !== null,
+    const context = canvas.getContext("2d");
+    if (!context) return;
+
+    const frameWidth = sheet.naturalWidth / 3;
+    const frameHeight = sheet.naturalHeight / 3;
+    const frameRate = tier === "low" ? 8 : FIRE_FPS;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let width = 0;
+    let height = 0;
+    let currentFrame = -1;
+    let animationFrame = 0;
+    let startedAt = performance.now();
+
+    const resize = () => {
+      const bounds = canvas.getBoundingClientRect();
+      const pixelRatio = Math.min(
+        window.devicePixelRatio || 1,
+        tier === "low" ? 1 : tier === "standard" ? 1.25 : 1.5,
       );
-      if (frames.length !== FIRE_FRAMES.length) return;
+      width = Math.max(1, bounds.width);
+      height = Math.max(1, bounds.height);
+      canvas.width = Math.round(width * pixelRatio);
+      canvas.height = Math.round(height * pixelRatio);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      currentFrame = -1;
+    };
+    const drawFrame = (index: number) => {
+      if (index === currentFrame) return;
+      const scale = Math.max(width / frameWidth, height / frameHeight);
+      const renderedWidth = frameWidth * scale * 0.95;
+      const renderedHeight = frameHeight * scale * 0.95;
+      const sourceX = (index % 3) * frameWidth;
+      const sourceY = Math.floor(index / 3) * frameHeight;
+      context.clearRect(0, 0, width, height);
+      context.drawImage(
+        sheet,
+        sourceX,
+        sourceY,
+        frameWidth,
+        frameHeight,
+        (width - renderedWidth) / 2,
+        (height - renderedHeight) / 2 + height * 0.02,
+        renderedWidth,
+        renderedHeight,
+      );
+      canvas.dataset.frame = String(index);
+      currentFrame = index;
+    };
+    const tick = (time: number) => {
+      if (document.visibilityState === "visible") {
+        const elapsed = time - startedAt;
+        drawFrame(Math.floor(elapsed / (1000 / frameRate)) % FIRE_FRAME_COUNT);
+      }
+      animationFrame = requestAnimationFrame(tick);
+    };
+    const handleVisibility = () => {
+      if (document.visibilityState !== "visible") return;
+      startedAt = performance.now();
+      currentFrame = -1;
+    };
+    const handleResize = () => {
+      resize();
+      drawFrame(currentFrame < 0 ? 0 : currentFrame);
+    };
+    const resizeObserver = new ResizeObserver(handleResize);
 
-      let previousFrame = 0;
-      const startedAt = gsap.ticker.time;
-      const showFrame = (index: number) => {
-        if (index === previousFrame) return;
-        frames[previousFrame].style.visibility = "hidden";
-        frames[previousFrame].style.opacity = "0";
-        frames[index].style.visibility = "visible";
-        frames[index].style.opacity = "1";
-        previousFrame = index;
-      };
-      const frameRate = tier === "low" ? 8 : FIRE_FPS;
-      const period = FIRE_FRAMES.length / frameRate;
-      const updateFrame = () => {
-        if (document.visibilityState !== "visible") return;
-        const elapsed = gsap.ticker.time - startedAt;
-        const index =
-          Math.floor((elapsed % period) * frameRate) % FIRE_FRAMES.length;
-        showFrame(index);
-      };
-      const media = gsap.matchMedia();
+    resize();
+    drawFrame(0);
+    if (!reducedMotion.matches) animationFrame = requestAnimationFrame(tick);
+    resizeObserver.observe(canvas);
+    document.addEventListener("visibilitychange", handleVisibility);
 
-      media.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.ticker.add(updateFrame);
-        return () => gsap.ticker.remove(updateFrame);
-      });
-
-      return () => {
-        media.revert();
-        frames.forEach((frame, index) => {
-          frame.style.visibility = index === 0 ? "visible" : "hidden";
-          frame.style.opacity = index === 0 ? "1" : "0";
-        });
-      };
-    },
-    {
-      scope: containerRef,
-      dependencies: [entranceComplete, sequenceReady, tier],
-    },
-  );
-
-  const handleFrameLoad = (index: number) => {
-    loadedFrames.current.add(index);
-    if (loadedFrames.current.size === FIRE_FRAMES.length) {
-      setSequenceReady(true);
-      onReady();
-    }
-  };
-  const visible = entranceComplete && sequenceReady;
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      resizeObserver.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, [entranceComplete, sheetReady, tier]);
 
   return (
     <div
       ref={containerRef}
       data-countdown-background
-      data-visible={visible}
+      data-visible={entranceComplete && sheetReady}
       className={styles.fire}
       aria-hidden="true"
     >
-      {(loadSequence ? FIRE_FRAMES : FIRE_FRAMES.slice(0, 1)).map(
-        (src, index) => (
-          <Image
-            key={src}
-            ref={(frame) => {
-              frameRefs.current[index] = frame;
-            }}
-            src={src}
-            alt=""
-            fill
-            loading="lazy"
-            sizes="100vw"
-            className={styles.fireFrame}
-            onLoad={() => handleFrameLoad(index)}
-          />
-        ),
-      )}
+      <canvas ref={canvasRef} className={styles.fireCanvas} />
     </div>
   );
 }
@@ -232,6 +260,21 @@ function StatueEyes({
             else scheduleBlink();
           });
         }
+        function openEyes() {
+          blinkTween?.kill();
+          gsap.set(blink, {
+            autoAlpha: 0.2,
+            scaleY: 0.02,
+            transformOrigin: "50% 46%",
+          });
+          blinkTween = gsap.to(blink, {
+            autoAlpha: 1,
+            scaleY: 1,
+            duration: 0.85,
+            ease: "power3.out",
+            onComplete: scheduleBlink,
+          });
+        }
         triggerBlinkRef.current = playBlink;
         const handlePointerMove = (event: PointerEvent) => {
           if (event.pointerType === "touch") return;
@@ -252,7 +295,7 @@ function StatueEyes({
           });
           section.addEventListener("pointerleave", resetPosition);
         }
-        scheduleBlink();
+        openEyes();
 
         return () => {
           section.removeEventListener("pointermove", handlePointerMove);
@@ -333,11 +376,9 @@ function StatueEyes({
             fill
             loading="lazy"
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL="/images/bg/countdown/lq/olhos_estatua.webp"
             className={styles.eyesImage}
-            style={{
-              backgroundImage:
-                'url("/images/bg/countdown/lq/olhos_estatua.webp")',
-            }}
           />
         </div>
       </div>
@@ -359,6 +400,7 @@ export default function CountdownSection() {
   const dayCountRef = useRef<HTMLSpanElement>(null);
   const [entranceComplete, setEntranceComplete] = useState(false);
   const [fireReady, setFireReady] = useState(false);
+  const handleFireReady = useCallback(() => setFireReady(true), []);
   const [daysSinceChallenge, setDaysSinceChallenge] = useState<number | null>(
     null,
   );
@@ -671,15 +713,14 @@ export default function CountdownSection() {
           fill
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="/images/bg/countdown/lq/CENARIO_01.webp"
           className={`${styles.layer} ${styles.background}`}
-          style={{
-            backgroundImage: 'url("/images/bg/countdown/lq/CENARIO_01.webp")',
-          }}
         />
         <FireAnimation
           tier={performanceTier}
           entranceComplete={entranceComplete}
-          onReady={() => setFireReady(true)}
+          onReady={handleFireReady}
         />
         <div
           className={`${styles.illuminationLayer} ${styles.illuminationAmbient}`}
@@ -690,11 +731,9 @@ export default function CountdownSection() {
             alt=""
             fill
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL="/images/bg/countdown/lq/ambient-glow-web.webp"
             className={`${styles.layer} ${styles.ambientGlow}`}
-            style={{
-              backgroundImage:
-                'url("/images/bg/countdown/lq/ambient-glow-web.webp")',
-            }}
           />
           <Image
             data-countdown-background
@@ -702,10 +741,9 @@ export default function CountdownSection() {
             alt=""
             fill
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL="/images/bg/countdown/lq/luz.webp"
             className={`${styles.layer} ${styles.background} ${styles.ambientGlow}`}
-            style={{
-              backgroundImage: 'url("/images/bg/countdown/lq/luz.webp")',
-            }}
           />
         </div>
         <Image
@@ -716,11 +754,9 @@ export default function CountdownSection() {
           alt=""
           fill
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="/images/bg/countdown/lq/ESTATUA_sem_luz.webp"
           className={`${styles.layer} ${styles.statue}`}
-          style={{
-            backgroundImage:
-              'url("/images/bg/countdown/lq/ESTATUA_sem_luz.webp")',
-          }}
         />
         <div
           className={`${styles.illuminationLayer} ${styles.illuminationStatue}`}
@@ -733,11 +769,9 @@ export default function CountdownSection() {
             alt=""
             fill
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL="/images/bg/countdown/lq/ESTATUA_com_luz.webp"
             className={`${styles.layer} ${styles.statue} ${styles.statueLit}`}
-            style={{
-              backgroundImage:
-                'url("/images/bg/countdown/lq/ESTATUA_com_luz.webp")',
-            }}
           />
         </div>
         <StatueEyes
@@ -750,10 +784,9 @@ export default function CountdownSection() {
           alt=""
           fill
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="/images/bg/countdown/lq/podium-web.webp"
           className={`${styles.layer} ${styles.podium}`}
-          style={{
-            backgroundImage: 'url("/images/bg/countdown/lq/podium-web.webp")',
-          }}
         />
         <Image
           data-countdown-foreground
@@ -764,11 +797,9 @@ export default function CountdownSection() {
           priority
           fetchPriority="high"
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="/images/bg/countdown/lq/foreground-web.webp"
           className={`${styles.layer} ${styles.foreground}`}
-          style={{
-            backgroundImage:
-              'url("/images/bg/countdown/lq/foreground-web.webp")',
-          }}
         />
         <div
           className={`${styles.illuminationLayer} ${styles.illuminationForeground}`}
@@ -780,11 +811,9 @@ export default function CountdownSection() {
             alt=""
             fill
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL="/images/bg/countdown/lq/foreground-glow-web.webp"
             className={`${styles.layer} ${styles.foregroundGlow}`}
-            style={{
-              backgroundImage:
-                'url("/images/bg/countdown/lq/foreground-glow-web.webp")',
-            }}
           />
         </div>
       </div>

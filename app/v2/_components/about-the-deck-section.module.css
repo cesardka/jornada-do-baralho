@@ -16,6 +16,21 @@
   pointer-events: none;
 }
 
+.shaderPlaceholder {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: center / cover no-repeat
+    url("/images/bg/about-the-deck/shader-placeholder-desktop.webp");
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 700ms ease-out;
+}
+
+.shaderPlaceholderHidden {
+  opacity: 0;
+}
+
 .layout {
   position: relative;
   z-index: 1;
@@ -144,6 +159,12 @@
     drop-shadow(0.5rem 0 2.25rem rgb(67 136 232 / 16%));
 }
 
+@media (max-width: 1199px), (hover: none), (pointer: coarse) {
+  .shaderPlaceholder {
+    background-image: url("/images/bg/about-the-deck/shader-placeholder-mobile.webp");
+  }
+}
+
 @media (max-width: 47.999rem) {
   .section,
   .layout {
@@ -253,7 +274,8 @@
 @media (prefers-reduced-motion: reduce) {
   .prose a,
   .placeholder,
-  .modelCanvas {
+  .modelCanvas,
+  .shaderPlaceholder {
     transition: none;
   }
 }

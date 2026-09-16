@@ -8,6 +8,7 @@ interface DeckRadialBackgroundProps {
   contentRef: RefObject<HTMLElement | null>;
   maxFPS?: number;
   resolutionCap?: number;
+  onReady?: () => void;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ export default function DeckRadialBackground({
   contentRef,
   maxFPS = 30,
   resolutionCap = 1.5,
+  onReady,
   className = "",
 }: DeckRadialBackgroundProps) {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -235,7 +237,9 @@ export default function DeckRadialBackground({
       };
       app.ticker.add(tick);
       app.ticker.addOnce(() => {
-        if (!destroyed) app.canvas.style.opacity = "1";
+        if (destroyed) return;
+        app.canvas.style.opacity = "1";
+        onReady?.();
       });
 
       let resizeFrame = 0;
@@ -291,7 +295,7 @@ export default function DeckRadialBackground({
       destroyed = true;
       cleanup?.();
     };
-  }, [contentRef, maxFPS, originRef, resolutionCap]);
+  }, [contentRef, maxFPS, onReady, originRef, resolutionCap]);
 
   return <div ref={hostRef} aria-hidden="true" className={className} />;
 }

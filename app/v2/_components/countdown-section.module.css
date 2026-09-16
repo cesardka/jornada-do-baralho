@@ -47,27 +47,15 @@
   opacity: 1;
 }
 
-.fireFrame {
-  visibility: hidden;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  scale: 0.95;
-  translate: 0 2%;
-  transform-origin: center;
-}
-
-.fireFrame:first-child {
-  visibility: visible;
-  background-image: url("/images/bg/countdown/fire/placeholder.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 1;
+.fireCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .podium {
   z-index: 3;
+  transform: translateX(max(1.1vw, 1.83svh));
 }
 
 .ambientGlow {

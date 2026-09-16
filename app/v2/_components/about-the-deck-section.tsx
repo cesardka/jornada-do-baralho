@@ -31,6 +31,7 @@ export default function AboutTheDeckSection() {
   const copyRef = useRef<HTMLDivElement>(null);
   const shaderOriginRef = useRef<HTMLSpanElement>(null);
   const [showModel, setShowModel] = useState(false);
+  const [shaderReady, setShaderReady] = useState(false);
   const [modelReady, setModelReady] = useState(false);
   const [placeholderLoaded, setPlaceholderLoaded] = useState({
     mobile: false,
@@ -41,6 +42,7 @@ export default function AboutTheDeckSection() {
     null,
   );
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const handleShaderReady = useCallback(() => setShaderReady(true), []);
   const handleModelReady = useCallback((firstFrame: string | null) => {
     const revealModel = () => {
       if (firstFrame && firstFrame.length > 1000) {
@@ -101,25 +103,34 @@ export default function AboutTheDeckSection() {
       aria-labelledby="about-the-deck-title"
     >
       {showModel ? (
-        <DeckRadialBackground
-          originRef={shaderOriginRef}
-          contentRef={copyRef}
-          maxFPS={
-            performanceTier === "low"
-              ? 20
-              : performanceTier === "standard"
-                ? 24
-                : 30
-          }
-          resolutionCap={
-            performanceTier === "low"
-              ? 1
-              : performanceTier === "standard"
-                ? 1.25
-                : 1.5
-          }
-          className={styles.shaderBackground}
-        />
+        <>
+          <div
+            aria-hidden="true"
+            className={`${styles.shaderPlaceholder} ${
+              shaderReady ? styles.shaderPlaceholderHidden : ""
+            }`}
+          />
+          <DeckRadialBackground
+            originRef={shaderOriginRef}
+            contentRef={copyRef}
+            maxFPS={
+              performanceTier === "low"
+                ? 20
+                : performanceTier === "standard"
+                  ? 24
+                  : 30
+            }
+            resolutionCap={
+              performanceTier === "low"
+                ? 1
+                : performanceTier === "standard"
+                  ? 1.25
+                  : 1.5
+            }
+            onReady={handleShaderReady}
+            className={styles.shaderBackground}
+          />
+        </>
       ) : null}
       <div className={styles.layout}>
         <div ref={copyRef} className={styles.copy}>
