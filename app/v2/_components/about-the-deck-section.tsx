@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { bebasNeue } from "@/app/fonts";
 import { SocialMediaIcon } from "@/app/sections/card-details/socialMediaIcon";
+import { usePerformanceTier } from "../_hooks/use-performance-tier";
 import DeckRadialBackground from "./deck-radial-background";
 import styles from "./about-the-deck-section.module.css";
 
@@ -25,6 +26,7 @@ const PLACEHOLDER_LQ = {
 
 export default function AboutTheDeckSection() {
   const { t } = useI18n();
+  const performanceTier = usePerformanceTier();
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const shaderOriginRef = useRef<HTMLSpanElement>(null);
@@ -67,11 +69,19 @@ export default function AboutTheDeckSection() {
         setShowModel(true);
         observer.disconnect();
       },
-      { rootMargin: "35% 0px" },
+      {
+        rootMargin: `0px 0px -${
+          performanceTier === "low"
+            ? 35
+            : performanceTier === "standard"
+              ? 20
+              : 15
+        }% 0px`,
+      },
     );
     observer.observe(section);
     return () => observer.disconnect();
-  }, []);
+  }, [performanceTier]);
 
   useEffect(
     () => () => {
@@ -90,11 +100,27 @@ export default function AboutTheDeckSection() {
       className={styles.section}
       aria-labelledby="about-the-deck-title"
     >
-      <DeckRadialBackground
-        originRef={shaderOriginRef}
-        contentRef={copyRef}
-        className={styles.shaderBackground}
-      />
+      {showModel ? (
+        <DeckRadialBackground
+          originRef={shaderOriginRef}
+          contentRef={copyRef}
+          maxFPS={
+            performanceTier === "low"
+              ? 20
+              : performanceTier === "standard"
+                ? 24
+                : 30
+          }
+          resolutionCap={
+            performanceTier === "low"
+              ? 1
+              : performanceTier === "standard"
+                ? 1.25
+                : 1.5
+          }
+          className={styles.shaderBackground}
+        />
+      ) : null}
       <div className={styles.layout}>
         <div ref={copyRef} className={styles.copy}>
           <h2
@@ -248,6 +274,21 @@ export default function AboutTheDeckSection() {
               overscanPercent={18}
               spinEaseDuration={2}
               spinStartDelay={2.5}
+              antialias={performanceTier !== "low"}
+              maxFPS={
+                performanceTier === "low"
+                  ? 30
+                  : performanceTier === "standard"
+                    ? 45
+                    : 60
+              }
+              pixelRatioCap={
+                performanceTier === "low"
+                  ? 1
+                  : performanceTier === "standard"
+                    ? 1.5
+                    : 2
+              }
               onReady={handleModelReady}
               className={`${styles.modelCanvas} ${
                 modelReady ? styles.modelCanvasReady : ""

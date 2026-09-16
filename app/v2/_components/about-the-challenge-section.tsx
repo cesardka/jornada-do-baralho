@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { FaMusic, FaPause } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { bebasNeue } from "@/app/fonts";
+import { usePerformanceTier } from "../_hooks/use-performance-tier";
 import styles from "./about-the-challenge-section.module.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -91,9 +92,35 @@ function ParticleField({
 
 export default function AboutTheChallengeSection() {
   const { t } = useI18n();
+  const performanceTier = usePerformanceTier();
   const sectionRef = useRef<HTMLElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [effectsReady, setEffectsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setEffectsReady(true);
+        observer.disconnect();
+      },
+      {
+        rootMargin: `0px 0px -${
+          performanceTier === "low"
+            ? 30
+            : performanceTier === "standard"
+              ? 15
+              : 5
+        }% 0px`,
+      },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [performanceTier]);
 
   const toggleAudio = () => {
     const audio = audioRef.current;
@@ -139,17 +166,18 @@ export default function AboutTheChallengeSection() {
             { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" },
             0.05,
           );
-        layers.forEach((layer) => {
-          timeline.to(
-            layer,
-            {
-              yPercent: -Number(layer.dataset.challengeDepth),
-              duration: 1,
-              ease: "none",
-            },
-            0,
-          );
-        });
+        if (performanceTier !== "low")
+          layers.forEach((layer) => {
+            timeline.to(
+              layer,
+              {
+                yPercent: -Number(layer.dataset.challengeDepth),
+                duration: 1,
+                ease: "none",
+              },
+              0,
+            );
+          });
         rules.forEach((rule, index) => {
           timeline.to(
             rule,
@@ -173,7 +201,11 @@ export default function AboutTheChallengeSection() {
 
       return () => media.revert();
     },
-    { scope: sectionRef },
+    {
+      scope: sectionRef,
+      dependencies: [performanceTier],
+      revertOnUpdate: true,
+    },
   );
 
   return (
@@ -181,6 +213,8 @@ export default function AboutTheChallengeSection() {
       ref={sectionRef}
       id="aboutTheChallenge"
       className={styles.section}
+      data-effects-ready={effectsReady}
+      data-performance-tier={performanceTier}
       aria-labelledby="challenge-title"
     >
       <div className={styles.stickyScene}>
@@ -215,18 +249,24 @@ export default function AboutTheChallengeSection() {
             className={`${styles.lightBeam} ${styles.lightThree}`}
             depth={4}
           />
-          <ParticleField
-            className={`${styles.particleMaskOne} ${styles.particlePulseOne}`}
-            depth={3}
-          />
-          <ParticleField
-            className={`${styles.particleMaskTwo} ${styles.particlePulseTwo}`}
-            depth={3.5}
-          />
-          <ParticleField
-            className={`${styles.particleMaskThree} ${styles.particlePulseThree}`}
-            depth={4}
-          />
+          {effectsReady && performanceTier !== "low" ? (
+            <>
+              <ParticleField
+                className={`${styles.particleMaskOne} ${styles.particlePulseOne}`}
+                depth={3}
+              />
+              <ParticleField
+                className={`${styles.particleMaskTwo} ${styles.particlePulseTwo}`}
+                depth={3.5}
+              />
+              {performanceTier === "high" ? (
+                <ParticleField
+                  className={`${styles.particleMaskThree} ${styles.particlePulseThree}`}
+                  depth={4}
+                />
+              ) : null}
+            </>
+          ) : null}
         </div>
 
         <div className={styles.content}>

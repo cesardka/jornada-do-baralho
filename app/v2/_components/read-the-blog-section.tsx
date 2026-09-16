@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { bebasNeue } from "@/app/fonts";
+import { usePerformanceTier } from "../_hooks/use-performance-tier";
 import styles from "./read-the-blog-section.module.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -52,6 +53,7 @@ function Artwork({ src, placeholder }: { src: string; placeholder: string }) {
 
 export default function ReadTheBlogSection() {
   const { t } = useI18n();
+  const performanceTier = usePerformanceTier();
   const sectionRef = useRef<HTMLElement>(null);
   const planeOneRef = useRef<HTMLDivElement>(null);
   const planeTwoRef = useRef<HTMLDivElement>(null);
@@ -63,6 +65,10 @@ export default function ReadTheBlogSection() {
       const content = gsap.utils.toArray<HTMLElement>("[data-blog-content]");
 
       media.add("(prefers-reduced-motion: no-preference)", () => {
+        if (performanceTier === "low") {
+          gsap.set(content, { autoAlpha: 1 });
+          return;
+        }
         gsap.set(content, { autoAlpha: 0 });
 
         gsap
@@ -141,7 +147,11 @@ export default function ReadTheBlogSection() {
 
       return () => media.revert();
     },
-    { scope: sectionRef },
+    {
+      scope: sectionRef,
+      dependencies: [performanceTier],
+      revertOnUpdate: true,
+    },
   );
 
   useGSAP(
@@ -150,6 +160,10 @@ export default function ReadTheBlogSection() {
       const planeOne = planeOneRef.current;
       const planeTwo = planeTwoRef.current;
       if (!section || !planeOne || !planeTwo) return;
+      if (performanceTier === "low") {
+        gsap.set([planeOne, planeTwo], { autoAlpha: 0 });
+        return;
+      }
 
       const media = gsap.matchMedia();
 
@@ -317,7 +331,11 @@ export default function ReadTheBlogSection() {
 
       return () => media.revert();
     },
-    { scope: sectionRef },
+    {
+      scope: sectionRef,
+      dependencies: [performanceTier],
+      revertOnUpdate: true,
+    },
   );
 
   return (

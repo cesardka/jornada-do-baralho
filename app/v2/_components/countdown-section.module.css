@@ -1,4 +1,6 @@
 .section {
+  --illumination-cycle-duration: 5s;
+
   position: relative;
   isolation: isolate;
   overflow: clip;
@@ -22,7 +24,6 @@
   background-size: cover;
   object-fit: cover;
   object-position: center;
-  will-change: transform;
 }
 
 .background {
@@ -36,8 +37,14 @@
   z-index: 1;
   inset: 0;
   overflow: hidden;
+  opacity: 0;
   transform: scale(1.06);
   transform-origin: center;
+  transition: opacity 600ms ease-out;
+}
+
+.fire[data-visible="true"] {
+  opacity: 1;
 }
 
 .fireFrame {
@@ -64,10 +71,14 @@
 }
 
 .ambientGlow {
+  --pulse-min-opacity: 0.2;
+  --pulse-max-opacity: 1;
+
   z-index: 2;
   opacity: 0.38;
   mix-blend-mode: screen;
-  animation: ambient-pulse 1.8s ease-in-out infinite alternate;
+  animation: synchronized-fire-pulse var(--illumination-cycle-duration)
+    ease-in-out infinite;
 }
 
 .statue {
@@ -77,16 +88,22 @@
 }
 
 .statueLit {
+  --pulse-min-opacity: 0.2;
+  --pulse-max-opacity: 1;
+
   opacity: 0.12;
-  animation: statue-pulse 1.8s ease-in-out infinite alternate;
+  animation: synchronized-fire-pulse var(--illumination-cycle-duration)
+    ease-in-out infinite;
 }
 
 .eyesScene {
   position: absolute;
   z-index: 4;
   inset: 0;
+  opacity: 0;
   transform: scale(1.06);
   transform-origin: center;
+  transition: opacity 600ms ease-out;
 }
 
 .eyesTracker {
@@ -137,11 +154,51 @@
 }
 
 .foregroundGlow {
+  --pulse-min-opacity: 0.25;
+  --pulse-max-opacity: 0.65;
+
   z-index: 5;
   opacity: 0.45;
   transform: translateY(3%) scale(1.025);
   transform-origin: center;
-  animation: foreground-pulse 1.2s ease-in-out infinite alternate;
+  animation: synchronized-fire-pulse var(--illumination-cycle-duration)
+    ease-in-out infinite;
+}
+
+.illuminationLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 600ms ease-out;
+}
+
+.illuminationAmbient {
+  z-index: 2;
+}
+
+.illuminationStatue {
+  z-index: 3;
+}
+
+.illuminationForeground {
+  z-index: 5;
+}
+
+.section[data-effects-active="true"] .illuminationLayer,
+.section[data-effects-active="true"] .eyesScene {
+  opacity: 1;
+}
+
+.section[data-effects-active="false"] .ambientGlow,
+.section[data-effects-active="false"] .statueLit,
+.section[data-effects-active="false"] .foregroundGlow {
+  animation-play-state: paused;
+}
+
+.section[data-performance-tier="low"] .eyesTracker,
+.section[data-performance-tier="low"] .eyesBlink {
+  will-change: auto;
 }
 
 .content {
@@ -205,7 +262,6 @@
 
 .wordTrack {
   display: block;
-  will-change: transform;
 }
 
 .wordCopy {
@@ -257,30 +313,13 @@
   will-change: transform;
 }
 
-@keyframes statue-pulse {
-  from {
-    opacity: 0.12;
+@keyframes synchronized-fire-pulse {
+  0%,
+  100% {
+    opacity: var(--pulse-min-opacity);
   }
-  to {
-    opacity: 0.92;
-  }
-}
-
-@keyframes ambient-pulse {
-  from {
-    opacity: 0.12;
-  }
-  to {
-    opacity: 0.58;
-  }
-}
-
-@keyframes foreground-pulse {
-  from {
-    opacity: 0.08;
-  }
-  to {
-    opacity: 0.68;
+  50% {
+    opacity: var(--pulse-max-opacity);
   }
 }
 
@@ -321,6 +360,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .fire,
+  .illuminationLayer,
+  .eyesScene {
+    transition: none;
+  }
+
   .layer,
   .eyesTracker,
   .eyesBlink,

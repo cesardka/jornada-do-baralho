@@ -58,6 +58,14 @@
   animation: light-three-pulse 3.8s ease-in-out -2.6s infinite alternate;
 }
 
+.section[data-effects-ready="false"] .lightBeam {
+  animation-play-state: paused;
+}
+
+.section[data-performance-tier="low"] .lightBeam {
+  animation: none;
+}
+
 .particleMask {
   position: absolute;
   z-index: 3;

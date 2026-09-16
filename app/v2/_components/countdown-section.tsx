@@ -7,6 +7,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { bebasNeue } from "@/app/fonts";
+import {
+  type PerformanceTier,
+  usePerformanceTier,
+} from "../_hooks/use-performance-tier";
 import styles from "./countdown-section.module.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -46,15 +50,46 @@ export function FallingWords({ text }: { text: string }) {
   );
 }
 
-function FireAnimation() {
+function FireAnimation({
+  tier,
+  entranceComplete,
+  onReady,
+}: {
+  tier: PerformanceTier;
+  entranceComplete: boolean;
+  onReady: () => void;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const frameRefs = useRef<Array<HTMLImageElement | null>>([]);
   const loadedFrames = useRef(new Set<number>());
-  const [ready, setReady] = useState(false);
+  const [sequenceReady, setSequenceReady] = useState(false);
+  const [loadSequence, setLoadSequence] = useState(false);
+
+  useEffect(() => {
+    let idleCallback: number | undefined;
+    const timer = window.setTimeout(
+      () => {
+        if ("requestIdleCallback" in window) {
+          idleCallback = window.requestIdleCallback(
+            () => setLoadSequence(true),
+            { timeout: 1200 },
+          );
+        } else {
+          setLoadSequence(true);
+        }
+      },
+      tier === "high" ? 900 : tier === "standard" ? 1300 : 1800,
+    );
+
+    return () => {
+      window.clearTimeout(timer);
+      if (idleCallback !== undefined) window.cancelIdleCallback(idleCallback);
+    };
+  }, [tier]);
 
   useGSAP(
     () => {
-      if (!ready) return;
+      if (!sequenceReady || !entranceComplete) return;
 
       const frames = frameRefs.current.filter(
         (frame): frame is HTMLImageElement => frame !== null,
@@ -62,6 +97,7 @@ function FireAnimation() {
       if (frames.length !== FIRE_FRAMES.length) return;
 
       let previousFrame = 0;
+      const startedAt = gsap.ticker.time;
       const showFrame = (index: number) => {
         if (index === previousFrame) return;
         frames[previousFrame].style.visibility = "hidden";
@@ -70,12 +106,13 @@ function FireAnimation() {
         frames[index].style.opacity = "1";
         previousFrame = index;
       };
-      const period = FIRE_FRAMES.length / FIRE_FPS;
+      const frameRate = tier === "low" ? 8 : FIRE_FPS;
+      const period = FIRE_FRAMES.length / frameRate;
       const updateFrame = () => {
         if (document.visibilityState !== "visible") return;
+        const elapsed = gsap.ticker.time - startedAt;
         const index =
-          Math.floor((gsap.ticker.time % period) * FIRE_FPS) %
-          FIRE_FRAMES.length;
+          Math.floor((elapsed % period) * frameRate) % FIRE_FRAMES.length;
         showFrame(index);
       };
       const media = gsap.matchMedia();
@@ -93,41 +130,57 @@ function FireAnimation() {
         });
       };
     },
-    { scope: containerRef, dependencies: [ready] },
+    {
+      scope: containerRef,
+      dependencies: [entranceComplete, sequenceReady, tier],
+    },
   );
 
   const handleFrameLoad = (index: number) => {
     loadedFrames.current.add(index);
-    if (loadedFrames.current.size === FIRE_FRAMES.length) setReady(true);
+    if (loadedFrames.current.size === FIRE_FRAMES.length) {
+      setSequenceReady(true);
+      onReady();
+    }
   };
+  const visible = entranceComplete && sequenceReady;
 
   return (
     <div
       ref={containerRef}
       data-countdown-background
+      data-visible={visible}
       className={styles.fire}
       aria-hidden="true"
     >
-      {FIRE_FRAMES.map((src, index) => (
-        <Image
-          key={src}
-          ref={(frame) => {
-            frameRefs.current[index] = frame;
-          }}
-          src={src}
-          alt=""
-          fill
-          loading="eager"
-          sizes="(orientation: portrait) 170vh, 100vw"
-          className={styles.fireFrame}
-          onLoad={() => handleFrameLoad(index)}
-        />
-      ))}
+      {(loadSequence ? FIRE_FRAMES : FIRE_FRAMES.slice(0, 1)).map(
+        (src, index) => (
+          <Image
+            key={src}
+            ref={(frame) => {
+              frameRefs.current[index] = frame;
+            }}
+            src={src}
+            alt=""
+            fill
+            loading="lazy"
+            sizes="100vw"
+            className={styles.fireFrame}
+            onLoad={() => handleFrameLoad(index)}
+          />
+        ),
+      )}
     </div>
   );
 }
 
-function StatueEyes() {
+function StatueEyes({
+  active,
+  trackPointer,
+}: {
+  active: boolean;
+  trackPointer: boolean;
+}) {
   const { t } = useI18n();
   const layerRef = useRef<HTMLDivElement>(null);
   const trackerRef = useRef<HTMLDivElement>(null);
@@ -136,6 +189,8 @@ function StatueEyes() {
 
   useGSAP(
     () => {
+      if (!active) return;
+
       const layer = layerRef.current;
       const tracker = trackerRef.current;
       const blink = blinkRef.current;
@@ -191,10 +246,12 @@ function StatueEyes() {
           moveY(0);
         };
 
-        section.addEventListener("pointermove", handlePointerMove, {
-          passive: true,
-        });
-        section.addEventListener("pointerleave", resetPosition);
+        if (trackPointer) {
+          section.addEventListener("pointermove", handlePointerMove, {
+            passive: true,
+          });
+          section.addEventListener("pointerleave", resetPosition);
+        }
         scheduleBlink();
 
         return () => {
@@ -209,11 +266,19 @@ function StatueEyes() {
 
       return () => media.revert();
     },
-    { scope: layerRef },
+    {
+      scope: layerRef,
+      dependencies: [active, trackPointer],
+      revertOnUpdate: true,
+    },
   );
 
   const handleStatueInteraction = () => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (
+      !active ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
 
     const section = layerRef.current?.closest("section");
     if (!section) return;
@@ -266,8 +331,8 @@ function StatueEyes() {
             src="/images/bg/countdown/olhos_estatua.webp"
             alt=""
             fill
-            loading="eager"
-            sizes="(orientation: portrait) 170vh, 100vw"
+            loading="lazy"
+            sizes="100vw"
             className={styles.eyesImage}
             style={{
               backgroundImage:
@@ -288,11 +353,16 @@ function StatueEyes() {
 
 export default function CountdownSection() {
   const { t, locale } = useI18n();
+  const performanceTier = usePerformanceTier();
+  const performanceTierRef = useRef(performanceTier);
   const sectionRef = useRef<HTMLElement>(null);
   const dayCountRef = useRef<HTMLSpanElement>(null);
+  const [entranceComplete, setEntranceComplete] = useState(false);
+  const [fireReady, setFireReady] = useState(false);
   const [daysSinceChallenge, setDaysSinceChallenge] = useState<number | null>(
     null,
   );
+  performanceTierRef.current = performanceTier;
 
   useEffect(() => {
     setDaysSinceChallenge(getElapsedDays());
@@ -303,22 +373,44 @@ export default function CountdownSection() {
       const media = gsap.matchMedia();
 
       media.add("(prefers-reduced-motion: no-preference)", () => {
+        const eyebrow = sectionRef.current?.querySelector<HTMLElement>(
+          "[data-countdown-eyebrow]",
+        );
+        const title = sectionRef.current?.querySelector<HTMLElement>(
+          "[data-countdown-title]",
+        );
+        const elapsed = sectionRef.current?.querySelector<HTMLElement>(
+          "[data-countdown-elapsed]",
+        );
+        if (!eyebrow || !title || !elapsed) return;
+
         const wordTracks = gsap.utils.toArray<HTMLElement>("[data-word-track]");
+        let cancelled = false;
         let randomDrop: gsap.core.Tween | undefined;
+        let startRandomDrop: gsap.core.Tween | undefined;
         let previousWord = -1;
+
+        setEntranceComplete(false);
+        gsap.set([eyebrow, title, elapsed], { autoAlpha: 0 });
+        gsap.set(title, { willChange: "opacity" });
 
         const dropWord = (track: HTMLElement) => {
           gsap.killTweensOf(track);
           gsap.fromTo(
             track,
-            { yPercent: -50 },
+            { yPercent: -50, willChange: "transform" },
             {
               yPercent: 0,
               duration: 0.5,
               ease: "power2.out",
               force3D: false,
               onComplete: () => {
-                gsap.set(track, { y: 0, yPercent: 0, force3D: false });
+                gsap.set(track, {
+                  y: 0,
+                  yPercent: 0,
+                  force3D: false,
+                  willChange: "auto",
+                });
               },
             },
           );
@@ -341,9 +433,29 @@ export default function CountdownSection() {
           });
         };
 
+        const finishEntrance = () => {
+          setEntranceComplete(true);
+          gsap.set(title, { willChange: "auto" });
+          if (performanceTierRef.current === "low") return;
+
+          const criticalImages = Array.from(
+            sectionRef.current?.querySelectorAll<HTMLImageElement>(
+              "[data-countdown-critical-image]",
+            ) ?? [],
+          );
+          void Promise.allSettled(
+            criticalImages.map((image) => image.decode()),
+          ).then(() => {
+            if (cancelled) return;
+            startRandomDrop = gsap.delayedCall(0.8, queueRandomDrop);
+          });
+        };
+
         const hoverHandlers = wordTracks.map((track) => {
           const word = track.closest<HTMLElement>("[data-falling-word]");
-          const handlePointerEnter = () => dropWord(track);
+          const handlePointerEnter = () => {
+            if (performanceTierRef.current !== "low") dropWord(track);
+          };
           word?.addEventListener("pointerenter", handlePointerEnter);
           return () =>
             word?.removeEventListener("pointerenter", handlePointerEnter);
@@ -352,66 +464,92 @@ export default function CountdownSection() {
         gsap.set(wordTracks, { yPercent: 0 });
 
         gsap
-          .timeline({ delay: 0.2 })
-          .to("[data-countdown-eyebrow]", {
+          .timeline({ delay: 0.15, onComplete: finishEntrance })
+          .to(eyebrow, {
             autoAlpha: 1,
-            duration: 0.55,
+            duration: 0.35,
             ease: "power2.out",
           })
           .to(
-            "[data-countdown-title]",
-            { autoAlpha: 1, duration: 2, ease: "power2.out" },
-            "+=0.2",
+            title,
+            { autoAlpha: 1, duration: 0.9, ease: "power2.out" },
+            "+=0.1",
           )
           .to(
-            "[data-countdown-elapsed]",
-            { autoAlpha: 1, duration: 0.65, ease: "power2.out" },
-            "+=0.3",
+            elapsed,
+            { autoAlpha: 1, duration: 0.45, ease: "power2.out" },
+            "+=0.1",
           );
 
-        const startRandomDrop = gsap.delayedCall(3, queueRandomDrop);
-
-        gsap.fromTo(
-          "[data-countdown-background]",
-          { scale: 1.06 },
-          {
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "25% top",
-              end: "bottom top",
-              scrub: 0.8,
-            },
-          },
-        );
-
-        gsap.fromTo(
-          "[data-countdown-foreground]",
-          { yPercent: 3, scale: 1.025 },
-          {
-            yPercent: -2,
-            scale: 1.01,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "25% top",
-              end: "bottom top",
-              scrub: 0.8,
-            },
-          },
-        );
-
         return () => {
+          cancelled = true;
           randomDrop?.kill();
           startRandomDrop?.kill();
           hoverHandlers.forEach((removeHandler) => removeHandler());
         };
       });
 
+      media.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(
+          [
+            "[data-countdown-eyebrow]",
+            "[data-countdown-title]",
+            "[data-countdown-elapsed]",
+          ],
+          { autoAlpha: 1, willChange: "auto" },
+        );
+        setEntranceComplete(true);
+      });
+
       return () => media.revert();
     },
-    { scope: sectionRef, dependencies: [locale], revertOnUpdate: true },
+    {
+      scope: sectionRef,
+      dependencies: [locale],
+      revertOnUpdate: true,
+    },
+  );
+
+  useGSAP(
+    () => {
+      if (performanceTier === "low") return;
+
+      gsap.fromTo(
+        "[data-countdown-background]",
+        { scale: 1.06 },
+        {
+          scale: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "25% top",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        "[data-countdown-foreground]",
+        { yPercent: 3, scale: 1.025 },
+        {
+          yPercent: -2,
+          scale: 1.01,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "25% top",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        },
+      );
+    },
+    {
+      scope: sectionRef,
+      dependencies: [performanceTier],
+      revertOnUpdate: true,
+    },
   );
 
   useGSAP(
@@ -440,7 +578,7 @@ export default function CountdownSection() {
       media.add("(prefers-reduced-motion: no-preference)", () => {
         updateCopies(0);
         gsap
-          .timeline({ delay: 3.95 })
+          .timeline({ delay: 2.15 })
           .set(count, { autoAlpha: 1 })
           .fromTo(
             count,
@@ -513,81 +651,105 @@ export default function CountdownSection() {
       : new Intl.NumberFormat(locale === "pt" ? "pt-BR" : "en-US").format(
           daysSinceChallenge,
         );
+  const effectsActive = entranceComplete && fireReady;
 
   return (
     <section
       ref={sectionRef}
       className={styles.section}
+      data-effects-active={effectsActive}
+      data-entrance-complete={entranceComplete}
+      data-performance-tier={performanceTier}
       aria-labelledby="countdown-title"
     >
       <div className={styles.scene}>
         <Image
           data-countdown-background
+          data-countdown-critical-image
           src="/images/bg/countdown/CENARIO_01.webp"
           alt=""
           fill
           priority
-          sizes="(orientation: portrait) 170vh, 100vw"
+          sizes="100vw"
           className={`${styles.layer} ${styles.background}`}
           style={{
             backgroundImage: 'url("/images/bg/countdown/lq/CENARIO_01.webp")',
           }}
         />
-        <FireAnimation />
-        <Image
-          src="/images/bg/countdown/ambient-glow-web.webp"
-          alt=""
-          fill
-          sizes="(orientation: portrait) 170vh, 100vw"
-          className={`${styles.layer} ${styles.ambientGlow}`}
-          style={{
-            backgroundImage:
-              'url("/images/bg/countdown/lq/ambient-glow-web.webp")',
-          }}
+        <FireAnimation
+          tier={performanceTier}
+          entranceComplete={entranceComplete}
+          onReady={() => setFireReady(true)}
         />
-        <Image
-          data-countdown-background
-          src="/images/bg/countdown/luz.webp"
-          alt=""
-          fill
-          sizes="(orientation: portrait) 170vh, 100vw"
-          className={`${styles.layer} ${styles.background} ${styles.ambientGlow}`}
-          style={{
-            backgroundImage: 'url("/images/bg/countdown/lq/luz.webp")',
-          }}
-        />
+        <div
+          className={`${styles.illuminationLayer} ${styles.illuminationAmbient}`}
+          aria-hidden="true"
+        >
+          <Image
+            src="/images/bg/countdown/ambient-glow-web.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className={`${styles.layer} ${styles.ambientGlow}`}
+            style={{
+              backgroundImage:
+                'url("/images/bg/countdown/lq/ambient-glow-web.webp")',
+            }}
+          />
+          <Image
+            data-countdown-background
+            src="/images/bg/countdown/luz.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className={`${styles.layer} ${styles.background} ${styles.ambientGlow}`}
+            style={{
+              backgroundImage: 'url("/images/bg/countdown/lq/luz.webp")',
+            }}
+          />
+        </div>
         <Image
           data-countdown-background
           data-statue-layer
+          data-countdown-critical-image
           src="/images/bg/countdown/ESTATUA_sem_luz.webp"
           alt=""
           fill
-          sizes="(orientation: portrait) 170vh, 100vw"
+          sizes="100vw"
           className={`${styles.layer} ${styles.statue}`}
           style={{
             backgroundImage:
               'url("/images/bg/countdown/lq/ESTATUA_sem_luz.webp")',
           }}
         />
-        <Image
-          data-countdown-background
-          data-statue-layer
-          src="/images/bg/countdown/ESTATUA_com_luz.webp"
-          alt=""
-          fill
-          sizes="(orientation: portrait) 170vh, 100vw"
-          className={`${styles.layer} ${styles.statue} ${styles.statueLit}`}
-          style={{
-            backgroundImage:
-              'url("/images/bg/countdown/lq/ESTATUA_com_luz.webp")',
-          }}
+        <div
+          className={`${styles.illuminationLayer} ${styles.illuminationStatue}`}
+          aria-hidden="true"
+        >
+          <Image
+            data-countdown-background
+            data-statue-layer
+            src="/images/bg/countdown/ESTATUA_com_luz.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className={`${styles.layer} ${styles.statue} ${styles.statueLit}`}
+            style={{
+              backgroundImage:
+                'url("/images/bg/countdown/lq/ESTATUA_com_luz.webp")',
+            }}
+          />
+        </div>
+        <StatueEyes
+          active={effectsActive}
+          trackPointer={performanceTier !== "low"}
         />
-        <StatueEyes />
         <Image
+          data-countdown-critical-image
           src="/images/bg/countdown/podium-web.webp"
           alt=""
           fill
-          sizes="(orientation: portrait) 170vh, 100vw"
+          sizes="100vw"
           className={`${styles.layer} ${styles.podium}`}
           style={{
             backgroundImage: 'url("/images/bg/countdown/lq/podium-web.webp")',
@@ -595,28 +757,36 @@ export default function CountdownSection() {
         />
         <Image
           data-countdown-foreground
+          data-countdown-critical-image
           src="/images/bg/countdown/foreground-web.webp"
           alt=""
           fill
-          sizes="(orientation: portrait) 170vh, 100vw"
+          priority
+          fetchPriority="high"
+          sizes="100vw"
           className={`${styles.layer} ${styles.foreground}`}
           style={{
             backgroundImage:
               'url("/images/bg/countdown/lq/foreground-web.webp")',
           }}
         />
-        <Image
-          data-countdown-foreground
-          src="/images/bg/countdown/foreground-glow-web.webp"
-          alt=""
-          fill
-          sizes="(orientation: portrait) 170vh, 100vw"
-          className={`${styles.layer} ${styles.foregroundGlow}`}
-          style={{
-            backgroundImage:
-              'url("/images/bg/countdown/lq/foreground-glow-web.webp")',
-          }}
-        />
+        <div
+          className={`${styles.illuminationLayer} ${styles.illuminationForeground}`}
+          aria-hidden="true"
+        >
+          <Image
+            data-countdown-foreground
+            src="/images/bg/countdown/foreground-glow-web.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className={`${styles.layer} ${styles.foregroundGlow}`}
+            style={{
+              backgroundImage:
+                'url("/images/bg/countdown/lq/foreground-glow-web.webp")',
+            }}
+          />
+        </div>
       </div>
 
       <div className={styles.content}>

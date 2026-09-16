@@ -12,6 +12,8 @@ interface GalacticBackgroundProps {
   glowStrength?: number;
   centerDarkness?: number;
   variant?: "galactic" | "balatro";
+  maxFPS?: number;
+  resolutionCap?: number;
   className?: string;
 }
 
@@ -28,6 +30,8 @@ export default function GalacticBackground({
   glowStrength = 0.6,
   centerDarkness = 0,
   variant = "galactic",
+  maxFPS = 60,
+  resolutionCap = 1.5,
   className = "",
 }: GalacticBackgroundProps) {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -67,7 +71,7 @@ export default function GalacticBackground({
         backgroundAlpha: 0,
         antialias: false, // filter output is already smooth; skip AA to save fill
         autoDensity: true,
-        resolution: Math.min(window.devicePixelRatio || 1, 1.5),
+        resolution: Math.min(window.devicePixelRatio || 1, resolutionCap),
       });
 
       if (destroyed) {
@@ -543,6 +547,7 @@ export default function GalacticBackground({
           b.p.scaleY = scale;
         }
       };
+      app.ticker.maxFPS = maxFPS;
       app.ticker.add(tick);
 
       // After the very first frame renders, fade the canvas in on top of
@@ -604,7 +609,15 @@ export default function GalacticBackground({
       destroyed = true;
       cleanup?.();
     };
-  }, [speed, starCount, glowStrength, centerDarkness, variant]);
+  }, [
+    speed,
+    starCount,
+    glowStrength,
+    centerDarkness,
+    variant,
+    maxFPS,
+    resolutionCap,
+  ]);
 
   return (
     // Canvas fills the whole section so it covers every scroll position.

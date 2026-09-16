@@ -18,8 +18,10 @@ function getAge() {
 }
 
 export default function AboutTheJourney({
+  prioritizeImages = true,
   showDeckHistory = true,
 }: {
+  prioritizeImages?: boolean;
   showDeckHistory?: boolean;
 }) {
   const { t } = useI18n();
@@ -283,7 +285,7 @@ export default function AboutTheJourney({
             src={"/images/cesar-hoffmann-baralho-2024.webp"}
             alt={t("aboutJourney.imgBgAlt")}
             fill
-            priority
+            priority={prioritizeImages}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
@@ -292,7 +294,7 @@ export default function AboutTheJourney({
             src={"/images/cesar-hoffmann-baralho-velho-2024.webp"}
             alt={t("aboutJourney.imgTopAlt")}
             fill
-            priority
+            priority={prioritizeImages}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover diagonal-fader diagonal-fader-top"
           />

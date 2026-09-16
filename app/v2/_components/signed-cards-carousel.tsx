@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { bebasNeue } from "@/app/fonts";
 import { useI18n } from "@/app/contexts/I18nContext";
+import { usePerformanceTier } from "../_hooks/use-performance-tier";
 import GalacticBackground from "@/components/ui/galactic-background";
 import SparkleParticles from "@/components/ui/sparkle-particles";
 import {
@@ -41,11 +42,15 @@ const capitalizeFirst = (value: string, locale: string) => {
 function CardItem({
   card,
   decorative = false,
+  effectsReady,
+  sparklesEnabled,
   revealed,
   onToggle,
 }: {
   card: SignedCard;
   decorative?: boolean;
+  effectsReady: boolean;
+  sparklesEnabled: boolean;
   revealed: boolean;
   onToggle: (cardId: string) => void;
 }) {
@@ -111,7 +116,7 @@ function CardItem({
                   sizes="(max-width: 767px) 48vw, (max-width: 1199px) 28vw, 18vw"
                   className="signed-card-glow object-contain"
                 />
-                <SparkleParticles />
+                {effectsReady && sparklesEnabled ? <SparkleParticles /> : null}
               </span>
             </span>
           </span>
@@ -135,16 +140,42 @@ function CardItem({
 
 export default function SignedCardsCarousel() {
   const { t, locale } = useI18n();
+  const performanceTier = usePerformanceTier();
   const sectionRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const sequenceRef = useRef<HTMLUListElement>(null);
   const pausedRef = useRef(false);
+  const [effectsReady, setEffectsReady] = useState(false);
   const [revealedCardId, setRevealedCardId] = useState<string | null>(null);
 
   useEffect(() => {
     pausedRef.current = revealedCardId !== null;
   }, [revealedCardId]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setEffectsReady(true);
+        observer.disconnect();
+      },
+      {
+        rootMargin: `0px 0px -${
+          performanceTier === "low"
+            ? 30
+            : performanceTier === "standard"
+              ? 15
+              : 10
+        }% 0px`,
+      },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [performanceTier]);
 
   const toggleCard = (cardId: string) => {
     setRevealedCardId((current) => (current === cardId ? null : cardId));
@@ -193,13 +224,16 @@ export default function SignedCardsCarousel() {
           });
         };
 
-        const hoverHandlers = wordTracks.map((track) => {
-          const word = track.closest<HTMLElement>("[data-falling-word]");
-          const handlePointerEnter = () => dropWord(track);
-          word?.addEventListener("pointerenter", handlePointerEnter);
-          return () =>
-            word?.removeEventListener("pointerenter", handlePointerEnter);
-        });
+        const hoverHandlers =
+          performanceTier === "low"
+            ? []
+            : wordTracks.map((track) => {
+                const word = track.closest<HTMLElement>("[data-falling-word]");
+                const handlePointerEnter = () => dropWord(track);
+                word?.addEventListener("pointerenter", handlePointerEnter);
+                return () =>
+                  word?.removeEventListener("pointerenter", handlePointerEnter);
+              });
 
         gsap.fromTo(
           wordTracks,
@@ -215,7 +249,7 @@ export default function SignedCardsCarousel() {
               start: "top 72%",
               once: true,
             },
-            onComplete: queueRandomDrop,
+            onComplete: performanceTier === "low" ? undefined : queueRandomDrop,
           },
         );
 
@@ -227,11 +261,17 @@ export default function SignedCardsCarousel() {
 
       return () => media.revert();
     },
-    { scope: sectionRef, dependencies: [locale], revertOnUpdate: true },
+    {
+      scope: sectionRef,
+      dependencies: [locale, performanceTier],
+      revertOnUpdate: true,
+    },
   );
 
   useGSAP(
     () => {
+      if (!effectsReady) return;
+
       const section = sectionRef.current;
       const viewport = viewportRef.current;
       const track = trackRef.current;
@@ -247,17 +287,19 @@ export default function SignedCardsCarousel() {
       let isDragging = false;
       let isVisible = true;
 
-      gsap.to(idleCards, {
-        rotationX: "random(-6, 6)",
-        rotationY: "random(-8, 8)",
-        rotationZ: "random(-3, 3)",
-        duration: "random(1.4, 2.8)",
-        ease: "sine.inOut",
-        force3D: true,
-        repeat: -1,
-        repeatRefresh: true,
-        yoyo: true,
-      });
+      if (performanceTier !== "low") {
+        gsap.to(idleCards, {
+          rotationX: "random(-6, 6)",
+          rotationY: "random(-8, 8)",
+          rotationZ: "random(-3, 3)",
+          duration: "random(1.4, 2.8)",
+          ease: "sine.inOut",
+          force3D: true,
+          repeat: -1,
+          repeatRefresh: true,
+          yoyo: true,
+        });
+      }
 
       const render = () => {
         if (sequenceWidth === 0) return;
@@ -310,9 +352,20 @@ export default function SignedCardsCarousel() {
         },
       });
 
+      const minimumFrameTime =
+        1000 /
+        (performanceTier === "low"
+          ? 20
+          : performanceTier === "standard"
+            ? 30
+            : 60);
+      let accumulatedTime = 0;
       const tick = (_time: number, deltaTime: number) => {
         if (pausedRef.current || isDragging || !isVisible) return;
-        position -= deltaTime * 0.13;
+        accumulatedTime += deltaTime;
+        if (accumulatedTime < minimumFrameTime) return;
+        position -= accumulatedTime * 0.13;
+        accumulatedTime = 0;
         render();
       };
 
@@ -340,7 +393,11 @@ export default function SignedCardsCarousel() {
         gsap.ticker.remove(tick);
       };
     },
-    { scope: sectionRef },
+    {
+      scope: sectionRef,
+      dependencies: [effectsReady, performanceTier],
+      revertOnUpdate: true,
+    },
   );
 
   return (
@@ -349,11 +406,28 @@ export default function SignedCardsCarousel() {
       className={styles.section}
       aria-labelledby="signed-cards-title"
     >
-      <GalacticBackground
-        variant="balatro"
-        centerDarkness={0.35}
-        className="-z-10"
-      />
+      {effectsReady ? (
+        <GalacticBackground
+          variant="balatro"
+          centerDarkness={0.35}
+          starCount={
+            performanceTier === "low"
+              ? 40
+              : performanceTier === "standard"
+                ? 72
+                : 120
+          }
+          maxFPS={
+            performanceTier === "low"
+              ? 20
+              : performanceTier === "standard"
+                ? 24
+                : 60
+          }
+          resolutionCap={performanceTier === "high" ? 1.5 : 1}
+          className="-z-10"
+        />
+      ) : null}
       <div className={styles.heading}>
         <div>
           <h2
@@ -382,6 +456,8 @@ export default function SignedCardsCarousel() {
               <CardItem
                 key={card.id}
                 card={card}
+                effectsReady={effectsReady}
+                sparklesEnabled={performanceTier !== "low"}
                 revealed={revealedCardId === card.id}
                 onToggle={toggleCard}
               />
@@ -396,6 +472,8 @@ export default function SignedCardsCarousel() {
                 key={`duplicate-${card.id}`}
                 card={card}
                 decorative
+                effectsReady={effectsReady}
+                sparklesEnabled={performanceTier === "high"}
                 revealed={revealedCardId === card.id}
                 onToggle={toggleCard}
               />

@@ -77,6 +77,20 @@ export default function Card() {
 
   return (
     <I18nProvider>
+      <link
+        rel="preload"
+        href="/images/cards-LQ/card-back-blue.webp"
+        as="image"
+        type="image/webp"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        href="/images/card/card-back-blue.webp"
+        as="image"
+        type="image/webp"
+        fetchPriority="high"
+      />
       {splashState === "pending" ? null : splashState === "loading" ? (
         <LoadingView isLoadingFadingOut={isLoadingFadingOut} />
       ) : splashState === "splash" ? (

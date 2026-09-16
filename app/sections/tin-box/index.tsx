@@ -51,6 +51,9 @@ type TinBoxProps = {
   overscanPercent?: number;
   spinEaseDuration?: number;
   spinStartDelay?: number;
+  antialias?: boolean;
+  maxFPS?: number;
+  pixelRatioCap?: number;
   onReady?: (firstFrame: string | null) => void;
   className?: string;
 };
@@ -69,6 +72,9 @@ export default function TinBox({
   overscanPercent = 0,
   spinEaseDuration = 0,
   spinStartDelay = 0,
+  antialias = true,
+  maxFPS = 60,
+  pixelRatioCap = 2,
   onReady,
   className = "",
 }: TinBoxProps) {
@@ -97,14 +103,14 @@ export default function TinBox({
 
     // ---- Renderer ----
     const renderer = new THREE.WebGLRenderer({
-      antialias: true,
+      antialias,
       alpha: true,
       powerPreference: "high-performance",
     });
     // Cap DPR at 2. On 3x retina screens the env-map PMREM pass + lots of metallic
     // surfaces with antialias can stall the GPU on remount, which manifests as the
     // canvas freezing and clicks appearing to stop working.
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, pixelRatioCap));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.AgXToneMapping;
     renderer.toneMappingExposure = 1;
@@ -735,9 +741,14 @@ export default function TinBox({
     let rafId = 0;
     let previousFrameTime = performance.now();
     let spinStartsAt = Number.POSITIVE_INFINITY;
+    const minimumFrameTime = 1000 / maxFPS;
     const animate = (frameTime: number) => {
       void boxObject;
       void lidObject;
+      if (frameTime - previousFrameTime < minimumFrameTime - 1) {
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
       const frameElapsed = Math.min(
         Math.max((frameTime - previousFrameTime) / 1000, 0),
         0.05,
@@ -817,6 +828,7 @@ export default function TinBox({
       });
     };
   }, [
+    antialias,
     autoRotate,
     draggable,
     embedded,
@@ -824,9 +836,11 @@ export default function TinBox({
     interactionLabel,
     interactiveLid,
     lidBounce,
+    maxFPS,
     mobileModelScale,
     modelScale,
     onReady,
+    pixelRatioCap,
     spinEaseDuration,
     spinStartDelay,
   ]);

@@ -30,7 +30,7 @@ export default function V2Homepage() {
           <SignedCardsCarousel />
         </div>
         <div id="journey" className="scroll-mt-20">
-          <AboutTheJourney showDeckHistory={false} />
+          <AboutTheJourney prioritizeImages={false} showDeckHistory={false} />
         </div>
         <div id="blog-section" className="scroll-mt-20">
           <ReadTheBlogSection />

@@ -6,12 +6,16 @@ import type { Ticker } from "pixi.js";
 interface DeckRadialBackgroundProps {
   originRef: RefObject<HTMLElement | null>;
   contentRef: RefObject<HTMLElement | null>;
+  maxFPS?: number;
+  resolutionCap?: number;
   className?: string;
 }
 
 export default function DeckRadialBackground({
   originRef,
   contentRef,
+  maxFPS = 30,
+  resolutionCap = 1.5,
   className = "",
 }: DeckRadialBackgroundProps) {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -34,7 +38,7 @@ export default function DeckRadialBackground({
         backgroundAlpha: 0,
         antialias: false,
         autoDensity: true,
-        resolution: Math.min(window.devicePixelRatio || 1, 1.5),
+        resolution: Math.min(window.devicePixelRatio || 1, resolutionCap),
         preference: "webgl",
       });
       if (destroyed) {
@@ -179,7 +183,7 @@ export default function DeckRadialBackground({
       background.height = app.screen.height;
       background.filters = [filter];
       app.stage.addChild(background);
-      app.ticker.maxFPS = 30;
+      app.ticker.maxFPS = maxFPS;
 
       const updateLayout = () => {
         const width = app.screen.width;
@@ -287,7 +291,7 @@ export default function DeckRadialBackground({
       destroyed = true;
       cleanup?.();
     };
-  }, [contentRef, originRef]);
+  }, [contentRef, maxFPS, originRef, resolutionCap]);
 
   return <div ref={hostRef} aria-hidden="true" className={className} />;
 }
