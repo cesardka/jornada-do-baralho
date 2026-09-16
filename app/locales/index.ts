@@ -35,7 +35,16 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       },
       aboutDeck: {
         title: "O Baralho",
+        historyP1BeforeEpisode: "Em 25 de maio de 2012, durante o episódio ",
+        historyP1BetweenLinks: ", o Jovem Nerd lançou o ",
+        historyP1BeforeAuthor:
+          ", um produto temático em parceria com a Copag que incluía 19 ilustrações de Nerdcasters, feitas pelo ",
+        historyP2BeforeEpisode: "No Nerdcast seguinte, ",
+        historyP2AfterEpisode:
+          ", nascia despretensiosamente o Desafio do Baralho ao final da leitura de e-mails...",
         modelLabel: "Modelo 3D da caixa do Baralho Nerdcast",
+        modelInteraction:
+          "Arraste para girar ou toque para fazer a tampa pular",
         modelLoading: "Carregando o modelo do baralho…",
       },
       challenge: {
@@ -44,11 +53,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         rule2: "Registre uma foto do momento",
         rule3: "Envie o baralho para o Jovem Nerd",
         rule4: "Ganhe o iPad mais recente disponível!",
-        subtitlePrefix: "Lançado no",
-        episode: "Nerdcast #313",
-        subtitleSuffix: ", em 01/06/2012.",
-        audioListen: "Ouça o desafio",
-        audioPause: "Pausar áudio",
+        audioListen: "Ouça o anúncio original",
+        audioPause: "Pausar anúncio",
       },
       signedCards: {
         title: "As Assinaturas",
@@ -77,19 +83,19 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     aboutJourney: {
       titleWhoAmI: "Quem sou eu",
       titleDeck: "O Baralho",
-      myJourney: "Minha Jornada",
+      myJourney: "Como tudo começou",
       listenChallenge: "Ouça o desafio",
       pauseAudio: "Pausar áudio",
       imgBgAlt: "Imagem da Jornada (fundo)",
       imgTopAlt: "Imagem da Jornada (topo com animação)",
-      p1_begin: "Esta é uma iniciativa minha, ",
-      p1_afterName:
-        ", para documentar e completar o Desafio do Baralho para conseguir o iPad que há ",
-      p1_afterYears: " anos ainda não foi conquistado.",
+      p1_begin: "Sou ",
+      p1_afterName: " desenvolvedor de software de Porto Alegre - RS, ",
+      p1_afterYears:
+        " anos, e tive a epifania de conquistar o Desafio do Baralho e resgatar o iPad que aguarda há tantos anos pacientemente.",
       p2_begin:
         "Sou ouvinte do Nerdcast desde 2007, quando tinha 14 anos, e me lembro de ter começado pelo episódio ",
       p2_end:
-        " na casa de um amigo. Desde então, virei fã do Jovem Nerd e acompanho quase diariamente o conteúdo, sendo membro do grupo que ouve Nerdcast pra dormir hahah",
+        " na casa de um amigo. Virei fã do Jovem Nerd e comecei a consumir o conteúdo nas mais variadas mídias, e hoje considero uma peça importante da minha jornada pessoal ao longo dos anos que seguiram.",
       deck_p1_before_ep: "Em 25 de maio de 2012, durante o episódio ",
       deck_p1_between_links: ", o Jovem Nerd lançou o ",
       deck_p1_after_product:
@@ -112,8 +118,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p4_second_date_link: "outro anúncio",
       my_p4_after_second_link: " e consegui comprar outro baralho, este ",
       my_p4_end: "completo e lacrado!!",
-      my_p4_conclusion:
-        "Resta agora conseguir as assinaturas possíveis e encerrar esse ciclo... Vamos nessa?",
+      my_p4_conclusion: "... Desde então, nada mais foi o mesmo.",
       readBlog: "Acompanhe a Blogada do Baralho",
     },
     aboutAuthor: {
@@ -266,7 +271,15 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       },
       aboutDeck: {
         title: "The Deck",
+        historyP1BeforeEpisode: "On May 25, 2012, during episode ",
+        historyP1BetweenLinks: ", Jovem Nerd released the ",
+        historyP1BeforeAuthor:
+          ", a themed product created with Copag that included 19 illustrations of Nerdcasters by ",
+        historyP2BeforeEpisode: "On the following Nerdcast, ",
+        historyP2AfterEpisode:
+          ", the Deck Challenge was casually born at the end of the email segment...",
         modelLabel: "3D model of the Nerdcast deck box",
+        modelInteraction: "Drag to spin or tap to make the lid jump",
         modelLoading: "Loading the deck model…",
       },
       challenge: {
@@ -275,11 +288,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         rule2: "Take a photo of the moment",
         rule3: "Send the deck to Jovem Nerd",
         rule4: "Win the latest iPad available!",
-        subtitlePrefix: "Released on",
-        episode: "Nerdcast #313",
-        subtitleSuffix: ", on June 1, 2012.",
-        audioListen: "Listen to the challenge",
-        audioPause: "Pause audio",
+        audioListen: "Listen to original announcement",
+        audioPause: "Pause announcement",
       },
       signedCards: {
         title: "The Signatures",
@@ -308,19 +318,19 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     aboutJourney: {
       titleWhoAmI: "Who am I",
       titleDeck: "The Deck",
-      myJourney: "My Journey",
+      myJourney: "How it all began",
       listenChallenge: "Listen to the challenge",
       pauseAudio: "Pause audio",
       imgBgAlt: "Journey image (background)",
       imgTopAlt: "Journey image (top with animation)",
-      p1_begin: "This is my personal initiative, ",
-      p1_afterName:
-        ", to document and complete The DeckVenture to get the iPad that for ",
-      p1_afterYears: " years has still not been claimed.",
+      p1_begin: "I'm ",
+      p1_afterName: " a software developer from Porto Alegre, RS, aged ",
+      p1_afterYears:
+        ", and I had the epiphany of conquering the Deck Challenge and rescuing the iPad that has waited patiently for so many years.",
       p2_begin:
         "I've been a Nerdcast listener since 2007, when I was 14, and I remember starting with episode ",
       p2_end:
-        ". Since then, I've become a fan of Jovem Nerd and follow the content almost daily, being one of those who listens to Nerdcast on bed before sleep haha",
+        ". I became a fan of Jovem Nerd and started following its content across many different media, and today I consider it an important part of my personal journey throughout the years that followed.",
       deck_p1_before_ep: "On May 25, 2012, during episode ",
       deck_p1_between_links: ", Jovem Nerd launched the ",
       deck_p1_after_product:
@@ -343,8 +353,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_p4_second_date_link: "another listing",
       my_p4_after_second_link: " and managed to buy another deck, this one ",
       my_p4_end: "complete and sealed!!",
-      my_p4_conclusion:
-        "It's up to now to get as many signatures as possible and close this cycle... Would you all join me?",
+      my_p4_conclusion: "... Since then, nothing was ever the same.",
       readBlog: "Read the Blog",
     },
     aboutAuthor: {

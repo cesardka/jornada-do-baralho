@@ -9,6 +9,14 @@ import { FaPause, FaMusic } from "react-icons/fa";
 import { useI18n } from "@/app/contexts/I18nContext";
 import BouncingText from "@/components/ui/bouncing-text";
 
+function getAge() {
+  const now = new Date();
+  const birthdayPassed =
+    now.getUTCMonth() > 2 ||
+    (now.getUTCMonth() === 2 && now.getUTCDate() >= 16);
+  return now.getUTCFullYear() - 1993 - (birthdayPassed ? 0 : 1);
+}
+
 export default function AboutTheJourney({
   showDeckHistory = true,
 }: {
@@ -80,12 +88,13 @@ export default function AboutTheJourney({
                   href="https://www.linkedin.com/in/c%C3%A9sar-hoffmann/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
+                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
                 >
-                  César Hoffmann <SocialMediaIcon type="linkedin" size={14} />
+                  {"César Hoffmann,"}
+                  <SocialMediaIcon type="linkedin" size={14} />
                 </Link>
                 {t("aboutJourney.p1_afterName")}
-                {new Date().getFullYear() - 2012}
+                {getAge()}
                 {t("aboutJourney.p1_afterYears")}
               </p>
 
