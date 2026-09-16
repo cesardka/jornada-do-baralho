@@ -111,8 +111,8 @@ export default function AboutTheChallengeSection() {
       const title = sectionRef.current?.querySelector<HTMLElement>(
         "[data-challenge-title]",
       );
-      const subtitle = sectionRef.current?.querySelector<HTMLElement>(
-        "[data-challenge-subtitle]",
+      const audioControl = sectionRef.current?.querySelector<HTMLElement>(
+        "[data-challenge-audio]",
       );
       const rules = gsap.utils.toArray<HTMLElement>("[data-challenge-rule]");
       const layers = gsap.utils.toArray<HTMLElement>("[data-challenge-depth]");
@@ -120,7 +120,7 @@ export default function AboutTheChallengeSection() {
       media.add("(prefers-reduced-motion: no-preference)", () => {
         if (!title) return;
 
-        gsap.set([title, subtitle, ...rules], { autoAlpha: 0, y: 18 });
+        gsap.set([title, ...rules, audioControl], { autoAlpha: 0, y: 18 });
         const progress = { value: 0 };
         const timeline = gsap.timeline({
           scrollTrigger: {
@@ -139,13 +139,6 @@ export default function AboutTheChallengeSection() {
             { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" },
             0.05,
           );
-        if (subtitle) {
-          timeline.to(
-            subtitle,
-            { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" },
-            0.13,
-          );
-        }
         layers.forEach((layer) => {
           timeline.to(
             layer,
@@ -164,11 +157,18 @@ export default function AboutTheChallengeSection() {
             0.26 + index * 0.17,
           );
         });
+        if (audioControl) {
+          timeline.to(
+            audioControl,
+            { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" },
+            0.94,
+          );
+        }
       });
 
       media.add("(prefers-reduced-motion: reduce)", () => {
         if (title)
-          gsap.set([title, subtitle, ...rules], { autoAlpha: 1, y: 0 });
+          gsap.set([title, ...rules, audioControl], { autoAlpha: 1, y: 0 });
       });
 
       return () => media.revert();
@@ -237,19 +237,24 @@ export default function AboutTheChallengeSection() {
           >
             {t("v2.challenge.title")}
           </h2>
-          <div data-challenge-subtitle className={styles.subtitle}>
-            <p className={styles.subtitleText}>
-              {t("v2.challenge.subtitlePrefix")}{" "}
-              <a
-                href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.episodeLink}
+          <ol className={styles.rules}>
+            {RULE_KEYS.map((key, index) => (
+              <li
+                key={key}
+                data-challenge-rule
+                className={`${bebasNeue.className} ${styles.rule}`}
               >
-                {t("v2.challenge.episode")}
-              </a>
-              {t("v2.challenge.subtitleSuffix")}
-            </p>
+                <span
+                  aria-hidden="true"
+                  className={`${bebasNeue.className} ${styles.ruleNumber}`}
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span>{t(key)}</span>
+              </li>
+            ))}
+          </ol>
+          <div data-challenge-audio className={styles.audioControl}>
             <button
               type="button"
               aria-pressed={isPlaying}
@@ -285,23 +290,6 @@ export default function AboutTheChallengeSection() {
               onEnded={() => setIsPlaying(false)}
             />
           </div>
-          <ol className={styles.rules}>
-            {RULE_KEYS.map((key, index) => (
-              <li
-                key={key}
-                data-challenge-rule
-                className={`${bebasNeue.className} ${styles.rule}`}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`${bebasNeue.className} ${styles.ruleNumber}`}
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span>{t(key)}</span>
-              </li>
-            ))}
-          </ol>
         </div>
       </div>
     </section>

@@ -138,94 +138,6 @@
   text-wrap: balance;
 }
 
-.subtitle {
-  display: flex;
-  visibility: hidden;
-  width: min(100%, 58rem);
-  margin: clamp(1rem, 2.5vh, 1.75rem) auto 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem 1rem;
-  opacity: 0;
-  text-align: center;
-  text-shadow: 0 2px 12px rgb(0 8 14 / 95%);
-}
-
-.subtitleText {
-  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-  font-weight: 600;
-  line-height: 1.35;
-  text-wrap: balance;
-}
-
-.episodeLink {
-  color: #65e7ff;
-  font-weight: 800;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  transition: color 180ms ease;
-}
-
-.episodeLink:hover {
-  color: white;
-}
-
-.episodeLink:focus-visible {
-  border-radius: 0.15rem;
-  outline: 2px solid #65e7ff;
-  outline-offset: 3px;
-}
-
-.audioButton {
-  display: inline-flex;
-  width: 13rem;
-  border: 2px solid white;
-  border-radius: 999px;
-  padding: 0.55rem 1.1rem 0.45rem;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  background: rgb(2 18 28 / 45%);
-  color: white;
-  font-size: 1.2rem;
-  line-height: 1;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.audioButton:hover,
-.audioButton[data-playing="true"] {
-  background: white;
-  color: #071821;
-  box-shadow: 0 0 18px rgb(101 231 255 / 40%);
-}
-
-.audioButton:focus-visible {
-  outline: 3px solid #65e7ff;
-  outline-offset: 4px;
-}
-
-.audioLabelMask {
-  display: inline-grid;
-  overflow: clip;
-  height: 1em;
-  place-items: center;
-  line-height: 1;
-}
-
-.audioLabel {
-  display: block;
-  grid-area: 1 / 1;
-  white-space: nowrap;
-  animation: audio-label-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 .rules {
   display: grid;
   width: min(100%, 58rem);
@@ -253,6 +165,64 @@
   color: #65e7ff;
   font-size: clamp(1.75rem, 3vw, 2.75rem);
   line-height: 1;
+}
+
+.audioControl {
+  display: flex;
+  visibility: hidden;
+  margin: clamp(1.5rem, 3vh, 2.25rem) auto 0;
+  justify-content: center;
+  opacity: 0;
+}
+
+.audioButton {
+  display: inline-flex;
+  width: min(100%, 18rem);
+  min-height: 3.5rem;
+  border: 2px solid #65e7ff;
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem 0.55rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  color: white;
+  background: rgb(2 18 28 / 58%);
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.audioButton:hover,
+.audioButton[data-playing="true"] {
+  color: #071821;
+  background: white;
+  box-shadow: 0 0 1.25rem rgb(101 231 255 / 45%);
+}
+
+.audioButton:focus-visible {
+  outline: 3px solid #65e7ff;
+  outline-offset: 4px;
+}
+
+.audioLabelMask {
+  display: inline-grid;
+  overflow: clip;
+  height: 1em;
+  place-items: center;
+  line-height: 1;
+}
+
+.audioLabel {
+  display: block;
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  animation: audio-label-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes audio-label-enter {
@@ -330,10 +300,6 @@
     max-width: none;
     white-space: nowrap;
   }
-
-  .subtitle {
-    margin-top: 0.5rem;
-  }
 }
 
 @media (max-width: 64rem) {
@@ -353,18 +319,14 @@
     font-size: clamp(4.75rem, 11vw, 7rem);
   }
 
-  .subtitleText {
-    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  .rule {
+    font-size: clamp(2rem, 4.6vw, 2.9rem);
   }
 
   .audioButton {
-    width: 16rem;
-    padding: 0.7rem 1.4rem 0.6rem;
-    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
-  }
-
-  .rule {
-    font-size: clamp(2rem, 4.6vw, 2.9rem);
+    width: min(100%, 20rem);
+    min-height: 4.25rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -388,18 +350,6 @@
     font-size: clamp(3.5rem, 14vw, 5.25rem);
   }
 
-  .subtitle {
-    gap: 0.6rem;
-  }
-
-  .subtitleText {
-    font-size: clamp(0.9rem, 3.8vw, 1.05rem);
-  }
-
-  .audioButton {
-    font-size: 1.1rem;
-  }
-
   .rule {
     grid-template-columns: 2.75rem 1fr;
     padding-block: 0.45rem;
@@ -408,6 +358,12 @@
 
   .ruleNumber {
     font-size: 1.9rem;
+  }
+
+  .audioButton {
+    width: min(calc(100vw - 2rem), 18rem);
+    min-height: 3.75rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -438,8 +394,8 @@
   }
 
   .title,
-  .subtitle,
-  .rule {
+  .rule,
+  .audioControl {
     visibility: visible;
     opacity: 1;
   }
