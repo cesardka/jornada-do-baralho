@@ -65,79 +65,75 @@ export default function ReadTheBlogSection() {
       const content = gsap.utils.toArray<HTMLElement>("[data-blog-content]");
 
       media.add("(prefers-reduced-motion: no-preference)", () => {
-        if (performanceTier === "low") {
-          gsap.set(content, { autoAlpha: 1 });
-          return;
-        }
-        gsap.set(content, { autoAlpha: 0 });
+        gsap.set(content, { autoAlpha: 0, y: 16 });
+        const timeline = gsap.timeline({
+          defaults: { duration: 1.2, ease: "power2.out" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            once: true,
+          },
+        });
 
-        gsap
-          .timeline({
-            defaults: { duration: 1, ease: "none" },
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top top",
-              end: "bottom bottom",
-              scrub: 0.8,
-              invalidateOnRefresh: true,
-            },
-          })
-          .fromTo(
-            '[data-cloud-part="foreground-left"]',
-            {
-              xPercent: () =>
-                window.matchMedia("(min-width: 64.01rem)").matches ? 8 : 14,
-            },
-            { xPercent: 0 },
-            0,
-          )
-          .fromTo(
-            '[data-cloud-part="foreground-sides-left"]',
-            {
-              xPercent: () =>
-                window.matchMedia("(min-width: 64.01rem)").matches ? 6 : 11,
-            },
-            { xPercent: 0 },
-            0,
-          )
-          .fromTo(
-            '[data-cloud-part="foreground-sides-right"]',
-            {
-              xPercent: () =>
-                window.matchMedia("(min-width: 64.01rem)").matches ? -6 : -11,
-            },
-            { xPercent: 0 },
-            0,
-          )
-          .fromTo(
-            '[data-cloud-part="midground-center"]',
-            { xPercent: -4 },
-            { xPercent: 0 },
-            0,
-          )
-          .fromTo(
-            '[data-cloud-part="background-top-right"]',
-            { xPercent: -2 },
-            { xPercent: 0 },
-            0,
-          )
-          .fromTo(
-            '[data-cloud-part="background-sides-left"]',
-            { xPercent: 0.75 },
-            { xPercent: 0 },
-            0,
-          )
-          .fromTo(
-            '[data-cloud-part="background-sides-right"]',
-            { xPercent: -0.75 },
-            { xPercent: 0 },
-            0,
-          )
-          .to(
-            content,
-            { autoAlpha: 1, duration: 0.3, ease: "power2.out" },
-            0.3,
-          );
+        if (performanceTier !== "low") {
+          timeline
+            .fromTo(
+              '[data-cloud-part="foreground-left"]',
+              {
+                xPercent: () =>
+                  window.matchMedia("(min-width: 64.01rem)").matches ? 8 : 14,
+              },
+              { xPercent: 0 },
+              0,
+            )
+            .fromTo(
+              '[data-cloud-part="foreground-sides-left"]',
+              {
+                xPercent: () =>
+                  window.matchMedia("(min-width: 64.01rem)").matches ? 6 : 11,
+              },
+              { xPercent: 0 },
+              0,
+            )
+            .fromTo(
+              '[data-cloud-part="foreground-sides-right"]',
+              {
+                xPercent: () =>
+                  window.matchMedia("(min-width: 64.01rem)").matches ? -6 : -11,
+              },
+              { xPercent: 0 },
+              0,
+            )
+            .fromTo(
+              '[data-cloud-part="midground-center"]',
+              { xPercent: -4 },
+              { xPercent: 0 },
+              0,
+            )
+            .fromTo(
+              '[data-cloud-part="background-top-right"]',
+              { xPercent: -2 },
+              { xPercent: 0 },
+              0,
+            )
+            .fromTo(
+              '[data-cloud-part="background-sides-left"]',
+              { xPercent: 0.75 },
+              { xPercent: 0 },
+              0,
+            )
+            .fromTo(
+              '[data-cloud-part="background-sides-right"]',
+              { xPercent: -0.75 },
+              { xPercent: 0 },
+              0,
+            );
+        }
+        timeline.to(
+          content,
+          { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" },
+          0.25,
+        );
       });
 
       media.add("(prefers-reduced-motion: reduce)", () => {

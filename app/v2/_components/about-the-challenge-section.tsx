@@ -148,32 +148,27 @@ export default function AboutTheChallengeSection() {
         if (!title) return;
 
         gsap.set([title, ...rules, audioControl], { autoAlpha: 0, y: 18 });
-        const progress = { value: 0 };
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 0.7,
-            invalidateOnRefresh: true,
+            start: "top 75%",
+            once: true,
           },
         });
 
-        timeline
-          .to(progress, { value: 1, duration: 1, ease: "none" }, 0)
-          .to(
-            title,
-            { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" },
-            0.05,
-          );
+        timeline.to(
+          title,
+          { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" },
+          0,
+        );
         if (performanceTier !== "low")
           layers.forEach((layer) => {
             timeline.to(
               layer,
               {
                 yPercent: -Number(layer.dataset.challengeDepth),
-                duration: 1,
-                ease: "none",
+                duration: 1.2,
+                ease: "power2.out",
               },
               0,
             );
@@ -181,15 +176,15 @@ export default function AboutTheChallengeSection() {
         rules.forEach((rule, index) => {
           timeline.to(
             rule,
-            { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" },
-            0.26 + index * 0.17,
+            { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" },
+            0.2 + index * 0.14,
           );
         });
         if (audioControl) {
           timeline.to(
             audioControl,
-            { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" },
-            0.94,
+            { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" },
+            0.82,
           );
         }
       });

@@ -1,15 +1,12 @@
 .section {
   position: relative;
-  height: 200svh;
-  min-height: 72rem;
+  min-height: max(36rem, 100svh);
   background: #36abc4;
 }
 
 .stickyScene {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  min-height: 36rem;
+  position: relative;
+  height: max(36rem, 100svh);
   overflow: clip;
   isolation: isolate;
 }
@@ -199,12 +196,11 @@
 
 @media (max-width: 47.99rem) {
   .section {
-    height: 180svh;
-    min-height: 60rem;
+    min-height: max(36rem, 100svh);
   }
 
   .stickyScene {
-    min-height: 30rem;
+    height: max(36rem, 100svh);
   }
 
   .scenario {
