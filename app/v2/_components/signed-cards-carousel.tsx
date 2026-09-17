@@ -35,6 +35,14 @@ const signedCards = DECK_LIST.filter(
     card.signedSrc !== null,
 ).sort((first, second) => first.signedOn.localeCompare(second.signedOn));
 
+const getCardPlaceholder = (source: string) =>
+  source.replace("/images/card/", "/images/cards-LQ/");
+
+const getSignedPhotoPlaceholder = (source: string) => {
+  const filename = source.slice(source.lastIndexOf("/") + 1);
+  return `/images/signed-cards-LQ/${filename.replace(/\.[^.]+$/, ".webp")}`;
+};
+
 const capitalizeFirst = (value: string, locale: string) => {
   const text = value.trim();
   return text ? text[0].toLocaleUpperCase(locale) + text.slice(1) : text;
@@ -99,6 +107,12 @@ function CardItem({
                   fill
                   draggable={false}
                   sizes="(max-width: 767px) 40vw, (max-width: 1199px) 24vw, 15vw"
+                  placeholder={effectsReady ? "blur" : "empty"}
+                  blurDataURL={
+                    effectsReady
+                      ? getSignedPhotoPlaceholder(card.signedSrc)
+                      : undefined
+                  }
                   className="object-cover"
                 />
               </span>
@@ -115,6 +129,12 @@ function CardItem({
                   fill
                   draggable={false}
                   sizes="(max-width: 767px) 48vw, (max-width: 1199px) 28vw, 18vw"
+                  placeholder={effectsReady ? "blur" : "empty"}
+                  blurDataURL={
+                    effectsReady
+                      ? getCardPlaceholder(card.originalSrc)
+                      : undefined
+                  }
                   className="signed-card-glow object-contain"
                 />
                 {effectsReady && sparklesEnabled ? <SparkleParticles /> : null}
