@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { NerdcastCard } from "../deck-list/card-data";
+import { type NerdcastCard, parseSignedDate } from "../deck-list/card-data";
 import CardSuit from "./cardSuit";
 import CloseButton from "./closeButton";
 import Link from "next/link";
@@ -58,15 +58,15 @@ const CardDetails = ({
       <p className="mt-4 text-gray-600 italic">
         <q className="text-xl text-gray-500">{card.quote.message}</q>
         <span className="flex">
-        {card.quote.link && (
-          <Link
-            href={card.quote.link}
-            target="_blank"
-            className="text-blue-500 text-sm underline hover:text-blue-700"
-          >
-            {card.quote.episode}
-          </Link>
-        )}
+          {card.quote.link && (
+            <Link
+              href={card.quote.link}
+              target="_blank"
+              className="text-blue-500 text-sm underline hover:text-blue-700"
+            >
+              {card.quote.episode}
+            </Link>
+          )}
         </span>
       </p>
 
@@ -108,7 +108,9 @@ const CardDetails = ({
               </ul>
             </div>
           ) : (
-            <p className="mt-2 text-gray-600">{t("cardDetails.noneEpisodes")}</p>
+            <p className="mt-2 text-gray-600">
+              {t("cardDetails.noneEpisodes")}
+            </p>
           )}
         </>
       )}
@@ -165,9 +167,12 @@ const CardDetails = ({
           {card.signedOn !== null && (
             <div className="mt-2 text-gray-600">
               <span className="font-semibold">
-                {card.signedOn.toLocaleDateString(locale === "pt" ? "pt-BR" : "en-US")}
+                {parseSignedDate(card.signedOn).toLocaleDateString(
+                  locale === "pt" ? "pt-BR" : "en-US",
+                  { timeZone: "UTC" },
+                )}
               </span>{" "}
-              {t("cardDetails.atPreposition")} {" "}
+              {t("cardDetails.atPreposition")}{" "}
               <span className="font-semibold">{card.signedLocation}</span>
             </div>
           )}
@@ -197,8 +202,12 @@ const CardDetails = ({
                 <div
                   className={`${bebasNeue.className} text-white font-semibold px-4 py-2 drop-shadow-[-3px_2px_2px_#330000] flex flex-col items-center`}
                 >
-                  <p className="text-4xl">{t("cardDetails.signaturePendingTitle")}</p>
-                  <p className="text-xl">{t("cardDetails.signaturePendingSubtitle")}</p>
+                  <p className="text-4xl">
+                    {t("cardDetails.signaturePendingTitle")}
+                  </p>
+                  <p className="text-xl">
+                    {t("cardDetails.signaturePendingSubtitle")}
+                  </p>
                 </div>
               </div>
             </div>

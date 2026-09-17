@@ -10,7 +10,7 @@ export type NerdcastCard = {
   suit: "♠" | "♣" | "♥" | "♦" | "";
   value: "K" | "Q" | "J" | "A" | "Joker" | "Bônus";
   originalSrc: string;
-  signedOn: Date | null;
+  signedOn: string | null;
   signedLocation: string | null;
   signedContext?: string;
   signedSrc: string | null;
@@ -35,6 +35,11 @@ export type NerdcastCard = {
   }[];
 };
 
+export const parseSignedDate = (value: string) => {
+  const [year, month, day] = value.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, day));
+};
+
 export const DECK_LIST: NerdcastCard[] = [
   {
     id: "card-01",
@@ -48,9 +53,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-alottoni.webp",
-    signedOn: new Date("2025-12-04"),
-    signedLocation: "CCXP 2025",
-    signedContext: "Sessão de autógrafos do Jovem Nerd: Zerando a Vida",
+    signedOn: "2025-10-05",
+    signedLocation: "Arena Magalu",
+    signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_alottoni2.jpg",
     socialMedia: [
       {
@@ -92,7 +97,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♥",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-azaghal.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-05",
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_azaghal.webp",
@@ -132,7 +137,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-jp.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-05",
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_jp.webp",
@@ -172,7 +177,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-srk.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-05",
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_sr_k.jpeg",
@@ -206,7 +211,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-srajovemnerd.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-05",
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_sra_jovem_nerd.webp",
@@ -240,7 +245,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-portuguesa.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-05",
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_portuguesa.jpeg",
@@ -275,7 +280,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-francine.webp",
-    signedOn: new Date("2026-07-15T14:30:00.000Z"),
+    signedOn: "2026-07-15",
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_francine.webp",
     socialMedia: [
@@ -299,7 +304,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-ruiva.webp",
-    signedOn: new Date("2025-10-14T20:26:48.000Z"),
+    signedOn: "2025-10-14",
     signedLocation: "Rio de Janeiro, RJ",
     signedContext: 'Pré-estreia de "A Própria Carne"',
     signedSrc: "/images/signed-card/assinatura_ruiva.webp",
@@ -316,7 +321,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-bluehand.webp",
-    signedOn: new Date("2025-08-23"),
+    signedOn: "2025-08-23",
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_bluehand.webp",
   },
@@ -333,7 +338,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-eduardospohr.webp",
-    signedOn: new Date("2025-11-08T16:26:48.000Z"),
+    signedOn: "2025-11-08",
     signedLocation: "71ª Feira do Livro de Porto Alegre",
     signedContext:
       'Sessão de autógrafos após o lançamento de "Santo Guerreiro: O Império do Leste"',
@@ -369,7 +374,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-gugaferrari.webp",
-    signedOn: new Date("2025-08-23"),
+    signedOn: "2025-08-23",
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_guga_ferrari.webp",
     socialMedia: [
@@ -403,7 +408,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♥",
     value: "J",
     originalSrc: "/images/card/nerdcast-j-tucano.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-05",
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_tucano.webp",
@@ -438,7 +443,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♣",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-android.webp",
-    signedOn: new Date("2012-10-12T19:26:48.000Z"),
+    signedOn: "2012-10-12",
     signedLocation: "Livraria Arte & Letra, Curitiba - PR",
     signedSrc: "/images/illustrations/ilustra-harald_stricker.jpeg",
     socialMedia: [
@@ -582,7 +587,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♥",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-briggs.webp",
-    signedOn: new Date("2026-09-11T19:26:48.000Z"),
+    signedOn: "2026-09-11",
     signedLocation: "Goiânia, GO",
     signedContext: "Go Games Festival",
     signedSrc: "/images/signed-card/assinatura_briggs.jpeg",
@@ -616,7 +621,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♦",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-carlosvoltor.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-05",
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_carlos_voltor.jpeg",
@@ -656,7 +661,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "A",
     originalSrc: "/images/card/nerdcast-a-nickellis.webp",
-    signedOn: new Date("2025-10-05T15:26:48.000Z"),
+    signedOn: "2025-10-04",
     signedLocation: "Teatro Moise Safra, São Paulo, SP",
     signedContext: "Nerdcast 1000",
     signedSrc: "/images/signed-card/assinatura_nick_ellis.jpeg",
@@ -691,7 +696,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "",
     value: "Joker",
     originalSrc: "/images/card/nerdcast-joker-fabioyabu.webp",
-    signedOn: new Date("2025-11-02T15:26:48.000Z"),
+    signedOn: "2025-11-02",
     signedLocation: "71ª Feira do Livro de Porto Alegre",
     signedContext:
       'Palestra "Música, Choro e Combo Rangers de Dentes: Variando Entre Estilos Produzindo Quadrinhos no Brasil"',
@@ -726,7 +731,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "",
     value: "Joker",
     originalSrc: "/images/card/nerdcast-joker-tresde.webp",
-    signedOn: new Date("2025-08-23"),
+    signedOn: "2025-08-23",
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_tresde.webp",
     socialMedia: [
@@ -760,7 +765,7 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "",
     value: "Bônus",
     originalSrc: "/images/card/nerdcast-amigoimaginario.webp",
-    signedOn: new Date("2025-08-23"),
+    signedOn: "2025-08-23",
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_amigo_imaginario.webp",
     socialMedia: [

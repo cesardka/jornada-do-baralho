@@ -14,6 +14,7 @@ import GalacticBackground from "@/components/ui/galactic-background";
 import SparkleParticles from "@/components/ui/sparkle-particles";
 import {
   DECK_LIST,
+  parseSignedDate,
   type NerdcastCard,
 } from "@/app/sections/deck-list/card-data";
 import { FallingWords } from "./countdown-section";
@@ -22,7 +23,7 @@ import styles from "./signed-cards-carousel.module.css";
 gsap.registerPlugin(useGSAP, Observer, ScrollTrigger);
 
 type SignedCard = NerdcastCard & {
-  signedOn: Date;
+  signedOn: string;
   signedLocation: string;
   signedSrc: string;
 };
@@ -32,7 +33,7 @@ const signedCards = DECK_LIST.filter(
     card.signedOn !== null &&
     card.signedLocation !== null &&
     card.signedSrc !== null,
-).sort((first, second) => first.signedOn.getTime() - second.signedOn.getTime());
+).sort((first, second) => first.signedOn.localeCompare(second.signedOn));
 
 const capitalizeFirst = (value: string, locale: string) => {
   const text = value.trim();
@@ -59,7 +60,7 @@ function CardItem({
   const formattedDate = new Intl.DateTimeFormat(localeCode, {
     dateStyle: "long",
     timeZone: "UTC",
-  }).format(card.signedOn);
+  }).format(parseSignedDate(card.signedOn));
   const formattedLocation = capitalizeFirst(card.signedLocation, localeCode);
   const formattedContext = card.signedContext
     ? capitalizeFirst(card.signedContext, localeCode)
@@ -126,7 +127,7 @@ function CardItem({
             <MapPin aria-hidden="true" size={21} strokeWidth={2.25} />
             <span>{formattedLocation}</span>
           </p>
-          <time className={styles.date} dateTime={card.signedOn.toISOString()}>
+          <time className={styles.date} dateTime={card.signedOn}>
             {formattedDate}
           </time>
           {formattedContext ? (
