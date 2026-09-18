@@ -18,7 +18,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const CREDIT_LAYERS = [
   { src: "/images/bg/credits/FUNDO_10.webp", depth: 0 },
-  { src: "/images/bg/credits/nuvem_09.webp", depth: 0.35 },
+  { src: "/images/bg/credits/nuvem_09.webp", depth: 0 },
   { src: "/images/bg/credits/plaqntas_07.webp", depth: 0 },
   { src: "/images/bg/credits/arvore_06.webp", depth: 0 },
   { src: "/images/bg/credits/luz_05.webp", depth: 0 },
@@ -122,7 +122,7 @@ export default function CreditsSection() {
             sizes="(orientation: portrait) 177vh, 100vw"
             data-credits-foreground={layer.depth > 0 ? "" : undefined}
             data-parallax-depth={layer.depth || undefined}
-            className={`${styles.layer} ${layer.src.endsWith("luz_05.webp") ? styles.light : ""}`}
+            className={`${styles.layer} ${layer.src.endsWith("luz_05.webp") ? styles.light : ""} ${layer.src.endsWith("nuvem_09.webp") ? styles.clouds : ""}`}
           />
         ))}
       </div>

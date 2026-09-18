@@ -32,6 +32,12 @@
   will-change: transform;
 }
 
+.clouds {
+  transform-origin: center;
+  animation: cloud-drift 180s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
 .light {
   --pulse-min-opacity: 0.28;
   --pulse-max-opacity: 0.82;
@@ -155,6 +161,16 @@
   text-wrap: pretty;
 }
 
+@keyframes cloud-drift {
+  from {
+    transform: translate3d(-1.25%, 0, 0) scale(1.025);
+  }
+
+  to {
+    transform: translate3d(1.25%, 0, 0) scale(1.025);
+  }
+}
+
 @keyframes illumination-pulse {
   0%,
   100% {
@@ -205,6 +221,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .section [data-credits-foreground] {
+    will-change: auto;
+  }
+
+  .clouds {
+    animation: none;
     will-change: auto;
   }
 
