@@ -12,6 +12,7 @@ import { useI18n } from "@/app/contexts/I18nContext";
 import { usePerformanceTier } from "../_hooks/use-performance-tier";
 import GalacticBackground from "@/components/ui/galactic-background";
 import SparkleParticles from "@/components/ui/sparkle-particles";
+import { trackEvent } from "@/components/analytics/google-analytics";
 import {
   DECK_LIST,
   parseSignedDate,
@@ -196,7 +197,15 @@ export default function SignedCardsCarousel() {
   }, [performanceTier]);
 
   const toggleCard = (cardId: string) => {
-    setRevealedCardId((current) => (current === cardId ? null : cardId));
+    const card = signedCards.find((item) => item.id === cardId);
+    const action = revealedCardId === cardId ? "hide_photo" : "reveal_photo";
+    trackEvent("signed_card_interaction", {
+      item_id: cardId,
+      item_name: card?.name ?? cardId,
+      action,
+      source_section: "signed_cards",
+    });
+    setRevealedCardId(action === "hide_photo" ? null : cardId);
   };
 
   useGSAP(

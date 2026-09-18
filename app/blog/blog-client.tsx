@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { PostData } from "@/lib/posts";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { RSSButton } from "@/components/ui/rss-button/rss-button";
+import { trackEvent } from "@/components/analytics/google-analytics";
 import gsap from "gsap";
 
 interface BlogClientProps {
@@ -76,9 +77,22 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
     return posts;
   }, [allPosts, sortOrder, selectedTags]);
 
+  const changeSortOrder = (order: "newest" | "oldest") => {
+    trackEvent("blog_sort_change", {
+      sort_order: order,
+      source_section: "blog_index",
+    });
+    setSortOrder(order);
+  };
+
   const addTagFilter = (tagToAdd: string) => {
     if (!selectedTags.includes(tagToAdd)) {
       const newTags = [...selectedTags, tagToAdd];
+      trackEvent("blog_filter_change", {
+        action: "add",
+        filter_tag: tagToAdd,
+        active_filter_count: newTags.length,
+      });
       setSelectedTags(newTags);
       updateURL(newTags);
     } else {
@@ -88,11 +102,20 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
 
   const removeTagFilter = (tagToRemove: string) => {
     const newTags = selectedTags.filter((tag) => tag !== tagToRemove);
+    trackEvent("blog_filter_change", {
+      action: "remove",
+      filter_tag: tagToRemove,
+      active_filter_count: newTags.length,
+    });
     setSelectedTags(newTags);
     updateURL(newTags);
   };
 
   const clearAllFilters = () => {
+    trackEvent("blog_filter_change", {
+      action: "clear",
+      active_filter_count: 0,
+    });
     setSelectedTags([]);
     updateURL([]);
   };
@@ -122,7 +145,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
         <div className="flex items-center gap-2">
           <span className="font-medium">{t("blog.sortBy")}:</span>
           <button
-            onClick={() => setSortOrder("newest")}
+            onClick={() => changeSortOrder("newest")}
             className={`px-3 py-1 rounded-md text-sm duration-300 ${
               sortOrder === "newest"
                 ? "bg-blue-600 text-white"
@@ -132,7 +155,7 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
             {t("blog.newest")}
           </button>
           <button
-            onClick={() => setSortOrder("oldest")}
+            onClick={() => changeSortOrder("oldest")}
             className={`px-3 py-1 rounded-md text-sm duration-300 ${
               sortOrder === "oldest"
                 ? "bg-blue-600 text-white"
@@ -237,6 +260,9 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                   {banner && (
                     <Link
                       href={`/blog/${id}`}
+                      data-analytics-event="blog_post_click"
+                      data-analytics-content-id={id}
+                      data-analytics-source="blog_index_banner"
                       className="hover:text-blue-600 transition-colors"
                     >
                       <div className="absolute -top-2 -right-6 sm:-top-6 sm:-right-6 z-0 rotate-3 hover:rotate-2 transition-transform duration-150">
@@ -258,6 +284,9 @@ export default function BlogClient({ allPosts }: BlogClientProps) {
                   <h2 className={`text-2xl font-bold mr-20 sm:mr-24`}>
                     <Link
                       href={`/blog/${id}`}
+                      data-analytics-event="blog_post_click"
+                      data-analytics-content-id={id}
+                      data-analytics-source="blog_index_title"
                       className="hover:text-blue-600 transition-colors"
                     >
                       {title}

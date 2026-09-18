@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useI18n } from "@/app/contexts/I18nContext";
 import { bebasNeue } from "@/app/fonts";
+import { trackEvent } from "@/components/analytics/google-analytics";
 import { usePerformanceTier } from "../_hooks/use-performance-tier";
 import styles from "./about-the-challenge-section.module.css";
 
@@ -320,7 +321,13 @@ export default function AboutTheChallengeSection() {
               onLoadedMetadata={(event) => {
                 event.currentTarget.volume = 0.3;
               }}
-              onPlay={() => setIsPlaying(true)}
+              onPlay={() => {
+                setIsPlaying(true);
+                trackEvent("challenge_audio_play", {
+                  content_id: "nc313_desafio_do_baralho",
+                  source_section: "challenge",
+                });
+              }}
               onPause={() => setIsPlaying(false)}
               onEnded={() => setIsPlaying(false)}
             />

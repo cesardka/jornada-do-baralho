@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowLeft, Play } from "lucide-react";
 import MarchingCards from "../../components/ui/marching-cards";
 import { SocialMediaIcon } from "../sections/card-details/socialMediaIcon";
+import { trackEvent } from "@/components/analytics/google-analytics";
 
 const illustrations = [
   {
@@ -61,8 +62,16 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showVideoModal, setShowVideoModal] = useState(false);
 
-  const handleVideoClick = () => {
-    setShowVideoModal(true);
+  const handleItemClick = (illustration: (typeof illustrations)[number]) => {
+    trackEvent("gallery_item_open", {
+      content_id: illustration.src,
+      content_name: illustration.title,
+      content_type: illustration.type,
+      source_section: "gallery_grid",
+    });
+
+    if (illustration.type === "video") setShowVideoModal(true);
+    else setSelectedImage(illustration.src);
   };
 
   useEffect(() => {
@@ -175,13 +184,7 @@ export default function Gallery() {
               >
                 <div
                   className="aspect-square overflow-hidden relative"
-                  onClick={() => {
-                    if (illustration.type === "video") {
-                      handleVideoClick();
-                    } else {
-                      setSelectedImage(illustration.src);
-                    }
-                  }}
+                  onClick={() => handleItemClick(illustration)}
                 >
                   {illustration.type === "video" ? (
                     <div className="w-full h-full relative overflow-hidden">
@@ -298,6 +301,13 @@ export default function Gallery() {
               <video
                 controls
                 autoPlay
+                onPlay={() =>
+                  trackEvent("gallery_video_play", {
+                    content_id: "/videos/JNB_horizontal.mp4",
+                    content_name: "Vídeo de Abertura",
+                    source_section: "gallery_modal",
+                  })
+                }
                 className="w-full h-auto rounded-xl shadow-2xl"
                 poster="/images/jornada-do-baralho.png"
               >

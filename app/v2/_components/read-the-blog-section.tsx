@@ -467,7 +467,12 @@ export default function ReadTheBlogSection() {
           <h2 className={`${bebasNeue.className} ${styles.title}`}>
             {t("v2.readTheBlog.title")}
           </h2>
-          <Link href="/blog" className={`${bebasNeue.className} ${styles.cta}`}>
+          <Link
+            href="/blog"
+            data-analytics-event="homepage_blog_cta_click"
+            data-analytics-source="blog_section"
+            className={`${bebasNeue.className} ${styles.cta}`}
+          >
             {t("v2.readTheBlog.cta")}
           </Link>
         </div>

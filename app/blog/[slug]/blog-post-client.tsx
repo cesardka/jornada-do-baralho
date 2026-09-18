@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { PostData } from "@/lib/posts";
 import { useI18n } from "@/app/contexts/I18nContext";
+import { trackEvent } from "@/components/analytics/google-analytics";
 
 interface BlogPostClientProps {
   post: PostData;
@@ -33,6 +34,10 @@ export default function BlogPostClient({
     const target = e.target as HTMLElement;
     const figure = target.closest(".image-lightbox") as HTMLElement;
     if (figure && figure.dataset.src) {
+      trackEvent("blog_image_open", {
+        content_id: figure.dataset.src,
+        source_section: "blog_post_content",
+      });
       setSelectedImage(figure.dataset.src);
     }
   }, []);
@@ -54,7 +59,10 @@ export default function BlogPostClient({
     }
     return () => {
       if (container) {
-        container.removeEventListener("click", handleImageClick as EventListener);
+        container.removeEventListener(
+          "click",
+          handleImageClick as EventListener,
+        );
       }
     };
   }, [handleImageClick]);
@@ -106,7 +114,7 @@ export default function BlogPostClient({
                   year: "numeric",
                   month: "long",
                   day: "numeric",
-                }
+                },
               )}
             </time>
           </div>
@@ -169,7 +177,7 @@ export default function BlogPostClient({
               </div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
 
       {/* Navigation to other posts */}
@@ -180,6 +188,9 @@ export default function BlogPostClient({
             {nextPost ? (
               <Link
                 href={`/blog/${nextPost.id}`}
+                data-analytics-event="blog_post_click"
+                data-analytics-content-id={nextPost.id}
+                data-analytics-source="post_navigation_previous"
                 className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 hover:shadow-md transition-all duration-300"
               >
                 <ChevronLeft
@@ -204,6 +215,9 @@ export default function BlogPostClient({
             {previousPost ? (
               <Link
                 href={`/blog/${previousPost.id}`}
+                data-analytics-event="blog_post_click"
+                data-analytics-content-id={previousPost.id}
+                data-analytics-source="post_navigation_next"
                 className="group flex items-center gap-3 p-4 rounded-lg hover:bg-gray-50 hover:shadow-md transition-all duration-300 justify-end text-right"
               >
                 <div className="text-right">

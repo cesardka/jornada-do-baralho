@@ -1,11 +1,11 @@
 import { type Metadata, type Viewport } from "next";
 import localFont from "next/font/local";
-import Script from "next/script";
 import "./globals.css";
 import "@/app/styles/fonts.css";
 import "leaflet/dist/leaflet.css";
 import React from "react";
 import Clarity from "@/components/analytics/clarity";
+import GoogleAnalytics from "@/components/analytics/google-analytics";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -142,18 +142,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-EKW4K5RXWG"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-EKW4K5RXWG');
-          `}
-        </Script>
+        <GoogleAnalytics />
         <Clarity />
         {children}
       </body>
