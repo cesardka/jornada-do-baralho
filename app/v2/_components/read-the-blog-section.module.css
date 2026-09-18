@@ -50,6 +50,50 @@
   will-change: transform;
 }
 
+.cloudMotion,
+.cloudCycleTrack,
+.cloudCycleItem {
+  position: absolute;
+}
+
+.cloudMotion {
+  inset: -0.75%;
+}
+
+.cloudCycleTrack,
+.cloudCycleItem {
+  inset: 0;
+}
+
+.cloudMotion,
+.cloudCycleTrack {
+  will-change: transform;
+}
+
+.cloudDriftBackgroundSides {
+  animation: drift-background-sides 150s ease-in-out infinite alternate;
+}
+
+.cloudDriftBackgroundTopRight {
+  animation: drift-background-top-right 132s ease-in-out infinite alternate;
+}
+
+.cloudDriftForegroundSides {
+  animation: drift-foreground-sides 84s ease-in-out infinite alternate;
+}
+
+.cloudDriftForegroundLeft {
+  animation: drift-foreground-left 72s ease-in-out infinite alternate;
+}
+
+.cloudCycleTrack {
+  animation: cycle-center-cloud 240s linear 1.2s infinite;
+}
+
+.cloudCycleItemTrailing {
+  transform: translate3d(-100%, 0, 0);
+}
+
 .artwork {
   background-position: center;
   background-repeat: no-repeat;
@@ -128,6 +172,60 @@
   object-position: center top;
 }
 
+@keyframes drift-background-sides {
+  from {
+    transform: translate3d(-0.28%, 0.1%, 0);
+  }
+
+  to {
+    transform: translate3d(0.28%, -0.14%, 0);
+  }
+}
+
+@keyframes drift-background-top-right {
+  from {
+    transform: translate3d(-0.22%, -0.12%, 0);
+  }
+
+  to {
+    transform: translate3d(0.28%, 0.16%, 0);
+  }
+}
+
+@keyframes drift-foreground-sides {
+  from {
+    transform: translate3d(-0.52%, 0.22%, 0);
+  }
+
+  to {
+    transform: translate3d(0.52%, -0.28%, 0);
+  }
+}
+
+@keyframes drift-foreground-left {
+  from {
+    transform: translate3d(-0.42%, -0.18%, 0);
+  }
+
+  to {
+    transform: translate3d(0.46%, 0.24%, 0);
+  }
+}
+
+@keyframes cycle-center-cloud {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(50%, -0.6%, 0);
+  }
+
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
 .content {
   position: relative;
   z-index: 9;
@@ -183,6 +281,10 @@
     inset-inline: -90%;
   }
 
+  .cloudCycleTrack {
+    animation-duration: 360s;
+  }
+
   .title {
     max-width: 12ch;
     font-size: clamp(4rem, 10vw, 7rem);
@@ -215,6 +317,10 @@
     inset-inline: -210%;
   }
 
+  .cloudCycleTrack {
+    animation-duration: 600s;
+  }
+
   .title {
     max-width: 10ch;
     font-size: clamp(4rem, 18vw, 6.5rem);
@@ -230,6 +336,11 @@
   .cloud,
   .plane {
     display: none;
+  }
+
+  .cloudMotion,
+  .cloudCycleTrack {
+    animation: none;
   }
 
   .cta {

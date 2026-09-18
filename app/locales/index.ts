@@ -86,14 +86,13 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       myJourney: "Como tudo começou",
       listenChallenge: "Ouça o desafio",
       pauseAudio: "Pausar áudio",
-      imgBgAlt: "Imagem da Jornada (fundo)",
-      imgTopAlt: "Imagem da Jornada (topo com animação)",
+      imgBgAlt: "César Hoffmann em Fernando de Noronha",
+      imgTopAlt: "César Hoffmann envelhecido em Fernando de Noronha",
       p1_begin: "Sou ",
       p1_afterName: " desenvolvedor de software de Porto Alegre - RS, ",
       p1_afterYears:
         " anos, e tive a epifania de conquistar o Desafio do Baralho e resgatar o iPad que aguarda há tantos anos pacientemente.",
-      p2_begin:
-        "Sou ouvinte do Nerdcast desde 2007, quando tinha 14 anos, e me lembro de ter começado pelo episódio ",
+      p2_begin: "Comecei a ouvir ao Nerdcast em 2007 com o episódio ",
       p2_end:
         " na casa de um amigo. Virei fã do Jovem Nerd e comecei a consumir o conteúdo nas mais variadas mídias, e hoje considero uma peça importante da minha jornada pessoal ao longo dos anos que seguiram.",
       deck_p1_before_ep: "Em 25 de maio de 2012, durante o episódio ",
@@ -103,22 +102,21 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       deck_p2_before_ep: "No Nerdcast seguinte, ",
       deck_p2_after_ep:
         ", foi lançado o Desafio do Baralho ao final da leitura de e-mails:",
-      my_p1_before_link:
-        "Em 11 de outubro de 2024, faltando 47 episódios para o Nerdcast #1000, decidi embarcar nesta jornada comprando um Baralho do Nerdcast para chamar de meu no ",
-      my_p1_after_link: ".",
-      my_p2:
-        "Ele já tinha algumas assinaturas, mas tinha em mente que iria atrás de todas ainda assim para completar o desafio seguindo as regras estabelecidas.",
-      my_p3: "... O pacote foi extraviado durante o transporte... ",
-      my_p4_before_first_date:
-        "Mesmo assim decidi começar o código do projeto ",
-      my_p4_after_first_date_before_link:
-        " (uma homenagem também ao Eduardo Spohr e a Jornada do Herói) em ",
-      my_p4_first_date: "11 de outubro de 2024",
-      my_p4_after_link_before_second_date: "Em 13 de novembro de 2024 surgiu ",
-      my_p4_second_date_link: "outro anúncio",
-      my_p4_after_second_link: " e consegui comprar outro baralho, este ",
-      my_p4_end: "completo e lacrado!!",
-      my_p4_conclusion: "... Desde então, nada mais foi o mesmo.",
+      my_origin_before_950: "Em 20 de setembro de 2024 lançava o ",
+      my_origin_after_950:
+        " e naquele momento me dei conta que o programa poderia acabar no episódio 1000 sem que alguém completasse esse desafio. Bem que alguém poderia fazer isso. Por que não eu?",
+      my_spark_before_project:
+        "Isso despertou uma fagulha em mim que cresceria e se tornaria a ",
+      my_spark_after_project_before_code_date:
+        " (uma homenagem ao Eduardo Spohr e a Jornada do Herói). Em ",
+      my_code_date: "11 de outubro de 2024",
+      my_after_code_date_before_deck_date:
+        " comecei a fazer o código do site, e em ",
+      my_deck_date: "13 de novembro de 2024",
+      my_after_deck_date_before_state: " comprei um baralho ",
+      my_deck_state: "completo e lacrado",
+      my_end: " para iniciar essa aventura.",
+      my_conclusion: "... Desde então, nada mais foi o mesmo.",
       readBlog: "Acompanhe a Blogada do Baralho",
     },
     aboutAuthor: {
@@ -321,16 +319,15 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       myJourney: "How it all began",
       listenChallenge: "Listen to the challenge",
       pauseAudio: "Pause audio",
-      imgBgAlt: "Journey image (background)",
-      imgTopAlt: "Journey image (top with animation)",
+      imgBgAlt: "César Hoffmann in Fernando de Noronha",
+      imgTopAlt: "An aged César Hoffmann in Fernando de Noronha",
       p1_begin: "I'm ",
-      p1_afterName: " a software developer from Porto Alegre, RS, aged ",
+      p1_afterName: " a software developer from Porto Alegre, RS, ",
       p1_afterYears:
-        ", and I had the epiphany of conquering the Deck Challenge and rescuing the iPad that has waited patiently for so many years.",
-      p2_begin:
-        "I've been a Nerdcast listener since 2007, when I was 14, and I remember starting with episode ",
+        " years old, and I had the epiphany of conquering the Deck Challenge and rescuing the iPad that has waited patiently for so many years.",
+      p2_begin: "I started listening to Nerdcast in 2007 with episode ",
       p2_end:
-        ". I became a fan of Jovem Nerd and started following its content across many different media, and today I consider it an important part of my personal journey throughout the years that followed.",
+        " at a friend's house. I became a fan of Jovem Nerd and started following its content across many different media, and today I consider it an important part of my personal journey throughout the years that followed.",
       deck_p1_before_ep: "On May 25, 2012, during episode ",
       deck_p1_between_links: ", Jovem Nerd launched the ",
       deck_p1_after_product:
@@ -338,22 +335,21 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       deck_p2_before_ep: "In the next Nerdcast, ",
       deck_p2_after_ep:
         ", the DeckVenture was launched at the end of the email reading:",
-      my_p1_before_link:
-        "On October 11, 2024, with 47 episodes left until Nerdcast #1000, I decided to embark on this journey by buying a Nerdcast Deck of my own on ",
-      my_p1_after_link: ".",
-      my_p2:
-        "It already had some signatures, but I intended to pursue all of them to complete the challenge by following the established rules.",
-      my_p3: "... The package was lost during transport... ",
-      my_p4_before_first_date:
-        "Even so, I decided to start coding the project ",
-      my_p4_after_first_date_before_link:
-        " (the name is also an homage to Eduardo Spohr's recurring mentions of the Hero's Journey) on ",
-      my_p4_first_date: "October 11th, 2024",
-      my_p4_after_link_before_second_date: "On November 13, 2024, I found ",
-      my_p4_second_date_link: "another listing",
-      my_p4_after_second_link: " and managed to buy another deck, this one ",
-      my_p4_end: "complete and sealed!!",
-      my_p4_conclusion: "... Since then, nothing was ever the same.",
+      my_origin_before_950: "On September 20, 2024, ",
+      my_origin_after_950:
+        " was released, and at that moment I realized the show could end at episode 1000 without anyone completing this challenge. Someone ought to do it. Why not me?",
+      my_spark_before_project:
+        "That lit a spark in me that would grow into the ",
+      my_spark_after_project_before_code_date:
+        " (an homage to Eduardo Spohr and the Hero's Journey). On ",
+      my_code_date: "October 11, 2024",
+      my_after_code_date_before_deck_date:
+        " I started coding the website, and on ",
+      my_deck_date: "November 13, 2024",
+      my_after_deck_date_before_state: " I bought a ",
+      my_deck_state: "complete and sealed deck",
+      my_end: " to begin this adventure.",
+      my_conclusion: "... Since then, nothing was ever the same.",
       readBlog: "Read the Blog",
     },
     aboutAuthor: {

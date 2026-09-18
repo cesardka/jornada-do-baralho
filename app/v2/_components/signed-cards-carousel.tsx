@@ -33,7 +33,12 @@ const signedCards = DECK_LIST.filter(
     card.signedOn !== null &&
     card.signedLocation !== null &&
     card.signedSrc !== null,
-).sort((first, second) => first.signedOn.localeCompare(second.signedOn));
+).sort(
+  (first, second) =>
+    first.signedOn.localeCompare(second.signedOn) ||
+    (first.signedOrder ?? Number.MAX_SAFE_INTEGER) -
+      (second.signedOrder ?? Number.MAX_SAFE_INTEGER),
+);
 
 const getCardPlaceholder = (source: string) =>
   source.replace("/images/card/", "/images/cards-LQ/");

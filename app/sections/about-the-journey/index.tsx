@@ -220,60 +220,54 @@ export default function AboutTheJourney({
                 {t("aboutJourney.myJourney")}
               </h2>
               <p>
-                {t("aboutJourney.my_p1_before_link")}
+                {t("aboutJourney.my_origin_before_950")}
                 <Link
-                  href="https://www.enjoei.com.br/p/baralho-nerdcast-rpg-algumas-cartas-autografadas-93103206?vid=332492ff-e6b9-4f26-8667-90f70376512d"
+                  href="https://jovemnerd.com.br/podcasts/nerdcast/o-melhor-de-950-nerdcasts"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
                 >
-                  Enjoei
+                  Nerdcast #950
                 </Link>
-                {t("aboutJourney.my_p1_after_link")}
+                {t("aboutJourney.my_origin_after_950")}
               </p>
 
-              <p>{t("aboutJourney.my_p2")}</p>
-
-              <p>{t("aboutJourney.my_p3")}</p>
-
               <p>
-                {t("aboutJourney.my_p4_before_first_date")}
+                {t("aboutJourney.my_spark_before_project")}
                 <span className="text-green-300 font-extrabold">
-                  Jornada do Baralho 🃏
+                  Jornada do Baralho
                 </span>
-                {t("aboutJourney.my_p4_after_first_date_before_link")}
+                {t("aboutJourney.my_spark_after_project_before_code_date")}
                 <Link
                   href="https://github.com/cesardka/jornada-do-baralho/commit/346d55275c024ff711102a24a728b02069a67069"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
                 >
-                  {t("aboutJourney.my_p4_first_date")}{" "}
+                  {t("aboutJourney.my_code_date")}{" "}
                   <SocialMediaIcon type="github" size={14} />
                 </Link>
-                .
-              </p>
-              <p>
-                {t("aboutJourney.my_p4_after_link_before_second_date")}
+                {t("aboutJourney.my_after_code_date_before_deck_date")}
                 <Link
                   href="https://produto.mercadolivre.com.br/MLB-4649269134-baralho-nerdcast-jovem-nerd-_JM?quantity=1&variation_id=182642369255"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
+                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
                 >
-                  {t("aboutJourney.my_p4_second_date_link")}{" "}
+                  {t("aboutJourney.my_deck_date")}
                 </Link>
-                {t("aboutJourney.my_p4_after_second_link")}{" "}
+                {t("aboutJourney.my_after_deck_date_before_state")}
                 <span className="inline-flex">
                   <BouncingText
-                    text={t("aboutJourney.my_p4_end")}
+                    text={t("aboutJourney.my_deck_state")}
                     rainbow
                     className="font-extrabold text-xl"
                   />
                 </span>
+                {t("aboutJourney.my_end")}
               </p>
 
-              <p>{t("aboutJourney.my_p4_conclusion")}</p>
+              <p>{t("aboutJourney.my_conclusion")}</p>
             </div>
           </div>
         </div>
@@ -282,7 +276,7 @@ export default function AboutTheJourney({
         <div className="order-1 md:order-1 relative w-full md:w-1/2 min-h-[40vh] md:min-h-screen">
           {/* Bottom image: fully visible */}
           <Image
-            src={"/images/cesar-hoffmann-baralho-2024.webp"}
+            src={"/images/cesar-hoffmann-fernando-de-noronha-2026.webp"}
             alt={t("aboutJourney.imgBgAlt")}
             fill
             priority={prioritizeImages}
@@ -291,7 +285,7 @@ export default function AboutTheJourney({
           />
           {/* Top image: diagonal mask fade to reveal the one below */}
           <Image
-            src={"/images/cesar-hoffmann-baralho-velho-2024.webp"}
+            src={"/images/cesar-hoffmann-fernando-de-noronha-velho-2026.webp"}
             alt={t("aboutJourney.imgTopAlt")}
             fill
             priority={prioritizeImages}

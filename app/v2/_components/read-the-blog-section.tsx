@@ -51,6 +51,22 @@ function Artwork({ src, placeholder }: { src: string; placeholder: string }) {
   );
 }
 
+function DriftingArtwork({
+  src,
+  placeholder,
+  className,
+}: {
+  src: string;
+  placeholder: string;
+  className: string;
+}) {
+  return (
+    <div className={`${styles.cloudMotion} ${className}`}>
+      <Artwork src={src} placeholder={placeholder} />
+    </div>
+  );
+}
+
 export default function ReadTheBlogSection() {
   const { t } = useI18n();
   const performanceTier = usePerformanceTier();
@@ -375,49 +391,76 @@ export default function ReadTheBlogSection() {
           className={`${styles.cloud} ${styles.leftHalf} ${styles.cloudBackgroundSides} ${styles.cloudBackgroundSidesLeft}`}
           aria-hidden="true"
         >
-          <Artwork {...CLOUDS.backgroundSides} />
+          <DriftingArtwork
+            {...CLOUDS.backgroundSides}
+            className={styles.cloudDriftBackgroundSides}
+          />
         </div>
         <div
           data-cloud-part="background-sides-right"
           className={`${styles.cloud} ${styles.rightHalf} ${styles.cloudBackgroundSides} ${styles.cloudBackgroundSidesRight}`}
           aria-hidden="true"
         >
-          <Artwork {...CLOUDS.backgroundSides} />
+          <DriftingArtwork
+            {...CLOUDS.backgroundSides}
+            className={styles.cloudDriftBackgroundSides}
+          />
         </div>
         <div
           data-cloud-part="background-top-right"
           className={`${styles.cloud} ${styles.cloudBackgroundTopRight}`}
           aria-hidden="true"
         >
-          <Artwork {...CLOUDS.backgroundTopRight} />
+          <DriftingArtwork
+            {...CLOUDS.backgroundTopRight}
+            className={styles.cloudDriftBackgroundTopRight}
+          />
         </div>
         <div
           data-cloud-part="foreground-sides-left"
           className={`${styles.cloud} ${styles.leftHalf} ${styles.cloudForegroundSides}`}
           aria-hidden="true"
         >
-          <Artwork {...CLOUDS.foregroundSides} />
+          <DriftingArtwork
+            {...CLOUDS.foregroundSides}
+            className={styles.cloudDriftForegroundSides}
+          />
         </div>
         <div
           data-cloud-part="foreground-sides-right"
           className={`${styles.cloud} ${styles.rightHalf} ${styles.cloudForegroundSides}`}
           aria-hidden="true"
         >
-          <Artwork {...CLOUDS.foregroundSides} />
+          <DriftingArtwork
+            {...CLOUDS.foregroundSides}
+            className={styles.cloudDriftForegroundSides}
+          />
         </div>
         <div
           data-cloud-part="midground-center"
           className={`${styles.cloud} ${styles.cloudMidgroundCenter}`}
           aria-hidden="true"
         >
-          <Artwork {...CLOUDS.midgroundCenter} />
+          <div className={styles.cloudCycleTrack}>
+            <div className={styles.cloudCycleItem}>
+              <Artwork {...CLOUDS.midgroundCenter} />
+            </div>
+            <div
+              className={`${styles.cloudCycleItem} ${styles.cloudCycleItemTrailing}`}
+            >
+              <Artwork {...CLOUDS.midgroundCenter} />
+            </div>
+          </div>
         </div>
         <div
           data-cloud-part="foreground-left"
           className={`${styles.cloud} ${styles.cloudForegroundLeft}`}
           aria-hidden="true"
         >
-          <Artwork {...CLOUDS.foregroundLeft} />
+          <DriftingArtwork
+            {...CLOUDS.foregroundLeft}
+            className={styles.cloudDriftForegroundLeft}
+          />
         </div>
 
         <div data-blog-content className={styles.content}>

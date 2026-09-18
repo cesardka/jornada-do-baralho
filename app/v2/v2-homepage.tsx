@@ -1,12 +1,12 @@
 "use client";
 
 import { I18nProvider } from "@/app/contexts/I18nContext";
-import AboutTheAuthor from "@/app/sections/about-the-author";
 import AboutTheJourney from "@/app/sections/about-the-journey";
 import Footer from "@/app/sections/footer";
 import AboutTheChallengeSection from "./_components/about-the-challenge-section";
 import AboutTheDeckSection from "./_components/about-the-deck-section";
 import CountdownSection from "./_components/countdown-section";
+import CreditsSection from "./_components/credits-section";
 import ReadTheBlogSection from "./_components/read-the-blog-section";
 import SignedCardsCarousel from "./_components/signed-cards-carousel";
 import V2Nav from "./_components/v2-nav";
@@ -36,7 +36,7 @@ export default function V2Homepage() {
           <ReadTheBlogSection />
         </div>
         <div id="credits" className="scroll-mt-20">
-          <AboutTheAuthor />
+          <CreditsSection />
         </div>
       </main>
       <Footer />

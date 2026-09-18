@@ -11,6 +11,7 @@ export type NerdcastCard = {
   value: "K" | "Q" | "J" | "A" | "Joker" | "Bônus";
   originalSrc: string;
   signedOn: string | null;
+  signedOrder?: number;
   signedLocation: string | null;
   signedContext?: string;
   signedSrc: string | null;
@@ -53,9 +54,9 @@ export const DECK_LIST: NerdcastCard[] = [
     suit: "♠",
     value: "K",
     originalSrc: "/images/card/nerdcast-k-alottoni.webp",
-    signedOn: "2025-10-05",
-    signedLocation: "Arena Magalu",
-    signedContext: "Banquete Real by Bem Brasil",
+    signedOn: "2025-12-04",
+    signedLocation: "CCXP 2025",
+    signedContext: "Sessão de Autógrafos do livro 'Zerando a Vida'",
     signedSrc: "/images/signed-card/assinatura_alottoni2.jpg",
     socialMedia: [
       {
@@ -98,6 +99,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "K",
     originalSrc: "/images/card/nerdcast-k-azaghal.webp",
     signedOn: "2025-10-05",
+    signedOrder: 2,
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_azaghal.webp",
@@ -138,6 +140,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "K",
     originalSrc: "/images/card/nerdcast-k-jp.webp",
     signedOn: "2025-10-05",
+    signedOrder: 6,
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_jp.webp",
@@ -178,6 +181,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "K",
     originalSrc: "/images/card/nerdcast-k-srk.webp",
     signedOn: "2025-10-05",
+    signedOrder: 3,
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_sr_k.jpeg",
@@ -212,6 +216,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-srajovemnerd.webp",
     signedOn: "2025-10-05",
+    signedOrder: 1,
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_sra_jovem_nerd.webp",
@@ -246,6 +251,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Q",
     originalSrc: "/images/card/nerdcast-q-portuguesa.webp",
     signedOn: "2025-10-05",
+    signedOrder: 4,
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_portuguesa.jpeg",
@@ -322,6 +328,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "J",
     originalSrc: "/images/card/nerdcast-j-bluehand.webp",
     signedOn: "2025-08-23",
+    signedOrder: 3,
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_bluehand.webp",
   },
@@ -375,6 +382,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "J",
     originalSrc: "/images/card/nerdcast-j-gugaferrari.webp",
     signedOn: "2025-08-23",
+    signedOrder: 1,
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_guga_ferrari.webp",
     socialMedia: [
@@ -409,6 +417,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "J",
     originalSrc: "/images/card/nerdcast-j-tucano.webp",
     signedOn: "2025-10-05",
+    signedOrder: 5,
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_tucano.webp",
@@ -622,6 +631,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "A",
     originalSrc: "/images/card/nerdcast-a-carlosvoltor.webp",
     signedOn: "2025-10-05",
+    signedOrder: 7,
     signedLocation: "Arena Magalu",
     signedContext: "Banquete Real by Bem Brasil",
     signedSrc: "/images/signed-card/assinatura_carlos_voltor.jpeg",
@@ -732,6 +742,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Joker",
     originalSrc: "/images/card/nerdcast-joker-tresde.webp",
     signedOn: "2025-08-23",
+    signedOrder: 4,
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_tresde.webp",
     socialMedia: [
@@ -766,6 +777,7 @@ export const DECK_LIST: NerdcastCard[] = [
     value: "Bônus",
     originalSrc: "/images/card/nerdcast-amigoimaginario.webp",
     signedOn: "2025-08-23",
+    signedOrder: 2,
     signedLocation: "Rio de Janeiro, RJ",
     signedSrc: "/images/signed-card/assinatura_amigo_imaginario.webp",
     socialMedia: [
