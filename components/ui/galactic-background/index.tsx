@@ -10,6 +10,10 @@ interface GalacticBackgroundProps {
   starCount?: number;
   /** Radial glow intensity at the center (0–1). Default 0.6. */
   glowStrength?: number;
+  centerDarkness?: number;
+  variant?: "galactic" | "balatro";
+  maxFPS?: number;
+  resolutionCap?: number;
   className?: string;
 }
 
@@ -24,6 +28,10 @@ export default function GalacticBackground({
   speed = 1,
   starCount = 120,
   glowStrength = 0.6,
+  centerDarkness = 0,
+  variant = "galactic",
+  maxFPS = 60,
+  resolutionCap = 1.5,
   className = "",
 }: GalacticBackgroundProps) {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -63,7 +71,7 @@ export default function GalacticBackground({
         backgroundAlpha: 0,
         antialias: false, // filter output is already smooth; skip AA to save fill
         autoDensity: true,
-        resolution: Math.min(window.devicePixelRatio || 1, 1.5),
+        resolution: Math.min(window.devicePixelRatio || 1, resolutionCap),
       });
 
       if (destroyed) {
@@ -104,6 +112,10 @@ export default function GalacticBackground({
         },
         uSpeed: { value: speed, type: "f32" },
         uGlow: { value: glowStrength, type: "f32" },
+        uCenterDarkness: {
+          value: Math.min(1, Math.max(0, centerDarkness)),
+          type: "f32",
+        },
       });
 
       // Standard filter vertex shader — passes UV through and outputs the
@@ -135,10 +147,91 @@ export default function GalacticBackground({
         }
       `;
 
+      /*
+       * "Balatro Background" algorithm adapted from xxidbr9's ShaderToy
+       * implementation (https://www.shadertoy.com/view/XXtBRr), based on the
+       * original effect by LocalThunk (https://www.playbalatro.com).
+       * Licensed under CC BY-NC-SA 3.0. Changes: PixiJS filter integration,
+       * configurable speed/darkness, responsive resolution, and green palette.
+       */
+      const balatroFragment = /* glsl */ `
+        precision highp float;
+
+        varying vec2 vTextureCoord;
+
+        uniform float uTime;
+        uniform vec2 uResolution;
+        uniform float uSpeed;
+        uniform float uCenterDarkness;
+
+        void main() {
+          const float spinRotation = -2.0;
+          const float spinSpeed = 5.0;
+          const float contrast = 3.5;
+          const float spinAmount = 0.2;
+          const float pixelFilter = 1000.0;
+          const float spinEase = 1.0;
+
+          vec4 colour1 = vec4(0.035, 0.460, 0.240, 1.0);
+          vec4 colour2 = vec4(0.000, 0.200, 0.120, 1.0);
+          vec4 colour3 = vec4(0.005, 0.025, 0.016, 1.0);
+
+          vec2 screenCoords = vTextureCoord * uResolution;
+          float pixelSize = length(uResolution) / pixelFilter;
+          vec2 uv = (
+            floor(screenCoords * (1.0 / pixelSize)) * pixelSize -
+            0.5 * uResolution
+          ) / length(uResolution);
+          float uvLen = length(uv);
+
+          float rotation = spinRotation * spinEase * 0.2 + 302.2;
+          float pixelAngle = atan(uv.y, uv.x) + rotation -
+            spinEase * 20.0 * (spinAmount * uvLen + (1.0 - spinAmount));
+          vec2 mid = (uResolution / length(uResolution)) / 2.0;
+          uv = vec2(
+            uvLen * cos(pixelAngle) + mid.x,
+            uvLen * sin(pixelAngle) + mid.y
+          ) - mid;
+
+          uv *= 30.0;
+          float motion = uTime * spinSpeed * uSpeed;
+          vec2 uv2 = vec2(uv.x + uv.y);
+
+          for (int i = 0; i < 5; i++) {
+            uv2 += sin(max(uv.x, uv.y)) + uv;
+            uv += 0.5 * vec2(
+              cos(5.1123314 + 0.353 * uv2.y + motion * 0.131121),
+              sin(uv2.x - 0.113 * motion)
+            );
+            uv -= cos(uv.x + uv.y) - sin(uv.x * 0.711 - uv.y);
+          }
+
+          float contrastMod = 0.25 * contrast + 0.5 * spinAmount + 1.2;
+          float paint = min(2.0, max(0.0, length(uv) * 0.035 * contrastMod));
+          float colour1Mix = max(0.0, 1.0 - contrastMod * abs(1.0 - paint));
+          float colour2Mix = max(0.0, 1.0 - contrastMod * abs(paint));
+          float colour3Mix = 1.0 - min(1.0, colour1Mix + colour2Mix);
+
+          vec4 color = (0.3 / contrast) * colour1 +
+            (1.0 - 0.3 / contrast) * (
+              colour1 * colour1Mix +
+              colour2 * colour2Mix +
+              vec4(colour3Mix * colour3.rgb, colour3Mix * colour1.a)
+            );
+          float centerMask = exp(-uvLen * 4.0);
+          color.rgb *= 1.0 - clamp(uCenterDarkness, 0.0, 0.9) * centerMask;
+
+          gl_FragColor = color;
+        }
+      `;
+
       const bgFilter = Filter.from({
         gl: {
           vertex: filterVertex,
-          fragment: /* glsl */ `
+          fragment:
+            variant === "balatro"
+              ? balatroFragment
+              : /* glsl */ `
             precision highp float;
 
             varying vec2 vTextureCoord;
@@ -148,6 +241,7 @@ export default function GalacticBackground({
             uniform vec2 uCenter;
             uniform float uSpeed;
             uniform float uGlow;
+            uniform float uCenterDarkness;
 
             float hash(vec2 p) {
               return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
@@ -232,6 +326,10 @@ export default function GalacticBackground({
               // edge0 < edge1, so we invert to get the "bright at center" curve.
               float spokeFade = 1.0 - smoothstep(0.1, 1.4, d);
               col += vec3(0.05, 0.30, 0.18) * pow(spokes, 3.0) * spokeFade * 0.4;
+
+              float darkFlow = 0.55 + (1.0 - f) * 0.45;
+              float darkCore = exp(-d * 2.0) * darkFlow;
+              col *= 1.0 - clamp(uCenterDarkness, 0.0, 0.9) * darkCore;
 
               // Very gentle vignette so aura keeps reaching to the corners.
               // Again: invert smoothstep so "less dim near center" is well-defined.
@@ -449,6 +547,7 @@ export default function GalacticBackground({
           b.p.scaleY = scale;
         }
       };
+      app.ticker.maxFPS = maxFPS;
       app.ticker.add(tick);
 
       // After the very first frame renders, fade the canvas in on top of
@@ -510,7 +609,15 @@ export default function GalacticBackground({
       destroyed = true;
       cleanup?.();
     };
-  }, [speed, starCount, glowStrength]);
+  }, [
+    speed,
+    starCount,
+    glowStrength,
+    centerDarkness,
+    variant,
+    maxFPS,
+    resolutionCap,
+  ]);
 
   return (
     // Canvas fills the whole section so it covers every scroll position.
@@ -534,7 +641,11 @@ export default function GalacticBackground({
         }`}
         style={{
           background:
-            "radial-gradient(ellipse at 50% 50%, #59f299 0%, #106b3d 22%, #05231f 55%, #010503 90%)",
+            variant === "balatro"
+              ? "radial-gradient(circle at 50% 50%, #03150e 0%, transparent 48%), conic-gradient(from 220deg at 50% 50%, #071b11, #08723f, #02110a, #0a4f2f, #071b11)"
+              : centerDarkness > 0
+                ? "radial-gradient(ellipse at 50% 50%, #03150e 0%, #0b3b27 28%, #05231f 58%, #010503 90%)"
+                : "radial-gradient(ellipse at 50% 50%, #59f299 0%, #106b3d 22%, #05231f 55%, #010503 90%)",
         }}
       />
     </div>

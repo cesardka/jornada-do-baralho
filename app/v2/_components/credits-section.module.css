@@ -1,0 +1,342 @@
+.section {
+  --illumination-cycle-duration: 5s;
+
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  display: grid;
+  min-height: max(44rem, 100svh);
+  color: #fff9cf;
+  background: #efe69f;
+}
+
+.scene {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+}
+
+.layerContainer {
+  position: absolute;
+  inset: 0;
+}
+
+.layer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+}
+
+.section [data-credits-foreground] {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.section [data-credits-tree] {
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.clouds {
+  transform-origin: center;
+  animation: cloud-drift 180s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.light {
+  --pulse-min-opacity: 0.28;
+  --pulse-max-opacity: 0.82;
+
+  opacity: var(--pulse-min-opacity);
+  mix-blend-mode: screen;
+  animation: illumination-pulse var(--illumination-cycle-duration) ease-in-out
+    infinite;
+  will-change: opacity;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100% - 2rem, 48rem);
+  min-height: max(44rem, 100svh);
+  margin-inline: auto;
+  padding-block: clamp(5.5rem, 10vh, 7rem) clamp(4rem, 8vh, 6rem);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  margin-bottom: clamp(0.75rem, 2vh, 1.25rem);
+  color: #17360d;
+  font-size: clamp(4rem, 13vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: 0.035em;
+  text-align: center;
+  text-shadow:
+    0 2px 0 rgb(255 249 207 / 90%),
+    0 4px 18px rgb(255 249 207 / 95%);
+  text-transform: uppercase;
+}
+
+.subtitle {
+  max-width: 44rem;
+  margin: 0 auto clamp(2rem, 4vh, 3rem);
+  color: #17360d;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
+  text-shadow: 0 2px 9px rgb(255 249 207 / 95%);
+  text-wrap: balance;
+}
+
+.list {
+  display: flex;
+  width: min(100%, 38rem);
+  margin: 0 auto;
+  padding: 0;
+  flex-direction: column;
+  gap: clamp(0.9rem, 2vh, 1.35rem);
+  list-style: none;
+}
+
+.person {
+  display: grid;
+  grid-template-columns: clamp(5rem, 15vw, 6rem) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 1.5rem);
+  align-items: center;
+}
+
+.portraitFrame,
+.portraitButton {
+  width: clamp(5rem, 15vw, 6rem);
+  height: clamp(5rem, 15vw, 6rem);
+}
+
+.portraitFrame {
+  position: relative;
+  display: block;
+}
+
+.portraitFrame[data-circular="true"] {
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.portraitButton[data-circular="true"],
+.portraitButton[data-circular="true"] .portraitFace {
+  border-radius: 50%;
+}
+
+.portraitImage {
+  object-fit: cover;
+}
+
+.portraitButton {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 40rem;
+}
+
+.portraitButton:focus-visible {
+  outline: 3px solid #17360d;
+  outline-offset: 4px;
+}
+
+.portraitInner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-style: preserve-3d;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.portraitButton[data-flipped="true"] .portraitInner {
+  transform: rotateY(180deg);
+}
+
+.portraitFace {
+  object-fit: cover;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.portraitFront {
+  transform: rotateY(0deg);
+}
+
+.portraitBack {
+  transform: rotateY(180deg);
+}
+
+.personText {
+  min-width: 0;
+  color: #17360d;
+  text-align: left;
+  text-shadow:
+    -1px -1px 0 rgb(255 249 207 / 90%),
+    1px -1px 0 rgb(255 249 207 / 90%),
+    -1px 1px 0 rgb(255 249 207 / 90%),
+    1px 1px 0 rgb(255 249 207 / 90%),
+    0 2px 9px rgb(255 249 207 / 95%);
+}
+
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  align-items: center;
+}
+
+.name {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 0.95;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.socials {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 0;
+  list-style: none;
+}
+
+.socialLink {
+  display: grid;
+  width: 2.5rem;
+  height: 2.75rem;
+  place-items: center;
+  color: #17360d;
+  filter: drop-shadow(0 0 2px #fff9cf);
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.socialLink:hover {
+  color: #765f12;
+}
+
+.socialLink:focus-visible {
+  outline: 3px solid #17360d;
+  outline-offset: 3px;
+}
+
+.role {
+  max-width: 38ch;
+  margin-top: 0.35rem;
+  font-size: clamp(0.82rem, 2.4vw, 1rem);
+  font-weight: 700;
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translate3d(-1.25%, 0, 0) scale(1.025);
+  }
+
+  to {
+    transform: translate3d(1.25%, 0, 0) scale(1.025);
+  }
+}
+
+@keyframes illumination-pulse {
+  0%,
+  100% {
+    opacity: var(--pulse-min-opacity);
+  }
+
+  50% {
+    opacity: var(--pulse-max-opacity);
+  }
+}
+
+@media (min-width: 64.01rem) and (hover: hover) and (pointer: fine) {
+  .content {
+    width: min(100% - 6rem, 96rem);
+    margin-inline: clamp(3rem, 7vw, 8rem) auto;
+    padding-block: clamp(6rem, 10vh, 8rem);
+    justify-content: center;
+  }
+
+  .heading {
+    margin-bottom: clamp(0.75rem, 2vh, 1.25rem);
+    font-size: clamp(5rem, 8vw, 8rem);
+    text-align: left;
+  }
+
+  .subtitle {
+    width: min(46vw, 42rem);
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .list {
+    display: grid;
+    width: min(calc(100vw - 14rem), 80rem);
+    margin-inline: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(6rem, auto));
+    grid-auto-flow: column;
+    column-gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  .person {
+    grid-template-columns: 6rem minmax(0, 1fr);
+  }
+
+  .portraitFrame,
+  .portraitButton {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .name {
+    font-size: clamp(2.5rem, 3.4vw, 3.75rem);
+  }
+
+  .role {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section [data-credits-foreground],
+  .section [data-credits-tree] {
+    will-change: auto;
+  }
+
+  .clouds {
+    animation: none;
+    will-change: auto;
+  }
+
+  .light {
+    opacity: 0.55;
+    animation: none;
+    will-change: auto;
+  }
+
+  .portraitInner,
+  .socialLink {
+    transition: none;
+  }
+}
+
+.section[data-performance-tier="low"] .light,
+.section[data-performance-tier="low"] [data-credits-foreground],
+.section[data-performance-tier="low"] [data-credits-tree] {
+  will-change: auto;
+}

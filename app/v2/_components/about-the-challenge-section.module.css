@@ -1,0 +1,406 @@
+.section {
+  position: relative;
+  min-height: max(48rem, 100svh);
+  background: #071821;
+}
+
+.stickyScene {
+  position: relative;
+  height: max(48rem, 100svh);
+  overflow: clip;
+  isolation: isolate;
+}
+
+.scene {
+  position: absolute;
+  inset: -3%;
+  pointer-events: none;
+}
+
+.artwork {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+}
+
+.scenario {
+  z-index: 0;
+}
+
+.podium {
+  z-index: 2;
+}
+
+.lightBeam {
+  z-index: 3;
+  filter: brightness(0.45);
+  mix-blend-mode: screen;
+}
+
+.lightOne {
+  opacity: 0.18;
+  animation: light-one-pulse 2.4s ease-in-out -0.7s infinite alternate;
+}
+
+.lightTwo {
+  opacity: 0.14;
+  animation: light-two-pulse 3.1s ease-in-out -1.9s infinite alternate;
+}
+
+.lightThree {
+  opacity: 0.2;
+  animation: light-three-pulse 3.8s ease-in-out -2.6s infinite alternate;
+}
+
+.section[data-effects-ready="false"] .lightBeam {
+  animation-play-state: paused;
+}
+
+.section[data-performance-tier="low"] .lightBeam {
+  animation: none;
+}
+
+.particleMask {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-mode: alpha;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.particleMaskOne {
+  -webkit-mask-image: url("/images/bg/about-the-challenge/lq/particle-mask-01.webp");
+  mask-image: url("/images/bg/about-the-challenge/lq/particle-mask-01.webp");
+}
+
+.particleMaskTwo {
+  -webkit-mask-image: url("/images/bg/about-the-challenge/lq/particle-mask-02.webp");
+  mask-image: url("/images/bg/about-the-challenge/lq/particle-mask-02.webp");
+}
+
+.particleMaskThree {
+  -webkit-mask-image: url("/images/bg/about-the-challenge/lq/particle-mask-03.webp");
+  mask-image: url("/images/bg/about-the-challenge/lq/particle-mask-03.webp");
+}
+
+.particlePulseOne {
+  animation: particle-field-pulse 2.4s ease-in-out -0.7s infinite alternate;
+}
+
+.particlePulseTwo {
+  animation: particle-field-pulse 3.1s ease-in-out -1.9s infinite alternate;
+}
+
+.particlePulseThree {
+  animation: particle-field-pulse 3.8s ease-in-out -2.6s infinite alternate;
+}
+
+.particle {
+  position: absolute;
+  width: var(--particle-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 3px rgb(255 255 255 / 90%);
+  opacity: 0;
+  animation: particle-drift var(--particle-duration) linear
+    var(--particle-delay) infinite;
+}
+
+.content {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  width: min(100% - 2rem, 72rem);
+  height: 100%;
+  margin-inline: auto;
+  padding: clamp(5rem, 10vh, 8rem) 1rem clamp(2rem, 6vh, 5rem);
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.title {
+  visibility: hidden;
+  max-width: 12ch;
+  margin-inline: auto;
+  opacity: 0;
+  font-size: clamp(3.75rem, 7vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: 0.025em;
+  text-align: center;
+  text-shadow: 0 3px 20px rgb(0 12 20 / 90%);
+  text-wrap: balance;
+}
+
+.rules {
+  display: grid;
+  width: min(100%, 58rem);
+  margin: clamp(2rem, 4vh, 3rem) auto 0;
+  gap: clamp(0.65rem, 1.5vh, 1rem);
+  list-style: none;
+}
+
+.rule {
+  display: grid;
+  visibility: hidden;
+  grid-template-columns: clamp(2.75rem, 5vw, 4rem) 1fr;
+  align-items: center;
+  padding-block: clamp(0.25rem, 1vh, 0.6rem);
+  opacity: 0;
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.015em;
+  text-shadow: 0 3px 16px rgb(0 8 14 / 100%);
+  text-wrap: pretty;
+}
+
+.ruleNumber {
+  color: #65e7ff;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1;
+}
+
+.audioControl {
+  display: flex;
+  visibility: hidden;
+  margin: clamp(1.5rem, 3vh, 2.25rem) auto 0;
+  justify-content: center;
+  opacity: 0;
+}
+
+.audioButton {
+  display: inline-flex;
+  width: min(100%, 18rem);
+  min-height: 3.5rem;
+  border: 2px solid #65e7ff;
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem 0.55rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  color: white;
+  background: rgb(2 18 28 / 58%);
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.audioButton:hover,
+.audioButton[data-playing="true"] {
+  color: #071821;
+  background: white;
+  box-shadow: 0 0 1.25rem rgb(101 231 255 / 45%);
+}
+
+.audioButton:focus-visible {
+  outline: 3px solid #65e7ff;
+  outline-offset: 4px;
+}
+
+.audioLabelMask {
+  display: inline-grid;
+  overflow: clip;
+  height: 1em;
+  place-items: center;
+  line-height: 1;
+}
+
+.audioLabel {
+  display: block;
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  animation: audio-label-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes audio-label-enter {
+  from {
+    opacity: 0;
+    transform: translateY(75%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes particle-field-pulse {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes particle-drift {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--particle-start-x), var(--particle-start-y), 0);
+  }
+  20%,
+  80% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--particle-end-x), var(--particle-end-y), 0);
+  }
+}
+
+@keyframes light-one-pulse {
+  from {
+    opacity: 0.12;
+  }
+  to {
+    opacity: 0.72;
+  }
+}
+
+@keyframes light-two-pulse {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0.58;
+  }
+}
+
+@keyframes light-three-pulse {
+  from {
+    opacity: 0.16;
+  }
+  to {
+    opacity: 0.68;
+  }
+}
+
+@media (min-width: 64.01rem) {
+  .content {
+    width: min(76%, 72rem);
+    translate: 15% 0;
+  }
+
+  .title {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 64rem) {
+  .artwork {
+    background-position: 58% center;
+    object-position: 58% center;
+  }
+
+  .particleMask {
+    -webkit-mask-position: 58% center;
+    mask-position: 58% center;
+  }
+}
+
+@media (min-width: 40.01rem) and (max-width: 64rem) {
+  .title {
+    font-size: clamp(4.75rem, 11vw, 7rem);
+  }
+
+  .rule {
+    font-size: clamp(2rem, 4.6vw, 2.9rem);
+  }
+
+  .audioButton {
+    width: min(100%, 20rem);
+    min-height: 4.25rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .section {
+    min-height: max(44rem, 100svh);
+  }
+
+  .stickyScene {
+    height: max(44rem, 100svh);
+  }
+
+  .content {
+    width: min(100% - 1rem, 36rem);
+    padding-inline: 0.5rem;
+  }
+
+  .title {
+    max-width: 10ch;
+    font-size: clamp(3.5rem, 14vw, 5.25rem);
+  }
+
+  .rule {
+    grid-template-columns: 2.75rem 1fr;
+    padding-block: 0.45rem;
+    font-size: clamp(1.5rem, 6.5vw, 2rem);
+  }
+
+  .ruleNumber {
+    font-size: 1.9rem;
+  }
+
+  .audioButton {
+    width: min(calc(100vw - 2rem), 18rem);
+    min-height: 3.75rem;
+    font-size: 1.1rem;
+  }
+}
+
+@supports not (
+  (-webkit-mask-image: linear-gradient(#000, #000)) or
+    (mask-image: linear-gradient(#000, #000))
+) {
+  .particleMask {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audioLabel {
+    animation: none;
+  }
+
+  .particleMask {
+    display: none;
+  }
+
+  .lightBeam {
+    animation: none;
+  }
+
+  .lightBeam {
+    opacity: 0.4;
+  }
+
+  .title,
+  .rule,
+  .audioControl {
+    visibility: visible;
+    opacity: 1;
+  }
+}

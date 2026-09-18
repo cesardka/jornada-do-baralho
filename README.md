@@ -91,6 +91,9 @@ I will update the website as the cards get signed. 🖖😉
   <img src="https://skillicons.dev/icons?i=instagram" width="20" height="20" />
   </a>
 
+- Balatro background shader — original effect by [LocalThunk](https://www.playbalatro.com), [ShaderToy adaptation by xxidbr9](https://www.shadertoy.com/view/XXtBRr), adapted for this project under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+- Radial waves background — adapted from [ShaderToy 4ljcWh](https://www.shadertoy.com/view/4ljcWh), itself based on [bmodone's ShaderToy 4llcDH](https://www.shadertoy.com/view/4llcDH), under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+
 ---
 
 # Development

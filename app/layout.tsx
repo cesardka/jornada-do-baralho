@@ -141,26 +141,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <link
-          rel="preload"
-          href="/images/cards-LQ/card-back-blue.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          href="/images/card/card-back-blue.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EKW4K5RXWG"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

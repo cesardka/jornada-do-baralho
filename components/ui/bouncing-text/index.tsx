@@ -37,24 +37,43 @@ export default function BouncingText({
       const letters = gsap.utils.toArray<HTMLElement>("[data-bt-letter]");
       if (letters.length === 0) return;
 
-      // Bounce: each letter tweens up then yoyos back down, staggered by index.
-      gsap.to(letters, {
-        y: `-${bounceHeightEm}em`,
-        duration: bounceDurationSeconds / 2,
-        ease: "sine.inOut",
-        stagger,
-        yoyo: true,
-        repeat: -1,
+      const media = gsap.matchMedia();
+      media.add("(prefers-reduced-motion: no-preference)", () => {
+        // Bounce: each letter tweens up then yoyos back down, staggered by index.
+        const bounce = gsap.timeline({ repeat: -1, repeatDelay: 0.7 });
+        const riseDuration = bounceDurationSeconds * 0.35;
+        const fallDuration = bounceDurationSeconds - riseDuration;
+
+        letters.forEach((letter, index) => {
+          const start = index * stagger;
+          bounce
+            .to(
+              letter,
+              {
+                y: `-${bounceHeightEm}em`,
+                duration: riseDuration,
+                ease: "power2.out",
+              },
+              start,
+            )
+            .to(
+              letter,
+              { y: 0, duration: fallDuration, ease: "bounce.out" },
+              start + riseDuration,
+            );
+        });
+
+        if (rainbow) {
+          gsap.to(letters, {
+            backgroundPosition: "200% 50%",
+            duration: rainbowSpeedSeconds,
+            ease: "none",
+            repeat: -1,
+          });
+        }
       });
 
-      if (rainbow) {
-        gsap.to(letters, {
-          backgroundPosition: "200% 50%",
-          duration: rainbowSpeedSeconds,
-          ease: "none",
-          repeat: -1,
-        });
-      }
+      return () => media.revert();
     },
     {
       scope: containerRef,
@@ -72,31 +91,34 @@ export default function BouncingText({
   const baseClass = "inline-block text-sm";
 
   return (
-    <span ref={containerRef} className="flex space-x-[1px]">
-      {text.split("").map((char, i) => {
-        const style: React.CSSProperties = rainbow
-          ? {
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-              backgroundImage:
-                "linear-gradient(45deg, #ff004c, #ff8a00, #ffe600, #17ff00, #00f0ff, #0044ff, #b800ff, #ff004c)",
-              backgroundSize: "200% 200%",
-              backgroundPosition: "0% 50%",
-            }
-          : { color };
+    <span ref={containerRef} className="inline-block">
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true" className="inline-flex space-x-[1px]">
+        {text.split("").map((char, i) => {
+          const style: React.CSSProperties = rainbow
+            ? {
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+                backgroundImage:
+                  "linear-gradient(45deg, #ff004c, #ff8a00, #ffe600, #17ff00, #00f0ff, #0044ff, #b800ff, #ff004c)",
+                backgroundSize: "200% 200%",
+                backgroundPosition: "0% 50%",
+              }
+            : { color };
 
-        return (
-          <span
-            key={i}
-            data-bt-letter
-            className={className ? className : baseClass}
-            style={style}
-          >
-            {char === " " ? "\u00A0" : char}
-          </span>
-        );
-      })}
+          return (
+            <span
+              key={i}
+              data-bt-letter={char === " " ? undefined : ""}
+              className={className ? className : baseClass}
+              style={style}
+            >
+              {char === " " ? "\u00A0" : char}
+            </span>
+          );
+        })}
+      </span>
     </span>
   );
 }

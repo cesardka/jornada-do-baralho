@@ -9,6 +9,67 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       skip: "Pular intro",
       new: "Novo!",
     },
+    v2: {
+      nav: {
+        primary: "Navegação principal",
+        home: "Página inicial da Jornada do Baralho",
+        openMenu: "Abrir menu",
+        closeMenu: "Fechar menu",
+        menuTitle: "Navegação",
+        countdown: "Progresso",
+        deck: "O baralho",
+        challenge: "O desafio",
+        signedCards: "As assinaturas",
+        journey: "Quem é o autor",
+        blogSection: "Saiba mais",
+        credits: "Créditos",
+        gallery: "Galeria",
+        blog: "Blog",
+      },
+      countdown: {
+        eyebrow: "A Jornada ainda aguarda um herói",
+        title: "QUEM RESGATARÁ O TESOURO?",
+        elapsedPrefix: "Já fazem",
+        elapsedSuffix: "dias desde o início do Desafio",
+        statueInteraction: "Fazer a estátua piscar",
+      },
+      aboutDeck: {
+        title: "O Baralho",
+        historyP1BeforeEpisode: "Em 25 de maio de 2012, durante o episódio ",
+        historyP1BetweenLinks: ", o Jovem Nerd lançou o ",
+        historyP1BeforeAuthor:
+          ", um produto temático em parceria com a Copag que incluía 19 ilustrações de Nerdcasters, feitas pelo ",
+        historyP2BeforeEpisode: "No Nerdcast seguinte, ",
+        historyP2AfterEpisode:
+          ", nascia despretensiosamente o Desafio do Baralho ao final da leitura de e-mails...",
+        modelLabel: "Modelo 3D da caixa do Baralho Nerdcast",
+        modelInteraction:
+          "Arraste para girar ou toque para fazer a tampa pular",
+        modelLoading: "Carregando o modelo do baralho…",
+      },
+      challenge: {
+        title: "O DESAFIO",
+        rule1: "Consiga todos os autógrafos nas cartas dos Nerdcasters",
+        rule2: "Registre uma foto do momento",
+        rule3: "Envie o baralho para o Jovem Nerd",
+        rule4: "Ganhe o iPad mais recente disponível!",
+        audioListen: "Ouça o anúncio original",
+        audioPause: "Pausar anúncio",
+      },
+      signedCards: {
+        title: "As Assinaturas",
+        caption:
+          "Como, onde e com quem foram cruzados os caminhos até chegarmos ao tesouro.",
+        cardAlt: "Carta do Nerdcaster",
+        photoAlt: "Foto da carta assinada por",
+        revealPhoto: "Revelar foto de",
+        hidePhoto: "Ocultar foto de",
+      },
+      readTheBlog: {
+        title: "Descubra como foi cada passo da jornada",
+        cta: "Leia o blog",
+      },
+    },
     nav: {
       reset_splash: "Assistir a abertura de novo",
       gallery: "Galeria",
@@ -22,19 +83,18 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     aboutJourney: {
       titleWhoAmI: "Quem sou eu",
       titleDeck: "O Baralho",
-      myJourney: "Minha Jornada",
+      myJourney: "Como tudo começou",
       listenChallenge: "Ouça o desafio",
       pauseAudio: "Pausar áudio",
-      imgBgAlt: "Imagem da Jornada (fundo)",
-      imgTopAlt: "Imagem da Jornada (topo com animação)",
-      p1_begin: "Esta é uma iniciativa minha, ",
-      p1_afterName:
-        ", para documentar e completar o Desafio do Baralho para conseguir o iPad que há ",
-      p1_afterYears: " anos ainda não foi conquistado.",
-      p2_begin:
-        "Sou ouvinte do Nerdcast desde 2007, quando tinha 14 anos, e me lembro de ter começado pelo episódio ",
+      imgBgAlt: "César Hoffmann em Fernando de Noronha",
+      imgTopAlt: "César Hoffmann envelhecido em Fernando de Noronha",
+      p1_begin: "Sou ",
+      p1_afterName: " desenvolvedor de software de Porto Alegre - RS, ",
+      p1_afterYears:
+        " anos, e tive a epifania de conquistar o Desafio do Baralho e resgatar o iPad que aguarda há tantos anos pacientemente.",
+      p2_begin: "Comecei a ouvir ao Nerdcast em 2007 com o episódio ",
       p2_end:
-        " na casa de um amigo. Desde então, virei fã do Jovem Nerd e acompanho quase diariamente o conteúdo, sendo membro do grupo que ouve Nerdcast pra dormir hahah",
+        " na casa de um amigo. Virei fã do Jovem Nerd e comecei a consumir o conteúdo nas mais variadas mídias, e hoje considero uma peça importante da minha jornada pessoal ao longo dos anos que seguiram.",
       deck_p1_before_ep: "Em 25 de maio de 2012, durante o episódio ",
       deck_p1_between_links: ", o Jovem Nerd lançou o ",
       deck_p1_after_product:
@@ -42,27 +102,30 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       deck_p2_before_ep: "No Nerdcast seguinte, ",
       deck_p2_after_ep:
         ", foi lançado o Desafio do Baralho ao final da leitura de e-mails:",
-      my_p1_before_link:
-        "Em 11 de outubro de 2024, faltando 47 episódios para o Nerdcast #1000, decidi embarcar nesta jornada comprando um Baralho do Nerdcast para chamar de meu no ",
-      my_p1_after_link: ".",
-      my_p2:
-        "Ele já tinha algumas assinaturas, mas tinha em mente que iria atrás de todas ainda assim para completar o desafio seguindo as regras estabelecidas.",
-      my_p3: "... O pacote foi extraviado durante o transporte... ",
-      my_p4_before_first_date:
-        "Mesmo assim decidi começar o código do projeto ",
-      my_p4_after_first_date_before_link:
-        " (uma homenagem também ao Eduardo Spohr e a Jornada do Herói) em ",
-      my_p4_first_date: "11 de outubro de 2024",
-      my_p4_after_link_before_second_date: "Em 13 de novembro de 2024 surgiu ",
-      my_p4_second_date_link: "outro anúncio",
-      my_p4_after_second_link: " e consegui comprar outro baralho, este ",
-      my_p4_end: "completo e lacrado!!",
-      my_p4_conclusion:
-        "Resta agora conseguir as assinaturas possíveis e encerrar esse ciclo... Vamos nessa?",
+      my_origin_before_950: "Em 20 de setembro de 2024 lançava o ",
+      my_origin_after_950:
+        " e naquele momento me dei conta que o programa poderia acabar no episódio 1000 sem que alguém completasse esse desafio. Bem que alguém poderia fazer isso...",
+      my_origin_call: "Por que não eu?",
+      my_spark_before_project:
+        "Isso despertou uma fagulha em mim que cresceria e se tornaria a ",
+      my_spark_after_project_before_code_date:
+        " (uma homenagem ao Eduardo Spohr e a Jornada do Herói). Em ",
+      my_code_date: "11 de outubro de 2024",
+      my_after_code_date_before_deck_date:
+        " comecei a fazer o código do site, e em ",
+      my_deck_date: "13 de novembro de 2024",
+      my_after_deck_date_before_state: " consegui um baralho ",
+      my_deck_state: "completo e lacrado",
+      my_end: " para iniciar essa aventura.",
+      my_conclusion: "... Desde então, nada mais foi o mesmo.",
       readBlog: "Acompanhe a Blogada do Baralho",
     },
     aboutAuthor: {
       title: "Créditos",
+      subtitle:
+        "A Jornada do Baralho só é bonita do jeito que é graças ao trabalho dessa equipe incrível",
+      showAlternatePortrait: "Ver retrato alternativo de",
+      showOriginalPortrait: "Ver retrato original de",
       lenaKaleAlt: "Kale, protagonista da animação Kale do Museu Assustador",
       lenaKizaAlt: "Kiza, protagonista da animação Kale do Museu Assustador",
       people: {
@@ -75,15 +138,35 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         cesar: {
           name: "César Hoffmann",
           title:
-            "Desenvolvedor, falso designer e pessoa que está trilhando a Jornada do Baralho",
+            "Desenvolvedor, CEO, COO, CFO e CTO da Jornada do Baralho. O faz tudo.",
           description:
             "Morador de Porto Alegre - RS, é um aspirante a mestre Pokémon durante a noite, e pedreiro de código durante o dia. É ouvinte e espectador do universo Jovem Nerd durante uma vida toda quase, desde os seus 14 anos (2007). Tomou como objetivo de vida não deixar o Nerdcast acabar sem alguém concluir esse desafio que perdura há mais de década.",
         },
         leo: {
           name: "Leo Brasil",
-          title: "Compositor de trilhas, Sound Designer e Roteirista",
+          title: "Compositor de trilhas, sound designer e roteirista",
           description:
             "É o nosso mineirin musicista favorito que deu sonoridade à Jornada do Baralho, da música aos pequenos efeitos sonoros escondidos pelo site. Não tem nada contra o Nerdcast, mas acho que nunca foi ouvinte também hahaha",
+        },
+        kabuki: {
+          name: "Kabuki Sonic",
+          title: "Compositor de trilha e sound designer",
+        },
+        luah: {
+          name: "Luah Garcia",
+          title: "Produção e rigging 2D",
+        },
+        dani: {
+          name: "Dani Smith-Fischer",
+          title: "Storyboard e animatic",
+        },
+        andres: {
+          name: "Andres Ramos",
+          title: "Diretor de arte e ilustrador de cenários",
+        },
+        pedro: {
+          name: "Pedro Azevedo",
+          title: "Locução e voz original",
         },
       },
     },
@@ -185,6 +268,66 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       skip: "Skip intro",
       new: "New!",
     },
+    v2: {
+      nav: {
+        primary: "Main navigation",
+        home: "Jornada do Baralho homepage",
+        openMenu: "Open menu",
+        closeMenu: "Close menu",
+        menuTitle: "Navigation",
+        countdown: "Progress",
+        deck: "The deck",
+        challenge: "The challenge",
+        signedCards: "The signatures",
+        journey: "Who is the author",
+        blogSection: "Learn more",
+        credits: "Credits",
+        gallery: "Gallery",
+        blog: "Blog",
+      },
+      countdown: {
+        eyebrow: "The Journey still awaits a hero",
+        title: "WHO WILL RESCUE THE TREASURE?",
+        elapsedPrefix: "It has been",
+        elapsedSuffix: "days since the Challenge began",
+        statueInteraction: "Make the statue blink",
+      },
+      aboutDeck: {
+        title: "The Deck",
+        historyP1BeforeEpisode: "On May 25, 2012, during episode ",
+        historyP1BetweenLinks: ", Jovem Nerd released the ",
+        historyP1BeforeAuthor:
+          ", a themed product created with Copag that included 19 illustrations of Nerdcasters by ",
+        historyP2BeforeEpisode: "On the following Nerdcast, ",
+        historyP2AfterEpisode:
+          ", the Deck Challenge was casually born at the end of the email segment...",
+        modelLabel: "3D model of the Nerdcast deck box",
+        modelInteraction: "Drag to spin or tap to make the lid jump",
+        modelLoading: "Loading the deck model…",
+      },
+      challenge: {
+        title: "THE CHALLENGE",
+        rule1: "Collect all the Nerdcasters' signatures on their cards",
+        rule2: "Take a photo of the moment",
+        rule3: "Send the deck to Jovem Nerd",
+        rule4: "Win the latest iPad available!",
+        audioListen: "Listen to original announcement",
+        audioPause: "Pause announcement",
+      },
+      signedCards: {
+        title: "The Signatures",
+        caption:
+          "How it happened, where it happened, and whose paths crossed ours before we reached the treasure.",
+        cardAlt: "Nerdcaster card",
+        photoAlt: "Photo of the card signed by",
+        revealPhoto: "Reveal photo of",
+        hidePhoto: "Hide photo of",
+      },
+      readTheBlog: {
+        title: "Discover every step of the journey",
+        cta: "Read the blog",
+      },
+    },
     nav: {
       reset_splash: "Watch opening again",
       gallery: "Gallery",
@@ -198,19 +341,18 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     aboutJourney: {
       titleWhoAmI: "Who am I",
       titleDeck: "The Deck",
-      myJourney: "My Journey",
+      myJourney: "How it all began",
       listenChallenge: "Listen to the challenge",
       pauseAudio: "Pause audio",
-      imgBgAlt: "Journey image (background)",
-      imgTopAlt: "Journey image (top with animation)",
-      p1_begin: "This is my personal initiative, ",
-      p1_afterName:
-        ", to document and complete The DeckVenture to get the iPad that for ",
-      p1_afterYears: " years has still not been claimed.",
-      p2_begin:
-        "I've been a Nerdcast listener since 2007, when I was 14, and I remember starting with episode ",
+      imgBgAlt: "César Hoffmann in Fernando de Noronha",
+      imgTopAlt: "An aged César Hoffmann in Fernando de Noronha",
+      p1_begin: "I'm ",
+      p1_afterName: " a software developer from Porto Alegre, RS, ",
+      p1_afterYears:
+        " years old, and I had the epiphany of conquering the Deck Challenge and rescuing the iPad that has waited patiently for so many years.",
+      p2_begin: "I started listening to Nerdcast in 2007 with episode ",
       p2_end:
-        ". Since then, I've become a fan of Jovem Nerd and follow the content almost daily, being one of those who listens to Nerdcast on bed before sleep haha",
+        " at a friend's house. I became a fan of Jovem Nerd and started following its content across many different media, and today I consider it an important part of my personal journey throughout the years that followed.",
       deck_p1_before_ep: "On May 25, 2012, during episode ",
       deck_p1_between_links: ", Jovem Nerd launched the ",
       deck_p1_after_product:
@@ -218,27 +360,30 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       deck_p2_before_ep: "In the next Nerdcast, ",
       deck_p2_after_ep:
         ", the DeckVenture was launched at the end of the email reading:",
-      my_p1_before_link:
-        "On October 11, 2024, with 47 episodes left until Nerdcast #1000, I decided to embark on this journey by buying a Nerdcast Deck of my own on ",
-      my_p1_after_link: ".",
-      my_p2:
-        "It already had some signatures, but I intended to pursue all of them to complete the challenge by following the established rules.",
-      my_p3: "... The package was lost during transport... ",
-      my_p4_before_first_date:
-        "Even so, I decided to start coding the project ",
-      my_p4_after_first_date_before_link:
-        " (the name is also an homage to Eduardo Spohr's recurring mentions of the Hero's Journey) on ",
-      my_p4_first_date: "October 11th, 2024",
-      my_p4_after_link_before_second_date: "On November 13, 2024, I found ",
-      my_p4_second_date_link: "another listing",
-      my_p4_after_second_link: " and managed to buy another deck, this one ",
-      my_p4_end: "complete and sealed!!",
-      my_p4_conclusion:
-        "It's up to now to get as many signatures as possible and close this cycle... Would you all join me?",
+      my_origin_before_950: "On September 20, 2024, ",
+      my_origin_after_950:
+        " was released, and at that moment I realized the show could end at episode 1000 without anyone completing this challenge. Someone ought to do it...",
+      my_origin_call: "Why not me?",
+      my_spark_before_project:
+        "That lit a spark in me that would grow into the ",
+      my_spark_after_project_before_code_date:
+        " (an homage to Eduardo Spohr and the Hero's Journey). On ",
+      my_code_date: "October 11, 2024",
+      my_after_code_date_before_deck_date:
+        " I started coding the website, and on ",
+      my_deck_date: "November 13, 2024",
+      my_after_deck_date_before_state: " I bought a ",
+      my_deck_state: "complete and sealed deck",
+      my_end: " to begin this adventure.",
+      my_conclusion: "... Since then, nothing was ever the same.",
       readBlog: "Read the Blog",
     },
     aboutAuthor: {
       title: "Credits",
+      subtitle:
+        "Jornada do Baralho only looks as beautiful as it does thanks to the hard work of this incredible team",
+      showAlternatePortrait: "Show alternate portrait of",
+      showOriginalPortrait: "Show original portrait of",
       lenaKaleAlt:
         "Kale, protagonist of the animation Kale do Museu Assustador",
       lenaKizaAlt:
@@ -253,15 +398,35 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         cesar: {
           name: "César Hoffmann",
           title:
-            "Developer, fake designer, and the person trekking the Deck Journey",
+            "Developer, CEO, COO, CFO, and CTO of Jornada do Baralho. The one who does everything.",
           description:
             "Living in Porto Alegre - RS, is an emerging Pokemon master by night and code developer by day. Has been imersed into Jovem Nerd's universe over the course of his life since he was a 14yo (2007).",
         },
         leo: {
           name: "Leo Brasil",
-          title: "Composer, Sound Designer and Screenwriter",
+          title: "Composer, sound designer and screenwriter",
           description:
             "He's our favorite musician from Minas who gave sound to the Deck Journey, from the music to the small sound effects hidden across the site. He has nothing against Nerdcast, but I don't think he's ever been a listener hahaha",
+        },
+        kabuki: {
+          name: "Kabuki Sonic",
+          title: "Soundtrack composer and sound designer",
+        },
+        luah: {
+          name: "Luah Garcia",
+          title: "Production and 2D rigging",
+        },
+        dani: {
+          name: "Dani Smith-Fischer",
+          title: "Storyboard and animatic",
+        },
+        andres: {
+          name: "Andres Ramos",
+          title: "Art director and background illustrator",
+        },
+        pedro: {
+          name: "Pedro Azevedo",
+          title: "Narration and original voice",
         },
       },
     },

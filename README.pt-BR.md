@@ -89,6 +89,9 @@ Vou atualizar o site conforme as cartas forem sendo assinadas. 🖖😉
   <img src="https://skillicons.dev/icons?i=instagram" width="20" height="20" />
   </a>
 
+- Shader de fundo Balatro — efeito original por [LocalThunk](https://www.playbalatro.com), [adaptação para ShaderToy por xxidbr9](https://www.shadertoy.com/view/XXtBRr), adaptado para este projeto sob a licença [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+- Fundo de ondas radiais — adaptado do [ShaderToy 4ljcWh](https://www.shadertoy.com/view/4ljcWh), baseado no [ShaderToy 4llcDH de bmodone](https://www.shadertoy.com/view/4llcDH), sob a licença [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+
 ---
 
 # Desenvolvimento

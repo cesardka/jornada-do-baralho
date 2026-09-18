@@ -9,10 +9,26 @@ import { FaPause, FaMusic } from "react-icons/fa";
 import { useI18n } from "@/app/contexts/I18nContext";
 import BouncingText from "@/components/ui/bouncing-text";
 
-export default function AboutTheJourney() {
+function getAge() {
+  const now = new Date();
+  const birthdayPassed =
+    now.getUTCMonth() > 2 ||
+    (now.getUTCMonth() === 2 && now.getUTCDate() >= 16);
+  return now.getUTCFullYear() - 1993 - (birthdayPassed ? 0 : 1);
+}
+
+export default function AboutTheJourney({
+  prioritizeImages = true,
+  showDeckHistory = true,
+}: {
+  prioritizeImages?: boolean;
+  showDeckHistory?: boolean;
+}) {
   const { t } = useI18n();
   const audioRef = useRef<HTMLAudioElement>(null);
+  const originCallRef = useRef<HTMLElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [originCallVisible, setOriginCallVisible] = useState(false);
   const DEFAULT_VOLUME = 0.3;
 
   const toggleAudio = () => {
@@ -36,6 +52,23 @@ export default function AboutTheJourney() {
     }
   }, []);
 
+  useEffect(() => {
+    const originCall = originCallRef.current;
+    if (!originCall) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setOriginCallVisible(true);
+        observer.disconnect();
+      },
+      { threshold: 0.5, rootMargin: "0px 0px -10%" },
+    );
+
+    observer.observe(originCall);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="aboutTheJourney"
@@ -45,22 +78,6 @@ export default function AboutTheJourney() {
       <div className="relative flex flex-col md:flex-row w-full h-full">
         {/* RIGHT PANEL (on desktop): Text content with animated galaxy background */}
         <div className="order-2 md:order-2 relative w-full md:w-1/2 min-h-[60vh] md:min-h-screen text-white bg-[#0a0a12]">
-          {/* Left-edge fade to merge with image on desktop; bottom fade on mobile */}
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-24 hidden md:block"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(10,10,18,0) 0%, rgba(10,10,18,0.6) 40%, rgba(10,10,18,1) 100%)",
-            }}
-          />
-          <div
-            className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:hidden"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(10,10,18,0) 0%, rgba(10,10,18,0.6) 40%, rgba(10,10,18,1) 100%)",
-            }}
-          />
-
           {/* Content container */}
           <div className="relative z-10 px-6 md:px-12 lg:px-16 xl:px-32 py-12 md:py-20">
             <h2
@@ -76,12 +93,13 @@ export default function AboutTheJourney() {
                   href="https://www.linkedin.com/in/c%C3%A9sar-hoffmann/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
+                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
                 >
-                  César Hoffmann <SocialMediaIcon type="linkedin" size={14} />
+                  {"César Hoffmann,"}
+                  <SocialMediaIcon type="linkedin" size={14} />
                 </Link>
                 {t("aboutJourney.p1_afterName")}
-                {new Date().getFullYear() - 2012}
+                {getAge()}
                 {t("aboutJourney.p1_afterYears")}
               </p>
 
@@ -98,81 +116,83 @@ export default function AboutTheJourney() {
                 {t("aboutJourney.p2_end")}
               </p>
 
-              <h2
-                className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
-              >
-                {t("aboutJourney.titleDeck")}
-              </h2>
+              {showDeckHistory ? (
+                <>
+                  <h2
+                    className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
+                  >
+                    {t("aboutJourney.titleDeck")}
+                  </h2>
 
-              <p>
-                {t("aboutJourney.deck_p1_before_ep")}
-                <Link
-                  href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  #312 - Nerdcast do Baralho
-                </Link>
-                {t("aboutJourney.deck_p1_between_links")}
-                <Link
-                  href="https://web.archive.org/web/20121214093601/http://www.nerdstore.com.br/produto/baralho-jn.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  Baralho Nerdcast
-                </Link>
-                {t("aboutJourney.deck_p1_after_product")}
-                <Link
-                  href="https://www.instagram.com/caducarvalho"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
-                >
-                  Cadu Carvalho <SocialMediaIcon type="insta" size={14} />
-                </Link>
-              </p>
-              <p>
-                {t("aboutJourney.deck_p2_before_ep")}
-                <Link
-                  href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  #313 - HQ: Os Velhos Novos 52
-                </Link>
-                {t("aboutJourney.deck_p2_after_ep")}
-              </p>
+                  <p>
+                    {t("aboutJourney.deck_p1_before_ep")}
+                    <Link
+                      href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-312-nercast-do-baralho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      #312 - Nerdcast do Baralho
+                    </Link>
+                    {t("aboutJourney.deck_p1_between_links")}
+                    <Link
+                      href="https://web.archive.org/web/20121214093601/http://www.nerdstore.com.br/produto/baralho-jn.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      Baralho Nerdcast
+                    </Link>
+                    {t("aboutJourney.deck_p1_after_product")}
+                    <Link
+                      href="https://www.instagram.com/caducarvalho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 ml-1 inline-flex items-center gap-1"
+                    >
+                      Cadu Carvalho <SocialMediaIcon type="insta" size={14} />
+                    </Link>
+                  </p>
+                  <p>
+                    {t("aboutJourney.deck_p2_before_ep")}
+                    <Link
+                      href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      #313 - HQ: Os Velhos Novos 52
+                    </Link>
+                    {t("aboutJourney.deck_p2_after_ep")}
+                  </p>
 
-              <div
-                id="audio-controls"
-                className="-mt-4 py-2 md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full"
-              >
-                <button
-                  onClick={toggleAudio}
-                  className={`${
-                    bebasNeue.className
-                  } w-full inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-4 border-2 rounded-full transition-all animation-duration-[3000ms] ${
-                    isPlaying
-                      ? "bg-white text-black border-white shadow-sm shadow-gray-400 animate-pulse"
-                      : "text-white border-white hover:bg-white hover:text-black"
-                  }`}
-                >
-                  {isPlaying ? (
-                    <FaPause className="text-xl" />
-                  ) : (
-                    <FaMusic className="text-xl" />
-                  )}
-                  <span className="text-xl leading-none">
-                    {isPlaying
-                      ? t("aboutJourney.pauseAudio")
-                      : t("aboutJourney.listenChallenge")}
-                  </span>
-                </button>
+                  <div
+                    id="audio-controls"
+                    className="-mt-4 py-2 md:pt-0 md:pb-0 flex flex-col items-center md:items-start w-full"
+                  >
+                    <button
+                      onClick={toggleAudio}
+                      className={`${
+                        bebasNeue.className
+                      } w-full inline-flex items-center justify-center gap-2 font-bold text-lg uppercase px-6 py-4 border-2 rounded-full transition-all animation-duration-[3000ms] ${
+                        isPlaying
+                          ? "bg-white text-black border-white shadow-sm shadow-gray-400 animate-pulse"
+                          : "text-white border-white hover:bg-white hover:text-black"
+                      }`}
+                    >
+                      {isPlaying ? (
+                        <FaPause className="text-xl" />
+                      ) : (
+                        <FaMusic className="text-xl" />
+                      )}
+                      <span className="text-xl leading-none">
+                        {isPlaying
+                          ? t("aboutJourney.pauseAudio")
+                          : t("aboutJourney.listenChallenge")}
+                      </span>
+                    </button>
 
-                {/* <p className="mt-2 text-xs text-white/80 italic w-full flex-inline items-center justify-center">
+                    {/* <p className="mt-2 text-xs text-white/80 italic w-full flex-inline items-center justify-center">
                   Trecho da leitura de e-mail do{" "}
                   <Link
                     href="https://jovemnerd.com.br/podcasts/nerdcast/nerdcast-313-hq-os-velhos-novos-52"
@@ -185,15 +205,17 @@ export default function AboutTheJourney() {
                   , publicado em 1º de junho de 2012
                 </p> */}
 
-                <audio
-                  ref={audioRef}
-                  src="/sounds/nc313_desafio_do_baralho.mp3"
-                  preload="auto"
-                  onPlay={handlePlay}
-                  onPause={handlePause}
-                  onEnded={handleEnded}
-                />
-              </div>
+                    <audio
+                      ref={audioRef}
+                      src="/sounds/nc313_desafio_do_baralho.mp3"
+                      preload="auto"
+                      onPlay={handlePlay}
+                      onPause={handlePause}
+                      onEnded={handleEnded}
+                    />
+                  </div>
+                </>
+              ) : null}
 
               <h2
                 className={`${bebasNeue.className} text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase mb-6 pt-4`}
@@ -201,60 +223,60 @@ export default function AboutTheJourney() {
                 {t("aboutJourney.myJourney")}
               </h2>
               <p>
-                {t("aboutJourney.my_p1_before_link")}
+                {t("aboutJourney.my_origin_before_950")}
                 <Link
-                  href="https://www.enjoei.com.br/p/baralho-nerdcast-rpg-algumas-cartas-autografadas-93103206?vid=332492ff-e6b9-4f26-8667-90f70376512d"
+                  href="https://jovemnerd.com.br/podcasts/nerdcast/o-melhor-de-950-nerdcasts"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
                 >
-                  Enjoei
+                  Nerdcast #950
                 </Link>
-                {t("aboutJourney.my_p1_after_link")}
+                {t("aboutJourney.my_origin_after_950")}
+                <strong
+                  ref={originCallRef}
+                  className={`${bebasNeue.className} mt-4 block text-3xl font-extrabold uppercase tracking-wide text-yellow-300 transition-[opacity,transform] delay-300 duration-700 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none md:text-4xl ${originCallVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}
+                >
+                  {t("aboutJourney.my_origin_call")}
+                </strong>
               </p>
 
-              <p>{t("aboutJourney.my_p2")}</p>
-
-              <p>{t("aboutJourney.my_p3")}</p>
-
               <p>
-                {t("aboutJourney.my_p4_before_first_date")}
+                {t("aboutJourney.my_spark_before_project")}
                 <span className="text-green-300 font-extrabold">
-                  Jornada do Baralho 🃏
+                  Jornada do Baralho
                 </span>
-                {t("aboutJourney.my_p4_after_first_date_before_link")}
+                {t("aboutJourney.my_spark_after_project_before_code_date")}
                 <Link
                   href="https://github.com/cesardka/jornada-do-baralho/commit/346d55275c024ff711102a24a728b02069a67069"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
                 >
-                  {t("aboutJourney.my_p4_first_date")}{" "}
+                  {t("aboutJourney.my_code_date")}{" "}
                   <SocialMediaIcon type="github" size={14} />
                 </Link>
-                .
-              </p>
-              <p>
-                {t("aboutJourney.my_p4_after_link_before_second_date")}
+                {t("aboutJourney.my_after_code_date_before_deck_date")}
                 <Link
                   href="https://produto.mercadolivre.com.br/MLB-4649269134-baralho-nerdcast-jovem-nerd-_JM?quantity=1&variation_id=182642369255"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300 inline-flex items-center gap-1"
+                  className="font-bold text-blue-400 hover:text-yellow-400 transition-colors duration-300"
                 >
-                  {t("aboutJourney.my_p4_second_date_link")}{" "}
+                  {t("aboutJourney.my_deck_date")}
                 </Link>
-                {t("aboutJourney.my_p4_after_second_link")}{" "}
+                {t("aboutJourney.my_after_deck_date_before_state")}
                 <span className="inline-flex">
                   <BouncingText
-                    text={t("aboutJourney.my_p4_end")}
+                    text={t("aboutJourney.my_deck_state")}
                     rainbow
                     className="font-extrabold text-xl"
                   />
                 </span>
+                {t("aboutJourney.my_end")}
               </p>
 
-              <p>{t("aboutJourney.my_p4_conclusion")}</p>
+              <p>{t("aboutJourney.my_conclusion")}</p>
             </div>
           </div>
         </div>
@@ -263,21 +285,37 @@ export default function AboutTheJourney() {
         <div className="order-1 md:order-1 relative w-full md:w-1/2 min-h-[40vh] md:min-h-screen">
           {/* Bottom image: fully visible */}
           <Image
-            src={"/images/cesar-hoffmann-baralho-2024.webp"}
+            src={"/images/cesar-hoffmann-fernando-de-noronha-2026.webp"}
             alt={t("aboutJourney.imgBgAlt")}
             fill
-            priority
+            priority={prioritizeImages}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
           {/* Top image: diagonal mask fade to reveal the one below */}
           <Image
-            src={"/images/cesar-hoffmann-baralho-velho-2024.webp"}
+            src={"/images/cesar-hoffmann-fernando-de-noronha-velho-2026.webp"}
             alt={t("aboutJourney.imgTopAlt")}
             fill
-            priority
+            priority={prioritizeImages}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover diagonal-fader diagonal-fader-top"
+          />
+
+          {/* Left-edge fade to merge with image on desktop; bottom fade on mobile */}
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-[3] hidden w-24 md:block"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(10,10,18,0) 0%, rgba(10,10,18,1) 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-24 md:hidden"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(10,10,18,0) 0%, rgba(10,10,18,1) 100%)",
+            }}
           />
         </div>
       </div>

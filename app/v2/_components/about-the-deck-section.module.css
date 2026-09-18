@@ -1,0 +1,281 @@
+.section {
+  position: relative;
+  overflow: clip;
+  min-height: 100svh;
+  color: white;
+  background:
+    radial-gradient(circle at 82% 48%, rgb(32 80 144 / 48%), transparent 34rem),
+    radial-gradient(circle at 68% 58%, rgb(128 48 16 / 42%), transparent 42rem),
+    #070811;
+}
+
+.shaderBackground {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
+.shaderPlaceholder {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: center / cover no-repeat
+    url("/images/bg/about-the-deck/shader-placeholder-desktop.webp");
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 700ms ease-out;
+}
+
+.shaderPlaceholderHidden {
+  opacity: 0;
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100% - 2rem, 96rem);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: clamp(5rem, 9vw, 8rem) 0 clamp(2rem, 6vw, 5rem);
+  flex-direction: column;
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  max-width: 48rem;
+}
+
+.title {
+  font-size: clamp(4rem, 13vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.prose {
+  display: grid;
+  max-width: 70ch;
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+  gap: 1.25rem;
+  color: rgb(255 255 255 / 82%);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.prose a {
+  color: #60a5fa;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgb(96 165 250 / 48%);
+  text-underline-offset: 0.18em;
+  transition: color 180ms ease;
+}
+
+.prose a:hover {
+  color: #facc15;
+}
+
+.prose a:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+.inlineSocial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.model {
+  position: relative;
+  width: 100%;
+  height: clamp(23rem, 52svh, 36rem);
+  margin-top: auto;
+  overflow: visible;
+  transform: translateY(12%) scale(0.65);
+  transform-origin: center;
+}
+
+.shaderOrigin {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.placeholder {
+  z-index: 0;
+  object-fit: contain;
+  opacity: 1;
+  filter: drop-shadow(-0.5rem 0 2rem rgb(255 99 56 / 13%))
+    drop-shadow(0.5rem 0 2.25rem rgb(67 136 232 / 16%));
+  transform: scale(1.36);
+}
+
+.lqPlaceholder {
+  z-index: 0;
+  image-rendering: auto;
+  filter: blur(0.4rem) drop-shadow(-0.5rem 0 2rem rgb(255 99 56 / 13%))
+    drop-shadow(0.5rem 0 2.25rem rgb(67 136 232 / 16%));
+}
+
+.fullPlaceholder {
+  z-index: 1;
+}
+
+.placeholderTablet,
+.placeholderDesktop {
+  display: none;
+}
+
+.placeholderHidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.runtimePlaceholder {
+  z-index: 2;
+}
+
+.modelCanvas {
+  z-index: 1;
+  opacity: 0;
+}
+
+.modelCanvasReady {
+  opacity: 1;
+}
+
+.modelCanvas canvas {
+  filter: drop-shadow(-0.5rem 0 2rem rgb(255 99 56 / 13%))
+    drop-shadow(0.5rem 0 2.25rem rgb(67 136 232 / 16%));
+}
+
+@media (max-width: 1199px), (hover: none), (pointer: coarse) {
+  .shaderPlaceholder {
+    background-image: url("/images/bg/about-the-deck/shader-placeholder-mobile.webp");
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .section,
+  .layout {
+    min-height: auto;
+  }
+
+  .layout {
+    width: 100%;
+    padding-bottom: 4rem;
+  }
+
+  .copy {
+    padding-inline: 1rem;
+  }
+
+  .prose {
+    font-size: clamp(1.125rem, 4.8vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  .model {
+    margin-top: -4rem;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 1199px),
+  (min-width: 48rem) and (hover: none),
+  (min-width: 48rem) and (pointer: coarse) {
+  .shaderOrigin {
+    top: 55%;
+  }
+
+  .placeholderMobile {
+    display: none;
+  }
+
+  .placeholderTablet {
+    display: block;
+  }
+}
+
+@media (min-width: 48rem) and (hover: none),
+  (min-width: 48rem) and (pointer: coarse) {
+  .section,
+  .layout {
+    min-height: auto;
+  }
+
+  .copy {
+    padding-inline: clamp(2rem, 7vw, 4.5rem);
+  }
+
+  .title {
+    font-size: clamp(6.5rem, 14vw, 9rem);
+  }
+
+  .prose {
+    gap: 1.5rem;
+    font-size: clamp(1.375rem, 2.8vw, 1.75rem);
+    line-height: 1.65;
+  }
+
+  .model {
+    margin-top: -2rem;
+  }
+}
+
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  .shaderOrigin {
+    left: 10%;
+  }
+
+  .placeholderMobile,
+  .placeholderTablet {
+    display: none;
+  }
+
+  .placeholderDesktop {
+    display: block;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 6rem);
+    padding-block: clamp(6rem, 9vh, 8rem);
+  }
+
+  .copy {
+    max-width: 44rem;
+    padding-left: clamp(2rem, 4vw, 5rem);
+  }
+
+  .title {
+    font-size: clamp(5rem, 7vw, 8rem);
+  }
+
+  .model {
+    height: clamp(34rem, 72svh, 48rem);
+    margin-top: 0;
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose a,
+  .placeholder,
+  .modelCanvas,
+  .shaderPlaceholder {
+    transition: none;
+  }
+}
