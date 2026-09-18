@@ -4,7 +4,7 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
   {
     id: "lena",
     name: "Lena Franzz",
-    title: "Animadora, ilustradora, diretora de animação e atriz de voz",
+    title: "Animadora, ilustradora, diretora de animação",
     description:
       "Gaúcha naturalizada carioca desde 2013, acompanha o Nerdcast de muitos anos, já enviou artes dos fãs, fez tour gastronômico do Eskimó ao Majórica para deixar o Senhor K. com orgulho. Atualmente é sócia-fundadora do Studio Chifrezz, onde já animou projetos premiados internacionalmente e está trabalhando em mais obras para serem lançadas futuramente!",
     imageSrc: "/images/NERDINHO_LENA.webp",
@@ -53,7 +53,7 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
   {
     id: "leo",
     name: "Leo Brasil",
-    title: "Compositor de trilhas, Sound Designer e Roteirista",
+    title: "Compositor do curta de abertura, sound designer",
     description:
       "É o nosso mineirin musicista favorito que deu sonoridade à Jornada do Baralho, da música aos pequenos efeitos sonoros escondidos pelo site. Não tem nada contra o Nerdcast, mas acho que nunca foi ouvinte também hahaha",
     imageSrc: "/images/NERDINHO_LEO.webp",
@@ -72,7 +72,7 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
   {
     id: "kabuki",
     name: "Kabuki Sonic",
-    title: "Compositor de trilha e sound designer",
+    title: "Compositor do curta de encerramento, sound designer",
     description: "",
     imageSrc: "/images/credits/kabuki-sonic.webp",
     alternateImageSrc: "/images/credits/kabuki-sonic-alternate.webp",

@@ -131,7 +131,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       people: {
         lena: {
           name: "Lena Franzz",
-          title: "Animadora, ilustradora, diretora de animação e atriz de voz",
+          title: "Animadora, ilustradora, diretora de animação",
           description:
             "Artista responsável pelas ilustrações da Jornada do Baralho. Gaúcha naturalizada carioca desde 2013, acompanha o Nerdcast de muitos anos, já enviou artes dos fãs, fez tour gastronômico do Eskimó ao Majórica para deixar o Senhor K. com orgulho. Atualmente é sócia-fundadora do Studio Chifrezz, onde já animou projetos premiados internacionalmente e está trabalhando em mais obras para serem lançadas futuramente!",
         },
@@ -144,13 +144,13 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         },
         leo: {
           name: "Leo Brasil",
-          title: "Compositor de trilhas, sound designer e roteirista",
+          title: "Compositor do curta de abertura, sound designer",
           description:
             "É o nosso mineirin musicista favorito que deu sonoridade à Jornada do Baralho, da música aos pequenos efeitos sonoros escondidos pelo site. Não tem nada contra o Nerdcast, mas acho que nunca foi ouvinte também hahaha",
         },
         kabuki: {
           name: "Kabuki Sonic",
-          title: "Compositor de trilha e sound designer",
+          title: "Compositor do curta de encerramento, sound designer",
         },
         luah: {
           name: "Luah Garcia",
@@ -391,7 +391,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       people: {
         lena: {
           name: "Lena Franzz",
-          title: "Animator, illustrator, animation director and voice actress",
+          title: "Animator, illustrator, and animation director",
           description:
             "The artist commissioned to illustrate and animate the art in Jornada do Baralho. A gaucha who became a carioca in 2013, she's been listening to Nerdcast for many years, has sent fan art, and did the gastronomic tour from Eskimó to Majórica to make Senhor K proud. She's currently a co-founder of Studio Chifrezz, has animated internationally awarded projects and is working on more to be released in the future!",
         },
@@ -404,13 +404,13 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         },
         leo: {
           name: "Leo Brasil",
-          title: "Composer, sound designer and screenwriter",
+          title: "Composer for the opening short film and sound designer",
           description:
             "He's our favorite musician from Minas who gave sound to the Deck Journey, from the music to the small sound effects hidden across the site. He has nothing against Nerdcast, but I don't think he's ever been a listener hahaha",
         },
         kabuki: {
           name: "Kabuki Sonic",
-          title: "Soundtrack composer and sound designer",
+          title: "Composer for the closing short film and sound designer",
         },
         luah: {
           name: "Luah Garcia",
