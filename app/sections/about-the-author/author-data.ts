@@ -34,7 +34,9 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     description:
       'Morador de Porto Alegre - RS, é ouvinte do Nerdcast desde 2007, quando conheceu na casa de um amigo o episódio 70 - "Harry Potter: 70 mas não agüenta!" e desde então não viveu mais sem o programa no ouvido. Tomou como objetivo de vida não deixar o Nerdcast acabar sem alguém concluir esse desafio que perdura há mais de década.',
     imageSrc: "/images/NERDINHO_CESAR.webp",
+    alternateImageSrc: "/images/credits/cesar-hoffmann-alternate.webp",
     circularPortrait: false,
+    alternateCircularPortrait: true,
     socialMedia: [
       {
         link: "https://github.com/cesardka",
@@ -57,7 +59,9 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     description:
       "É o nosso mineirin musicista favorito que deu sonoridade à Jornada do Baralho, da música aos pequenos efeitos sonoros escondidos pelo site. Não tem nada contra o Nerdcast, mas acho que nunca foi ouvinte também hahaha",
     imageSrc: "/images/NERDINHO_LEO.webp",
+    alternateImageSrc: "/images/credits/leo-brasil-alternate.webp",
     circularPortrait: false,
+    alternateCircularPortrait: true,
     socialMedia: [
       {
         link: "https://open.spotify.com/artist/3H3zNDzX52sPpG6fxisgf1?si=9_rjqp7nTv67SFcGREK-Gw&nd=1&dlsi=87726bb642b34ca6",
@@ -77,7 +81,12 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     imageSrc: "/images/credits/kabuki-sonic.webp",
     alternateImageSrc: "/images/credits/kabuki-sonic-alternate.webp",
     alternatePortraitBackground: "#efe69f",
-    socialMedia: [],
+    socialMedia: [
+      {
+        link: "https://www.instagram.com/kabukisonic/",
+        type: "insta",
+      },
+    ],
   },
   {
     id: "luah",
