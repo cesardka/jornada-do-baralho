@@ -26,7 +26,9 @@ export default function AboutTheJourney({
 }) {
   const { t } = useI18n();
   const audioRef = useRef<HTMLAudioElement>(null);
+  const originCallRef = useRef<HTMLElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [originCallVisible, setOriginCallVisible] = useState(false);
   const DEFAULT_VOLUME = 0.3;
 
   const toggleAudio = () => {
@@ -48,6 +50,23 @@ export default function AboutTheJourney({
     if (audioRef.current) {
       audioRef.current.volume = DEFAULT_VOLUME;
     }
+  }, []);
+
+  useEffect(() => {
+    const originCall = originCallRef.current;
+    if (!originCall) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setOriginCallVisible(true);
+        observer.disconnect();
+      },
+      { threshold: 0.5, rootMargin: "0px 0px -10%" },
+    );
+
+    observer.observe(originCall);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -230,6 +249,12 @@ export default function AboutTheJourney({
                   Nerdcast #950
                 </Link>
                 {t("aboutJourney.my_origin_after_950")}
+                <strong
+                  ref={originCallRef}
+                  className={`${bebasNeue.className} mt-4 block text-3xl font-extrabold uppercase tracking-wide text-yellow-300 transition-[opacity,transform] delay-300 duration-700 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none md:text-4xl ${originCallVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}
+                >
+                  {t("aboutJourney.my_origin_call")}
+                </strong>
               </p>
 
               <p>

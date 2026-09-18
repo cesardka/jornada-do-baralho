@@ -104,7 +104,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         ", foi lançado o Desafio do Baralho ao final da leitura de e-mails:",
       my_origin_before_950: "Em 20 de setembro de 2024 lançava o ",
       my_origin_after_950:
-        " e naquele momento me dei conta que o programa poderia acabar no episódio 1000 sem que alguém completasse esse desafio. Bem que alguém poderia fazer isso. Por que não eu?",
+        " e naquele momento me dei conta que o programa poderia acabar no episódio 1000 sem que alguém completasse esse desafio. Bem que alguém poderia fazer isso...",
+      my_origin_call: "Por que não eu?",
       my_spark_before_project:
         "Isso despertou uma fagulha em mim que cresceria e se tornaria a ",
       my_spark_after_project_before_code_date:
@@ -113,7 +114,7 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
       my_after_code_date_before_deck_date:
         " comecei a fazer o código do site, e em ",
       my_deck_date: "13 de novembro de 2024",
-      my_after_deck_date_before_state: " comprei um baralho ",
+      my_after_deck_date_before_state: " consegui um baralho ",
       my_deck_state: "completo e lacrado",
       my_end: " para iniciar essa aventura.",
       my_conclusion: "... Desde então, nada mais foi o mesmo.",
@@ -337,7 +338,8 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         ", the DeckVenture was launched at the end of the email reading:",
       my_origin_before_950: "On September 20, 2024, ",
       my_origin_after_950:
-        " was released, and at that moment I realized the show could end at episode 1000 without anyone completing this challenge. Someone ought to do it. Why not me?",
+        " was released, and at that moment I realized the show could end at episode 1000 without anyone completing this challenge. Someone ought to do it...",
+      my_origin_call: "Why not me?",
       my_spark_before_project:
         "That lit a spark in me that would grow into the ",
       my_spark_after_project_before_code_date:
