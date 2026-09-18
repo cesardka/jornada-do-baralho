@@ -18,7 +18,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const CREDIT_LAYERS = [
   { src: "/images/bg/credits/FUNDO_10.webp", depth: 0 },
-  { src: "/images/bg/credits/nuvem_09.webp", depth: 0 },
+  { src: "/images/bg/credits/nuvem_09.webp", depth: 0.35 },
   { src: "/images/bg/credits/plaqntas_07.webp", depth: 0 },
   { src: "/images/bg/credits/arvore_06.webp", depth: 0 },
   { src: "/images/bg/credits/luz_05.webp", depth: 0 },
@@ -175,7 +175,7 @@ export default function CreditsSection() {
                             aria-label={`${name} — ${SOCIAL_LABELS[social.type]}`}
                           >
                             <span aria-hidden="true">
-                              <SocialMediaIcon type={social.type} size={20} />
+                              <SocialMediaIcon type={social.type} size={24} />
                             </span>
                           </Link>
                         </li>

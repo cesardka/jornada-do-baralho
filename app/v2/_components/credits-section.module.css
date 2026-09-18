@@ -122,25 +122,23 @@
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0;
   list-style: none;
 }
 
 .socialLink {
   display: grid;
-  width: 2.75rem;
+  width: 2.5rem;
   height: 2.75rem;
   place-items: center;
   color: #17360d;
   filter: drop-shadow(0 0 2px #fff9cf);
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
+  cursor: pointer;
+  transition: color 180ms ease;
 }
 
 .socialLink:hover {
   color: #765f12;
-  transform: translateY(-2px) scale(1.08);
 }
 
 .socialLink:focus-visible {
