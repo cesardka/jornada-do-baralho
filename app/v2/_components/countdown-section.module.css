@@ -3,6 +3,7 @@
 
   position: relative;
   isolation: isolate;
+  container-type: inline-size;
   overflow: clip;
   width: 100%;
   height: max(42rem, 100svh);
@@ -61,14 +62,15 @@
 .treasureBox {
   position: absolute;
   z-index: 5;
-  top: 72.3%;
+  top: calc(50% + max(11.9727vw, 19.9674%));
+  top: calc(50% + max(11.9727cqw, 19.9674%));
   left: 50%;
   width: clamp(6.7rem, max(9.6vw, 16.1svh), 10.8rem);
   aspect-ratio: 1.45;
   opacity: 0;
   filter: drop-shadow(0 0 0.8rem rgb(255 149 53 / 32%));
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.84);
+  transform: translate(-50%, -62.5%) scale(0.84);
   transform-origin: center bottom;
   transition:
     opacity 650ms ease-out,
@@ -81,7 +83,7 @@
   filter: drop-shadow(0 0 0.65rem rgb(255 170 65 / 58%))
     drop-shadow(0 0 1.4rem rgb(255 91 35 / 28%));
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -62.5%) scale(1);
 }
 
 .treasureBox[data-open="true"] {
@@ -608,10 +610,6 @@
 }
 
 @media (max-width: 40rem) {
-  .treasureBox {
-    top: 68.2%;
-  }
-
   .videoDialog {
     width: calc(100% - 1.25rem);
   }
