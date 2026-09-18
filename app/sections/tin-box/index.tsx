@@ -54,6 +54,15 @@ type TinBoxProps = {
   antialias?: boolean;
   maxFPS?: number;
   pixelRatioCap?: number;
+  cameraView?: "default" | "front";
+  rotationX?: number;
+  rotationY?: number;
+  rotationZ?: number;
+  lightingPreset?: "default" | "cavern";
+  treasureEffect?: "none" | "radial";
+  lidOpenOnly?: boolean;
+  closeSignal?: number;
+  onLidOpen?: () => void;
   onReady?: (firstFrame: string | null) => void;
   className?: string;
 };
@@ -75,10 +84,20 @@ export default function TinBox({
   antialias = true,
   maxFPS = 60,
   pixelRatioCap = 2,
+  cameraView = "default",
+  rotationX = 0,
+  rotationY = 0,
+  rotationZ = 0,
+  lightingPreset = "default",
+  treasureEffect = "none",
+  lidOpenOnly = false,
+  closeSignal = 0,
+  onLidOpen,
   onReady,
   className = "",
 }: TinBoxProps) {
   const mountRef = useRef<HTMLDivElement>(null);
+  const closeLidRef = useRef<(() => void) | null>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -113,7 +132,7 @@ export default function TinBox({
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, pixelRatioCap));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.AgXToneMapping;
-    renderer.toneMappingExposure = 1;
+    renderer.toneMappingExposure = lightingPreset === "cavern" ? 0.62 : 1;
     renderer.shadowMap.enabled = groundShadow;
     renderer.shadowMap.type = THREE.PCFShadowMap;
     // Explicit CSS so the canvas always fills the absolutely-positioned mount
@@ -128,21 +147,29 @@ export default function TinBox({
     // ---- Scene & camera ----
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 100);
-    camera.position.set(
-      embedded ? 3.35 : 2.5,
-      embedded ? 2.8 : 1.8,
-      embedded ? 4.3 : 3.2,
-    );
-    camera.lookAt(0, embedded ? 0 : 0.2, 0);
+    if (cameraView === "front") {
+      camera.up.set(0, 1, 0);
+      camera.position.set(0, 2.65, 4.8);
+      camera.lookAt(0, 0, 0);
+      camera.rotation.z = 0;
+    } else {
+      camera.position.set(
+        embedded ? 3.35 : 2.5,
+        embedded ? 2.8 : 1.8,
+        embedded ? 4.3 : 3.2,
+      );
+      camera.lookAt(0, embedded ? 0 : 0.2, 0);
+    }
 
     // ---- Environment (so metallic surfaces have something to reflect) ----
-    const pmrem = new THREE.PMREMGenerator(renderer);
+    const pmrem =
+      lightingPreset === "cavern" ? null : new THREE.PMREMGenerator(renderer);
     let environmentSource: THREE.DataTexture | null = null;
     let environmentTexture: THREE.Texture | null = null;
 
     // ---- Lights ----
     const key = new THREE.PointLight(0xffffff, 1, 0, 2);
-    key.power = embedded ? 550 : 1000;
+    key.power = lightingPreset === "cavern" ? 220 : embedded ? 550 : 1000;
     key.castShadow = groundShadow;
     key.shadow.mapSize.set(512, 512);
     key.shadow.camera.near = 0.1;
@@ -152,12 +179,23 @@ export default function TinBox({
     scene.add(key);
 
     const redReflection = new THREE.PointLight(0xff6338, 1, 0, 2);
-    redReflection.power = embedded ? 850 : 0;
+    redReflection.power =
+      lightingPreset === "cavern" ? 200 : embedded ? 850 : 0;
     scene.add(redReflection);
 
     const blueReflection = new THREE.PointLight(0x4388e8, 1, 0, 2);
-    blueReflection.power = embedded ? 750 : 0;
+    blueReflection.power =
+      lightingPreset === "cavern" ? 100 : embedded ? 750 : 0;
     scene.add(blueReflection);
+
+    if (lightingPreset === "cavern") {
+      const coolFill = new THREE.DirectionalLight(0xa8c2d2, 0.85);
+      coolFill.position.set(0, 2.4, 4);
+      scene.add(coolFill);
+      const fireFill = new THREE.DirectionalLight(0xff8c52, 0.14);
+      fireFill.position.set(2.4, 0.8, 2.2);
+      scene.add(fireFill);
+    }
 
     const shadowPlane = groundShadow
       ? new THREE.Mesh(
@@ -173,7 +211,11 @@ export default function TinBox({
 
     // Root group so we can animate box + lid together
     const root = new THREE.Group();
-    root.rotation.x = autoRotate ? 0.12 : 0;
+    root.rotation.set(
+      (autoRotate ? 0.12 : 0) + rotationX,
+      rotationY,
+      rotationZ,
+    );
     scene.add(root);
 
     const treasureLight = new THREE.PointLight(0xffefad, 1, 0, 2);
@@ -206,18 +248,23 @@ export default function TinBox({
     loadingManager.onLoad = () => {
       if (!disposed) assetsLoaded = true;
     };
-    new EXRLoader(loadingManager)
-      .setPath(`${MODEL_DIR}/`)
-      .load(ENVIRONMENT_FILE, (source) => {
-        if (disposed) {
-          source.dispose();
-          return;
-        }
-        environmentSource = source;
-        environmentTexture = pmrem.fromEquirectangular(source).texture;
-        scene.environment = environmentTexture;
-        scene.environmentIntensity = embedded ? 0.62 : 1;
-      });
+    if (lightingPreset === "cavern") {
+      scene.add(new THREE.AmbientLight(0x416176, 0.16));
+    } else {
+      new EXRLoader(loadingManager)
+        .setPath(`${MODEL_DIR}/`)
+        .load(ENVIRONMENT_FILE, (source) => {
+          if (disposed) {
+            source.dispose();
+            return;
+          }
+          environmentSource = source;
+          environmentTexture =
+            pmrem?.fromEquirectangular(source).texture ?? null;
+          scene.environment = environmentTexture;
+          scene.environmentIntensity = embedded ? 0.62 : 1;
+        });
+    }
     const texLoader = new THREE.TextureLoader(loadingManager).setPath(
       `${MODEL_DIR}/`,
     );
@@ -247,7 +294,7 @@ export default function TinBox({
       map: bodyDiffuseTex,
       roughnessMap: bodyRoughTex,
       normalMap: bodyNormalTex,
-      metalness: 1.0,
+      metalness: lightingPreset === "cavern" ? 0.72 : 1,
       roughness: 1.0,
     });
     bodyMat.onBeforeCompile = (shader) => {
@@ -267,7 +314,7 @@ export default function TinBox({
     // Front "clean" face: uniform silver matching MTL Kd, polished.
     const frontCleanMat = new THREE.MeshStandardMaterial({
       color: FRONT_CLEAN_KD,
-      metalness: 1.0,
+      metalness: lightingPreset === "cavern" ? 0.72 : 1,
       roughness: 0.55,
     });
 
@@ -276,7 +323,7 @@ export default function TinBox({
       color: LID_TOP_KD,
       map: lidArtworkTex,
       normalMap: bodyNormalTex,
-      metalness: 1.0,
+      metalness: lightingPreset === "cavern" ? 0.78 : 1,
       roughness: 0.180392,
     });
     lidTopMat.onBeforeCompile = (shader) => {
@@ -302,7 +349,7 @@ export default function TinBox({
     // Lid interior (under-side of the lid): metallic silver (MTL Lid_Interior Kd).
     const lidInteriorMat = new THREE.MeshStandardMaterial({
       color: LID_INTERIOR_KD,
-      metalness: 1.0,
+      metalness: lightingPreset === "cavern" ? 0.78 : 1,
       roughness: 0.35,
     });
 
@@ -315,8 +362,30 @@ export default function TinBox({
       roughness: 0.92,
       side: THREE.DoubleSide,
     });
+    const glowCanvas = document.createElement("canvas");
+    glowCanvas.width = 256;
+    glowCanvas.height = 256;
+    const glowContext = glowCanvas.getContext("2d");
+    if (glowContext) {
+      const gradient = glowContext.createRadialGradient(
+        128,
+        128,
+        0,
+        128,
+        128,
+        128,
+      );
+      gradient.addColorStop(0, "rgba(255, 231, 139, 1)");
+      gradient.addColorStop(0.24, "rgba(255, 188, 70, 0.95)");
+      gradient.addColorStop(0.58, "rgba(255, 154, 42, 0.42)");
+      gradient.addColorStop(1, "rgba(255, 105, 30, 0)");
+      glowContext.fillStyle = gradient;
+      glowContext.fillRect(0, 0, 256, 256);
+    }
+    const treasureGlowTexture = new THREE.CanvasTexture(glowCanvas);
     const treasureGlowMat = new THREE.MeshBasicMaterial({
-      color: 0xfff3b0,
+      color: 0xffcf6c,
+      map: treasureGlowTexture,
       transparent: true,
       opacity: 0,
       blending: THREE.AdditiveBlending,
@@ -493,10 +562,15 @@ export default function TinBox({
     resize();
     const ro = new ResizeObserver(resize);
     ro.observe(mount);
+    let isInViewport = true;
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      isInViewport = entry.isIntersecting;
+    });
+    visibilityObserver.observe(mount);
 
     // ---- Pointer interactions ----
     const MAX_OPEN_ANGLE = Math.PI / 2.6;
-    const OPEN_DURATION = 0.7;
+    const OPEN_DURATION = motionQuery.matches ? 0 : 0.7;
     const interactionEnabled = interactiveLid || draggable;
     let isOpen = false;
     let lidBounceDirection = 1;
@@ -640,14 +714,148 @@ export default function TinBox({
         return;
       }
 
-      isOpen = !isOpen;
-      gsap.to(pivot.rotation, {
-        x: isOpen ? -MAX_OPEN_ANGLE : 0,
-        duration: OPEN_DURATION,
-        ease: "power2.inOut",
-        overwrite: true,
-      });
+      if (lidOpenOnly && isOpen) {
+        onLidOpen?.();
+        return;
+      }
+
+      const opening = lidOpenOnly || !isOpen;
+      isOpen = opening;
+      const showTreasure = opening && treasureEffect === "radial";
+      gsap
+        .timeline({
+          onComplete: () => {
+            if (opening) onLidOpen?.();
+          },
+        })
+        .to(
+          pivot.rotation,
+          {
+            x: opening ? -MAX_OPEN_ANGLE : 0,
+            duration: OPEN_DURATION,
+            ease: "power2.inOut",
+            overwrite: true,
+          },
+          0,
+        )
+        .to(
+          boxInteriorMat,
+          {
+            emissiveIntensity: showTreasure ? 5 : 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          OPEN_DURATION * 0.28,
+        )
+        .to(
+          treasureGlowMat,
+          {
+            opacity: showTreasure ? 0.9 : 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          OPEN_DURATION * 0.28,
+        )
+        .to(
+          treasureLight,
+          {
+            power: showTreasure ? 500 : 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          OPEN_DURATION * 0.28,
+        )
+        .to(
+          treasureBeamGroup.scale,
+          {
+            x: showTreasure ? 1 : 0.12,
+            y: showTreasure ? 1 : 0.12,
+            z: showTreasure ? 1 : 0.12,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          OPEN_DURATION * 0.28,
+        )
+        .to(
+          treasureBeamMaterials,
+          {
+            opacity: showTreasure ? 0.72 : 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          OPEN_DURATION * 0.28,
+        );
     };
+
+    const closeLid = () => {
+      const pivot = lidPivot;
+      if (!pivot || !isOpen) return;
+      isOpen = false;
+      gsap.killTweensOf([
+        pivot.rotation,
+        boxInteriorMat,
+        treasureGlowMat,
+        treasureBeamGroup.scale,
+        ...treasureBeamMaterials,
+        treasureLight,
+      ]);
+      gsap
+        .timeline()
+        .to(pivot.rotation, {
+          x: 0,
+          duration: OPEN_DURATION,
+          ease: "power2.inOut",
+          overwrite: true,
+        })
+        .to(
+          boxInteriorMat,
+          {
+            emissiveIntensity: 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          0,
+        )
+        .to(
+          treasureGlowMat,
+          {
+            opacity: 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          0,
+        )
+        .to(
+          treasureLight,
+          {
+            power: 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          0,
+        )
+        .to(
+          treasureBeamGroup.scale,
+          {
+            x: 0.12,
+            y: 0.12,
+            z: 0.12,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          0,
+        )
+        .to(
+          treasureBeamMaterials,
+          {
+            opacity: 0,
+            duration: OPEN_DURATION * 0.72,
+            ease: "power2.out",
+          },
+          0,
+        );
+    };
+    closeLidRef.current = closeLid;
 
     const onPointerDown = (event: PointerEvent) => {
       if (!hitsTin(event.clientX, event.clientY)) return;
@@ -696,7 +904,9 @@ export default function TinBox({
         hoverScheduled = false;
         if (disposed) return;
         renderer.domElement.style.cursor = hitsTin(lastHoverX, lastHoverY)
-          ? "grab"
+          ? draggable
+            ? "grab"
+            : "pointer"
           : "default";
       });
     };
@@ -729,7 +939,7 @@ export default function TinBox({
       renderer.domElement.setAttribute("role", "button");
       renderer.domElement.setAttribute("aria-label", interactionLabel);
       renderer.domElement.style.touchAction = draggable ? "pan-y" : "auto";
-      renderer.domElement.style.cursor = "grab";
+      renderer.domElement.style.cursor = draggable ? "grab" : "pointer";
       renderer.domElement.addEventListener("pointerdown", onPointerDown);
       renderer.domElement.addEventListener("pointermove", onPointerMove);
       renderer.domElement.addEventListener("pointerup", onPointerUp);
@@ -745,6 +955,11 @@ export default function TinBox({
     const animate = (frameTime: number) => {
       void boxObject;
       void lidObject;
+      if (!isInViewport || document.visibilityState !== "visible") {
+        previousFrameTime = frameTime;
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
       if (frameTime - previousFrameTime < minimumFrameTime - 1) {
         rafId = requestAnimationFrame(animate);
         return;
@@ -789,9 +1004,11 @@ export default function TinBox({
     // ---- Cleanup ----
     return () => {
       disposed = true;
+      closeLidRef.current = null;
       motionQuery.removeEventListener("change", handleMotionChange);
       cancelAnimationFrame(rafId);
       ro.disconnect();
+      visibilityObserver.disconnect();
       renderer.domElement.removeEventListener("pointerdown", onPointerDown);
       renderer.domElement.removeEventListener("pointermove", onPointerMove);
       renderer.domElement.removeEventListener("pointerup", onPointerUp);
@@ -806,16 +1023,20 @@ export default function TinBox({
         ...treasureBeamMaterials,
         treasureLight,
       ]);
-      pmrem.dispose();
+      pmrem?.dispose();
       environmentTexture?.dispose();
       environmentSource?.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
       }
-      [bodyDiffuseTex, bodyRoughTex, bodyNormalTex, lidArtworkTex].forEach(
-        (t) => t.dispose(),
-      );
+      [
+        bodyDiffuseTex,
+        bodyRoughTex,
+        bodyNormalTex,
+        lidArtworkTex,
+        treasureGlowTexture,
+      ].forEach((t) => t.dispose());
       scene.traverse((obj) => {
         const mesh = obj as THREE.Mesh;
         if (mesh.geometry) mesh.geometry.dispose();
@@ -830,20 +1051,32 @@ export default function TinBox({
   }, [
     antialias,
     autoRotate,
+    cameraView,
     draggable,
     embedded,
     groundShadow,
     interactionLabel,
     interactiveLid,
     lidBounce,
+    lidOpenOnly,
+    lightingPreset,
     maxFPS,
     mobileModelScale,
     modelScale,
+    onLidOpen,
     onReady,
     pixelRatioCap,
+    rotationX,
+    rotationY,
+    rotationZ,
     spinEaseDuration,
     spinStartDelay,
+    treasureEffect,
   ]);
+
+  useEffect(() => {
+    if (closeSignal > 0) closeLidRef.current?.();
+  }, [closeSignal]);
 
   return (
     <section

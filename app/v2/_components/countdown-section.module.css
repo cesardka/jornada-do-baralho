@@ -58,6 +58,257 @@
   transform: translateX(max(1.1vw, 1.83svh));
 }
 
+.treasureBox {
+  position: absolute;
+  z-index: 5;
+  top: 72.3%;
+  left: 50%;
+  width: clamp(6.7rem, max(9.6vw, 16.1svh), 10.8rem);
+  aspect-ratio: 1.45;
+  opacity: 0;
+  filter: drop-shadow(0 0 0.8rem rgb(255 149 53 / 32%));
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.84);
+  transform-origin: center bottom;
+  transition:
+    opacity 650ms ease-out,
+    filter 650ms ease-out,
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.treasureBox[data-visible="true"] {
+  opacity: 1;
+  filter: drop-shadow(0 0 0.65rem rgb(255 170 65 / 58%))
+    drop-shadow(0 0 1.4rem rgb(255 91 35 / 28%));
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.treasureBox[data-open="true"] {
+  filter: drop-shadow(0 0 0.9rem rgb(255 229 146 / 92%))
+    drop-shadow(0 0 2.2rem rgb(255 126 37 / 72%));
+}
+
+.treasureBox[data-open="true"] .treasureAura {
+  filter: blur(0.7rem) brightness(1.75);
+  animation-duration: 1.45s;
+}
+
+.treasureBox[data-open="true"] .treasureSparkles span {
+  width: 0.32rem;
+  height: 0.32rem;
+  box-shadow: 0 0 0.8rem 0.22rem rgb(255 201 98 / 95%);
+  animation-duration: 1.8s;
+}
+
+.treasureButton {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.treasureButton:focus-visible {
+  outline: none;
+}
+
+.treasureBox:has(.treasureButton:focus-visible) {
+  filter: drop-shadow(0 0 0.7rem rgb(255 224 151 / 92%))
+    drop-shadow(0 0 1.8rem rgb(255 122 43 / 62%));
+}
+
+.treasureButton:disabled {
+  cursor: default;
+}
+
+.treasurePlaceholder,
+.treasureFrame {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 240ms ease-out;
+}
+
+.treasurePlaceholder {
+  background-image: url("/images/bg/countdown/tinbox-first-frame-lq.webp");
+  background-size: 100% 100%;
+  opacity: 1;
+}
+
+.treasureFrame {
+  background-image: url("/images/bg/countdown/tinbox-spritesheet.webp");
+  background-size: 400% 300%;
+}
+
+.treasureBox[data-ready="true"] .treasurePlaceholder {
+  opacity: 0;
+}
+
+.treasureBox[data-ready="true"] .treasureFrame {
+  opacity: 1;
+}
+
+.treasureAura {
+  position: absolute;
+  z-index: 1;
+  inset: 20% 8% 4%;
+  visibility: hidden;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgb(255 219 103 / 55%) 0%,
+    rgb(255 126 45 / 25%) 38%,
+    transparent 72%
+  );
+  filter: blur(0.55rem);
+  animation: treasure-aura-pulse 2.4s ease-in-out infinite;
+}
+
+.treasureSparkles {
+  position: absolute;
+  z-index: 3;
+  visibility: hidden;
+  inset: 4% -5%;
+  pointer-events: none;
+}
+
+.treasureBox[data-ready="true"] .treasureAura,
+.treasureBox[data-ready="true"] .treasureSparkles {
+  visibility: visible;
+}
+
+.treasureSparkles span {
+  position: absolute;
+  width: 0.24rem;
+  height: 0.24rem;
+  border-radius: 50%;
+  opacity: 0;
+  background: #ffe7a3;
+  box-shadow: 0 0 0.55rem 0.16rem rgb(255 163 62 / 80%);
+  animation: treasure-sparkle 2.8s ease-in-out infinite;
+}
+
+.treasureSparkles span:nth-child(1) {
+  top: 22%;
+  left: 8%;
+}
+
+.treasureSparkles span:nth-child(2) {
+  top: 4%;
+  left: 31%;
+  animation-delay: -1.4s;
+}
+
+.treasureSparkles span:nth-child(3) {
+  top: 12%;
+  right: 20%;
+  animation-delay: -0.65s;
+}
+
+.treasureSparkles span:nth-child(4) {
+  top: 38%;
+  right: 3%;
+  animation-delay: -2.1s;
+}
+
+.treasureSparkles span:nth-child(5) {
+  bottom: 15%;
+  right: 13%;
+  animation-delay: -1s;
+}
+
+.treasureSparkles span:nth-child(6) {
+  bottom: 4%;
+  left: 39%;
+  animation-delay: -2.4s;
+}
+
+.treasureSparkles span:nth-child(7) {
+  bottom: 24%;
+  left: 1%;
+  animation-delay: -0.35s;
+}
+
+.treasureSparkles span:nth-child(8) {
+  top: 1%;
+  right: 42%;
+  animation-delay: -1.8s;
+}
+
+.videoDialog {
+  width: min(calc(100% - 2rem), 64rem);
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  background: transparent;
+  color: white;
+}
+
+.videoDialog::backdrop {
+  background: rgb(0 0 0 / 88%);
+  backdrop-filter: blur(0.45rem);
+}
+
+.videoDialogPanel {
+  position: relative;
+  border: 1px solid rgb(255 191 94 / 38%);
+  border-radius: 0.8rem;
+  padding: clamp(0.4rem, 1vw, 0.7rem);
+  background: #05080b;
+  box-shadow:
+    0 1.5rem 5rem rgb(0 0 0 / 75%),
+    0 0 2.8rem rgb(255 121 46 / 18%);
+}
+
+.videoFrame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
+  background: black;
+}
+
+.videoFrame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.videoDialogClose {
+  position: absolute;
+  z-index: 1;
+  top: -1.1rem;
+  right: -0.6rem;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgb(255 191 94 / 52%);
+  border-radius: 50%;
+  place-items: center;
+  color: #132027;
+  background: #ffbf5e;
+  box-shadow: 0 0.5rem 1.3rem rgb(0 0 0 / 55%);
+  cursor: pointer;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.videoDialogClose:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
 .ambientGlow {
   --pulse-min-opacity: 0.2;
   --pulse-max-opacity: 1;
@@ -311,6 +562,37 @@
   }
 }
 
+@keyframes treasure-aura-pulse {
+  0%,
+  100% {
+    opacity: 0.48;
+    transform: scale(0.88);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes treasure-sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0.4rem) scale(0.45);
+  }
+  38% {
+    opacity: 0;
+  }
+  52% {
+    opacity: 1;
+    transform: translateY(-0.25rem) scale(1);
+  }
+  68% {
+    opacity: 0;
+    transform: translateY(-0.8rem) scale(0.35);
+  }
+}
+
 @media (min-width: 40.01rem) and (max-width: 64rem) {
   .eyebrow {
     font-size: clamp(1.1rem, 2vw, 1.4rem);
@@ -326,6 +608,19 @@
 }
 
 @media (max-width: 40rem) {
+  .treasureBox {
+    top: 68.2%;
+  }
+
+  .videoDialog {
+    width: calc(100% - 1.25rem);
+  }
+
+  .videoDialogClose {
+    top: -1rem;
+    right: -0.2rem;
+  }
+
   .statueHitTarget {
     top: 8%;
     left: 15%;
@@ -350,8 +645,24 @@
 @media (prefers-reduced-motion: reduce) {
   .fire,
   .illuminationLayer,
-  .eyesScene {
+  .eyesScene,
+  .treasureBox,
+  .treasurePlaceholder,
+  .treasureFrame {
     transition: none;
+  }
+
+  .treasureAura,
+  .treasureSparkles span {
+    animation: none;
+  }
+
+  .treasureAura {
+    opacity: 0.75;
+  }
+
+  .treasureSparkles span:nth-child(odd) {
+    opacity: 0.75;
   }
 
   .layer,

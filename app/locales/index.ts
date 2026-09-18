@@ -32,6 +32,9 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         elapsedPrefix: "Já fazem",
         elapsedSuffix: "dias desde o início do Desafio",
         statueInteraction: "Fazer a estátua piscar",
+        treasureInteraction: "Abrir a caixa e revelar o tesouro",
+        treasureVideoTitle: "O tesouro da Jornada do Baralho",
+        closeTreasureVideo: "Fechar vídeo",
       },
       aboutDeck: {
         title: "O Baralho",
@@ -291,6 +294,9 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         elapsedPrefix: "It has been",
         elapsedSuffix: "days since the Challenge began",
         statueInteraction: "Make the statue blink",
+        treasureInteraction: "Open the box and reveal the treasure",
+        treasureVideoTitle: "The Journey of the Deck treasure",
+        closeTreasureVideo: "Close video",
       },
       aboutDeck: {
         title: "The Deck",

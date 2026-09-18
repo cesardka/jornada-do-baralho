@@ -15,6 +15,15 @@ import styles from "./countdown-section.module.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+const TINBOX_SPRITESHEET = "/images/bg/countdown/tinbox-spritesheet.webp";
+const TINBOX_FIRST_FRAME_LQ = "/images/bg/countdown/tinbox-first-frame-lq.webp";
+const TINBOX_FRAME_COUNT = 12;
+const TINBOX_INTERACTION_ENABLED = false;
+const TINBOX_SPRITESHEET_COLUMNS = 4;
+const TINBOX_SPRITESHEET_ROWS = 3;
+const TREASURE_VIDEO_URL =
+  "https://www.youtube-nocookie.com/embed/qNotxbH-N_U?rel=0";
+
 const CHALLENGE_START = Date.UTC(2012, 5, 1);
 const DAY_IN_MS = 24 * 60 * 60 * 1000;
 const FIRE_FPS = 12;
@@ -392,15 +401,142 @@ function StatueEyes({
   );
 }
 
+function TreasureVideoDialog({
+  open,
+  title,
+  closeLabel,
+  onClose,
+}: {
+  open: boolean;
+  title: string;
+  closeLabel: string;
+  onClose: () => void;
+}) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (open && !dialog.open) dialog.showModal();
+    if (!open && dialog.open) dialog.close();
+  }, [open]);
+
+  return (
+    <dialog
+      ref={dialogRef}
+      aria-label={title}
+      className={styles.videoDialog}
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onClose={() => {
+        if (open) onClose();
+      }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div className={styles.videoDialogPanel}>
+        <button
+          type="button"
+          autoFocus
+          aria-label={closeLabel}
+          className={styles.videoDialogClose}
+          onClick={onClose}
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+        <div className={styles.videoFrame}>
+          {open ? (
+            <iframe
+              src={TREASURE_VIDEO_URL}
+              title={title}
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : null}
+        </div>
+      </div>
+    </dialog>
+  );
+}
+
 export default function CountdownSection() {
   const { t, locale } = useI18n();
   const performanceTier = usePerformanceTier();
   const performanceTierRef = useRef(performanceTier);
   const sectionRef = useRef<HTMLElement>(null);
   const dayCountRef = useRef<HTMLSpanElement>(null);
+  const tinBoxCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
+  const tinBoxAnimationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
+  const tinBoxFrameRef = useRef(0);
   const [entranceComplete, setEntranceComplete] = useState(false);
   const [fireReady, setFireReady] = useState(false);
+  const [tinBoxRequested, setTinBoxRequested] = useState(false);
+  const [tinBoxPlaceholderReady, setTinBoxPlaceholderReady] = useState(false);
+  const [tinBoxReady, setTinBoxReady] = useState(false);
+  const [tinBoxFrame, setTinBoxFrame] = useState(0);
+  const [tinBoxOpen, setTinBoxOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
   const handleFireReady = useCallback(() => setFireReady(true), []);
+  const animateTinBox = useCallback(
+    (open: boolean, onComplete?: () => void) => {
+      if (tinBoxAnimationTimerRef.current) {
+        clearTimeout(tinBoxAnimationTimerRef.current);
+      }
+      const targetFrame = open ? TINBOX_FRAME_COUNT - 1 : 0;
+      const direction = open ? 1 : -1;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        tinBoxFrameRef.current = targetFrame;
+        setTinBoxFrame(targetFrame);
+        onComplete?.();
+        return;
+      }
+      const advanceFrame = () => {
+        const nextFrame = tinBoxFrameRef.current + direction;
+        tinBoxFrameRef.current = nextFrame;
+        setTinBoxFrame(nextFrame);
+        if (nextFrame === targetFrame) {
+          tinBoxAnimationTimerRef.current = null;
+          onComplete?.();
+          return;
+        }
+        tinBoxAnimationTimerRef.current = setTimeout(advanceFrame, 64);
+      };
+      if (tinBoxFrameRef.current === targetFrame) {
+        onComplete?.();
+      } else {
+        advanceFrame();
+      }
+    },
+    [],
+  );
+  const handleTinBoxActivation = useCallback(() => {
+    if (tinBoxCloseTimerRef.current) {
+      clearTimeout(tinBoxCloseTimerRef.current);
+      tinBoxCloseTimerRef.current = null;
+    }
+    if (tinBoxOpen) {
+      setVideoOpen(true);
+      return;
+    }
+    setTinBoxOpen(true);
+    animateTinBox(true, () => setVideoOpen(true));
+  }, [animateTinBox, tinBoxOpen]);
+  const closeTreasureVideo = useCallback(() => {
+    setVideoOpen(false);
+    if (tinBoxCloseTimerRef.current) clearTimeout(tinBoxCloseTimerRef.current);
+    tinBoxCloseTimerRef.current = setTimeout(() => {
+      tinBoxCloseTimerRef.current = null;
+      setTinBoxOpen(false);
+      animateTinBox(false);
+    }, 2000);
+  }, [animateTinBox]);
   const [daysSinceChallenge, setDaysSinceChallenge] = useState<number | null>(
     null,
   );
@@ -408,6 +544,14 @@ export default function CountdownSection() {
 
   useEffect(() => {
     setDaysSinceChallenge(getElapsedDays());
+    return () => {
+      if (tinBoxCloseTimerRef.current) {
+        clearTimeout(tinBoxCloseTimerRef.current);
+      }
+      if (tinBoxAnimationTimerRef.current) {
+        clearTimeout(tinBoxAnimationTimerRef.current);
+      }
+    };
   }, []);
 
   useGSAP(
@@ -694,6 +838,44 @@ export default function CountdownSection() {
           daysSinceChallenge,
         );
   const effectsActive = entranceComplete && fireReady;
+  const tinBoxColumn = tinBoxFrame % TINBOX_SPRITESHEET_COLUMNS;
+  const tinBoxRow = Math.floor(tinBoxFrame / TINBOX_SPRITESHEET_COLUMNS);
+  const tinBoxBackgroundPosition = `${
+    (tinBoxColumn / (TINBOX_SPRITESHEET_COLUMNS - 1)) * 100
+  }% ${(tinBoxRow / (TINBOX_SPRITESHEET_ROWS - 1)) * 100}%`;
+
+  useEffect(() => {
+    if (!effectsActive || tinBoxRequested) return;
+    const delay = performanceTier === "low" ? 1400 : 650;
+    const timer = window.setTimeout(() => setTinBoxRequested(true), delay);
+    return () => window.clearTimeout(timer);
+  }, [effectsActive, performanceTier, tinBoxRequested]);
+
+  useEffect(() => {
+    if (!tinBoxRequested || tinBoxPlaceholderReady) return;
+    let active = true;
+    const firstFrame = new window.Image();
+    firstFrame.onload = () => {
+      if (active) setTinBoxPlaceholderReady(true);
+    };
+    firstFrame.src = TINBOX_FIRST_FRAME_LQ;
+    return () => {
+      active = false;
+    };
+  }, [tinBoxPlaceholderReady, tinBoxRequested]);
+
+  useEffect(() => {
+    if (!tinBoxPlaceholderReady || tinBoxReady) return;
+    let active = true;
+    const spritesheet = new window.Image();
+    spritesheet.onload = () => {
+      if (active) setTinBoxReady(true);
+    };
+    spritesheet.src = TINBOX_SPRITESHEET;
+    return () => {
+      active = false;
+    };
+  }, [tinBoxPlaceholderReady, tinBoxReady]);
 
   return (
     <section
@@ -788,6 +970,46 @@ export default function CountdownSection() {
           blurDataURL="/images/bg/countdown/lq/podium-web.webp"
           className={`${styles.layer} ${styles.podium}`}
         />
+        {tinBoxRequested ? (
+          <div
+            data-visible={tinBoxPlaceholderReady}
+            data-ready={tinBoxReady}
+            data-open={tinBoxOpen}
+            className={styles.treasureBox}
+          >
+            <div className={styles.treasureAura} aria-hidden="true" />
+            <div className={styles.treasureSparkles} aria-hidden="true">
+              {Array.from({ length: 8 }, (_, index) => (
+                <span key={index} />
+              ))}
+            </div>
+            <button
+              type="button"
+              disabled={!TINBOX_INTERACTION_ENABLED || !tinBoxReady}
+              tabIndex={TINBOX_INTERACTION_ENABLED ? 0 : -1}
+              aria-hidden={!TINBOX_INTERACTION_ENABLED}
+              aria-label={
+                TINBOX_INTERACTION_ENABLED
+                  ? t("v2.countdown.treasureInteraction")
+                  : undefined
+              }
+              aria-busy={TINBOX_INTERACTION_ENABLED && !tinBoxReady}
+              className={styles.treasureButton}
+              onClick={
+                TINBOX_INTERACTION_ENABLED ? handleTinBoxActivation : undefined
+              }
+            >
+              <span aria-hidden="true" className={styles.treasurePlaceholder} />
+              {tinBoxPlaceholderReady ? (
+                <span
+                  aria-hidden="true"
+                  className={styles.treasureFrame}
+                  style={{ backgroundPosition: tinBoxBackgroundPosition }}
+                />
+              ) : null}
+            </button>
+          </div>
+        ) : null}
         <Image
           data-countdown-foreground
           data-countdown-critical-image
@@ -855,6 +1077,13 @@ export default function CountdownSection() {
           )}
         </p>
       </div>
+
+      <TreasureVideoDialog
+        open={videoOpen}
+        title={t("v2.countdown.treasureVideoTitle")}
+        closeLabel={t("v2.countdown.closeTreasureVideo")}
+        onClose={closeTreasureVideo}
+      />
     </section>
   );
 }
