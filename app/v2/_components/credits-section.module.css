@@ -130,7 +130,8 @@
 }
 
 .portraitButton[data-circular="true"],
-.portraitButton[data-circular="true"] .portraitFace {
+.portraitButton[data-circular="true"] .portraitFace,
+.portraitFace[data-circular="true"] {
   border-radius: 50%;
 }
 

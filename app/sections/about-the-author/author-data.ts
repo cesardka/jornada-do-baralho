@@ -10,6 +10,7 @@ export const PROJECT_AUTHORS: CreditPerson[] = [
     imageSrc: "/images/NERDINHO_LENA.webp",
     alternateImageSrc: "/images/credits/lena-franzz-alternate.webp",
     circularPortrait: false,
+    alternateCircularPortrait: true,
     socialMedia: [
       {
         link: "https://www.studiochifrezz.com/",

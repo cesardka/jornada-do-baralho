@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
@@ -64,15 +64,23 @@ const CREDIT_PEOPLE = CREDIT_IDS.flatMap((id) => {
   const person = PROJECT_AUTHORS.find((candidate) => candidate.id === id);
   return person ? [person] : [];
 });
+const getCreditPlaceholder = (source: string) => {
+  if (source.includes("/images/bg/credits/")) {
+    return source.replace("/images/bg/credits/", "/images/bg/credits/lq/");
+  }
+  return `/images/credits/lq/${source.slice(source.lastIndexOf("/") + 1)}`;
+};
 
 function CreditPortrait({
   person,
   name,
+  placeholdersReady,
   showAlternateLabel,
   showOriginalLabel,
 }: {
   person: CreditPerson;
   name: string;
+  placeholdersReady: boolean;
   showAlternateLabel: string;
   showOriginalLabel: string;
 }) {
@@ -91,6 +99,12 @@ function CreditPortrait({
           alt=""
           fill
           sizes="(max-width: 64rem) 5rem, 6rem"
+          placeholder={placeholdersReady ? "blur" : "empty"}
+          blurDataURL={
+            placeholdersReady
+              ? getCreditPlaceholder(person.imageSrc)
+              : undefined
+          }
           className={styles.portraitImage}
           style={{
             transform: `translateY(${person.portraitOffsetY ?? 0}%) scale(${person.portraitScale ?? 1})`,
@@ -116,6 +130,12 @@ function CreditPortrait({
           alt=""
           fill
           sizes="(max-width: 64rem) 5rem, 6rem"
+          placeholder={placeholdersReady ? "blur" : "empty"}
+          blurDataURL={
+            placeholdersReady
+              ? getCreditPlaceholder(person.imageSrc)
+              : undefined
+          }
           className={`${styles.portraitFace} ${styles.portraitFront}`}
           style={{ backgroundColor: person.portraitBackground }}
         />
@@ -123,9 +143,16 @@ function CreditPortrait({
           src={person.alternateImageSrc}
           alt=""
           fill
-          loading="eager"
+          loading="lazy"
           sizes="(max-width: 64rem) 5rem, 6rem"
           unoptimized
+          placeholder={placeholdersReady ? "blur" : "empty"}
+          blurDataURL={
+            placeholdersReady
+              ? getCreditPlaceholder(person.alternateImageSrc)
+              : undefined
+          }
+          data-circular={person.alternateCircularPortrait}
           className={`${styles.portraitFace} ${styles.portraitBack}`}
           style={{ backgroundColor: person.alternatePortraitBackground }}
         />
@@ -138,6 +165,23 @@ export default function CreditsSection() {
   const { t } = useI18n();
   const performanceTier = usePerformanceTier();
   const sectionRef = useRef<HTMLElement>(null);
+  const [placeholdersReady, setPlaceholdersReady] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setPlaceholdersReady(true);
+        observer.disconnect();
+      },
+      { rootMargin: "50% 0px" },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   useGSAP(
     () => {
@@ -226,6 +270,12 @@ export default function CreditsSection() {
                 fill
                 loading="lazy"
                 sizes="(orientation: portrait) 177vh, 100vw"
+                placeholder={placeholdersReady ? "blur" : "empty"}
+                blurDataURL={
+                  placeholdersReady
+                    ? getCreditPlaceholder(layer.src)
+                    : undefined
+                }
                 data-credits-tree={isTree ? "" : undefined}
                 className={`${styles.layer} ${layer.src.endsWith("luz_05.webp") ? styles.light : ""} ${layer.src.endsWith("nuvem_09.webp") ? styles.clouds : ""}`}
               />
@@ -259,6 +309,7 @@ export default function CreditsSection() {
                 <CreditPortrait
                   person={person}
                   name={name}
+                  placeholdersReady={placeholdersReady}
                   showAlternateLabel={t("aboutAuthor.showAlternatePortrait")}
                   showOriginalLabel={t("aboutAuthor.showOriginalPortrait")}
                 />

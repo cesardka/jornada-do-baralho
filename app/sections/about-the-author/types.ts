@@ -6,6 +6,7 @@ export interface CreditPerson {
   imageSrc: string;
   alternateImageSrc?: string;
   circularPortrait?: boolean;
+  alternateCircularPortrait?: boolean;
   portraitBackground?: string;
   alternatePortraitBackground?: string;
   portraitScale?: number;
