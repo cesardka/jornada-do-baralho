@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
@@ -27,7 +27,16 @@ const CREDIT_LAYERS = [
   { src: "/images/bg/credits/ARVORES_02.webp", depth: 2 },
   { src: "/images/bg/credits/selva_01.webp", depth: 3 },
 ] as const;
-const CREDIT_IDS = ["cesar", "lena", "leo"] as const;
+const CREDIT_IDS = [
+  "cesar",
+  "lena",
+  "leo",
+  "kabuki",
+  "luah",
+  "dani",
+  "andres",
+  "pedro",
+] as const;
 const SOCIAL_LABELS: Record<
   CreditPerson["socialMedia"][number]["type"],
   string
@@ -56,6 +65,75 @@ const CREDIT_PEOPLE = CREDIT_IDS.flatMap((id) => {
   return person ? [person] : [];
 });
 
+function CreditPortrait({
+  person,
+  name,
+  showAlternateLabel,
+  showOriginalLabel,
+}: {
+  person: CreditPerson;
+  name: string;
+  showAlternateLabel: string;
+  showOriginalLabel: string;
+}) {
+  const [flipped, setFlipped] = useState(false);
+  const circular = person.circularPortrait !== false;
+
+  if (!person.alternateImageSrc) {
+    return (
+      <span
+        data-circular={circular}
+        className={styles.portraitFrame}
+        style={{ backgroundColor: person.portraitBackground }}
+      >
+        <Image
+          src={person.imageSrc}
+          alt=""
+          fill
+          sizes="(max-width: 64rem) 5rem, 6rem"
+          className={styles.portraitImage}
+          style={{
+            transform: `translateY(${person.portraitOffsetY ?? 0}%) scale(${person.portraitScale ?? 1})`,
+          }}
+        />
+      </span>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      aria-label={`${flipped ? showOriginalLabel : showAlternateLabel} ${name}`}
+      aria-pressed={flipped}
+      data-circular={circular}
+      data-flipped={flipped}
+      className={styles.portraitButton}
+      onClick={() => setFlipped((current) => !current)}
+    >
+      <span className={styles.portraitInner}>
+        <Image
+          src={person.imageSrc}
+          alt=""
+          fill
+          sizes="(max-width: 64rem) 5rem, 6rem"
+          className={`${styles.portraitFace} ${styles.portraitFront}`}
+          style={{ backgroundColor: person.portraitBackground }}
+        />
+        <Image
+          src={person.alternateImageSrc}
+          alt=""
+          fill
+          loading="eager"
+          sizes="(max-width: 64rem) 5rem, 6rem"
+          unoptimized
+          className={`${styles.portraitFace} ${styles.portraitBack}`}
+          style={{ backgroundColor: person.alternatePortraitBackground }}
+        />
+      </span>
+    </button>
+  );
+}
+
 export default function CreditsSection() {
   const { t } = useI18n();
   const performanceTier = usePerformanceTier();
@@ -69,6 +147,9 @@ export default function CreditsSection() {
       media.add("(prefers-reduced-motion: no-preference)", () => {
         const foregroundLayers = gsap.utils.toArray<HTMLElement>(
           "[data-credits-foreground]",
+        );
+        const treeLayers = gsap.utils.toArray<HTMLElement>(
+          "[data-credits-tree]",
         );
 
         gsap.fromTo(
@@ -93,6 +174,20 @@ export default function CreditsSection() {
             },
           },
         );
+
+        treeLayers.forEach((tree) => {
+          gsap.to(tree, {
+            xPercent: () => gsap.utils.random(-0.18, 0.18),
+            rotation: () => gsap.utils.random(-0.22, 0.22),
+            duration: () => gsap.utils.random(2.8, 5.2),
+            delay: () => gsap.utils.random(0, 1.5),
+            ease: "sine.inOut",
+            repeat: -1,
+            repeatRefresh: true,
+            transformOrigin: "50% 100%",
+            yoyo: true,
+          });
+        });
       });
 
       return () => media.revert();
@@ -112,19 +207,31 @@ export default function CreditsSection() {
       aria-labelledby="credits-title"
     >
       <div className={styles.scene} aria-hidden="true">
-        {CREDIT_LAYERS.map((layer) => (
-          <Image
-            key={layer.src}
-            src={layer.src}
-            alt=""
-            fill
-            loading="lazy"
-            sizes="(orientation: portrait) 177vh, 100vw"
-            data-credits-foreground={layer.depth > 0 ? "" : undefined}
-            data-parallax-depth={layer.depth || undefined}
-            className={`${styles.layer} ${layer.src.endsWith("luz_05.webp") ? styles.light : ""} ${layer.src.endsWith("nuvem_09.webp") ? styles.clouds : ""}`}
-          />
-        ))}
+        {CREDIT_LAYERS.map((layer) => {
+          const isTree =
+            layer.src.endsWith("arvore_06.webp") ||
+            layer.src.endsWith("ARVORES_02.webp") ||
+            layer.src.endsWith("selva_01.webp");
+
+          return (
+            <div
+              key={layer.src}
+              data-credits-foreground={layer.depth > 0 ? "" : undefined}
+              data-parallax-depth={layer.depth || undefined}
+              className={styles.layerContainer}
+            >
+              <Image
+                src={layer.src}
+                alt=""
+                fill
+                loading="lazy"
+                sizes="(orientation: portrait) 177vh, 100vw"
+                data-credits-tree={isTree ? "" : undefined}
+                className={`${styles.layer} ${layer.src.endsWith("luz_05.webp") ? styles.light : ""} ${layer.src.endsWith("nuvem_09.webp") ? styles.clouds : ""}`}
+              />
+            </div>
+          );
+        })}
       </div>
 
       <div className={styles.content}>
@@ -134,6 +241,7 @@ export default function CreditsSection() {
         >
           {t("aboutAuthor.title")}
         </h2>
+        <p className={styles.subtitle}>{t("aboutAuthor.subtitle")}</p>
 
         <ul className={styles.list}>
           {CREDIT_PEOPLE.map((person) => {
@@ -148,13 +256,11 @@ export default function CreditsSection() {
 
             return (
               <li key={person.id} className={styles.person}>
-                <Image
-                  src={person.imageSrc}
-                  alt=""
-                  width={112}
-                  height={112}
-                  sizes="(max-width: 64rem) 5rem, 6rem"
-                  className={styles.portrait}
+                <CreditPortrait
+                  person={person}
+                  name={name}
+                  showAlternateLabel={t("aboutAuthor.showAlternatePortrait")}
+                  showOriginalLabel={t("aboutAuthor.showOriginalPortrait")}
                 />
                 <div className={styles.personText}>
                   <div className={styles.nameRow}>

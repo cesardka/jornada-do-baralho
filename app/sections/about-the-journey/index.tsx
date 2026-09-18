@@ -78,22 +78,6 @@ export default function AboutTheJourney({
       <div className="relative flex flex-col md:flex-row w-full h-full">
         {/* RIGHT PANEL (on desktop): Text content with animated galaxy background */}
         <div className="order-2 md:order-2 relative w-full md:w-1/2 min-h-[60vh] md:min-h-screen text-white bg-[#0a0a12]">
-          {/* Left-edge fade to merge with image on desktop; bottom fade on mobile */}
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-24 hidden md:block"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(10,10,18,0) 0%, rgba(10,10,18,0.6) 40%, rgba(10,10,18,1) 100%)",
-            }}
-          />
-          <div
-            className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:hidden"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(10,10,18,0) 0%, rgba(10,10,18,0.6) 40%, rgba(10,10,18,1) 100%)",
-            }}
-          />
-
           {/* Content container */}
           <div className="relative z-10 px-6 md:px-12 lg:px-16 xl:px-32 py-12 md:py-20">
             <h2
@@ -316,6 +300,22 @@ export default function AboutTheJourney({
             priority={prioritizeImages}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover diagonal-fader diagonal-fader-top"
+          />
+
+          {/* Left-edge fade to merge with image on desktop; bottom fade on mobile */}
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-[3] hidden w-24 md:block"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(10,10,18,0) 0%, rgba(10,10,18,1) 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-24 md:hidden"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(10,10,18,0) 0%, rgba(10,10,18,1) 100%)",
+            }}
           />
         </div>
       </div>

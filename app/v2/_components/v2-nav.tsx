@@ -24,6 +24,7 @@ export default function V2Nav() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openFrameRef = useRef<number | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function V2Nav() {
     const closeOnDesktop = (event: MediaQueryListEvent) => {
       if (!event.matches) return;
       if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+      if (openFrameRef.current) cancelAnimationFrame(openFrameRef.current);
       dialogRef.current?.close();
     };
 
@@ -50,6 +52,7 @@ export default function V2Nav() {
     return () => {
       desktopQuery.removeEventListener("change", closeOnDesktop);
       if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+      if (openFrameRef.current) cancelAnimationFrame(openFrameRef.current);
     };
   }, []);
 
@@ -59,14 +62,26 @@ export default function V2Nav() {
 
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     delete dialog.dataset.closing;
+    delete dialog.dataset.visible;
     dialog.showModal();
     setIsOpen(true);
-    closeButtonRef.current?.focus();
+    openFrameRef.current = requestAnimationFrame(() => {
+      openFrameRef.current = requestAnimationFrame(() => {
+        openFrameRef.current = null;
+        if (!dialog.open || dialog.dataset.closing) return;
+        dialog.dataset.visible = "true";
+        closeButtonRef.current?.focus();
+      });
+    });
   };
 
   const closeMenu = () => {
     const dialog = dialogRef.current;
     if (!dialog?.open || dialog.dataset.closing) return;
+
+    if (openFrameRef.current) cancelAnimationFrame(openFrameRef.current);
+    openFrameRef.current = null;
+    delete dialog.dataset.visible;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       dialog.close();
@@ -150,7 +165,10 @@ export default function V2Nav() {
         onClose={() => {
           if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
           closeTimerRef.current = null;
+          if (openFrameRef.current) cancelAnimationFrame(openFrameRef.current);
+          openFrameRef.current = null;
           delete dialogRef.current?.dataset.closing;
+          delete dialogRef.current?.dataset.visible;
           setIsOpen(false);
         }}
         onClick={(event) => {

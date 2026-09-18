@@ -4,6 +4,12 @@ export interface CreditPerson {
   title: string;
   description: string;
   imageSrc: string;
+  alternateImageSrc?: string;
+  circularPortrait?: boolean;
+  portraitBackground?: string;
+  alternatePortraitBackground?: string;
+  portraitScale?: number;
+  portraitOffsetY?: number;
   socialMedia: {
     link: string;
     type:

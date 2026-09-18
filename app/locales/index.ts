@@ -122,6 +122,10 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     },
     aboutAuthor: {
       title: "Créditos",
+      subtitle:
+        "A Jornada do Baralho só é bonita do jeito que é graças ao trabalho dessa equipe incrível",
+      showAlternatePortrait: "Ver retrato alternativo de",
+      showOriginalPortrait: "Ver retrato original de",
       lenaKaleAlt: "Kale, protagonista da animação Kale do Museu Assustador",
       lenaKizaAlt: "Kiza, protagonista da animação Kale do Museu Assustador",
       people: {
@@ -134,15 +138,35 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         cesar: {
           name: "César Hoffmann",
           title:
-            "Desenvolvedor, falso designer e pessoa que está trilhando a Jornada do Baralho",
+            "Desenvolvedor, CEO, COO, CFO e CTO da Jornada do Baralho. O faz tudo.",
           description:
             "Morador de Porto Alegre - RS, é um aspirante a mestre Pokémon durante a noite, e pedreiro de código durante o dia. É ouvinte e espectador do universo Jovem Nerd durante uma vida toda quase, desde os seus 14 anos (2007). Tomou como objetivo de vida não deixar o Nerdcast acabar sem alguém concluir esse desafio que perdura há mais de década.",
         },
         leo: {
           name: "Leo Brasil",
-          title: "Compositor de trilhas, Sound Designer e Roteirista",
+          title: "Compositor de trilhas, sound designer e roteirista",
           description:
             "É o nosso mineirin musicista favorito que deu sonoridade à Jornada do Baralho, da música aos pequenos efeitos sonoros escondidos pelo site. Não tem nada contra o Nerdcast, mas acho que nunca foi ouvinte também hahaha",
+        },
+        kabuki: {
+          name: "Kabuki Sonic",
+          title: "Compositor de trilha e sound designer",
+        },
+        luah: {
+          name: "Luah Garcia",
+          title: "Produção e rigging 2D",
+        },
+        dani: {
+          name: "Dani Smith-Fischer",
+          title: "Storyboard e animatic",
+        },
+        andres: {
+          name: "Andres Ramos",
+          title: "Diretor de arte e ilustrador de cenários",
+        },
+        pedro: {
+          name: "Pedro Azevedo",
+          title: "Locução e voz original",
         },
       },
     },
@@ -356,6 +380,10 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
     },
     aboutAuthor: {
       title: "Credits",
+      subtitle:
+        "Jornada do Baralho only looks as beautiful as it does thanks to the hard work of this incredible team",
+      showAlternatePortrait: "Show alternate portrait of",
+      showOriginalPortrait: "Show original portrait of",
       lenaKaleAlt:
         "Kale, protagonist of the animation Kale do Museu Assustador",
       lenaKizaAlt:
@@ -370,15 +398,35 @@ export const messages: Record<SupportedLocale, NestedMessages> = {
         cesar: {
           name: "César Hoffmann",
           title:
-            "Developer, fake designer, and the person trekking the Deck Journey",
+            "Developer, CEO, COO, CFO, and CTO of Jornada do Baralho. The one who does everything.",
           description:
             "Living in Porto Alegre - RS, is an emerging Pokemon master by night and code developer by day. Has been imersed into Jovem Nerd's universe over the course of his life since he was a 14yo (2007).",
         },
         leo: {
           name: "Leo Brasil",
-          title: "Composer, Sound Designer and Screenwriter",
+          title: "Composer, sound designer and screenwriter",
           description:
             "He's our favorite musician from Minas who gave sound to the Deck Journey, from the music to the small sound effects hidden across the site. He has nothing against Nerdcast, but I don't think he's ever been a listener hahaha",
+        },
+        kabuki: {
+          name: "Kabuki Sonic",
+          title: "Soundtrack composer and sound designer",
+        },
+        luah: {
+          name: "Luah Garcia",
+          title: "Production and 2D rigging",
+        },
+        dani: {
+          name: "Dani Smith-Fischer",
+          title: "Storyboard and animatic",
+        },
+        andres: {
+          name: "Andres Ramos",
+          title: "Art director and background illustrator",
+        },
+        pedro: {
+          name: "Pedro Azevedo",
+          title: "Narration and original voice",
         },
       },
     },

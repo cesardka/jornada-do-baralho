@@ -60,7 +60,7 @@
   transition-behavior: allow-discrete;
 }
 
-.dialog[open]:not([data-closing]) {
+.dialog[data-visible="true"]:not([data-closing]) {
   opacity: 1;
   transform: translateX(0);
 }
@@ -73,7 +73,7 @@
     overlay 320ms allow-discrete;
 }
 
-.dialog[open]:not([data-closing])::backdrop {
+.dialog[data-visible="true"]:not([data-closing])::backdrop {
   background: rgb(0 0 0 / 70%);
 }
 
@@ -90,8 +90,8 @@
     transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dialog[open]:not([data-closing]) .mobileSections li,
-.dialog[open]:not([data-closing]) .mobileUtilities {
+.dialog[data-visible="true"]:not([data-closing]) .mobileSections li,
+.dialog[data-visible="true"]:not([data-closing]) .mobileUtilities {
   opacity: 1;
   transform: translateX(0);
 }
@@ -181,17 +181,17 @@
 }
 
 @starting-style {
-  .dialog[open] {
+  .dialog[data-visible="true"] {
     opacity: 0;
     transform: translateX(100%);
   }
 
-  .dialog[open]::backdrop {
+  .dialog[data-visible="true"]::backdrop {
     background: rgb(0 0 0 / 0%);
   }
 
-  .dialog[open] .mobileSections li,
-  .dialog[open] .mobileUtilities {
+  .dialog[data-visible="true"] .mobileSections li,
+  .dialog[data-visible="true"] .mobileUtilities {
     opacity: 0;
     transform: translateX(1.5rem);
   }
@@ -217,11 +217,11 @@
   }
 
   .dialog,
-  .dialog[open],
+  .dialog[data-visible="true"],
   .mobileSections li,
-  .dialog[open] .mobileSections li,
+  .dialog[data-visible="true"] .mobileSections li,
   .mobileUtilities,
-  .dialog[open] .mobileUtilities,
+  .dialog[data-visible="true"] .mobileUtilities,
   .mobileSectionLink,
   .mobileUtility,
   .mobileClose {

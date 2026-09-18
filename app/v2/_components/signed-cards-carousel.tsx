@@ -112,12 +112,8 @@ function CardItem({
                   fill
                   draggable={false}
                   sizes="(max-width: 767px) 40vw, (max-width: 1199px) 24vw, 15vw"
-                  placeholder={effectsReady ? "blur" : "empty"}
-                  blurDataURL={
-                    effectsReady
-                      ? getSignedPhotoPlaceholder(card.signedSrc)
-                      : undefined
-                  }
+                  placeholder="blur"
+                  blurDataURL={getSignedPhotoPlaceholder(card.signedSrc)}
                   className="object-cover"
                 />
               </span>
@@ -134,12 +130,8 @@ function CardItem({
                   fill
                   draggable={false}
                   sizes="(max-width: 767px) 48vw, (max-width: 1199px) 28vw, 18vw"
-                  placeholder={effectsReady ? "blur" : "empty"}
-                  blurDataURL={
-                    effectsReady
-                      ? getCardPlaceholder(card.originalSrc)
-                      : undefined
-                  }
+                  placeholder="blur"
+                  blurDataURL={getCardPlaceholder(card.originalSrc)}
                   className="signed-card-glow object-contain"
                 />
                 {effectsReady && sparklesEnabled ? <SparkleParticles /> : null}
