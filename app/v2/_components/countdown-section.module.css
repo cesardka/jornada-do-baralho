@@ -103,6 +103,57 @@
   animation-duration: 1.8s;
 }
 
+.treasureHint {
+  position: absolute;
+  z-index: 4;
+  bottom: 70%;
+  left: 50%;
+  visibility: hidden;
+  width: max-content;
+  max-width: 11rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgb(104 65 20 / 24%);
+  border-radius: 0.7rem;
+  opacity: 0;
+  color: #24170b;
+  background: #fff0c4;
+  box-shadow:
+    0 0.45rem 1.1rem rgb(0 0 0 / 45%),
+    0 0 1rem rgb(255 180 67 / 22%);
+  pointer-events: none;
+  transform: translate(-50%, 0.2rem);
+  transition:
+    visibility 180ms,
+    opacity 180ms ease,
+    transform 180ms ease;
+  font-size: clamp(0.65rem, 1.2vw, 0.78rem);
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.treasureHint::after {
+  position: absolute;
+  top: calc(100% - 0.05rem);
+  left: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 1px solid rgb(104 65 20 / 24%);
+  border-bottom: 1px solid rgb(104 65 20 / 24%);
+  background: #fff0c4;
+  content: "";
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.treasureBox[data-hint-visible="true"][data-open="false"] .treasureHint {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+  animation: treasure-hint-float 2.4s ease-in-out infinite;
+}
+
 .treasureButton {
   position: relative;
   z-index: 2;
@@ -576,6 +627,16 @@
   }
 }
 
+@keyframes treasure-hint-float {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -0.28rem);
+  }
+}
+
 @keyframes treasure-sparkle {
   0%,
   100% {
@@ -651,6 +712,7 @@
   }
 
   .treasureAura,
+  .treasureHint,
   .treasureSparkles span {
     animation: none;
   }
